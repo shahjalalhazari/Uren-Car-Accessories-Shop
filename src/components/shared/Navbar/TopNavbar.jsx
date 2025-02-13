@@ -15,6 +15,7 @@ const TopNavbar = () => {
           />
         </Link>
         <ul className="flex gap-4">
+          {/* Search Box */}
           <form action="#" className="">
             <input
               type="text"
@@ -28,6 +29,7 @@ const TopNavbar = () => {
               </span>
             </button>
           </form>
+          {/* Cart Action Button */}
           <li className="nav-cart-btn">
             {/* REPLACE */}
             <Link href="/" className="">
@@ -40,6 +42,7 @@ const TopNavbar = () => {
               </div>
             </Link>
           </li>
+          {/* Phone Action Button */}
           <li className="nav-phone-btn">
             <Link href="tel://971589196282" className="nav-phone-num">
               <BiSolidPhone />

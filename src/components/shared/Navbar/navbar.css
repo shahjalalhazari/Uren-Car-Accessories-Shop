@@ -23,3 +23,62 @@
 }
 
 /* ------------------------ */
+/* BOTTOM NAVBAR */
+.btm-nav-bg {
+    @apply bg-primary px-8 py-0 mt-5 flex justify-between items-center gap-x-10;
+}
+
+.category-list-heading {
+    @apply bg-[#000] cursor-pointer text-base-100 flex justify-between items-center py-[14px] px-4 transition-all ease-in-out duration-300;
+}
+
+.category-list-heading-text {
+    @apply uppercase flex-col font-semibold pl-4 pr-20 leading-none;
+}
+
+.category-list {
+    @apply absolute left-0 hidden w-full bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
+    z-index: 100;
+}
+
+.dropdown:hover .category-list {
+    @apply block;
+}
+
+.dropdown-list {
+    @apply absolute right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
+    z-index: 100;
+}
+
+.dropdown:hover .dropdown-list {
+    @apply block;
+
+}
+
+.dropdown-list-item {
+    @apply p-2
+}
+
+.dropdown-list-item:hover {
+    @apply bg-gray-100 text-secondary
+}
+
+/* FadeIn Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out;
+    -webkit-animation: fadeIn 0.5s ease-in-out;
+}
+
+/* -------------------- */
