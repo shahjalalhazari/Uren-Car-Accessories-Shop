@@ -1,0 +1,25 @@
+/* TOP NAVBAR */
+.top-nav-bg{
+    @apply navbar bg-base-100 flex justify-between px-8 mt-5 mb-8;
+}
+
+.search-input{
+    @apply h-[60px] pl-5 pr-10 focus:outline-none border border-primary rounded-s-lg;
+}
+
+.search-btn{
+    @apply bg-primary px-5 py-4 rounded-e-lg font-bold uppercase text-lg;
+}
+
+.nav-cart-btn {
+    @apply border border-primary rounded-lg px-5 py-1
+}
+.nav-phone-btn{
+    @apply border border-primary rounded-lg flex items-center;
+}
+
+.nav-phone-num {
+    @apply flex items-center gap-x-2 px-5 py-[14px] text-2xl font-semibold text-secondary;
+}
+
+/* ------------------------ */
