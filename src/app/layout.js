@@ -1,6 +1,7 @@
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar/Navbar";
+import ScrollToTopBtn from "@/components/shared/ScrollToTopBtn";
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -21,8 +22,9 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased`}
       >
-        <Navbar/>
+        <Navbar />
         {children}
+        <ScrollToTopBtn/>
       </body>
     </html>
   );
