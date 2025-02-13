@@ -82,3 +82,13 @@
 }
 
 /* -------------------- */
+/* STICKY NAVBAR */
+.sticky-navbar {
+    @apply fixed top-0 left-0 right-0 z-[9999] bg-primary shadow-md transition-transform duration-500 ease-in-out px-8 py-4 flex justify-between items-center;
+}
+
+.cart-items-qty {
+    @apply absolute -top-1.5 -right-1.5 bg-secondary text-base-100 rounded-full px-1.5 text-sm font-semibold;
+}
+
+/* -------------------- */
