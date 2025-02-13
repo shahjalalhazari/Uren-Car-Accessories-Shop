@@ -1,9 +1,11 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaBars, FaAngleDown, FaDollarSign, FaUser } from "react-icons/fa";
 
 const BottomNavbar = ({ navItems }) => {
+  const pathname = usePathname();
 
   return (
     <div className="btm-nav-bg">
@@ -33,10 +35,12 @@ const BottomNavbar = ({ navItems }) => {
         </div>
 
         {/* Main Navigation */}
-        <div className="flex gap-8">
+        <div className="flex gap-8 items-center">
           {navItems.map((item) => (
             <Link
-              className="font-bold uppercase hover:text-secondary"
+              className={`font-bold uppercase hover:text-secondary transition-all ease-in-out duration-300 ${
+                pathname === item.path && "text-base-100 bg-[#000] p-5"
+              }`}
               key={item.path}
               href={item.path}
             >

@@ -1,6 +1,6 @@
 /* TOP NAVBAR */
 .top-nav-bg{
-    @apply navbar bg-base-100 flex justify-between px-8 mt-5 mb-8;
+    @apply navbar bg-base-100 flex justify-between px-8 py-5;
 }
 
 .search-input{
@@ -25,7 +25,7 @@
 /* ------------------------ */
 /* BOTTOM NAVBAR */
 .btm-nav-bg {
-    @apply bg-primary px-8 py-0 mt-5 flex justify-between items-center gap-x-10;
+    @apply bg-primary px-8 py-0 flex justify-between items-center gap-x-10;
 }
 
 .category-list-heading {
