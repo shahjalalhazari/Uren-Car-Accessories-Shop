@@ -109,7 +109,6 @@
 /* Animation Style 01 */
 .slick-active.animation-style-01 .carousel-text>h5 {
     animation: 1200ms ease-in-out 0s normal none 1 running zoomInUp !important;
-    -webkit-animation: 1200ms ease-in-out 0s normal none 1 running zoomInUp !important;
 }
 
 .slick-active.animation-style-01 .carousel-text>h2 {

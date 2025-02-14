@@ -5,7 +5,7 @@ import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
   return (
-    <div>
+    <header>
       {/* Top Navbar */}
       <TopNavbar />
 
@@ -14,7 +14,7 @@ const Navbar = () => {
 
       {/* Sticky Navbar */}
       <StickyNavbar navItems={navItems} />
-    </div>
+    </header>
   );
 };
 
