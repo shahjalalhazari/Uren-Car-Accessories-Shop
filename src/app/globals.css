@@ -10,6 +10,18 @@
 .scroll-up-btn:hover {
     @apply bg-primary;
 }
+/* ------------------------- */
+
+/* Primary Button */
+.primary-btn {
+    @apply bg-primary text-black px-10 py-3 font-semibold uppercase shadow-md rounded-md transition-all ease-in-out duration-300;
+}
+
+.primary-btn:hover {
+    @apply text-base-100 shadow-xl bg-secondary
+}
+
+/* ----------------------- */
 
 
 /* NEWSLETTER SECTION */
@@ -93,3 +105,57 @@
 }
 
 /* ------------------------ */
+/* CAROUSEL BANNER ANIMATIONS */
+/* Animation Style 01 */
+.slick-active.animation-style-01 .carousel-text>h5 {
+    animation: 1200ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1200ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>h2 {
+    animation: 1400ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1400ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>div {
+    animation: 1600ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1600ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>p {
+    animation: 1800ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1800ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>.primary-btn {
+    animation: 2000ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 2000ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+/* Animation Style 02 */
+.slick-active.animation-style-02 .carousel-text>h5 {
+    animation: 1400ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+    -webkit-animation: 1400ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>h2 {
+    animation: 1600ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+    -webkit-animation: 1600ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>div {
+    animation: 1800ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+    -webkit-animation: 1800ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>p {
+    animation: 2000ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+    -webkit-animation: 2000ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>.primary-btn {
+    animation: 2200ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+    -webkit-animation: 2200ms ease-in-out 0s normal none 1 running zoomInLeft !important;
+}
+
+/* ----------------------- */

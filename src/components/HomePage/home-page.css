@@ -1,0 +1,70 @@
+/* CAROUSEL BANNER SECTION */
+.carousel-bg {
+    @apply carousel-item relative w-full h-[90vh] bg-cover;
+}
+
+.carousel-content {
+    @apply text-white text-center flex items-center ml-[100px];
+}
+
+.carousel-sub-heading {
+    @apply text-2xl text-secondary font-bold uppercase;
+}
+
+.carousel-heading {
+    @apply text-5xl text-primary uppercase font-bold;
+}
+
+.carousel-btns {
+    @apply absolute bottom-[50px] right-[50px] flex gap-3 transform justify-between;
+}
+
+.carousel-left-btn {
+    @apply btn btn-circle border-none bg-secondary;
+}
+
+.carousel-left-btn:hover {
+    @apply bg-secondary text-white
+}
+
+.carousel-right-btn {
+    @apply btn btn-circle border-none bg-primary;
+}
+
+.carousel-right-btn:hover {
+    @apply bg-primary text-secondary
+}
+
+@keyframes zoomInUp {
+    from {
+        opacity: 0;
+        transform: translateY(200px);
+        -webkit-transform: translateY(200px);
+        -moz-transform: translateY(200px);
+        -ms-transform: translateY(200px);
+        -o-transform: translateY(200px);
+}
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes zoomInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-200px);
+        -webkit-transform: translateX(-200px);
+        -moz-transform: translateX(-200px);
+        -ms-transform: translateX(-200px);
+        -o-transform: translateX(-200px);
+}
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* ---------------- */
