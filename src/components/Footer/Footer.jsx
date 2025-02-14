@@ -1,12 +1,14 @@
 import React from 'react';
 import TopFooter from './TopFooter';
+import BottomFooter from "./BottomFooter";
 
 const Footer = () => {
-    return (
-      <div className='bg-[#222]'>
-        <TopFooter FooterNavItems={FooterNavItems} />
-      </div>
-    );
+  return (
+    <div className="bg-[#222]">
+      <TopFooter FooterNavItems={FooterNavItems} />
+      <BottomFooter />
+    </div>
+  );
 };
 
 export default Footer;

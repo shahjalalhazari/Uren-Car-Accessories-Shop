@@ -87,3 +87,9 @@
 .footer-nav-link:hover {
     @apply text-primary underline;
 }
+/* Bottom Part */
+.bottom-footer-layout {
+    @apply text-[#999] border-[#333] border-t px-10 py-6 flex items-center justify-between;
+}
+
+/* ------------------------ */
