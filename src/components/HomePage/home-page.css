@@ -68,3 +68,33 @@
 }
 
 /* ---------------- */
+/* SHOPPING FACILITIES SECTION */
+.shopping-facilities {
+    @apply mx-8 py-0 mb-20 border border-primary;
+}
+
+.shopping-facilities-layout {
+    @apply grid grid-cols-2 place-items-center py-8 gap-y-6;
+}
+
+.facility-item {
+    @apply flex items-center gap-x-4;
+}
+
+.item-icon {
+    @apply text-primary text-4xl;
+}
+
+.item-content {
+    @apply flex flex-col gap-1.5;
+}
+
+.item-content>h6 {
+    @apply font-bold;
+}
+
+.item-content>p {
+    @apply text-[#999]
+}
+
+/* ----------------------- */
