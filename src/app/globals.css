@@ -42,3 +42,48 @@
 }
 
 /* ------------------ */
+/* FOOTER */
+/* Top Part */
+.top-footer-layout {
+    @apply text-base-100 px-8 py-20 grid grid-cols-6 gap-x-8;
+}
+
+.footer-aside {
+    @apply col-span-2 space-y-8
+}
+
+.footer-description {
+    @apply text-sm text-[#999]
+}
+
+.footer-contacts {
+    @apply space-y-3 text-sm text-[#999]
+}
+
+.footer-contacts-heading {
+    @apply text-base-100 font-semibold
+}
+
+.footer-actions {
+    @apply text-lg p-3 rounded-full;
+}
+
+.footer-actions:hover {
+    @apply bg-opacity-40
+}
+
+.footer-nav-heading {
+    @apply text-base-100 font-bold uppercase;
+}
+
+.footer-nav-item-list {
+    @apply flex flex-col text-[#999] gap-y-3;
+}
+
+.footer-nav-link {
+    @apply transition-all ease-in-out duration-500 text-[#999];
+}
+
+.footer-nav-link:hover {
+    @apply text-primary underline;
+}

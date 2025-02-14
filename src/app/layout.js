@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/shared/Navbar/Navbar";
 import ScrollToTopBtn from "@/components/shared/ScrollToTopBtn";
 import NewsletterSection from "@/components/shared/NewsletterSection";
+import Footer from "@/components/Footer/Footer";
 
 const workSans = Work_Sans({
   subsets: ['latin'],
@@ -23,10 +24,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased`}
       >
+        {/* Full Navbar */}
         <Navbar />
         {children}
+        {/* Scroll To Top Button */}
         <ScrollToTopBtn />
-        <NewsletterSection/>
+        {/* Newsletter Section */}
+        <NewsletterSection />
+        {/* Footer */}
+        <Footer/>
       </body>
     </html>
   );
