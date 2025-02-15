@@ -157,4 +157,30 @@
 
 /* ######################### */
 
+/* Weekly Featured Product Card */
+.weekly-product-single-card {
+    @apply grid grid-cols-3 items-center py-2 border-b-2
+}
+
+.weekly-product-single-card:hover {
+    @apply shadow-md
+}
+
+.weekly-product-single-card:last-child {
+    @apply border-none
+}
+
+.weekly-product-name {
+    @apply text-[#999] leading-4 my-2 text-sm
+}
+
+.weekly-product-name:hover {
+    @apply text-secondary;
+}
+
+.weekly-product-price {
+    @apply text-[#0886cf] text-lg font-semibold;
+}
+
+/* ############################### */
 /* ----------------------------- */
