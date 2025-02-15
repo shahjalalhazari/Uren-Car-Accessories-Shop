@@ -1,5 +1,6 @@
 import "./home-page.css"
 import CarouselBanner from "./sections/CarouselBanner";
+import FeaturedCategories from "./sections/FeaturedCategories";
 import OfferBanners from "./sections/OfferBanners";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
 
@@ -9,6 +10,7 @@ const HomePage = () => {
       <CarouselBanner />
       <OfferBanners />
       <ShoppingFacilities />
+      <FeaturedCategories />
     </>
   );
 };

@@ -98,3 +98,21 @@
 }
 
 /* ----------------------- */
+/* FEATURED CATEGORIES SECTION */
+.category-item-card {
+    @apply bg-white flex flex-col items-center text-center py-5;
+}
+
+.category-item-card:hover {
+    @apply shadow-xl;
+}
+
+.category-item-card-title {
+    @apply text-lg font-semibold text-[#999];
+}
+
+.category-item-card-title:hover {
+    @apply text-primary
+}
+
+/* ----------------------- */
