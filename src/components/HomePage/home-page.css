@@ -181,6 +181,39 @@
 .weekly-product-price {
     @apply text-[#0886cf] text-lg font-semibold;
 }
-
-/* ############################### */
 /* ----------------------------- */
+
+/* OFFER BIG BANNER SECTION */
+.big-banner-container {
+    @apply grid grid-cols-2 gap-x-8 w-full;
+}
+
+.big-single-banner {
+    @apply relative transition-all ease-in;
+}
+
+.big-single-banner:hover {
+    @apply opacity-70
+}
+
+.big-single-banner-content {
+    @apply absolute top-[50%] left-0 p-10 z-50 text-white -translate-y-1/2 space-y-2.5 cursor-pointer;
+}
+
+.big-single-banner-content>h5 {
+    @apply uppercase text-primary;
+}
+
+.big-single-banner-content>h4 {
+    @apply uppercase text-3xl leading-7;
+}
+
+.big-single-banner-content>div {
+    @apply bg-transparent w-20 border-b-2 border-primary;
+}
+
+.big-single-banner-content>p {
+    @apply w-[75%] text-sm;
+}
+
+/* ------------------------ */

@@ -40,6 +40,15 @@
 .outline-btn:hover {
     @apply bg-primary text-base-100 border-primary shadow-lg;
 }
+/* SHOP NOW BUTTON */
+.shop-now-btn {
+    @apply bg-primary text-black uppercase px-3 py-2 font-semibold rounded-md shadow-md transition-all ease-in
+}
+
+.shop-now-btn:hover {
+    @apply bg-secondary text-base-100
+}
+
 /* ----------------------- */
 
 
