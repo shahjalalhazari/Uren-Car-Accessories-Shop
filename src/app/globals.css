@@ -52,6 +52,45 @@
 /* ----------------------- */
 
 
+/* BLOG's STYLE */
+.blog-layout {
+    @apply grid grid-cols-4 gap-x-8;
+}
+
+.blog-image {
+    @apply relative cursor-pointer transform ease-in-out duration-300 pb-4;
+}
+
+.blog-image:hover {
+    @apply opacity-60
+}
+
+.blog-date {
+    @apply absolute top-0 right-0 z-50 bg-secondary text-base-100 font-semibold text-sm px-3 py-1;
+}
+
+.blog-title {
+    @apply text-lg text-black font-semibold leading-tight mb-2 transition-all ease-in-out duration-300;
+}
+
+.blog-title:hover {
+    @apply text-secondary transition-all ease-in-out duration-300;
+}
+
+.blog-description {
+    @apply text-sm text-[#999];
+}
+
+.blog-description .read-more {
+    @apply text-secondary font-semibold transition-all ease-in-out duration-500;
+}
+
+.blog-description .read-more:hover {
+    @apply underline transition-all ease-in-out duration-500;
+}
+
+/* ----------------------- */
+
 /* NEWSLETTER SECTION */
 .newsletter-bg {
     @apply bg-fixed bg-center bg-cover;

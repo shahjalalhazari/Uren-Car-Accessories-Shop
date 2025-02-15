@@ -1,5 +1,6 @@
 import "./home-page.css"
 import BigOfferBanners from "./sections/BigOfferBanners";
+import Blogs from "./sections/Blogs";
 import CarouselBanner from "./sections/CarouselBanner";
 import FeaturedCategories from "./sections/FeaturedCategories";
 import FeaturedProducts from "./sections/featuredProducts/FeaturedProducts";
@@ -21,6 +22,7 @@ const HomePage = () => {
       <NewArrivalProducts />
       <Testimonial />
       <ShopByBrands />
+      <Blogs />
     </>
   );
 };
