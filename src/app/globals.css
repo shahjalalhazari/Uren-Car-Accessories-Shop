@@ -15,11 +15,11 @@
 /* BUTTONS */
 /* Primary Button */
 .primary-btn {
-    @apply bg-primary text-black px-10 py-3 font-semibold uppercase shadow-md rounded-md transition-all ease-in-out duration-300;
+    @apply bg-primary text-black px-10 py-3 font-semibold uppercase shadow-md rounded-md transition-all ease-in-out duration-500;
 }
 
 .primary-btn:hover {
-    @apply text-base-100 shadow-xl bg-secondary
+    @apply text-base-100 shadow-xl bg-secondary transition-all ease-in-out duration-500;
 }
 
 /* Add To Cart Button */
