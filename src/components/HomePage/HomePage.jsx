@@ -3,6 +3,7 @@ import BigOfferBanners from "./sections/BigOfferBanners";
 import CarouselBanner from "./sections/CarouselBanner";
 import FeaturedCategories from "./sections/FeaturedCategories";
 import FeaturedProducts from "./sections/featuredProducts/FeaturedProducts";
+import NewArrivalProducts from "./sections/NewArrivalProducts";
 import OfferBanners from "./sections/OfferBanners";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
 
@@ -15,6 +16,7 @@ const HomePage = () => {
       <FeaturedCategories />
       <FeaturedProducts />
       <BigOfferBanners />
+      <NewArrivalProducts />
     </>
   );
 };

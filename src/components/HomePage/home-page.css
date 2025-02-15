@@ -217,3 +217,25 @@
 }
 
 /* ------------------------ */
+/* NEW ARRIVAL PRODUCTS SECTION */
+.new-arrival-slider {
+    @apply border-y border-l border-[#ddd] mt-8;
+}
+
+.new-arrival-slider:last-child {
+    @apply border-r;
+}
+
+.new-arrival-slider-card {
+    @apply bg-base-100 cursor-pointer;
+}
+
+.new-arrival-item-content {
+    @apply flex flex-col gap-1.5 items-center text-center px-2 pt-0 p-4;
+}
+
+.new-arrival-item-price {
+    @apply flex items-center gap-1 text-[#999];
+}
+
+/* ------------------------ */
