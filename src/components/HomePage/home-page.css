@@ -116,3 +116,45 @@
 }
 
 /* ----------------------- */
+/* FEATURED PRODUCTS SECTION */
+.card-container {
+    @apply bg-base-100 w-full shadow-md pt-10 px-4 pb-4;
+}
+
+/* Deal Of The Day Card */
+.deal-of-the-day .product-name {
+    @apply text-black text-xl font-semibold;
+}
+
+.deal-of-the-day .product-name:hover {
+    @apply text-primary;
+}
+
+.deal-of-the-day .old-price {
+    @apply text-[#999] line-through
+}
+
+.deal-of-the-day .new-price {
+    @apply text-secondary text-2xl font-bold
+}
+
+/* Countdown Timer */
+.timer-container {
+    @apply flex text-center justify-between items-center;
+}
+
+.timer-box {
+    @apply flex flex-col items-center justify-center border-2 border-[#ddd] py-3 px-2;
+}
+
+.timer-box>h5 {
+    @apply text-primary text-xl font-semibold leading-tight;
+}
+
+.timer-box>p {
+    @apply text-sm text-[#999]
+}
+
+/* ######################### */
+
+/* ----------------------------- */
