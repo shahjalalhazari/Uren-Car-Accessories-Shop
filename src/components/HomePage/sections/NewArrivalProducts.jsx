@@ -102,7 +102,7 @@ const NewArrivalProducts = () => {
               <ProductRating rating={item.rating} />
               <h2 className="text-sm text-[#999]">{item.name}</h2>
               <p className="new-arrival-item-price">
-                <span className="text-blue-500">${item.price.toFixed(2)}</span>
+                <span className="text-blue">${item.price.toFixed(2)}</span>
                 {item.oldPrice > 0 && (
                   <span className="text-sm line-through">
                     ${item.oldPrice.toFixed(2)}

@@ -21,6 +21,10 @@ const FooterNavItems = [
     path: "/",
   },
   {
+    title: "Products",
+    path: "/shop/products",
+  },
+  {
     title: "About Us",
     path: "/about",
   },
