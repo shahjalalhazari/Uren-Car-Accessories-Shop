@@ -1,6 +1,5 @@
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/shared/navbar/Navbar";
 import ScrollToTopBtn from "@/components/shared/ScrollToTopBtn";
 import NewsletterSection from "@/components/shared/NewsletterSection";
 import Footer from "@/components/shared/footer/Footer";
@@ -24,8 +23,6 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased`}
       >
-        {/* Full Navbar */}
-        <Navbar />
         {children}
         {/* Scroll To Top Button */}
         <ScrollToTopBtn />
