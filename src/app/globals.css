@@ -51,6 +51,20 @@
 
 /* ----------------------- */
 
+/* Page Breadcrumb */
+.breadcrumb-bg {
+    @apply relative text-base-100 text-center w-full bg-cover bg-center;
+}
+
+.breadcrumb-bg-overlay {
+    @apply bg-black bg-opacity-70 w-full h-full p-0 m-0 absolute text-center flex flex-col items-center justify-center;
+}
+
+.breadcrumb-title {
+    @apply text-center text-4xl font-bold uppercase;
+}
+
+/* --------------- */
 
 /* BLOG's STYLE */
 .blog-layout {

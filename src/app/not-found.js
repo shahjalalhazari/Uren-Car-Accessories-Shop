@@ -5,7 +5,7 @@ export default function NotFound() {
   return (
     <div className="error404">
       <h1>404</h1>
-      <h2>PAGE NOT BE FOUND</h2>
+      <h2>PAGE NOT FOUND</h2>
       <p>Sorry but the page you are looking for does not exist, have been removed, name changed or is temporarily unavailable.</p>
       <form className="error-search-form">
           <input type="text" placeholder="Search..." className="" />
