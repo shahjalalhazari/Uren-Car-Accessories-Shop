@@ -1,10 +1,11 @@
+import Image from 'next/image';
+import "@/components/Shop/Products/products-page.css";
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import BrandNamesList from '@/components/Shop/Products/BrandNamesList';
 import CategoriesList from '@/components/Shop/Products/CategoriesList';
 import PriceRangeFilter from '@/components/Shop/Products/PriceRangeFilter';
-import "@/components/Shop/Products/products-page.css";
-import Image from 'next/image';
-import Link from 'next/link';
+import SingleProductCard from '@/components/shared/cards/SingleProductCard';
+import SortingDropdown from '@/components/Shop/Products/SortingDropdown';
 
 export const metadata = {
   title: "Products",
@@ -12,7 +13,33 @@ export const metadata = {
   keywords: ["meal", "meals", "Choose your meal", "find your meal", "favorite meal"]
 };
 
-const ProductsPage = () => {
+const ProductsPage = async ({searchParams}) => {
+  const sortType = searchParams?.sort || "1";
+  let sortedProducts = [...ProductsList];
+
+  switch (sortType) {
+    case "2": // Name, A to Z
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "3": // Name, Z to A
+      sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    case "4": // Price, low to high
+      sortedProducts.sort((a, b) => a.price - b.price);
+      break;
+    case "5": // Price, high to low
+      sortedProducts.sort((a, b) => b.price - a.price);
+      break;
+    case "6": // Rating (Highest)
+      sortedProducts.sort((a, b) => b.rating - a.rating);
+      break;
+    case "7": // Rating (Lowest)
+      sortedProducts.sort((a, b) => a.rating - b.rating);
+      break;
+    default:
+      sortedProducts = [...ProductsList];
+  }
+  
   return (
     <div>
       {/* Page Breadcrumb */}
@@ -20,7 +47,7 @@ const ProductsPage = () => {
       
       {/* Main content */}
       <main className="grid grid-cols-4 gap-8 mx-8 my-20">
-        {/* 1/4 Width */}
+        {/* Left Side */}
         <aside className="space-y-8">
           {/* Categories List */}
           <CategoriesList categoriesList={categoriesList} />
@@ -32,8 +59,18 @@ const ProductsPage = () => {
             <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
         </aside>
         
-        {/* 3/4 Width (Spans 3 columns) */}
-        <div className="bg-green-500 text-white col-span-3">All Products List</div>
+        {/* Right Side (All Products List) */}
+        <div className="col-span-3">
+          {/* Sorting Dropdown */}
+          <SortingDropdown />
+
+          {/* Products List */}
+          <div className="grid grid-cols-3 gap-8">
+              {sortedProducts.map((item, index) => (
+                <SingleProductCard singleProduct={item} key={index} />
+              ))}
+          </div>
+        </div>
       </main>
     </div>
   );
@@ -109,7 +146,6 @@ const categoriesList = [
   },
 ]
 
-
 const brandsList = [
   {
     id: 1,
@@ -146,5 +182,143 @@ const brandsList = [
     name: "Brand Name 6",
     price: 120,
     image: "/images/brand/6.jpg",
+  },
+];
+
+const ProductsList = [
+  {
+    name: "Veni am offi ciis volup tates",
+    price: 89.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/1.png",
+    rating: 3.5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Veniam offic iis volu ptates",
+    price: 750.0,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/2.png",
+    rating: 3,
+    isNew: false,
+    discountOf: 55,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 89.99,
+    oldPrice: 150.0,
+    image: "/images/product/medium-size/3.png",
+    rating: 3.5,
+    isNew: true,
+    discountOf: 0,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 250.5,
+    oldPrice: 175.99,
+    image: "/images/product/medium-size/4.png",
+    rating: 5,
+    isNew: false,
+    discountOf: 33,
+  },
+  {
+    name: "Veniam offi ciis voluptates",
+    price: 550.75,
+    oldPrice: 440.65,
+    image: "/images/product/medium-size/5.png",
+    rating: 4,
+    isNew: false,
+    discountOf: 74,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 89.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/6.png",
+    rating: 2,
+    isNew: false,
+    discountOf: 60,
+  },
+  {
+    name: "Ven iam officiis voluptates",
+    price: 135.0,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/7.png",
+    rating: 2.5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 999.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/8.png",
+    rating: 1,
+    isNew: true,
+    discountOf: 44,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 89.99,
+    oldPrice: 120.99,
+    image: "/images/product/medium-size/9.png",
+    rating: 3,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 345.99,
+    oldPrice: 300.0,
+    image: "/images/product/medium-size/10.png",
+    rating: 3.5,
+    isNew: false,
+    discountOf: 19,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 240.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/11.png",
+    rating: 5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 89.99,
+    oldPrice: 110.0,
+    image: "/images/product/medium-size/12.png",
+    rating: 4,
+    isNew: true,
+    discountOf: 42,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 89.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/13.png",
+    rating: 3,
+    isNew: false,
+    discountOf: 25,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 110.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/14.png",
+    rating: 2.5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Veniam officiis voluptates",
+    price: 189.99,
+    oldPrice: 220.0,
+    image: "/images/product/medium-size/15.png",
+    rating: 3,
+    isNew: true,
+    discountOf: 66,
   },
 ];
