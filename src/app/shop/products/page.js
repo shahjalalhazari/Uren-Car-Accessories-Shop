@@ -13,8 +13,9 @@ export const metadata = {
   keywords: ["meal", "meals", "Choose your meal", "find your meal", "favorite meal"]
 };
 
-const ProductsPage = async ({searchParams}) => {
-  const sortType = searchParams?.sort || "1";
+const ProductsPage = async ({ searchParams }) => {
+  const {sort} = await searchParams;
+  const sortType = sort || "1";
   let sortedProducts = [...ProductsList];
 
   switch (sortType) {
