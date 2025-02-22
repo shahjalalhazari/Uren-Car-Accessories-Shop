@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 const PageBreadcrumb = () => {
     return (
-      <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[35vh]">
+      <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[40vh]">
         <div className="breadcrumb-bg-overlay">
           <h2 className="breadcrumb-title">All Products</h2>
           <div className="breadcrumbs text-xs mx-auto">

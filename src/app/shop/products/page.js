@@ -4,17 +4,18 @@ import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import BrandNamesList from '@/components/Shop/Products/BrandNamesList';
 import CategoriesList from '@/components/Shop/Products/CategoriesList';
 import PriceRangeFilter from '@/components/Shop/Products/PriceRangeFilter';
-import SingleProductCard from '@/components/shared/cards/SingleProductCard';
 import SortingDropdown from '@/components/Shop/Products/SortingDropdown';
+import ProductsListWithLazyLoad from '@/components/Shop/Products/ProductsListWithLazyLoad';
 
 export const metadata = {
   title: "Products",
   description: "UREN is a cutting-edge car accessories shop dedicated to enhancing the driving experience for car enthusiasts and everyday drivers alike. The brand focuses on offering high-quality, stylish, and innovative automotive products designed to upgrade vehicle aesthetics, comfort, safety, and performance.",
-  keywords: ["meal", "meals", "Choose your meal", "find your meal", "favorite meal"]
+  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
 };
 
 const ProductsPage = async ({ searchParams }) => {
-  const {sort} = await searchParams;
+  const { sort } = await searchParams;
+  
   const sortType = sort || "1";
   let sortedProducts = [...ProductsList];
 
@@ -65,12 +66,8 @@ const ProductsPage = async ({ searchParams }) => {
           {/* Sorting Dropdown */}
           <SortingDropdown />
 
-          {/* Products List */}
-          <div className="grid grid-cols-3 gap-8">
-              {sortedProducts.map((item, index) => (
-                <SingleProductCard singleProduct={item} key={index} />
-              ))}
-          </div>
+          {/* Products List with Lazy loading*/}
+          <ProductsListWithLazyLoad productsList={sortedProducts} />
         </div>
       </main>
     </div>
@@ -188,7 +185,7 @@ const brandsList = [
 
 const ProductsList = [
   {
-    name: "Veni am offi ciis volup tates",
+    name: "Oil Filter",
     price: 89.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/1.png",
@@ -197,7 +194,7 @@ const ProductsList = [
     discountOf: 24,
   },
   {
-    name: "Veniam offic iis volu ptates",
+    name: "Brake Pads",
     price: 750.0,
     oldPrice: 0.0,
     image: "/images/product/medium-size/2.png",
@@ -206,7 +203,7 @@ const ProductsList = [
     discountOf: 55,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Head Light",
     price: 89.99,
     oldPrice: 150.0,
     image: "/images/product/medium-size/3.png",
@@ -215,7 +212,7 @@ const ProductsList = [
     discountOf: 0,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Alternator",
     price: 250.5,
     oldPrice: 175.99,
     image: "/images/product/medium-size/4.png",
@@ -224,7 +221,7 @@ const ProductsList = [
     discountOf: 33,
   },
   {
-    name: "Veniam offi ciis voluptates",
+    name: "Gear Filter",
     price: 550.75,
     oldPrice: 440.65,
     image: "/images/product/medium-size/5.png",
@@ -233,7 +230,7 @@ const ProductsList = [
     discountOf: 74,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Tail Light",
     price: 89.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/6.png",
@@ -242,7 +239,7 @@ const ProductsList = [
     discountOf: 60,
   },
   {
-    name: "Ven iam officiis voluptates",
+    name: "Air Filter",
     price: 135.0,
     oldPrice: 0.0,
     image: "/images/product/medium-size/7.png",
@@ -251,7 +248,7 @@ const ProductsList = [
     discountOf: 24,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Shock Absorbers",
     price: 999.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/8.png",
@@ -260,7 +257,7 @@ const ProductsList = [
     discountOf: 44,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Brake Discs",
     price: 89.99,
     oldPrice: 120.99,
     image: "/images/product/medium-size/9.png",
@@ -269,7 +266,7 @@ const ProductsList = [
     discountOf: 24,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Bumper",
     price: 345.99,
     oldPrice: 300.0,
     image: "/images/product/medium-size/10.png",
@@ -278,7 +275,7 @@ const ProductsList = [
     discountOf: 19,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Ignition Coils",
     price: 240.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/11.png",
@@ -287,7 +284,7 @@ const ProductsList = [
     discountOf: 24,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "A/C Filter",
     price: 89.99,
     oldPrice: 110.0,
     image: "/images/product/medium-size/12.png",
@@ -296,7 +293,7 @@ const ProductsList = [
     discountOf: 42,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Spark Plug",
     price: 89.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/13.png",
@@ -305,7 +302,7 @@ const ProductsList = [
     discountOf: 25,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Radiator",
     price: 110.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/14.png",
@@ -314,7 +311,142 @@ const ProductsList = [
     discountOf: 24,
   },
   {
-    name: "Veniam officiis voluptates",
+    name: "Compressor",
+    price: 189.99,
+    oldPrice: 220.0,
+    image: "/images/product/medium-size/15.png",
+    rating: 3,
+    isNew: true,
+    discountOf: 66,
+  },
+  {
+    name: "Oil Filter",
+    price: 89.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/1.png",
+    rating: 3.5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Brake Pads",
+    price: 750.0,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/2.png",
+    rating: 3,
+    isNew: false,
+    discountOf: 55,
+  },
+  {
+    name: "Head Light",
+    price: 89.99,
+    oldPrice: 150.0,
+    image: "/images/product/medium-size/3.png",
+    rating: 3.5,
+    isNew: true,
+    discountOf: 0,
+  },
+  {
+    name: "Alternator",
+    price: 250.5,
+    oldPrice: 175.99,
+    image: "/images/product/medium-size/4.png",
+    rating: 5,
+    isNew: false,
+    discountOf: 33,
+  },
+  {
+    name: "Gear Filter",
+    price: 550.75,
+    oldPrice: 440.65,
+    image: "/images/product/medium-size/5.png",
+    rating: 4,
+    isNew: false,
+    discountOf: 74,
+  },
+  {
+    name: "Tail Light",
+    price: 89.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/6.png",
+    rating: 2,
+    isNew: false,
+    discountOf: 60,
+  },
+  {
+    name: "Air Filter",
+    price: 135.0,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/7.png",
+    rating: 2.5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Shock Absorbers",
+    price: 999.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/8.png",
+    rating: 1,
+    isNew: true,
+    discountOf: 44,
+  },
+  {
+    name: "Brake Discs",
+    price: 89.99,
+    oldPrice: 120.99,
+    image: "/images/product/medium-size/9.png",
+    rating: 3,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Bumper",
+    price: 345.99,
+    oldPrice: 300.0,
+    image: "/images/product/medium-size/10.png",
+    rating: 3.5,
+    isNew: false,
+    discountOf: 19,
+  },
+  {
+    name: "Ignition Coils",
+    price: 240.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/11.png",
+    rating: 5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "A/C Filter",
+    price: 89.99,
+    oldPrice: 110.0,
+    image: "/images/product/medium-size/12.png",
+    rating: 4,
+    isNew: true,
+    discountOf: 42,
+  },
+  {
+    name: "Spark Plug",
+    price: 89.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/13.png",
+    rating: 3,
+    isNew: false,
+    discountOf: 25,
+  },
+  {
+    name: "Radiator",
+    price: 110.99,
+    oldPrice: 0.0,
+    image: "/images/product/medium-size/14.png",
+    rating: 2.5,
+    isNew: true,
+    discountOf: 24,
+  },
+  {
+    name: "Compressor",
     price: 189.99,
     oldPrice: 220.0,
     image: "/images/product/medium-size/15.png",
