@@ -9,7 +9,6 @@ import ProductsListWithLazyLoad from '@/components/Shop/Products/ProductsListWit
 
 export const metadata = {
   title: "Products",
-  description: "UREN is a cutting-edge car accessories shop dedicated to enhancing the driving experience for car enthusiasts and everyday drivers alike. The brand focuses on offering high-quality, stylish, and innovative automotive products designed to upgrade vehicle aesthetics, comfort, safety, and performance.",
   keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
 };
 
@@ -45,7 +44,7 @@ const ProductsPage = async ({ searchParams }) => {
   return (
     <div>
       {/* Page Breadcrumb */}
-      <PageBreadcrumb />
+      <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"All Products"}/>
       
       {/* Main content */}
       <main className="grid grid-cols-4 gap-8 mx-8 my-20">

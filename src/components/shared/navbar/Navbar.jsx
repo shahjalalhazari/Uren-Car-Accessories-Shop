@@ -26,7 +26,7 @@ const navItems = [
   },
   {
     title: "ABOUT US",
-    path: "/about",
+    path: "/about-us",
   },
   {
     title: "SERVICES",
