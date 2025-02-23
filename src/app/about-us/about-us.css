@@ -12,17 +12,8 @@
 }
 
 .about-us-content p{
-    @apply text-sm text-[#999];
+    @apply text-sm text-[#999] mb-5;
 }
-
-.about-us-shop-btn{
-    @apply mt-5 px-8 py-3 text-sm bg-primary text-base-100 transition-all ease-in-out duration-500;
-}
-
-.about-us-shop-btn:hover{
-    @apply bg-secondary;
-}
-
 /* Project Count Area */
 .project-count-layout {
     @apply grid grid-cols-4 mt-[60px] text-[#999];

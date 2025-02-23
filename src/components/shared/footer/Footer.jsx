@@ -34,10 +34,10 @@ const FooterNavItems = [
   },
   {
     title: "Blogs",
-    path: "/blog",
+    path: "/blogs",
   },
   {
     title: "Contact Us",
-    path: "/contact",
+    path: "/contact-us",
   },
 ];

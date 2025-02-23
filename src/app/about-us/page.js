@@ -1,8 +1,9 @@
+import Link from "next/link";
+import Image from "next/image";
+import { FaCalendarAlt, FaChartBar, FaRegSmile, FaShoppingCart } from "react-icons/fa";
 import "./about-us.css";
 import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
-import Image from "next/image";
-import Link from "next/link";
-import { FaCalendarAlt, FaChartBar, FaRegSmile, FaShoppingCart } from "react-icons/fa";
+import SecondaryBtn from "@/components/shared/buttons/SecondaryBtn";
 
 export const metadata = {
   title: "About Us",
@@ -31,7 +32,7 @@ const AboutUsPage = () => {
               We Provide Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae nisi fuga facilis, consequuntur, maiores eveniet voluptatum, omnis possimus temporibus aspernatur nobis animi in exercitationem vitae nulla! Adipisci ullam illum quisquam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, nulla veniam? Magni aliquid asperiores magnam. Veniam ex tenetur.
             </p>
             <Link href={"/shop/products"}>
-              <button className="about-us-shop-btn">Shop Now</button>
+              <SecondaryBtn text={"Shop Now"}/>
             </Link>
           </div>
         </div>

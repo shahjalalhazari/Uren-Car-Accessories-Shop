@@ -49,6 +49,15 @@
     @apply bg-secondary text-base-100
 }
 
+/* Secondary Button */
+.secondary-btn {
+    @apply px-8 py-3 text-sm bg-primary text-base-100 transition-all ease-in-out duration-500;
+}
+
+.secondary-btn:hover {
+    @apply bg-secondary;
+}
+
 /* ----------------------- */
 
 /* Page Breadcrumb */

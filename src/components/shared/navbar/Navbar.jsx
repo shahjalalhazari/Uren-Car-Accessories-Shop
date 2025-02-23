@@ -33,11 +33,11 @@ const navItems = [
     path: "/services",
   },
   {
-    title: "BLOG",
-    path: "/blog",
+    title: "BLOGS",
+    path: "/blogs",
   },
   {
     title: "CONTACT US",
-    path: "/contact",
+    path: "/contact-us",
   },
 ];
