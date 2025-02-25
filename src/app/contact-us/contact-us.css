@@ -2,7 +2,7 @@
     @apply grid grid-cols-2 gap-x-8 mt-[60px];
 }
 
-.contact-form-content h1{
+.contact-page-title {
     @apply font-medium text-3xl text-[#333];
 }
 
@@ -24,4 +24,20 @@
 
 .contact-form-group textarea{
     @apply w-full h-24 border border-[#ddd] focus:outline-none p-4;
+}
+/* Address Book */
+.address-book-message {
+    @apply mt-5 text-sm text-[#999] mb-6;
+}
+
+.address-block {
+    @apply pb-2 mb-6 border-b border-[#ddd]
+}
+
+.address-block h5 {
+    @apply text-2xl font-semibold mb-4 flex items-center gap-x-2;
+}
+
+.address-block p {
+    @apply text-[#999] text-sm mb-1
 }
