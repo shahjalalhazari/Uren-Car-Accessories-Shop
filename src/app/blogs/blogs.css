@@ -1,0 +1,16 @@
+/* Search Box */
+.blog-search-title {
+    @apply text-center text-xl;
+}
+
+.blog-search-form {
+    @apply relative
+}
+
+.blog-search-form input {
+    @apply border border-[#ddd] w-full text-sm py-2 pl-3 focus:outline-none;
+}
+
+.blog-search-form button {
+    @apply absolute top-3 right-3 text-[#999];
+}

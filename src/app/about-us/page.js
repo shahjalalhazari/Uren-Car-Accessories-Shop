@@ -17,7 +17,7 @@ const AboutUsPage = () => {
       <PageBreadcrumb breadcrumbTitle={"About Us"} breadcrumbLink={"About Us"} />
 
       {/* Main content */}
-      <div className="my-20 mx-8">
+      <div className="uren-container">
         <div className="about-us-layout">
           <Link href={"/"} className="about-us-img">
             <Image src="/images/about-us/1.jpg" width="2000" height="800" alt="Uren Store" />

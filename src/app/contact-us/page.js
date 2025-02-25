@@ -12,9 +12,9 @@ export const metadata = {
 
 const ContactUsPage = () => {
   return (
-    <div className="">
+    <div>
       <PageBreadcrumb breadcrumbLink={"Contact Us"} breadcrumbTitle={"Contact Us"}/>
-      <div className="mx-8 my-20">
+      <div className="uren-container">
         {/* Google Map */}
         <GoogleMap/>
 

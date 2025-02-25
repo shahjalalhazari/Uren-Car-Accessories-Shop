@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* containers */
+.uren-container {
+    @apply mx-8 my-20;
+}
+
+/* ------------------ */
+
 /* SCROLL UP BUTTON */
 .scroll-up-btn {
     @apply fixed right-4 bottom-4 w-12 h-12 flex items-center z-[100] justify-center rounded-full bg-secondary text-base-100 text-lg transition;
