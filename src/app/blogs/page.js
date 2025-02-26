@@ -2,6 +2,7 @@ import SearchBox from "@/components/Blogs/SearchBox";
 import "./blogs.css"
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import Archives from "@/components/Blogs/Archives";
+import RecentBlogs from "@/components/Blogs/RecentBlogs";
 
 const BlogsPage = () => {
   return (
@@ -15,19 +16,15 @@ const BlogsPage = () => {
             {/* Search box */}
             <SearchBox />
 
-            {/*  */}
+            {/* Archives List */}
             <Archives />
-            {/* Ad Banner */}
-              {/* <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/> */}
+
+            {/* Recent Blogs List */}
+            <RecentBlogs blogs={blogs} />
           </aside>
         
           {/* Right Side (All Products List) */}
           <div className="col-span-3">
-            {/* Sorting Dropdown */}
-            {/* <SortingDropdown /> */}
-
-            {/* Products List with Lazy loading*/}
-            {/* <ProductsListWithLazyLoad productsList={sortedProducts} /> */}
           </div>
         </div>
       </div>
@@ -36,3 +33,153 @@ const BlogsPage = () => {
 };
 
 export default BlogsPage;
+
+
+
+
+const blogs = [
+  {
+    id: 1,
+    title: "Quaerat eligendi dolores autem omnis sed",
+    image: "/images/blog/medium-size/1.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-09-2024",
+  },
+  {
+    id: 2,
+    title: "Nulla voluptatum maiores dolorem nobis",
+    image: "/images/blog/medium-size/2.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-01-2025",
+  },
+  {
+    id: 3,
+    title: "Laudantium minus excepturi expedita dolore",
+    image: "/images/blog/medium-size/3.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-12-2024",
+  },
+  {
+    id: 4,
+    title: "Aliquam nihil dolorem beatae totam tempora",
+    image: "/images/blog/medium-size/4.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "28-02-2025",
+  },
+  {
+    id: 5,
+    title: "Aliquam nihil dolorem beatae totam tempora",
+    image: "/images/blog/medium-size/5.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "28-02-2025",
+  },
+  {
+    id: 6,
+    title: "Nulla voluptatum maiores dolorem nobis",
+    image: "/images/blog/medium-size/6.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-01-2025",
+  },
+  {
+    id: 7,
+    title: "Quaerat eligendi dolores autem omnis sed",
+    image: "/images/blog/medium-size/1.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-09-2024",
+  },
+  {
+    id: 8,
+    title: "Nulla voluptatum maiores dolorem nobis",
+    image: "/images/blog/medium-size/2.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-01-2025",
+  },
+  {
+    id: 9,
+    title: "Laudantium minus excepturi expedita dolore",
+    image: "/images/blog/medium-size/3.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-12-2024",
+  },
+  {
+    id: 10,
+    title: "Aliquam nihil dolorem beatae totam tempora",
+    image: "/images/blog/medium-size/4.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "28-02-2025",
+  },
+  {
+    id: 11,
+    title: "Aliquam nihil dolorem beatae totam tempora",
+    image: "/images/blog/medium-size/5.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "28-02-2025",
+  },
+  {
+    id: 12,
+    title: "Nulla voluptatum maiores dolorem nobis",
+    image: "/images/blog/medium-size/6.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-01-2025",
+  },
+  {
+    id: 13,
+    title: "Quaerat eligendi dolores autem omnis sed",
+    image: "/images/blog/medium-size/1.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-09-2024",
+  },
+  {
+    id: 14,
+    title: "Nulla voluptatum maiores dolorem nobis",
+    image: "/images/blog/medium-size/2.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-01-2025",
+  },
+  {
+    id: 15,
+    title: "Laudantium minus excepturi expedita dolore",
+    image: "/images/blog/medium-size/3.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-12-2024",
+  },
+  {
+    id: 16,
+    title: "Aliquam nihil dolorem beatae totam tempora",
+    image: "/images/blog/medium-size/4.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "28-02-2025",
+  },
+  {
+    id: 17,
+    title: "Aliquam nihil dolorem beatae totam tempora",
+    image: "/images/blog/medium-size/5.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "28-02-2025",
+  },
+  {
+    id: 18,
+    title: "Nulla voluptatum maiores dolorem nobis",
+    image: "/images/blog/medium-size/6.jpg",
+    description:
+      "Maiores accusamus unde nulla quaerat deserunt, beatae molestias blanditiis aut recusandae saepe, quis, culpa voluptatum?",
+    date: "12-01-2025",
+  },
+];

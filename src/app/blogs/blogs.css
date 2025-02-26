@@ -31,3 +31,7 @@
 .archives-list li:last-child {
     @apply border-none
 }
+/* Recent Blogs List */
+.blog-list {
+    @apply mt-6;
+}

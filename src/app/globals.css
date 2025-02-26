@@ -119,6 +119,26 @@
     @apply underline transition-all ease-in-out duration-500;
 }
 
+/* Small Blog Card */
+.small-blog-card {
+    @apply flex gap-x-4 items-center border-b border-[#ddd] py-3;
+}
+
+.small-blog-card:last-child {
+    @apply border-none;
+}
+
+.small-blog-card-img:hover {
+    @apply opacity-80
+}
+
+.small-blog-card h6 {
+    @apply font-semibold text-sm;
+}
+
+.small-blog-card h6:hover {
+    @apply text-primary;
+}
 /* ----------------------- */
 
 /* NEWSLETTER SECTION */
