@@ -1,6 +1,7 @@
 import SearchBox from "@/components/Blogs/SearchBox";
 import "./blogs.css"
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
+import Archives from "@/components/Blogs/Archives";
 
 const BlogsPage = () => {
   return (
@@ -13,6 +14,9 @@ const BlogsPage = () => {
           <aside className="space-y-8">
             {/* Search box */}
             <SearchBox />
+
+            {/*  */}
+            <Archives />
             {/* Ad Banner */}
               {/* <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/> */}
           </aside>

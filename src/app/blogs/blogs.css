@@ -1,10 +1,11 @@
-/* Search Box */
-.blog-search-title {
-    @apply text-center text-xl;
+/* Common */
+.blog-aside-title {
+    @apply text-center text-xl mb-2;
 }
 
+/* Search Box */
 .blog-search-form {
-    @apply relative
+    @apply relative mt-6
 }
 
 .blog-search-form input {
@@ -13,4 +14,20 @@
 
 .blog-search-form button {
     @apply absolute top-3 right-3 text-[#999];
+}
+/* Archives */
+.archives-list {
+    @apply mt-6
+}
+
+.archives-list li {
+    @apply px-3 py-1.5 border-b border-[#ddd] transition-all duration-500 ease-in-out;
+}
+
+.archives-list li:hover {
+    @apply text-primary shadow
+}
+
+.archives-list li:last-child {
+    @apply border-none
 }
