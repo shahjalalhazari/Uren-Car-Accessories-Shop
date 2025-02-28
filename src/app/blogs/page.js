@@ -3,6 +3,7 @@ import "./blogs.css"
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import Archives from "@/components/Blogs/Archives";
 import RecentBlogs from "@/components/Blogs/RecentBlogs";
+import Tags from "@/components/Blogs/Tags";
 
 const BlogsPage = () => {
   return (
@@ -21,6 +22,9 @@ const BlogsPage = () => {
 
             {/* Recent Blogs List */}
             <RecentBlogs blogs={blogs} />
+
+            {/* Tags List */}
+            <Tags/>
           </aside>
         
           {/* Right Side (All Products List) */}

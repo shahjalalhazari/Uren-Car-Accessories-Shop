@@ -6,7 +6,7 @@ const Archives = () => {
     <div>
       <h6 className="blog-aside-title">Archives</h6>
       <hr />
-      <ul className="archives-list text-[#999] text-sm">
+      <ul className="archives-list">
         <li>
           <Link href={"/"}>February 2025</Link>
         </li>

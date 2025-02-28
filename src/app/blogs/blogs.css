@@ -17,7 +17,7 @@
 }
 /* Archives */
 .archives-list {
-    @apply mt-6
+    @apply mt-6 text-[#999] text-sm;
 }
 
 .archives-list li {
@@ -34,4 +34,16 @@
 /* Recent Blogs List */
 .blog-list {
     @apply mt-6;
+}
+/* Tags List */
+.tag-list {
+    @apply flex flex-wrap gap-2 mt-6;
+}
+
+.single-tag {
+    @apply flex items-center gap-2 px-3 py-2 text-sm border border-[#ddd] transition-all ease-in-out duration-500;
+}
+
+.single-tag:hover {
+    @apply bg-primary text-base-100;
 }
