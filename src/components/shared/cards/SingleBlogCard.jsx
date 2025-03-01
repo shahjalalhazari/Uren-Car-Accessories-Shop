@@ -3,6 +3,7 @@ import Link from "next/link";
 
 
 const SingleBlogCard = ({ blog }) => {
+  const { title, body } = blog;
   const truncateText = (text, maxLength) => {
     return text.length > maxLength ? `${text.slice(0, maxLength)}...` : text;
   };
@@ -10,20 +11,20 @@ const SingleBlogCard = ({ blog }) => {
     <div>
       <div className="blog-image">
         <Image
-          src={blog.image}
+          src={"/images/blog/medium-size/1.jpg"}
           width={350}
           height={220}
           alt={blog.title}
           className="w-full"
         />
-        <p className="blog-date">{blog.date}</p>
+        <p className="blog-date">{"01 Feb 2025"}</p>
       </div>
       {/* REPLACE */}
       <Link href={"/"}>
-        <h2 className="blog-title">{truncateText(blog.title, 60)}</h2>
+        <h2 className="blog-title">{truncateText(title, 60)}</h2>
       </Link>
       <p className="blog-description">
-        {truncateText(blog.description, 100)}{" "}
+        {truncateText(body, 100)}{" "}
         <Link href={"/"}>
           <span className="read-more">READ MORE</span>
         </Link>

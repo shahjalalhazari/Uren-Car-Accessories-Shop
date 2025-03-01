@@ -4,6 +4,7 @@ import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import Archives from "@/components/Blogs/Archives";
 import RecentBlogs from "@/components/Blogs/RecentBlogs";
 import Tags from "@/components/Blogs/Tags";
+import AllBlogs from "@/components/Blogs/AllBlogs";
 
 const BlogsPage = () => {
   return (
@@ -29,6 +30,7 @@ const BlogsPage = () => {
         
           {/* Right Side (All Products List) */}
           <div className="col-span-3">
+            <AllBlogs/>
           </div>
         </div>
       </div>

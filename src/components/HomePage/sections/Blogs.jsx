@@ -11,7 +11,7 @@ const Blogs = () => {
           heading={"From Our Blogs"}
           subHeading={"Our Recent Posts"}
         />
-        <div className="blog-layout mt-8 text-start mb-12">
+        <div className="blog-layout">
           {blogs.map((blog, index) => (
             <SingleBlogCard blog={blog} key={index} />
           ))}

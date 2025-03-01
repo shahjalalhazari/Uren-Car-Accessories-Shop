@@ -84,7 +84,7 @@
 
 /* BLOG's STYLE */
 .blog-layout {
-    @apply grid grid-cols-4 gap-x-8;
+    @apply grid grid-cols-4 gap-x-8 mt-8 text-start mb-12;
 }
 
 .blog-image {
@@ -92,7 +92,7 @@
 }
 
 .blog-image:hover {
-    @apply opacity-60
+    @apply opacity-80
 }
 
 .blog-date {
