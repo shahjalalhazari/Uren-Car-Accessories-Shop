@@ -16,7 +16,7 @@ const Blogs = () => {
             <SingleBlogCard blog={blog} key={index} />
           ))}
         </div>
-        <PrimaryBtn text={"SEE MORE"} path={"/"} />
+        <PrimaryBtn text={"SEE MORE"} path={"/blogs"} />
       </div>
     );
 };

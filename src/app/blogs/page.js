@@ -4,6 +4,7 @@ import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import Archives from "@/components/Blogs/Archives";
 import RecentBlogs from "@/components/Blogs/RecentBlogs";
 import Tags from "@/components/Blogs/Tags";
+import BrandsList from "@/components/Blogs/BrandsList";
 
 const BlogsPage = () => {
   return (
@@ -22,6 +23,9 @@ const BlogsPage = () => {
 
             {/* Recent Blogs List */}
             <RecentBlogs blogs={blogs} />
+
+            {/* Car Brand List */}
+            <BrandsList/>
 
             {/* Tags List */}
             <Tags/>
