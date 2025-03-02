@@ -5,6 +5,7 @@ import Archives from "@/components/Blogs/Archives";
 import RecentBlogs from "@/components/Blogs/RecentBlogs";
 import Tags from "@/components/Blogs/Tags";
 import BrandsList from "@/components/Blogs/BrandsList";
+import CarModels from "@/components/Blogs/CarModels";
 
 const BlogsPage = () => {
   return (
@@ -25,7 +26,10 @@ const BlogsPage = () => {
             <RecentBlogs blogs={blogs} />
 
             {/* Car Brand List */}
-            <BrandsList/>
+            <BrandsList />
+            
+            {/* Car Models List */}
+            <CarModels/>
 
             {/* Tags List */}
             <Tags/>

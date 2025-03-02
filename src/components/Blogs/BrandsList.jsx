@@ -49,4 +49,11 @@ const brandList = [
   "GMC",
   "Lincoln",
   "Infinite",
+  "Mercedes Benz",
+  "Honda",
+  "Mitsubishi",
+  "BMW",
+  "Lexus",
+  "Chevrolet",
+  "Porsche",
 ];
