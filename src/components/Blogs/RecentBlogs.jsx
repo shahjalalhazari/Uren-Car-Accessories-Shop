@@ -17,6 +17,3 @@ const RecentBlogs = ({ blogs }) => {
 };
 
 export default RecentBlogs;
-
-
-const Blogs = [];
