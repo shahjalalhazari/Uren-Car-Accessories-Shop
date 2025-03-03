@@ -1,6 +1,7 @@
 "use client"
 
 import SingleProductCard from "@/components/shared/cards/SingleProductCard";
+import LoadingComponent from "@/components/shared/LoadingComponent";
 import { useEffect, useRef, useState } from "react";
 
 const ProductsListWithLazyLoad = ({ productsList }) => {
@@ -48,6 +49,7 @@ const ProductsListWithLazyLoad = ({ productsList }) => {
       if (lastProduct) observer.unobserve(lastProduct);
     };
   }, [displayProducts]);
+
   return (
     <div className="grid grid-cols-3 gap-8">
       {displayProducts.map((item, index) => (
@@ -56,11 +58,8 @@ const ProductsListWithLazyLoad = ({ productsList }) => {
 
       {/* Lazy Load Trigger */}
       {displayProducts.length < productsList.length && (
-        <div
-          id="lazy-load-trigger"
-          className="col-span-3 text-center py-8"
-        >
-            <span className="loading loading-infinity loading-lg"></span>
+        <div id="lazy-load-trigger" className="col-span-3 text-center">
+          <LoadingComponent />
         </div>
       )}
     </div>
