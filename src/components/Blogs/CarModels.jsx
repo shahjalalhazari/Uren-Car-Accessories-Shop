@@ -1,16 +1,18 @@
 "use client";
+import { useCar } from "@/context/CarContext";
 import { useState } from "react";
 import { BiPlus } from "react-icons/bi";
 
 const CarModels = () => {
   const [selectedModel, setSelectedModel] = useState(null);
+  const { modelsList } = useCar();
 
   return (
     <div>
       <h6 className="blog-aside-title">Car Models</h6>
       <hr />
       <div className="tag-list">
-        {carModels.map((carModel, index) => (
+        {modelsList?.map((carModel, index) => (
           <button
             key={index}
             className={`single-tag ${
@@ -38,26 +40,3 @@ const CarModels = () => {
 };
 
 export default CarModels;
-
-
-const carModels = [
-  "BMW 1-Series",
-  "BMW 2-Series",
-  "BMW i5",
-  "BMW i7",
-  "BMW i8",
-  "BMW Z4",
-  "BMW XM",
-  "Ford Bronco",
-  "Ford Everest",
-  "Ford Bronco Raptor",
-  "Ford Explorer",
-  "Ford Expedition",
-  "Ford F-150",
-  "Ford Mustang",
-  "Ford Ranger Raptor",
-  "Hyundai Accent",
-  "Hyundai Elantra",
-  "Hyundai Santa Fe",
-  "Hyundai Tucson",
-];
