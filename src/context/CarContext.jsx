@@ -25,7 +25,7 @@ export const CarProvider = ({ children }) => {
       setModelsList(defaultModels);
     } else {
       setSelectedBrand(brand);
-      const selectedCardBrand = selectedBrand.find((b) => b.name === brand);
+      const selectedCardBrand = carBrandList.find((b) => b.name === brand);
       setModelsList(selectedCardBrand?.models || []);
     }
   }

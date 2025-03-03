@@ -1,32 +1,35 @@
 "use client";
+import { useCar } from "@/context/CarContext";
 import { useState } from "react";
 import { BiPlus } from "react-icons/bi";
 
 const BrandsList = () => {
-  const [selectedBrand, setSelectedBrand] = useState(null);
+  const { carBrandList, selectedBrand, handleSelectedBrand } = useCar();
 
   return (
     <div>
-      <h6 className="blog-aside-title">Brands</h6>
+      <h6 className="blog-aside-title">Car Brands</h6>
       <hr />
       <div className="tag-list">
-        {brandList.map((brand, index) => (
+        {carBrandList?.map((brand, index) => (
           <button
             key={index}
             className={`single-tag ${
-              selectedBrand === brand && "bg-blue text-white"
+              selectedBrand === brand.name && "bg-blue text-white"
             }`}
             onClick={() =>
-              setSelectedBrand(selectedBrand === brand ? null : brand)
+              handleSelectedBrand(
+                selectedBrand === brand.name ? null : brand.name
+              )
             }
           >
-            {brand}
-            {selectedBrand === brand && (
+            {brand.name}
+            {selectedBrand === brand.name && (
               <BiPlus
                 className="w-4 h-4 cursor-pointer rotate-45"
                 onClick={(e) => {
                   e.stopPropagation();
-                  setSelectedBrand(null);
+                  handleSelectedBrand(null);
                 }}
               />
             )}
@@ -38,22 +41,3 @@ const BrandsList = () => {
 };
 
 export default BrandsList;
-
-
-const brandList = [
-  "Toyota",
-  "Nissan",
-  "Dodge",
-  "Ford",
-  "Hyundai",
-  "GMC",
-  "Lincoln",
-  "Infinite",
-  "Mercedes Benz",
-  "Honda",
-  "Mitsubishi",
-  "BMW",
-  "Lexus",
-  "Chevrolet",
-  "Porsche",
-];
