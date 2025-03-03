@@ -6,6 +6,13 @@ import RecentBlogs from "@/components/Blogs/RecentBlogs";
 import Tags from "@/components/Blogs/Tags";
 import BrandsList from "@/components/Blogs/BrandsList";
 import CarModels from "@/components/Blogs/CarModels";
+import SingleBlogCard from "@/components/shared/cards/SingleBlogCard";
+import AllBlogsList from "@/components/Blogs/AllBlogsList";
+
+export const metadata = {
+  title: "Blogs",
+  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
+};
 
 const BlogsPage = () => {
   return (
@@ -37,7 +44,7 @@ const BlogsPage = () => {
         
           {/* Right Side (All Products List) */}
           <div className="col-span-3">
-            
+            <AllBlogsList allBlogs={blogs}/>
           </div>
         </div>
       </div>
