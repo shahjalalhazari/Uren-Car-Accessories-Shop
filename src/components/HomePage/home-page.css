@@ -253,3 +253,57 @@
 }
 
 /* ------------------- */
+@media (max-width: 768px) {
+
+    /* CAROUSEL BANNER SECTION */
+    .carousel-bg {
+        @apply hidden;
+        /* @apply carousel-item relative w-full h-[90vh] bg-cover; */
+    }
+
+    /* SHOPPING FACILITIES SECTION */
+    .shopping-facilities {
+        /* @apply mx-8 py-0 mb-20 border border-primary; */
+        @apply hidden;
+    }
+
+    /* ----------------------- */
+
+    /* FEATURED CATEGORIES SECTION */
+    .category-item-card {
+        /* @apply bg-white flex flex-col items-center text-center py-5; */
+        @apply hidden;
+    }
+
+    /* ----------------------- */
+
+    /* FEATURED PRODUCTS SECTION */
+    .card-container {
+        @apply hidden;
+        /* @apply bg-base-100 w-full shadow-md pt-10 px-4 pb-4; */
+    }
+
+    /* ----------------------------- */
+
+    /* OFFER BIG BANNER SECTION */
+    .big-banner-container {
+        /* @apply grid grid-cols-2 gap-x-8 w-full; */
+        @apply hidden;
+    }
+
+    /* ------------------------ */
+
+    /* NEW ARRIVAL PRODUCTS SECTION */
+    .new-arrival-slider {
+        /* @apply border-y border-l border-[#ddd] mt-8; */
+        @apply hidden;
+    }
+
+    /* ------------------------ */
+
+    /* TESTIMONIAL SECTION */
+    .testimonial-bg-img {
+        @apply hidden;
+        /* @apply absolute left-0 top-0 w-[150%] h-full bg-cover bg-center bg-[url(/images/testimonial/bg-1.jpg)]; */
+    }
+}
