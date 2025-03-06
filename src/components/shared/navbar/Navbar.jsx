@@ -9,11 +9,11 @@ const Navbar = () => {
     <div>
       {/* These nav styles are for large screen */}
       <TopNavbar />
-      <BottomNavbar navItems={navItems} />
+      <BottomNavbar navItems={navItems} categories={categories} />
       <StickyNavbar navItems={navItems} />
 
       {/* For Mobile or small screen */}
-      <MobileScreenNavbar navItems={navItems} />
+      <MobileScreenNavbar navItems={navItems} categories={categories} />
     </div>
   );
 };
@@ -44,5 +44,28 @@ const navItems = [
   {
     title: "CONTACT US",
     path: "/contact-us",
+  },
+];
+
+const categories = [
+  {
+    title: "Tires",
+    path: "/",
+  },
+  {
+    title: "Spare Parts",
+    path: "/",
+  },
+  {
+    title: "Bumpers",
+    path: "/",
+  },
+  {
+    title: "Lights",
+    path: "/",
+  },
+  {
+    title: "Suspensions",
+    path: "/",
   },
 ];

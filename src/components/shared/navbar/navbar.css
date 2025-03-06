@@ -98,21 +98,16 @@
     .btm-nav-bg {
         @apply hidden;
     }
-
-    .mobile-screen {
-        @apply py-8
-    }
-
     .mobile-screen .uren-logo {
         @apply mx-auto mb-6
     }
 
     .mobile-navbar {
-        @apply flex justify-between items-center px-6;
+        @apply flex justify-between items-center;
     }
 
     .mobile-cart-btn {
-        @apply flex gap-5 items-center px-6;
+        @apply flex gap-5 items-center;
     }
 
     .mobile-sidebar-overlay {
@@ -120,11 +115,11 @@
     }
 
     .mobile-menu-sidebar {
-        @apply fixed top-0 right-0 w-3/4 h-full bg-white opacity-95 shadow-lg z-50 transition-all duration-500 ease-in-out;
+        @apply fixed top-0 right-0 w-3/4 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
     }
 
     .mobile-sidebar-close-btn {
-        @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px]
+        @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px] transition-all ease-in-out duration-300;
     }
 
     .mobile-search-form {
@@ -149,5 +144,31 @@
 
     .nav-phone-num {
         @apply text-xl font-semibold text-secondary;
+    }
+    /* Categories List */
+    .category-list-heading {
+        @apply bg-[#000] relative text-base-100 flex justify-between items-center py-[14px] transition-all ease-in-out duration-300;
+    }
+
+    .category-list-heading-text {
+        @apply uppercase flex-col font-semibold leading-none;
+    }
+
+    .category-list {
+        @apply absolute p-4 font-medium left-0 hidden w-full bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
+        z-index: 100;
+    }
+
+    .dropdown-list {
+        @apply absolute right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
+        z-index: 100;
+    }
+
+    .dropdown-list-item {
+        @apply py-2;
+    }
+
+    .dropdown-list-item:hover {
+        @apply bg-gray-100 text-secondary
     }
 }

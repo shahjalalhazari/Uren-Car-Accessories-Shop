@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FaBars, FaAngleDown, FaDollarSign, FaUser } from "react-icons/fa";
 
-const BottomNavbar = ({ navItems }) => {
+const BottomNavbar = ({ navItems, categories }) => {
   const pathname = usePathname();
 
   return (
@@ -125,27 +125,3 @@ const BottomNavbar = ({ navItems }) => {
 };
 
 export default BottomNavbar;
-
-
-const categories = [
-  {
-    title: "Tires",
-    path: "/",
-  },
-  {
-    title: "Spare Parts",
-    path: "/",
-  },
-  {
-    title: "Bumpers",
-    path: "/",
-  },
-  {
-    title: "Lights",
-    path: "/",
-  },
-  {
-    title: "Suspensions",
-    path: "/",
-  },
-];
