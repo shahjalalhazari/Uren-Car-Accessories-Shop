@@ -181,7 +181,6 @@ const MobileScreenNavbar = ({ navItems, categories }) => {
       <div className="bg-primary px-6">
         <div className="group dropdown w-full">
           <div className="category-list-heading">
-            <FaBars className="text-4xl" />
             <h2 className="category-list-heading-text">
               <span>Shop By</span>
               <br />

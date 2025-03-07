@@ -93,7 +93,6 @@
 /* -------------------- */
 /* Mobile screen up to 768px */
 @media (max-width: 768px) {
-
     .top-nav-bg,
     .btm-nav-bg {
         @apply hidden;
@@ -139,11 +138,11 @@
     }
 
     .mobile-phone-btn {
-        @apply border border-primary flex items-center m-8;
+        @apply border border-primary flex items-center justify-center m-8;
     }
 
     .nav-phone-num {
-        @apply text-xl font-semibold text-secondary;
+        @apply text-lg text-center font-semibold text-secondary;
     }
     /* Categories List */
     .category-list-heading {
@@ -170,5 +169,9 @@
 
     .dropdown-list-item:hover {
         @apply bg-gray-100 text-secondary
+    }
+    /* Sticky Navbar */
+    .sticky-navbar {
+        @apply hidden;
     }
 }

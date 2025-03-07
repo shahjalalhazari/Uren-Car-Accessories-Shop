@@ -38,7 +38,7 @@ const BottomNavbar = ({ navItems, categories }) => {
         <div className="flex gap-8 items-center">
           {navItems.map((item) => (
             <Link
-              className={`font-bold uppercase hover:text-secondary transition-all ease-in-out duration-300 ${
+              className={`font-semibold uppercase hover:text-secondary transition-all ease-in-out duration-300 ${
                 pathname === item.path && "text-base-100 bg-[#000] p-5"
               }`}
               key={item.path}
