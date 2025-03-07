@@ -41,13 +41,13 @@ const FeaturedCategories = () => {
       slidesToSlide: 4,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 768, min: 0 },
       items: 2,
       slidesToSlide: 2,
     },
   };
   return (
-    <div className="ml-8 mr-10 py-0 mb-20">
+    <div className="mx-6 lg:ml-8 mr-8 lg:mr-10 py-0 my-12 lg:my-20">
       {/* Section Heading */}
       <SectionHeading
         heading="Featured Categories"
@@ -62,15 +62,15 @@ const FeaturedCategories = () => {
         responsive={responsive}
         ssr={true}
         infinite={true}
-        autoPlay={deviceType !== "mobile"}
+        autoPlay={deviceType == ["mobile"]}
         autoPlaySpeed={5000}
         keyBoardControl={true}
         customTransition="ease-in-out .5"
-        transitionDuration={3000}
+        transitionDuration={5000}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={[]}
         deviceType={deviceType}
-        itemClass="mt-12 border-y border-l"
+        itemClass="mt-12 border lg:border-y lg:border-l"
       >
         {featuredCategories.map((item, index) => (
           <FeaturedCategorySingleCard key={index} categoryItem={item} />

@@ -61,7 +61,7 @@ const OfferBanners = () => {
         customTransition="ease-in-out .5"
         transitionDuration={2000}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={[]}
         deviceType={deviceType}
         itemClass="px-2 lg:px-5 z-[100]"
       >
