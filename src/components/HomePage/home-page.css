@@ -117,8 +117,11 @@
 
 /* ----------------------- */
 /* FEATURED PRODUCTS SECTION */
+.featured-products {
+    @apply px-8 py-20 bg-[#eee] grid grid-cols-4 gap-8
+}
 .card-container {
-    @apply bg-base-100 w-full shadow-md pt-10 px-4 pb-4;
+    @apply bg-base-100 w-full shadow-md pt-10 px-6 pb-6;
 }
 
 /* Deal Of The Day Card */
@@ -179,7 +182,7 @@
 }
 
 .weekly-product-price {
-    @apply text-[#0886cf] text-lg font-semibold;
+    @apply text-secondary text-lg font-semibold;
 }
 /* ----------------------------- */
 
@@ -294,58 +297,104 @@
     /* SHOPPING FACILITIES SECTION */
     .shopping-facilities {
         @apply mx-8 py-0 mt-12 border border-primary;
-        }
-
-        .shopping-facilities-layout {
+    }
+    .shopping-facilities-layout {
             @apply flex flex-col place-items-center py-6 gap-y-4;
-        }
-
-        .facility-item {
+    }
+    .facility-item {
             @apply flex flex-col text-center items-center;
-        }
-
-        .item-icon {
+    }
+    .item-icon {
             @apply text-primary text-4xl mb-2;
-        }
-
-        .item-content {
+    }
+    .item-content {
             @apply flex flex-col gap-1;
-        }
-
-        .item-content>h6 {
+    }
+    .item-content>h6 {
             @apply font-semibold;
-        }
-
-        .item-content>p {
+    }
+    .item-content>p {
             @apply text-[#999] text-sm
     }
-
     /* ----------------------- */
 
     /* FEATURED CATEGORIES SECTION */
     .category-item-card {
-        @apply bg-white flex flex-col items-center text-center py-5;
-        }
-
-        .category-item-card:hover {
-            @apply shadow-xl;
-        }
-
-        .category-item-card-title {
-            @apply text-lg font-semibold text-[#999];
-        }
-
-        .category-item-card-title:hover {
-            @apply text-primary
+    @apply bg-white flex flex-col items-center text-center py-5;
     }
-
+    .category-item-card:hover {
+        @apply shadow-xl;
+    }
+    .category-item-card-title {
+        @apply text-lg font-semibold text-[#999];
+    }
+    .category-item-card-title:hover {
+        @apply text-primary
+    }
     /* ----------------------- */
 
     /* FEATURED PRODUCTS SECTION */
-    .card-container {
-        @apply hidden;
-        /* @apply bg-base-100 w-full shadow-md pt-10 px-4 pb-4; */
+    .featured-products {
+        @apply px-6 py-12 grid grid-cols-1 gap-4;
     }
+    .card-container {
+        @apply bg-base-100 w-full shadow-md p-6 pt-8;
+        }
+
+        /* Deal Of The Day Card */
+        .deal-of-the-day .product-name {
+            @apply text-black text-lg font-semibold leading-snug;
+        }
+
+        .deal-of-the-day .product-name:hover {
+            @apply text-primary;
+        }
+
+        .deal-of-the-day .old-price {
+            @apply text-[#999] line-through
+        }
+
+        .deal-of-the-day .new-price {
+            @apply text-secondary text-2xl font-bold
+        }
+
+        /* Countdown Timer */
+        .timer-container {
+            @apply flex text-center justify-between items-center;
+        }
+
+        .timer-box {
+            @apply flex flex-col items-center justify-center border-2 border-[#ddd] py-3 px-2;
+        }
+
+        .timer-box>h5 {
+            @apply text-primary text-xl font-semibold leading-tight;
+        }
+
+        .timer-box>p {
+            @apply text-sm text-[#999]
+        }
+
+        /* Weekly Featured Product Card */
+        .weekly-product-single-card {
+            @apply grid grid-cols-3 items-center py-2 border-b-2
+        }
+
+        .weekly-product-single-card:hover {
+            @apply shadow-md
+        }
+
+        .weekly-product-single-card:last-child {
+            @apply border-none
+        }
+
+        .weekly-product-name {
+            @apply text-[#999] leading-4 my-2 text-sm
+        }
+
+        .weekly-product-name:hover {
+            @apply text-secondary;
+        }
 
     /* ----------------------------- */
 

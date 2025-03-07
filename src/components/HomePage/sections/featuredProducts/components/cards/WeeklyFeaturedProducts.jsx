@@ -4,7 +4,7 @@ import FeaturedSingleProductCard from "@/components/shared/cards/FeaturedSingleP
 
 const WeeklyFeaturedProducts = () => {
   return (
-    <div className="card-container max-h-[95vh]">
+    <div className="card-container">
       {/* Card Heading */}
       <CardTitle
         heading={"Featured Products"}
@@ -12,7 +12,7 @@ const WeeklyFeaturedProducts = () => {
       />
 
       {/* All Weekly Featured Products List */}
-      <div className="h-[76vh] overflow-y-auto mt-4">
+      <div className="h-[72vh] overflow-y-auto mt-4">
         {/* REPLACE */}
         {[...Array(10)].map((_, index) => (
           <FeaturedSingleProductCard key={index} />

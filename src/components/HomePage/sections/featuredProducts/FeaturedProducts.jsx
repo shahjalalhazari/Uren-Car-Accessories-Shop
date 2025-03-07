@@ -5,7 +5,7 @@ import WeeklyFeaturedProducts from './components/cards/WeeklyFeaturedProducts';
 
 const FeaturedProducts = () => {
     return (
-      <div className="px-8 py-20 bg-[#eee] grid grid-cols-4 gap-x-8">
+      <div className="featured-products">
         {/* 1st Card - Deal of the day */}
         <DealOfTheDay />
         {/* 2nd Card - Weekly Featured Products List */}

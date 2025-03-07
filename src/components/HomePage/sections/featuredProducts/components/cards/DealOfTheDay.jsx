@@ -47,7 +47,9 @@ const DealOfTheDay = () => {
           {/* Product Details */}
           {/* REPLACE */}
           <Link href={"/"}>
-            <h4 className="product-name">Veniam officiis voluptates</h4>
+            <h4 className="product-name">
+              Lorem ipsum dolor sit amet conse ctetur adipisicing elit.
+            </h4>
           </Link>
           <div className="flex gap-4 items-center mt-3">
             <h2 className="new-price">$89.00</h2>

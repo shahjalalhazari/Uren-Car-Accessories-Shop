@@ -21,7 +21,10 @@ const ProductRating = ({ rating }) => {
     return stars;
   };
   return (
-    <div className="flex items-center space-x-1 mt-2">{renderStars()}</div>
+    <div className="flex items-center space-x-1 mt-2">
+      {renderStars()}{" "}
+      <span className="text-blue ml-2 text-sm">&#40;122 Reviews&#41;</span>
+    </div>
   );
 };
 
