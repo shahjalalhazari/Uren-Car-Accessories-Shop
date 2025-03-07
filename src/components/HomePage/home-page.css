@@ -4,7 +4,7 @@
 }
 
 .carousel-content {
-    @apply text-white text-center flex items-center ml-[100px];
+    @apply text-white text-center flex items-center lg:ml-[100px];
 }
 
 .carousel-sub-heading {
@@ -20,7 +20,7 @@
 }
 
 .carousel-left-btn {
-    @apply btn btn-circle border-none bg-secondary;
+    @apply bg-secondary px-5 py-3 rounded-full;
 }
 
 .carousel-left-btn:hover {
@@ -28,7 +28,7 @@
 }
 
 .carousel-right-btn {
-    @apply btn btn-circle border-none bg-primary;
+    @apply bg-primary px-5 py-3 rounded-full;
 }
 
 .carousel-right-btn:hover {
@@ -254,11 +254,41 @@
 
 /* ------------------- */
 @media (max-width: 768px) {
-
     /* CAROUSEL BANNER SECTION */
-    .carousel-bg {
-        @apply hidden;
-        /* @apply carousel-item relative w-full h-[90vh] bg-cover; */
+    .mobile-screen .carousel-bg {
+        @apply carousel-item relative w-full h-auto bg-right;
+    }
+
+    .mobile-screen .carousel-content {
+        @apply text-white text-start px-6 py-16;
+    }
+
+    .carousel-heading {
+        @apply text-xl text-primary uppercase font-bold;
+    }
+
+    .mobile-screen .carousel-sub-heading {
+        @apply text-sm text-secondary font-semibold uppercase;
+    }
+
+    .mobile-screen .carousel-btns {
+        @apply absolute bottom-6 right-6 flex gap-2 transform justify-between;
+    }
+
+    .mobile-screen .carousel-left-btn {
+        @apply bg-secondary px-4 py-2 rounded-full;
+    }
+
+    .mobile-screen .carousel-left-btn:hover {
+        @apply bg-secondary text-white
+    }
+
+    .mobile-screen .carousel-right-btn {
+        @apply bg-primary px-4 py-2 rounded-full;
+    }
+
+    .mobile-screen .carousel-right-btn:hover {
+        @apply bg-primary text-secondary
     }
 
     /* SHOPPING FACILITIES SECTION */

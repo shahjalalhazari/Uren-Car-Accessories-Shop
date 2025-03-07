@@ -21,7 +21,7 @@ const CarouselBanner = () => {
   }, []);
 
   return (
-    <div className="carousel w-full relative overflow-hidden">
+    <div className="carousel w-full relative overflow-hidden mobile-screen">
       <div
         className="flex transition-transform duration-700 ease-in-out"
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
@@ -32,20 +32,23 @@ const CarouselBanner = () => {
           return (
             <div
               key={index}
-              className={`carousel-bg min-w-full ${
+              className={`carousel-bg lg:min-w-full ${
                 index === activeIndex ? `slick-active ${animationStyle}` : ""
               }`}
               style={{
                 backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0,0,0,0.3)), 
                 url(/images/slider/${index + 1}.jpg)`,
+                backgroundPosition: "bottom",
               }}
             >
               <div className="carousel-content">
-                <div className="carousel-text space-y-5">
+                <div className="carousel-text space-y-3 lg:space-y-5">
                   <h5 className="carousel-sub-heading">{banner.subHeading}</h5>
                   <h2 className="carousel-heading">{banner.heading}</h2>
-                  <div className="h-1 bg-secondary w-20 mx-auto rounded"></div>
-                  <p>{banner.description}</p>
+                  <div className="h-0.5 lg:h-1 bg-secondary w-14 lg:w-20 lg:mx-auto rounded"></div>
+                  <p className="w-[360px] lg:w-full text-sm lg:text-base pb-2">
+                    {banner.description}
+                  </p>
                   <PrimaryBtn text="READ MORE" path="/" />
                 </div>
               </div>
@@ -55,7 +58,7 @@ const CarouselBanner = () => {
       </div>
 
       {/* Navigation Buttons */}
-      <div className="carousel-btns absolute bottom-5 right-5 flex gap-3">
+      <div className="carousel-btns">
         <button
           className="carousel-left-btn"
           onClick={() =>
