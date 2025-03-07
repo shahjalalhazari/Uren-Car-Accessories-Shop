@@ -70,11 +70,11 @@
 /* ---------------- */
 /* SHOPPING FACILITIES SECTION */
 .shopping-facilities {
-    @apply mx-8 py-0 mb-20 border border-primary;
+    @apply mx-8 py-0 mt-20 border border-primary;
 }
 
 .shopping-facilities-layout {
-    @apply grid grid-cols-2 place-items-center py-8 gap-y-6;
+    @apply grid grid-cols-2 place-items-center py-8 gap-y-8;
 }
 
 .facility-item {
@@ -293,8 +293,31 @@
 
     /* SHOPPING FACILITIES SECTION */
     .shopping-facilities {
-        /* @apply mx-8 py-0 mb-20 border border-primary; */
-        @apply hidden;
+        @apply mx-8 py-0 mt-12 border border-primary;
+        }
+
+        .shopping-facilities-layout {
+            @apply flex flex-col place-items-center py-6 gap-y-4;
+        }
+
+        .facility-item {
+            @apply flex flex-col text-center items-center;
+        }
+
+        .item-icon {
+            @apply text-primary text-4xl mb-2;
+        }
+
+        .item-content {
+            @apply flex flex-col gap-1;
+        }
+
+        .item-content>h6 {
+            @apply font-semibold;
+        }
+
+        .item-content>p {
+            @apply text-[#999] text-sm
     }
 
     /* ----------------------- */

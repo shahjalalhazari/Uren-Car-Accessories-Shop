@@ -47,7 +47,7 @@ const OfferBanners = () => {
     },
   };
   return (
-    <div className="mx-6 lg:mx-4 p-0 mt-16 lg:mt-20">
+    <div className="mx-6 lg:mx-4 p-0 mt-12 lg:mt-20">
       <Carousel
         swipeable={true}
         draggable={true}
@@ -63,7 +63,7 @@ const OfferBanners = () => {
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         deviceType={deviceType}
-        itemClass="lg:px-5 z-[100]"
+        itemClass="px-2 lg:px-5 z-[100]"
       >
         {offerBannersList.map((offerBanner, index) => (
           <Link
