@@ -47,7 +47,7 @@ const OfferBanners = () => {
     },
   };
   return (
-    <div className="mx-4 p-0 my-20">
+    <div className="mx-6 lg:mx-4 p-0 mt-16 lg:mt-20">
       <Carousel
         swipeable={true}
         draggable={true}
@@ -55,7 +55,7 @@ const OfferBanners = () => {
         responsive={responsive}
         ssr={true}
         infinite={true}
-        autoPlay={deviceType !== "mobile"}
+        autoPlay={deviceType == "mobile"}
         autoPlaySpeed={3000}
         keyBoardControl={true}
         customTransition="ease-in-out .5"
@@ -63,7 +63,7 @@ const OfferBanners = () => {
         containerClass="carousel-container"
         removeArrowOnDeviceType={["tablet", "mobile"]}
         deviceType={deviceType}
-        itemClass="px-5 z-[100]"
+        itemClass="lg:px-5 z-[100]"
       >
         {offerBannersList.map((offerBanner, index) => (
           <Link
