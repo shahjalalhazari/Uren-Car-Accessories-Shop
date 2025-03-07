@@ -4,17 +4,15 @@ import React from 'react';
 
 const BigOfferBanners = () => {
     return (
-      <div className="px-8 pb-20 bg-[#eee]">
+      <div className="px-6 lg:px-8 pb-12 lg:pb-20 bg-[#eee]">
         <div className="big-banner-container">
           <div className="big-single-banner">
-            <Image
-              src={"/images/banner/1.jpg"}
-              width={"1000"}
-              height={"850"}
-              alt="Offer banner 1"
-              className="cursor-pointer"
-            />
-            <div className="big-single-banner-content">
+            <div
+              className="big-single-banner-content"
+              style={{
+                backgroundImage: `url(/images/banner/1.jpg)`,
+              }}
+            >
               <h5>Get 20% off your order</h5>
               <h4>
                 Car and Truck <br />
@@ -30,14 +28,12 @@ const BigOfferBanners = () => {
             </div>
           </div>
           <div className="big-single-banner">
-            <Image
-              src={"/images/banner/2.jpg"}
-              width={"1000"}
-              height={"850"}
-              alt="Offer banner 2"
-              className="cursor-pointer"
-            />
-            <div className="big-single-banner-content">
+            <div
+              className="big-single-banner-content"
+              style={{
+                backgroundImage: `url(/images/banner/2.jpg)`,
+              }}
+            >
               <h5>Save $120 when you buy</h5>
               <h4>
                 Rotiform SFO <br />

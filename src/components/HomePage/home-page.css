@@ -192,15 +192,15 @@
 }
 
 .big-single-banner {
-    @apply relative transition-all ease-in;
+    @apply transition-all ease-in;
 }
 
 .big-single-banner:hover {
-    @apply opacity-70
+    @apply opacity-80
 }
 
 .big-single-banner-content {
-    @apply absolute top-[50%] left-0 p-10 z-50 text-white -translate-y-1/2 space-y-2.5 cursor-pointer;
+    @apply px-10 py-24 text-white space-y-2.5 cursor-pointer;
 }
 
 .big-single-banner-content>h5 {
@@ -259,7 +259,7 @@
 @media (max-width: 768px) {
     /* CAROUSEL BANNER SECTION */
     .mobile-screen .carousel-bg {
-        @apply carousel-item relative w-full h-auto bg-right;
+        @apply carousel-item relative w-full h-auto bg-cover bg-center;
     }
 
     .mobile-screen .carousel-content {
@@ -339,71 +339,84 @@
     }
     .card-container {
         @apply bg-base-100 w-full shadow-md p-6 pt-8;
-        }
-
-        /* Deal Of The Day Card */
-        .deal-of-the-day .product-name {
-            @apply text-black text-lg font-semibold leading-snug;
-        }
-
-        .deal-of-the-day .product-name:hover {
-            @apply text-primary;
-        }
-
-        .deal-of-the-day .old-price {
-            @apply text-[#999] line-through
-        }
-
-        .deal-of-the-day .new-price {
-            @apply text-secondary text-2xl font-bold
-        }
-
-        /* Countdown Timer */
-        .timer-container {
-            @apply flex text-center justify-between items-center;
-        }
-
-        .timer-box {
-            @apply flex flex-col items-center justify-center border-2 border-[#ddd] py-3 px-2;
-        }
-
-        .timer-box>h5 {
-            @apply text-primary text-xl font-semibold leading-tight;
-        }
-
-        .timer-box>p {
-            @apply text-sm text-[#999]
-        }
-
-        /* Weekly Featured Product Card */
-        .weekly-product-single-card {
-            @apply grid grid-cols-3 items-center py-2 border-b-2
-        }
-
-        .weekly-product-single-card:hover {
-            @apply shadow-md
-        }
-
-        .weekly-product-single-card:last-child {
-            @apply border-none
-        }
-
-        .weekly-product-name {
-            @apply text-[#999] leading-4 my-2 text-sm
-        }
-
-        .weekly-product-name:hover {
-            @apply text-secondary;
-        }
+    }
+    /* Deal Of The Day Card */
+    .deal-of-the-day .product-name {
+        @apply text-black text-lg font-semibold leading-snug;
+    }
+    .deal-of-the-day .product-name:hover {
+        @apply text-primary;
+    }
+    .deal-of-the-day .old-price {
+        @apply text-[#999] line-through
+    }
+    .deal-of-the-day .new-price {
+        @apply text-secondary text-2xl font-bold
+    }
+    /* Countdown Timer */
+    .timer-container {
+        @apply flex text-center justify-between items-center;
+    }
+    .timer-box {
+        @apply flex flex-col items-center justify-center border-2 border-[#ddd] py-3 px-2;
+    }
+    .timer-box>h5 {
+        @apply text-primary text-xl font-semibold leading-tight;
+    }
+    .timer-box>p {
+        @apply text-sm text-[#999]
+    }
+    /* Weekly Featured Product Card */
+    .weekly-product-single-card {
+        @apply grid grid-cols-3 items-center py-2 border-b-2
+    }
+    .weekly-product-single-card:hover {
+        @apply shadow-md
+    }
+    .weekly-product-single-card:last-child {
+        @apply border-none
+    }
+    .weekly-product-name {
+        @apply text-[#999] leading-4 my-2 text-sm
+    }
+    .weekly-product-name:hover {
+        @apply text-secondary;
+    }
 
     /* ----------------------------- */
 
     /* OFFER BIG BANNER SECTION */
     .big-banner-container {
-        /* @apply grid grid-cols-2 gap-x-8 w-full; */
-        @apply hidden;
+        @apply grid grid-cols-1 gap-y-4 w-full;
+        }
+
+        .big-single-banner {
+            @apply transition-all ease-in;
+        }
+
+        .big-single-banner:hover {
+            @apply opacity-80
+        }
+
+        .big-single-banner-content {
+            @apply px-6 py-14 text-white space-y-2.5 cursor-pointer bg-center bg-cover;
+        }
+
+        .big-single-banner-content>h5 {
+            @apply uppercase text-primary text-sm;
+        }
+
+        .big-single-banner-content>h4 {
+            @apply uppercase text-xl leading-6;
+        }
+
+        .big-single-banner-content>div {
+            @apply bg-transparent w-14 border-b border-primary;
     }
 
+    .big-single-banner-content>p {
+        @apply text-sm w-full;
+    }
     /* ------------------------ */
 
     /* NEW ARRIVAL PRODUCTS SECTION */
