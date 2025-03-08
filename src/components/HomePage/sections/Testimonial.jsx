@@ -22,12 +22,12 @@ const Testimonial = () => {
       <div
         slot="container-start"
         className="testimonial-bg-img"
-        data-swiper-parallax="-23%"
+        data-swiper-parallax="-33%"
       ></div>
       {testimonials.map((testimonial, index) => (
         <SwiperSlide key={index}>
           <div className="testimonial-content">
-            <div className="space-y-3">
+            <div className="space-y-1 lg:space-y-3">
               <p className="text-primary">What’s Client Says</p>
               <h2 className="text-base-100 text-2xl font-bold">
                 {testimonial.name}

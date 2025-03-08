@@ -426,21 +426,22 @@
     /* NEW ARRIVAL PRODUCTS SECTION */
     .new-arrival-slider {
         @apply border-y-0 border-l-0 mt-6;
-        }
-
-        .new-arrival-slider:last-child {
-            @apply border-r-0;
-        }
-
-        .new-arrival-slider-card {
-            @apply border border-[#ddd] p-4;
-        }
+    }
+    .new-arrival-slider:last-child {
+        @apply border-r-0;
+    }
+    .new-arrival-slider-card {
+        @apply border border-[#ddd] p-4;
+    }
 
     /* ------------------------ */
 
     /* TESTIMONIAL SECTION */
-    .testimonial-bg-img {
-        @apply hidden;
-        /* @apply absolute left-0 top-0 w-[150%] h-full bg-cover bg-center bg-[url(/images/testimonial/bg-1.jpg)]; */
+    .testimonial-content {
+        @apply py-12 px-6 space-y-6;
+    }
+
+    .testimonial-comment {
+        @apply text-base py-8 px-6 leading-normal;
     }
 }
