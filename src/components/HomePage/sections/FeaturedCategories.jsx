@@ -10,7 +10,7 @@ const FeaturedCategories = () => {
 
   useEffect(() => {
     const updateDeviceType = () => {
-      if (window.innerWidth < 464) {
+      if (window.innerWidth < 769) {
         setDeviceType("mobile");
       } else if (window.innerWidth < 1024) {
         setDeviceType("tablet");
@@ -36,7 +36,7 @@ const FeaturedCategories = () => {
       slidesToSlide: 6,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 769 },
       items: 4,
       slidesToSlide: 4,
     },
@@ -47,7 +47,7 @@ const FeaturedCategories = () => {
     },
   };
   return (
-    <div className="mx-6 lg:ml-8 mr-8 lg:mr-10 py-0 my-12 lg:my-20">
+    <div className="slider-layout">
       {/* Section Heading */}
       <SectionHeading
         heading="Featured Categories"
@@ -70,7 +70,7 @@ const FeaturedCategories = () => {
         containerClass="carousel-container"
         removeArrowOnDeviceType={[]}
         deviceType={deviceType}
-        itemClass="mt-12 border lg:border-y lg:border-l"
+        itemClass="mt-8 lg:mt-12 border lg:border-y lg:border-l"
       >
         {featuredCategories.map((item, index) => (
           <FeaturedCategorySingleCard key={index} categoryItem={item} />

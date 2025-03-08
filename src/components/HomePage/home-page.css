@@ -1,3 +1,7 @@
+.slider-layout {
+    @apply ml-8 mr-10 py-0 my-20;
+}
+
 /* CAROUSEL BANNER SECTION */
 .carousel-bg {
     @apply carousel-item relative w-full h-[90vh] bg-cover;
@@ -104,7 +108,7 @@
 }
 
 .category-item-card:hover {
-    @apply shadow-2xl;
+    @apply shadow-xl;
 }
 
 .category-item-card-title {
@@ -222,7 +226,7 @@
 /* ------------------------ */
 /* NEW ARRIVAL PRODUCTS SECTION */
 .new-arrival-slider {
-    @apply border-y border-l border-[#ddd] mt-8;
+    @apply border-y border-l border-[#ddd] mt-12;
 }
 
 .new-arrival-slider:last-child {
@@ -230,11 +234,15 @@
 }
 
 .new-arrival-slider-card {
-    @apply bg-base-100 cursor-pointer;
+    @apply bg-base-100 cursor-pointer border-b border-[#ddd];
+    }
+
+    .new-arrival-slider-card:hover {
+        @apply shadow-xl;
 }
 
 .new-arrival-item-content {
-    @apply flex flex-col gap-1.5 items-center text-center px-2 pt-0 p-4;
+    @apply flex flex-col gap-2 items-center text-center px-2 pt-0 p-4;
 }
 
 .new-arrival-item-price {
@@ -257,6 +265,9 @@
 
 /* ------------------- */
 @media (max-width: 768px) {
+    .slider-layout {
+        @apply mx-6 mr-8 py-0 my-12;
+    }
     /* CAROUSEL BANNER SECTION */
     .mobile-screen .carousel-bg {
         @apply carousel-item relative w-full h-auto bg-cover bg-center;
@@ -388,32 +399,25 @@
     /* OFFER BIG BANNER SECTION */
     .big-banner-container {
         @apply grid grid-cols-1 gap-y-4 w-full;
-        }
-
-        .big-single-banner {
-            @apply transition-all ease-in;
-        }
-
-        .big-single-banner:hover {
-            @apply opacity-80
-        }
-
-        .big-single-banner-content {
-            @apply px-6 py-14 text-white space-y-2.5 cursor-pointer bg-center bg-cover;
-        }
-
-        .big-single-banner-content>h5 {
-            @apply uppercase text-primary text-sm;
-        }
-
-        .big-single-banner-content>h4 {
-            @apply uppercase text-xl leading-6;
-        }
-
-        .big-single-banner-content>div {
-            @apply bg-transparent w-14 border-b border-primary;
     }
-
+    .big-single-banner {
+        @apply transition-all ease-in;
+    }
+    .big-single-banner:hover {
+        @apply opacity-80
+    }
+    .big-single-banner-content {
+        @apply px-6 py-14 text-white space-y-2.5 cursor-pointer bg-center bg-cover;
+    }
+    .big-single-banner-content>h5 {
+        @apply uppercase text-primary text-sm;
+    }
+    .big-single-banner-content>h4 {
+        @apply uppercase text-xl leading-6;
+    }
+    .big-single-banner-content>div {
+        @apply bg-transparent w-14 border-b border-primary;
+    }
     .big-single-banner-content>p {
         @apply text-sm w-full;
     }
@@ -421,9 +425,16 @@
 
     /* NEW ARRIVAL PRODUCTS SECTION */
     .new-arrival-slider {
-        /* @apply border-y border-l border-[#ddd] mt-8; */
-        @apply hidden;
-    }
+        @apply border-y-0 border-l-0 mt-6;
+        }
+
+        .new-arrival-slider:last-child {
+            @apply border-r-0;
+        }
+
+        .new-arrival-slider-card {
+            @apply border border-[#ddd] p-4;
+        }
 
     /* ------------------------ */
 

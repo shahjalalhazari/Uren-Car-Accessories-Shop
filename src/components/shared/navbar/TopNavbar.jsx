@@ -18,6 +18,7 @@ const TopNavbar = () => {
         <input
           type="text"
           placeholder="Search Here..."
+          name="search"
           className="search-input"
         />
         <button className="search-btn" type="submit">

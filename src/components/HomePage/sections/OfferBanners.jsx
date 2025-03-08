@@ -10,7 +10,7 @@ const OfferBanners = () => {
 
   useEffect(() => {
     const updateDeviceType = () => {
-      if (window.innerWidth < 464) {
+      if (window.innerWidth < 769) {
         setDeviceType("mobile");
       } else if (window.innerWidth < 1024) {
         setDeviceType("tablet");
@@ -36,12 +36,12 @@ const OfferBanners = () => {
       slidesToSlide: 3,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 769 },
       items: 2,
       slidesToSlide: 2,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
+      breakpoint: { max: 768, min: 0 },
       items: 1,
       slidesToSlide: 1,
     },

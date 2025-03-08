@@ -18,7 +18,7 @@ const NewArrivalProducts = () => {
 
   useEffect(() => {
     const updateDeviceType = () => {
-      if (window.innerWidth < 464) {
+      if (window.innerWidth < 769) {
         setDeviceType("mobile");
       } else if (window.innerWidth < 1024) {
         setDeviceType("tablet");
@@ -40,22 +40,22 @@ const NewArrivalProducts = () => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 7,
-      slidesToSlide: 7,
+      items: 6,
+      slidesToSlide: 6,
     },
     tablet: {
-      breakpoint: { max: 1024, min: 464 },
+      breakpoint: { max: 1024, min: 769 },
       items: 4,
       slidesToSlide: 4,
     },
     mobile: {
-      breakpoint: { max: 464, min: 0 },
-      items: 2,
-      slidesToSlide: 2,
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+      slidesToSlide: 1,
     },
   };
   return (
-    <div className="ml-8 mr-10 py-0 my-20">
+    <div className="slider-layout">
       {/* Section Heading */}
       <SectionHeading
         heading="New Arrivals Products"
@@ -70,13 +70,13 @@ const NewArrivalProducts = () => {
         responsive={responsive}
         ssr={true}
         infinite={true}
-        autoPlay={deviceType !== "mobile"}
+        autoPlay={deviceType == "mobile"}
         autoPlaySpeed={5000}
         keyBoardControl={true}
         customTransition="ease-in-out .5"
         transitionDuration={3000}
         containerClass="carousel-container"
-        removeArrowOnDeviceType={["tablet", "mobile"]}
+        removeArrowOnDeviceType={[]}
         deviceType={deviceType}
         itemClass="new-arrival-slider"
       >
@@ -85,8 +85,8 @@ const NewArrivalProducts = () => {
             <div className="relative">
               <Image
                 src={item.image}
-                width={150}
-                height={150}
+                width={250}
+                height={250}
                 alt={item.name}
                 className="mx-auto p-0 m-0"
               />
@@ -100,7 +100,7 @@ const NewArrivalProducts = () => {
             {/* Default Product Content */}
             <div className="new-arrival-item-content">
               <ProductRating rating={item.rating} />
-              <h2 className="text-sm text-[#999]">{item.name}</h2>
+              <h2 className="text-[#999]">{item.name}</h2>
               <p className="new-arrival-item-price">
                 <span className="text-blue">${item.price.toFixed(2)}</span>
                 {item.oldPrice > 0 && (
@@ -109,7 +109,7 @@ const NewArrivalProducts = () => {
                   </span>
                 )}
               </p>
-              <div className="flex gap-4">
+              <div className="flex gap-4 mt-2">
                 {/* ADD TO CART BUTTON */}
                 {/* REPLACE */}
                 <Link href={"/"}>
