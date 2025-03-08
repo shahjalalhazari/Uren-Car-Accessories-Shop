@@ -16,7 +16,7 @@ const SingleBlogCard = ({ blog }) => {
             width={350}
             height={220}
             alt={blog.title}
-            className="w-full"
+            className="w-full h-auto"
           />
         </Link>
         <p className="blog-date">{date}</p>

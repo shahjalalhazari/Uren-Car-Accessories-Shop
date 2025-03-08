@@ -84,7 +84,7 @@
 
 /* BLOG's STYLE */
 .blog-layout {
-    @apply grid grid-cols-4 gap-x-8 mt-8 text-start mb-12;
+    @apply grid grid-cols-4 gap-8 mt-8 text-start mb-12;
 }
 
 .blog-image {
@@ -318,10 +318,14 @@
 
 /* ----------------------- */
 @media (max-width: 768px) {
+    /* BLOG's STYLE */
     .blog-layout {
-        /* @apply grid grid-cols-4 gap-x-8 mt-8 text-start mb-12; */
-        @apply hidden
-    }
+        @apply grid grid-cols-1 mt-6 mb-8;
+        }
+
+        .blog-title {
+            @apply text-base;
+        }
 
     .newsletter-bg {
         /* @apply bg-fixed bg-center bg-cover; */

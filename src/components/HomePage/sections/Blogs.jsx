@@ -5,7 +5,7 @@ import React from 'react';
 
 const Blogs = () => {
     return (
-      <div className="px-8 py-20 bg-[#eee] text-center">
+      <div className="px-6 lg:px-8 py-12 lg:py-20 bg-[#eee] text-center">
         {/* Section Heading */}
         <SectionHeading
           heading={"From Our Blogs"}
