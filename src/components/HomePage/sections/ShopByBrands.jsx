@@ -6,14 +6,14 @@ import React from 'react';
 
 const ShopByBrands = () => {
     return (
-      <div className="mx-8 py-0 my-20 text-center">
+      <div className="shop-by-brands">
         <SectionHeading
           heading="Shop By Brands"
           subHeading="Top Quality Partner"
         />
 
         {/* Brands Lists */}
-        <div className="grid grid-cols-6 w-full mt-8 mb-12 border-y border-l border-[#999]">
+        <div className="shop-by-brands-layout">
           {[...Array(6)].map((brand, index) => (
             // REPLACE
             <Link href={"/"} key={index}>
@@ -21,8 +21,8 @@ const ShopByBrands = () => {
                 src={`/images/brand/${index + 1}.jpg`}
                 width={175}
                 height={150}
-                alt="Brand 1"
-                className="py-5 px-10 w-full border-r  border-[#999]"
+                alt={`Brand ${index + 1}`}
+                className="shop-by-brands-item"
               />
             </Link>
           ))}

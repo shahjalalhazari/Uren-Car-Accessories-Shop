@@ -263,6 +263,21 @@
     @apply text-base-100 text-xl bg-black bg-opacity-30 border border-white border-opacity-30 py-12 px-10 leading-relaxed;
 }
 
+/* SHOP BY BRANDS SECTION */
+.shop-by-brands {
+    @apply mx-8 py-0 my-20 text-center;
+}
+
+.shop-by-brands-layout {
+    @apply grid grid-cols-6 w-full mt-8 mb-12 border-y border-l border-[#ddd];
+}
+
+.shop-by-brands-item {
+    @apply py-5 px-8 w-full border-r border-[#ddd];
+}
+
+/* --------------------- */
+
 /* ------------------- */
 @media (max-width: 768px) {
     .slider-layout {
@@ -443,5 +458,17 @@
 
     .testimonial-comment {
         @apply text-base py-8 px-6 leading-normal;
+    }
+    /* SHOP BY BRANDS SECTION */
+    .shop-by-brands {
+        @apply mx-6 py-0 my-12 text-center;
+    }
+
+    .shop-by-brands-layout {
+        @apply grid grid-cols-2 gap-4 mt-6 mb-8 border-y-0 border-l-0 border-[#ddd];
+    }
+
+    .shop-by-brands-item {
+        @apply py-2 px-5 w-full border border-[#ddd];
     }
 }
