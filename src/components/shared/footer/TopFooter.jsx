@@ -27,8 +27,8 @@ const TopFooter = ({ FooterNavItems }) => {
         </p>
         <div className="footer-contacts">
           <p>
-            <span className="footer-contacts-heading">Address: </span>233/26 Ewrat
-            Holdings Inc. Al Waha St. Al Qouz 3. Al Quoz, Dubai - UAE.
+            <span className="footer-contacts-heading">Address: </span>233/26
+            Ewrat Holdings Inc. Al Waha St. Al Qouz 3. Al Quoz, Dubai - UAE.
           </p>
           <p>
             <span className="footer-contacts-heading">Call Us: </span>+971 58
@@ -81,9 +81,9 @@ const TopFooter = ({ FooterNavItems }) => {
         </div>
       </aside>
       {/* Column 2 */}
-      <nav className="">
+      <nav className="footer-nav">
         <h6 className="footer-nav-heading">Information</h6>
-        <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>
+        <div className="heading-bar"></div>
         <ul className="footer-nav-item-list">
           {FooterNavItems.map((item) => (
             <li key={item.path} className="">
@@ -95,7 +95,7 @@ const TopFooter = ({ FooterNavItems }) => {
         </ul>
       </nav>
       {/* Column 3 */}
-      <nav className="">
+      <nav className="footer-nav">
         <h6 className="footer-nav-heading">Customer Service</h6>
         <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>
         <ul className="footer-nav-item-list">
@@ -116,7 +116,7 @@ const TopFooter = ({ FooterNavItems }) => {
           </li>
         </ul>
       </nav>
-      <nav className="">
+      <nav className="footer-nav">
         <h6 className="footer-nav-heading">Extras</h6>
         <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>
         <ul className="footer-nav-item-list">
@@ -138,7 +138,7 @@ const TopFooter = ({ FooterNavItems }) => {
         </ul>
       </nav>
       {/* Column 4 */}
-      <nav className="">
+      <nav className="footer-nav">
         <h6 className="footer-nav-heading">My Account</h6>
         <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>
         <ul className="footer-nav-item-list">
