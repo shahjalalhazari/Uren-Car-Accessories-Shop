@@ -25,19 +25,11 @@ const FooterNavItems = [
     path: "/shop/products",
   },
   {
-    title: "About Us",
-    path: "/about-us",
-  },
-  {
     title: "Services",
     path: "/services",
   },
   {
     title: "Blogs",
     path: "/blogs",
-  },
-  {
-    title: "Contact Us",
-    path: "/contact-us",
   },
 ];

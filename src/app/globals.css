@@ -373,6 +373,11 @@
 
 /* ----------------------- */
 @media (max-width: 768px) {
+    /* Page Breadcrumb */
+    .breadcrumb-title {
+        @apply text-2xl;
+    }
+
     /* BLOG's STYLE */
     .blog-layout {
         @apply grid grid-cols-1 mt-6 mb-8;
@@ -405,27 +410,22 @@
     /* Top Part */
     .top-footer-layout {
         @apply px-6 py-12 grid grid-cols-1 gap-8;
-        }
-
-        .footer-aside {
-            @apply col-span-2 space-y-4;
-        }
-
-        .footer-actions {
-            @apply text-base p-3 rounded-full;
-        }
-
-        .footer-actions:hover {
-            @apply bg-opacity-40
-        }
-
-        .footer-nav-heading {
-            @apply text-base-100 font-bold uppercase;
-        }
-
-        .footer-nav>div {
-            @apply w-10 mt-3 mb-4;
-        }
+    }
+    .footer-aside {
+        @apply col-span-2 space-y-4;
+    }
+    .footer-actions {
+        @apply text-base p-3 rounded-full;
+    }
+    .footer-actions:hover {
+        @apply bg-opacity-40
+    }
+    .footer-nav-heading {
+        @apply text-base-100 font-bold uppercase;
+    }
+    .footer-nav>div {
+        @apply w-10 mt-3 mb-4;
+    }
 
     /* Bottom Part */
     .bottom-footer-layout {

@@ -93,7 +93,7 @@ const MobileScreenNavbar = ({ navItems, categories }) => {
                 {/* Menu Items */}
                 <ul className="mobile-nav-list">
                   {navItems.map((item) => (
-                    <li>
+                    <li key={item.path}>
                       <Link
                         className={`font-semibold uppercase ${
                           pathname === item.path && "text-secondary"

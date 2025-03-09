@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import "@/components/Shop/Products/products-page.css";
+import "./products-page.css";
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import BrandNamesList from '@/components/Shop/Products/BrandNamesList';
 import CategoriesList from '@/components/Shop/Products/CategoriesList';

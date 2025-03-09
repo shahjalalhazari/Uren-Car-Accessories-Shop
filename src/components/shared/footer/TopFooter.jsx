@@ -80,7 +80,7 @@ const TopFooter = ({ FooterNavItems }) => {
           </Link>
         </div>
       </aside>
-      {/* Column 2 */}
+      {/* Column 2 | INFORMATION */}
       <nav className="footer-nav">
         <h6 className="footer-nav-heading">Information</h6>
         <div className="heading-bar"></div>
@@ -94,14 +94,19 @@ const TopFooter = ({ FooterNavItems }) => {
           ))}
         </ul>
       </nav>
-      {/* Column 3 */}
+      {/* Column 3 | CUSTOMER SERVICES */}
       <nav className="footer-nav">
         <h6 className="footer-nav-heading">Customer Service</h6>
         <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>
         <ul className="footer-nav-item-list">
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/contact-us"} className="footer-nav-link">
               Contact Us
+            </Link>
+          </li>
+          <li className="">
+            <Link href={"/about-us"} className="footer-nav-link">
+              About Us
             </Link>
           </li>
           <li className="">
@@ -116,6 +121,7 @@ const TopFooter = ({ FooterNavItems }) => {
           </li>
         </ul>
       </nav>
+      {/* Column 4 | EXTRAS */}
       <nav className="footer-nav">
         <h6 className="footer-nav-heading">Extras</h6>
         <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>
@@ -137,7 +143,7 @@ const TopFooter = ({ FooterNavItems }) => {
           </li>
         </ul>
       </nav>
-      {/* Column 4 */}
+      {/* Column 5 | ACCOUNT */}
       <nav className="footer-nav">
         <h6 className="footer-nav-heading">My Account</h6>
         <div className="bg-primary w-16 h-[1px] mt-4 mb-5"></div>

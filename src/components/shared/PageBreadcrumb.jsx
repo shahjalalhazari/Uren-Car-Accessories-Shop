@@ -4,11 +4,10 @@ import { usePathname } from "next/navigation";
 
 const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
   const url = usePathname();
-  const pathnames = url.split("/");
-  const isShop = pathnames.includes("shop");
+  const isShop = url.split("/").includes("shop");
 
   return (
-    <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[40vh]">
+    <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[25vh] lg:h-[40vh]">
       <div className="breadcrumb-bg-overlay">
         <h2 className="breadcrumb-title">{breadcrumbTitle}</h2>
         <div className="breadcrumbs text-xs mx-auto">
