@@ -9,7 +9,7 @@ const NewsletterSection = () => {
         {/* Content Section */}
         <div className="newsletter-content">
           <h2 className="newsletter-heading">Join Our Newsletter Now</h2>
-          <p className="text-sm ">
+          <p className="text-xs lg:text-sm w-[85%] lg:w-full mx-auto">
             Get E-mail updates about our latest shop and special offers.
           </p>
           <form className="newsletter-form ">
