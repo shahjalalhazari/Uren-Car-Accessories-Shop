@@ -51,14 +51,14 @@ const ProductsListWithLazyLoad = ({ productsList }) => {
   }, [displayProducts]);
 
   return (
-    <div className="grid grid-cols-3 gap-8">
+    <div className="product-list-layout">
       {displayProducts.map((item, index) => (
         <SingleProductCard singleProduct={item} key={index} />
       ))}
 
       {/* Lazy Load Trigger */}
       {displayProducts.length < productsList.length && (
-        <div id="lazy-load-trigger" className="col-span-3 text-center">
+        <div id="lazy-load-trigger" className="lg:col-span-3 text-center">
           <LoadingComponent />
         </div>
       )}

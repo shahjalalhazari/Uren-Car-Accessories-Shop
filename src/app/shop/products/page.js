@@ -48,9 +48,9 @@ const ProductsPage = async ({ searchParams }) => {
       
       {/* Main content */}
       <main className="uren-container">
-        <div className="grid grid-cols-4 gap-8">
+        <div className="product-list-page-layout">
           {/* Left Side */}
-          <aside className="space-y-8">
+          <aside className="space-y-4 lg:space-y-8">
             {/* Categories List */}
             <CategoriesList categoriesList={categoriesList} />
             {/* Price Range Filter */}
@@ -58,11 +58,11 @@ const ProductsPage = async ({ searchParams }) => {
             {/* Brand's Names List */}
             <BrandNamesList brandsList={brandsList} />
             {/* Ad Banner */}
-              <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
+            <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hidden lg:block hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
           </aside>
         
           {/* Right Side (All Products List) */}
-          <div className="col-span-3">
+          <div className="lg:col-span-3 mt-6 lg:mt-0">
             {/* Sorting Dropdown */}
             <SortingDropdown />
 
