@@ -1,6 +1,6 @@
 /* Main Content Area */
 .about-us-layout {
-    @apply grid grid-cols-2 gap-x-8 items-center;
+    @apply grid grid-cols-2 gap-8 items-center;
 }
 
 .about-us-img{
@@ -25,4 +25,18 @@
 
 .project-count-single-item h3{
     @apply text-4xl text-primary font-bold mt-3;
+}
+/* Mobile Screen */
+@media (max-width: 768px) {
+    .about-us-layout {
+        @apply grid grid-cols-1 gap-4 items-center;
+    }
+
+    .project-count-layout {
+        @apply grid grid-cols-2 gap-4 mt-10 text-[#999];
+    }
+
+    .project-count-single-item {
+        @apply border border-[#e5e5e5] p-4;
+    }
 }

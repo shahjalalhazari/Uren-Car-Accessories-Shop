@@ -47,7 +47,7 @@ const BrandNamesList = ({ brandsList }) => {
       {/* Brands List */}
       <div
         className={`list-items-container ${
-          isOpen ? "max-h-full opacity-100" : "max-h-0 opacity-0"
+          isOpen ? "container-open" : "container-close"
         }`}
       >
         <ul className={`list-items`}>
