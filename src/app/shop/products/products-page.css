@@ -33,7 +33,7 @@
 }
 
 .container-open {
-    @apply max-h-52 opacity-100 overflow-y-auto;
+    @apply max-h-full opacity-100 overflow-y-auto;
 }
 
 .container-close {
@@ -71,6 +71,10 @@
     /* ASIDE */
     .aside-item-container {
         @apply p-4 border border-[#ddd];
+    }
+
+    .container-open {
+        @apply max-h-52;
     }
 
     .item-collapse-btn {

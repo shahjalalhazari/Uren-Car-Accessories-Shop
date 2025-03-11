@@ -13,8 +13,8 @@ const SingleBlogCard = ({ blog }) => {
         <Link href={`/blogs/${id}`}>
           <Image
             src={image}
-            width={350}
-            height={220}
+            width={300}
+            height={300}
             alt={blog.title}
             className="w-full h-auto"
           />

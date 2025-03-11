@@ -6,7 +6,6 @@
 .uren-container {
     @apply mx-6 lg:mx-8 my-12 lg:my-20;
 }
-
 /* ------------------ */
 
 /* SCROLL UP BUTTON */
@@ -64,7 +63,6 @@
 .secondary-btn:hover {
     @apply bg-secondary;
 }
-
 /* ----------------------- */
 
 /* Page Breadcrumb */
@@ -79,7 +77,6 @@
 .breadcrumb-title {
     @apply text-center text-4xl font-bold uppercase;
 }
-
 /* --------------- */
 
 /* BLOG's STYLE */
@@ -172,19 +169,15 @@
 
 /* ------------------ */
 /* Error Not Found Page */
-.error404 {
-    @apply my-20 text-center
-}
-
-.error404 h1 {
+.error-heading {
     @apply text-primary text-8xl font-bold pb-3
 }
 
-.error404 h2 {
+.error-subheading {
     @apply text-[#999] text-3xl font-bold pb-5
 }
 
-.error404 p {
+.error-paragraph {
     @apply w-4/12 text-[#999] text-sm mx-auto
 }
 
@@ -211,7 +204,6 @@
 .back-to-home-btn:hover {
     @apply bg-[#999] transition-all ease-in-out duration-500
 }
-
 /* -------------------- */
 /* FOOTER */
 /* Top Part */
@@ -263,62 +255,8 @@
 .bottom-footer-layout {
     @apply text-[#999] border-[#333] border-t px-10 py-6 flex items-center justify-between;
 }
-
-/* FOOTER */
-/* Top Part */
-.top-footer-layout {
-    @apply text-base-100 px-8 py-20 grid grid-cols-6 gap-8;
-}
-
-.footer-aside {
-    @apply col-span-2 space-y-8
-}
-
-.footer-description {
-    @apply text-sm text-[#999]
-}
-
-.footer-contacts {
-    @apply space-y-3 text-sm text-[#999]
-}
-
-.footer-nav>div {
-    @apply bg-primary w-16 h-[1px] mt-4 mb-5;
-}
-
-.footer-contacts-heading {
-    @apply text-base-100 font-semibold
-}
-
-.footer-actions {
-    @apply text-lg p-3 rounded-full;
-}
-
-.footer-actions:hover {
-    @apply bg-opacity-40
-}
-
-.footer-nav-heading {
-    @apply text-base-100 font-bold uppercase;
-}
-
-.footer-nav-item-list {
-    @apply flex flex-col text-[#999] gap-y-3;
-}
-
-.footer-nav-link {
-    @apply transition-all ease-in-out duration-500 text-[#999];
-}
-
-.footer-nav-link:hover {
-    @apply text-primary underline;
-}
-/* Bottom Part */
-.bottom-footer-layout {
-    @apply text-[#999] border-[#333] border-t px-10 py-6 flex items-center justify-between;
-}
-
 /* ------------------------ */
+
 /* CAROUSEL BANNER ANIMATIONS */
 /* Animation Style 01 */
 .slick-active.animation-style-01 .carousel-text>h5 {
@@ -370,7 +308,6 @@
     animation: 2200ms ease-in-out 0s normal none 1 running zoomInLeft !important;
     -webkit-animation: 2200ms ease-in-out 0s normal none 1 running zoomInLeft !important;
 }
-
 /* ----------------------- */
 @media (max-width: 768px) {
     /* Page Breadcrumb */
@@ -405,6 +342,25 @@
     .newsletter-submit-btn {
         @apply py-3 w-1/2 mx-auto;
     }
+
+    /* Error Not Found Page */
+    .error-heading {
+        @apply text-7xl pb-1;
+    }
+
+    .error-subheading {
+        @apply text-2xl font-semibold pb-3
+    }
+
+    .error-paragraph {
+        @apply w-full;
+    }
+
+    .error-search-form {
+        @apply mt-5 mb-6 w-10/12
+    }
+
+    /* ------------------------- */
 
     /* FOOTER */
     /* Top Part */

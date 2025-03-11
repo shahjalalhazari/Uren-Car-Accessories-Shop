@@ -1,4 +1,7 @@
 /* Common */
+.blogs-page-layout {
+    @apply grid grid-cols-4 gap-8;
+}
 .blog-aside-title {
     @apply text-center text-xl mb-2;
 }
@@ -47,3 +50,8 @@
 .single-tag:hover {
     @apply bg-primary text-base-100;
 }
+/* @media (max-width: 768px) {
+    .blogs-page-layout {
+        @apply grid grid-cols-1 gap-6
+    }
+} */

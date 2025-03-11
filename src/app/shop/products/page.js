@@ -50,7 +50,7 @@ const ProductsPage = async ({ searchParams }) => {
       <main className="uren-container">
         <div className="product-list-page-layout">
           {/* Left Side */}
-          <aside className="space-y-4 lg:space-y-8">
+          <aside className="space-y-4 lg:space-y-8 w-full">
             {/* Categories List */}
             <CategoriesList categoriesList={categoriesList} />
             {/* Price Range Filter */}

@@ -26,7 +26,7 @@ export const CarProvider = ({ children }) => {
     } else {
       setSelectedBrand(brand);
       const selectedCardBrand = carBrandList.find((b) => b.name === brand);
-      setModelsList(selectedCardBrand?.models || []);
+      setModelsList(selectedCardBrand?.models || defaultModels); // if user deselect brand list then show the default model list.
     }
   }
 
