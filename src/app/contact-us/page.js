@@ -19,10 +19,10 @@ const ContactUsPage = () => {
         <GoogleMap/>
 
         {/* Contact Form & Address Book */}
-        <div className="contact-address-layout">
+        <div className="contact-layout">
 
           {/* Contact Form */}
-          <div className="contact-form-content ">
+          <div className="contact-form-content">
             <h2 className="contact-page-title">Tell Us Your <span className="text-primary">Message</span></h2>
             
             <form className="contact-form">
@@ -51,10 +51,11 @@ const ContactUsPage = () => {
           </div>
 
           {/* Address Book */}
-          <div className="bg-[#eee] p-8 max-h-fit">
+          <div className="bg-[#eee] p-6 lg:p-8 h-fit">
             <h2 className="contact-page-title"><span className="text-primary">Contact</span> Us</h2>
             <p className="address-book-message">Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram anteposuerit litterarum formas human.</p>
-            <div className="address-block ">
+            <div className="space-y-4 lg:space-y-6">
+              <div className="address-block ">
               <h5><BiHome /> Address:</h5>
               <p>233/26 Ewrat Holdings Inc. Al Waha St. Al Qouz 3. Al Quoz, Dubai - UAE.</p>
             </div>
@@ -67,6 +68,7 @@ const ContactUsPage = () => {
               <h5><BiEnvelope /> E-mail:</h5>
               <p>shahjalalhazari1@gmail.com</p>
               <p>djangoactivation@gmail.com</p>
+            </div>
             </div>
           </div>
         </div>

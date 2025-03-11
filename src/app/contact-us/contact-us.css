@@ -1,5 +1,5 @@
-.contact-address-layout{
-    @apply grid grid-cols-2 gap-x-8 mt-[60px];
+.contact-layout {
+    @apply grid grid-cols-2 gap-8 mt-[60px];
 }
 
 .contact-page-title {
@@ -31,7 +31,7 @@
 }
 
 .address-block {
-    @apply pb-2 mb-6 border-b border-[#ddd]
+    @apply pb-2 border-b border-[#ddd]
 }
 
 .address-block h5 {
@@ -40,4 +40,39 @@
 
 .address-block p {
     @apply text-[#999] text-sm mb-1
+}
+
+@media (max-width: 768px) {
+    .contact-layout {
+        @apply grid grid-cols-1 mt-10;
+    }
+
+    .contact-form {
+        @apply mt-4;
+    }
+
+    .contact-form-group {
+        @apply space-y-2 mb-4;
+    }
+
+    .contact-form-group input {
+        @apply h-8 pl-3;
+    }
+
+    .contact-form-group textarea {
+        @apply h-20 p-3;
+    }
+
+    /* Address Book */
+    .address-book-message {
+        @apply mt-4 mb-5;
+    }
+
+    .address-block h5 {
+        @apply text-xl mb-2;
+    }
+
+    .address-block p {
+        @apply mb-1
+    }
 }
