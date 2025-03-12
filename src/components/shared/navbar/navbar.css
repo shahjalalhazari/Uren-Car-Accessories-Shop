@@ -1,65 +1,86 @@
-/* TOP NAVBAR */
-.top-nav-bg {
-    @apply navbar bg-base-100 flex justify-between items-center px-8 py-5;
+/* 🔹 Mobile Devices (Default) */
+/* Small device hidden for medium & large device */
+.md-top-nav,
+.large-device-top-nav {
+    @apply hidden;
 }
 
-.search-input{
-    @apply h-[60px] pl-5 pr-10 focus:outline-none border border-primary rounded-s-lg;
+/* NAVBAR TOP PART FOR SMALL DEVICES */
+.sm-top-nav {
+    @apply py-8 px-6;
 }
 
-.search-btn{
-    @apply bg-primary px-5 py-4 rounded-e-lg font-bold uppercase text-lg;
+.sm-top-nav .uren-logo {
+    @apply mx-auto mb-6;
 }
 
+.sm-top-navbar {
+    @apply flex justify-between items-center;
+}
 .nav-cart-btn {
-    @apply border border-primary rounded-lg px-5 py-1
+    @apply border border-primary py-1 flex gap-5 items-center px-12;
 }
-.nav-phone-btn{
-    @apply border border-primary rounded-lg flex items-center;
-}
-
-.nav-phone-num {
-    @apply flex items-center gap-x-2 px-5 py-[14px] text-2xl font-semibold text-secondary;
+.sidebar-overlay {
+    @apply fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500 ease-in-out;
 }
 
-/* ------------------------ */
-/* BOTTOM NAVBAR */
-.btm-nav-bg {
-    @apply bg-primary px-8 py-0 flex justify-between items-center gap-x-10;
+    .menu-sidebar {
+        @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
+    }
+
+    .sidebar-close-btn {
+        @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px]
+    }
+
+    .sidebar-search-form {
+        @apply bg-[#eee] flex justify-between items-center;
+    }
+
+    .sidebar-search-input {
+        @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
+    }
+
+    .sidebar-search-btn {
+        @apply text-xl text-[#999] p-5;
+    }
+
+    .sidebar-nav-list {
+        @apply space-y-2 text-[#999] font-semibold mt-8 mx-8;
+    }
+
+    .nav-phone-num {
+        @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-xl font-semibold text-secondary;
 }
 
-.category-list-heading {
-    @apply bg-[#000] cursor-pointer text-base-100 flex justify-between items-center py-[14px] px-4 transition-all ease-in-out duration-300;
-}
+/* 🔹 Tablet Devices */
+@media (min-width: 768px) and (max-width: 1024px) {
 
-.category-list-heading-text {
-    @apply uppercase flex-col font-semibold pl-4 pr-20 leading-none;
-}
+    /* medium device hidden for small & large device */
+    .sm-top-nav,
+    .large-device-top-nav {
+        @apply hidden;
+    }
 
-.category-list {
-    @apply absolute left-0 hidden w-full bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
-    z-index: 100;
-}
+    .navbar-top-part {}
 
-.dropdown:hover .category-list {
-    @apply block;
-}
+    .md-top-nav {
+        @apply py-10 px-8 flex items-center justify-between;
+    }
+    }
 
-.dropdown-list {
-    @apply absolute right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
-    z-index: 100;
-}
+    /* 🔹 Large Devices */
+    @media (min-width: 1025px) {
+        .navbar-top-part {}
 
-.dropdown:hover .dropdown-list {
-    @apply block;
-}
+        /* large device hidden for small & medium device */
+        .sm-top-nav,
+        .md-top-nav {
+            @apply hidden;
+        }
 
-.dropdown-list-item {
-    @apply p-2
-}
-
-.dropdown-list-item:hover {
-    @apply bg-gray-100 text-secondary
+        .large-device-top-nav {
+            @apply block;
+        }
 }
 
 /* FadeIn Animations */
@@ -74,104 +95,7 @@
         transform: translateY(0);
     }
 }
-
 .animate-fadeIn {
     animation: fadeIn 0.5s ease-in-out;
     -webkit-animation: fadeIn 0.5s ease-in-out;
-}
-
-/* -------------------- */
-/* STICKY NAVBAR */
-.sticky-navbar {
-    @apply fixed top-0 left-0 right-0 z-[9999] bg-primary shadow-lg transition-transform duration-500 ease-in-out px-8 flex justify-between items-center;
-}
-
-.cart-items-qty {
-    @apply absolute -top-1.5 -right-1.5 bg-secondary text-base-100 rounded-full px-1.5 text-sm font-semibold;
-}
-
-/* -------------------- */
-/* Mobile screen up to 768px */
-@media (max-width: 768px) {
-    .top-nav-bg,
-    .btm-nav-bg {
-        @apply hidden;
-    }
-    .mobile-screen .uren-logo {
-        @apply mx-auto mb-6
-    }
-
-    .mobile-navbar {
-        @apply flex justify-between items-center;
-    }
-
-    .mobile-cart-btn {
-        @apply flex gap-5 items-center;
-    }
-
-    .mobile-sidebar-overlay {
-        @apply fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500 ease-in-out;
-    }
-
-    .mobile-menu-sidebar {
-        @apply fixed top-0 right-0 w-3/4 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
-    }
-
-    .mobile-sidebar-close-btn {
-        @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px] transition-all ease-in-out duration-300;
-    }
-
-    .mobile-search-form {
-        @apply bg-[#eee] flex justify-between items-center;
-    }
-
-    .mobile-search-input {
-        @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none
-    }
-
-    .mobile-search-btn {
-        @apply text-xl text-[#999] p-5
-    }
-
-    .mobile-nav-list {
-        @apply space-y-2 text-[#999] font-semibold mt-8 mx-8;
-    }
-
-    .mobile-phone-btn {
-        @apply border border-primary flex items-center justify-center m-8;
-    }
-
-    .nav-phone-num {
-        @apply text-lg text-center font-semibold text-secondary;
-    }
-    /* Categories List */
-    .category-list-heading {
-        @apply bg-[#000] relative text-base-100 flex justify-between items-center py-[14px] transition-all ease-in-out duration-300;
-    }
-
-    .category-list-heading-text {
-        @apply uppercase flex-col font-semibold leading-none;
-    }
-
-    .category-list {
-        @apply absolute p-4 font-medium left-0 hidden w-full bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
-        z-index: 100;
-    }
-
-    .dropdown-list {
-        @apply absolute right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
-        z-index: 100;
-    }
-
-    .dropdown-list-item {
-        @apply py-2;
-    }
-
-    .dropdown-list-item:hover {
-        @apply bg-gray-100 text-secondary
-    }
-    /* Sticky Navbar */
-    .sticky-navbar {
-        @apply hidden;
-    }
 }

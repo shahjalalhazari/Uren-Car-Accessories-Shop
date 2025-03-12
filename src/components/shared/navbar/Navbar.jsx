@@ -8,12 +8,12 @@ const Navbar = () => {
   return (
     <div>
       {/* These nav styles are for large screen */}
-      <TopNavbar />
+      <TopNavbar navItems={navItems} categories={categories} />
       <BottomNavbar navItems={navItems} categories={categories} />
-      <StickyNavbar navItems={navItems} />
+      {/* <StickyNavbar navItems={navItems} /> */}
 
       {/* For Mobile or small screen */}
-      <MobileScreenNavbar navItems={navItems} categories={categories} />
+      {/* <MobileScreenNavbar navItems={navItems} categories={categories} /> */}
     </div>
   );
 };
