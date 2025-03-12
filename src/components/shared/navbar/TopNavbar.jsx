@@ -328,8 +328,46 @@ const TopNavbar = ({ navItems }) => {
       </div>
 
       {/* NAVBAR TOP PART FOR LARGE DEVICES */}
-      <div className="large-device-top-nav">
-        <p>Top nav for large devices</p>
+      <div className="lg-top-nav">
+        <Link href="/">
+          <Image
+            width={"190"}
+            height={"40"}
+            src="/images/menu/logo/2.png"
+            alt="Uren's Logo"
+          />
+        </Link>
+        <ul className="flex gap-4">
+          <form action="#" className="">
+            <input
+              type="text"
+              placeholder="Search Here..."
+              className="lg-search-input"
+            />
+            <button className="lg-search-btn" type="submit">
+              <BiSearch className="inline-block mr-2.5 text-2xl" />
+              Search
+            </button>
+          </form>
+          <li className="nav-cart-btn">
+            {/* REPLACE */}
+            <Link href="/" className="">
+              <div className="flex gap-3 items-center">
+                <BiShoppingBag className="text-3xl" />
+                <div className="grid text-md font-semibold">
+                  <span className="text-black">3 Items</span>
+                  <span className="text-secondary text-xl">$462.40</span>
+                </div>
+              </div>
+            </Link>
+          </li>
+          <Link href="tel://971589196282">
+            <li className="nav-phone-num">
+              <BiSolidPhone />
+              +971 58 919 6282
+            </li>
+          </Link>
+        </ul>
       </div>
     </div>
   );

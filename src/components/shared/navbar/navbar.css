@@ -1,7 +1,7 @@
 /* 🔹 Mobile Devices (Default) */
 /* Small device hidden for medium & large device */
 .md-top-nav,
-.large-device-top-nav {
+.lg-top-nav {
     @apply hidden;
 }
 
@@ -9,11 +9,9 @@
 .sm-top-nav {
     @apply py-8 px-6;
 }
-
 .sm-top-nav .uren-logo {
     @apply mx-auto mb-6;
 }
-
 .sm-top-navbar {
     @apply flex justify-between items-center;
 }
@@ -23,33 +21,26 @@
 .sidebar-overlay {
     @apply fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500 ease-in-out;
 }
-
-    .menu-sidebar {
-        @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
-    }
-
-    .sidebar-close-btn {
+.menu-sidebar {
+    @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
+}
+.sidebar-close-btn {
         @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px]
-    }
-
-    .sidebar-search-form {
+}
+.sidebar-search-form {
         @apply bg-[#eee] flex justify-between items-center;
-    }
-
-    .sidebar-search-input {
+}
+.sidebar-search-input {
         @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
-    }
-
-    .sidebar-search-btn {
+}
+.sidebar-search-btn {
         @apply text-xl text-[#999] p-5;
-    }
-
-    .sidebar-nav-list {
+}
+.sidebar-nav-list {
         @apply space-y-2 text-[#999] font-semibold mt-8 mx-8;
-    }
-
-    .nav-phone-num {
-        @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-xl font-semibold text-secondary;
+}
+.nav-phone-num {
+    @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-xl font-semibold text-secondary;
 }
 
 /* 🔹 Tablet Devices */
@@ -57,30 +48,41 @@
 
     /* medium device hidden for small & large device */
     .sm-top-nav,
-    .large-device-top-nav {
+    .lg-top-nav {
         @apply hidden;
     }
-
-    .navbar-top-part {}
-
     .md-top-nav {
         @apply py-10 px-8 flex items-center justify-between;
     }
+}
+
+/* 🔹 Large Devices */
+@media (min-width: 1025px) {
+    /* large device hidden for small & medium device */
+    .sm-top-nav,
+    .md-top-nav {
+            @apply hidden;
+    }
+    .lg-top-nav {
+        @apply navbar bg-base-100 flex justify-between px-8 mt-5 mb-8;
     }
 
-    /* 🔹 Large Devices */
-    @media (min-width: 1025px) {
-        .navbar-top-part {}
+    .lg-search-input {
+        @apply h-[60px] pl-5 pr-10 outline-none border border-primary rounded-s-lg;
+    }
 
-        /* large device hidden for small & medium device */
-        .sm-top-nav,
-        .md-top-nav {
-            @apply hidden;
-        }
+    .lg-search-btn {
+        @apply bg-primary px-5 py-4 rounded-e-lg font-bold uppercase text-lg;
+    }
 
-        .large-device-top-nav {
-            @apply block;
-        }
+    .nav-cart-btn,
+    .nav-phone-num {
+        @apply rounded-lg;
+    }
+
+    .nav-phone-num {
+        @apply py-4 px-12;
+    }
 }
 
 /* FadeIn Animations */
