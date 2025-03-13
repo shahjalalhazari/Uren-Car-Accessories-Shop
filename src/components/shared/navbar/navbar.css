@@ -1,11 +1,12 @@
 /* 🔹 Mobile Devices (Default) */
+/* NAVBAR TOP PART FOR SMALL DEVICES */
 /* Small device hidden for medium & large device */
 .md-top-nav,
-.lg-top-nav {
+.lg-top-nav,
+.md-bottom-nav,
+.lg-bottom-nav {
     @apply hidden;
 }
-
-/* NAVBAR TOP PART FOR SMALL DEVICES */
 .sm-top-nav {
     @apply py-8 px-6;
 }
@@ -25,7 +26,7 @@
     @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
 }
 .sidebar-close-btn {
-        @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px]
+    @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px] transition-all ease-in-out duration-300;
 }
 .sidebar-search-form {
         @apply bg-[#eee] flex justify-between items-center;
@@ -43,26 +44,37 @@
     @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-xl font-semibold text-secondary;
 }
 
+/* NAVBAR BOTTOM PART FOR SMALL DEVICES */
 /* 🔹 Tablet Devices */
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* medium device hidden for small & large device */
     .sm-top-nav,
-    .lg-top-nav {
+    .lg-top-nav,
+    .sm-bottom-nav,
+    .lg-bottom-nav {
         @apply hidden;
     }
+    /* NAVBAR TOP PART FOR MEDIUM DEVICES */
     .md-top-nav {
         @apply py-10 px-8 flex items-center justify-between;
     }
+/* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
+.md-bottom-nav {
+    @apply block;
+}
 }
 
 /* 🔹 Large Devices */
 @media (min-width: 1025px) {
     /* large device hidden for small & medium device */
     .sm-top-nav,
-    .md-top-nav {
+    .md-top-nav,
+    .sm-bottom-nav,
+    .md-bottom-nav {
             @apply hidden;
     }
+    /* NAVBAR TOP PART FOR LARGE DEVICES */
     .lg-top-nav {
         @apply navbar bg-base-100 flex justify-between px-8 mt-5 mb-8;
     }
@@ -82,6 +94,78 @@
 
     .nav-phone-num {
         @apply py-4 px-12;
+    }
+    /* NAVBAR BOTTOM PART FOR LARGE DEVICES */
+    .lg-bottom-nav {
+        @apply bg-primary px-8 py-0 mt-5 flex justify-between items-center gap-x-10;
+    }
+
+    .category-list-heading {
+        @apply bg-[#000] cursor-pointer text-base-100 flex justify-between items-center py-[14px] px-4 transition-all ease-in-out duration-300;
+    }
+
+    .category-list-heading-text {
+        @apply uppercase flex-col font-semibold pl-4 pr-20 leading-none;
+    }
+
+    .category-list {
+        @apply absolute left-0 hidden p-4 font-medium w-full h-[60vh] overflow-y-auto bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
+        z-index: 100;
+    }
+
+    .main-nav {
+        @apply flex gap-8 items-center;
+    }
+
+    .main-nav-items {
+        @apply font-bold uppercase transition-all ease-in-out duration-300;
+    }
+
+    .main-nav-items:hover {
+        @apply text-secondary;
+    }
+
+    .dropdown:hover .category-list {
+        @apply block;
+    }
+
+    .dropdown-list {
+        @apply absolute right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
+        z-index: 100;
+    }
+
+    .dropdown:hover .dropdown-list {
+        @apply block;
+    }
+
+    .dropdown-list-item {
+        @apply p-2;
+    }
+
+    .dropdown-list-active {
+        @apply text-secondary;
+    }
+
+    .dropdown-list-item:hover {
+        @apply bg-gray-100 text-secondary
+    }
+
+    /* Right Side Dropdown items */
+    .lg-bottom-nav .nav-right-side {
+        @apply flex items-center gap-x-8;
+    }
+
+    .nav-right-side .dropdown-header {
+        @apply flex items-center gap-x-1;
+    }
+
+    .language-dropdown-item {
+        @apply dropdown-list-item flex gap-x-2;
+    }
+
+    .language-dropdown-item:hover,
+    .dropdown-header:hover {
+        @apply cursor-pointer;
     }
 }
 

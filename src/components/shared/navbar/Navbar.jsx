@@ -2,7 +2,6 @@ import "./navbar.css"
 import TopNavbar from './TopNavbar';
 import BottomNavbar from "./BottomNavbar";
 import StickyNavbar from "./StickyNavbar";
-import MobileScreenNavbar from "./MobileScreenNavbar";
 
 const Navbar = () => {
   return (
@@ -11,9 +10,6 @@ const Navbar = () => {
       <TopNavbar navItems={navItems} categories={categories} />
       <BottomNavbar navItems={navItems} categories={categories} />
       {/* <StickyNavbar navItems={navItems} /> */}
-
-      {/* For Mobile or small screen */}
-      {/* <MobileScreenNavbar navItems={navItems} categories={categories} /> */}
     </div>
   );
 };
@@ -49,23 +45,81 @@ const navItems = [
 
 const categories = [
   {
-    title: "Tires",
-    path: "/",
+    name: "Games & Consoles",
+    path: "Games & Consoles",
+    image: "",
+    added: "",
   },
   {
-    title: "Spare Parts",
-    path: "/",
+    name: "Appliances",
+    path: "Appliances",
+    image: "",
+    added: "",
   },
   {
-    title: "Bumpers",
-    path: "/",
+    name: "Audio",
+    path: "Audio",
+    image: "",
+    added: "",
   },
   {
-    title: "Lights",
-    path: "/",
+    name: "Bakeware",
+    path: "Bakeware",
+    image: "",
+    added: "",
   },
   {
-    title: "Suspensions",
-    path: "/",
+    name: "Body Parts",
+    path: "Body Parts",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Cameras & Camcoders",
+    path: "Cameras & Camcoders",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Car Parts",
+    path: "Car Parts",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Cookies & Crackers",
+    path: "Cookies & Crackers",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Interior",
+    path: "Interior",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Brakes & Rotors",
+    path: "Brakes & Rotors",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Lighting",
+    path: "Lighting",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Performance",
+    path: "Performance",
+    image: "",
+    added: "",
+  },
+  {
+    name: "Wheels & Tires",
+    path: "Wheels & Tires",
+    image: "",
+    added: "",
   },
 ];
