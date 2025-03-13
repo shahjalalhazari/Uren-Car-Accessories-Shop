@@ -8,7 +8,7 @@
     @apply hidden;
 }
 .sm-top-nav {
-    @apply py-8 px-6;
+    @apply p-6;
 }
 .sm-top-nav .uren-logo {
     @apply mx-auto mb-6;
@@ -45,6 +45,35 @@
 }
 
 /* NAVBAR BOTTOM PART FOR SMALL DEVICES */
+.sm-bottom-nav {
+    @apply bg-primary px-6;
+}
+
+.category-list-heading {
+    @apply bg-[#000] text-base-100 flex justify-between items-center py-4 px-8;
+}
+
+.category-list-heading-text {
+    @apply uppercase font-semibold leading-none;
+}
+
+.category-list {
+    @apply absolute left-0 hidden px-6 py-2 font-medium w-full h-[40vh] overflow-y-auto bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
+    z-index: 100;
+}
+
+.dropdown:hover .category-list {
+    @apply block;
+}
+
+.dropdown-list-item {
+    @apply p-2;
+}
+
+.dropdown-list-item:hover {
+    @apply bg-gray-100 text-secondary
+}
+
 /* 🔹 Tablet Devices */
 @media (min-width: 768px) and (max-width: 1024px) {
 

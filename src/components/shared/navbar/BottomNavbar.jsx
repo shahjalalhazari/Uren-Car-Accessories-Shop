@@ -2,15 +2,34 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
 const BottomNavbar = ({ navItems, categories }) => {
   const pathname = usePathname();
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="navbar-bottom-part">
       {/* NAVBAR BOTTOM PART FOR SMALL DEVICES */}
       <div className="sm-bottom-nav">
-        <p>Bottom nav for small devices</p>
+        <div className="relative group dropdown w-full">
+          <div className="category-list-heading">
+            <h2 className="category-list-heading-text">
+              <span>Shop By</span>
+              <br />
+              <span>Department</span>
+            </h2>
+            <FaAngleDown className="text-3xl" />
+          </div>
+
+          <ul className="category-list">
+            {categories.map((item, index) => (
+              <Link className="category-list-item" key={index} href={item.path}>
+                <li className="dropdown-list-item">{item.name}</li>
+              </Link>
+            ))}
+          </ul>
+        </div>
       </div>
 
       {/* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */}
