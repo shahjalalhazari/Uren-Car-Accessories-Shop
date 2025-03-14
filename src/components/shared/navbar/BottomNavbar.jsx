@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import { BiSearch } from "react-icons/bi";
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
 const BottomNavbar = ({ navItems, categories }) => {
@@ -19,7 +20,9 @@ const BottomNavbar = ({ navItems, categories }) => {
               <br />
               <span>Department</span>
             </h2>
-            <FaAngleDown className="text-3xl" />
+            <p className="category-arrow">
+              <FaAngleDown />
+            </p>
           </div>
 
           <ul className="category-list">
@@ -34,7 +37,38 @@ const BottomNavbar = ({ navItems, categories }) => {
 
       {/* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */}
       <div className="md-bottom-nav">
-        <p>Bottom nav for medium devices</p>
+        <div className="relative group dropdown w-1/3">
+          <div className="category-list-heading">
+            <FaBars className="text-4xl" />
+            <h2 className="category-list-heading-text">
+              Shop By
+              <br />
+              Department
+            </h2>
+            <p className="category-arrow">
+              <FaAngleDown />
+            </p>
+          </div>
+
+          <ul className="category-list">
+            {categories.map((item, index) => (
+              <Link className="category-list-item" key={index} href={item.path}>
+                <li className="dropdown-list-item">{item.name}</li>
+              </Link>
+            ))}
+          </ul>
+        </div>
+        <form className="lg-search-form">
+          <input
+            type="text"
+            placeholder="Search Here..."
+            className="lg-search-input"
+          />
+          <button className="lg-search-btn" type="submit">
+            <BiSearch className="inline-block mr-2 text-2xl" />
+            Search
+          </button>
+        </form>
       </div>
 
       {/* NAVBAR BOTTOM PART FOR LARGE DEVICES */}
@@ -49,7 +83,9 @@ const BottomNavbar = ({ navItems, categories }) => {
                 <br />
                 <span>Department</span>
               </h2>
-              <FaAngleDown className="text-3xl" />
+              <p className="category-arrow">
+                <FaAngleDown />
+              </p>
             </div>
 
             {/* Category List */}

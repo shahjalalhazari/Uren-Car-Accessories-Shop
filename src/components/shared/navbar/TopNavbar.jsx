@@ -338,7 +338,7 @@ const TopNavbar = ({ navItems }) => {
           />
         </Link>
         <ul className="flex gap-4">
-          <form action="#" className="">
+          <form className="">
             <input
               type="text"
               placeholder="Search Here..."
