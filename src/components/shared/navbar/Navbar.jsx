@@ -9,7 +9,7 @@ const Navbar = () => {
       {/* These nav styles are for large screen */}
       <TopNavbar navItems={navItems} categories={categories} />
       <BottomNavbar navItems={navItems} categories={categories} />
-      {/* <StickyNavbar navItems={navItems} /> */}
+      <StickyNavbar navItems={navItems} />
     </div>
   );
 };

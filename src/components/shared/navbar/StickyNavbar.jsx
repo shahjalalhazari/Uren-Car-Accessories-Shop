@@ -21,16 +21,17 @@ const StickyNavbar = ({ navItems }) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
   return (
     <nav
       className={`sticky-navbar ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
-      <div className="flex gap-8 items-center">
+      <div className="main-nav">
         {navItems.map((item) => (
           <Link
-            className={`font-bold uppercase hover:text-secondary transition-all ease-in-out duration-300 ${
+            className={`main-nav-items ${
               pathname === item.path && "text-base-100 bg-[#000] p-5"
             }`}
             key={item.path}
@@ -41,18 +42,17 @@ const StickyNavbar = ({ navItems }) => {
         ))}
       </div>
       <div className="flex items-center gap-x-8">
-        <div className="">
-          {/* REPLACE */}
-          <Link href="/" className="">
-            <div className="flex gap-2 items-center">
-              <div className="relative">
-                <BiShoppingBag className="text-4xl" />
-                <p className="cart-items-qty">3</p>
-              </div>
-              <p className="text-xl font-semibold">$462.40</p>
+        {/* REPLACE */}
+        <Link href="/" className="">
+          <div className="flex gap-2 items-center">
+            <div className="relative">
+              <BiShoppingBag className="text-4xl" />
+              <p className="cart-items-qty">3</p>
             </div>
-          </Link>
-        </div>
+            <p className="text-xl font-semibold">$462.40</p>
+          </div>
+        </Link>
+
         {/* User's Account */}
         <div className="relative group dropdown">
           <button className="flex items-center gap-x-1 hover:cursor-pointer">
@@ -61,7 +61,7 @@ const StickyNavbar = ({ navItems }) => {
           <ul className={"dropdown-list"}>
             {/* REPLACE */}
             <Link href="user/profile">
-              <li className="dropdown-list-item">Profile</li>
+              <li className="dropdown-list-item">My Account</li>
             </Link>
             {/* REPLACE */}
             <Link href="user/logout">

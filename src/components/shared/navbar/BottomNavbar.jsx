@@ -13,50 +13,72 @@ const BottomNavbar = ({ navItems, categories }) => {
     <div className="navbar-bottom-part">
       {/* NAVBAR BOTTOM PART FOR SMALL DEVICES */}
       <div className="sm-bottom-nav">
-        <div className="relative group dropdown w-full">
-          <div className="category-list-heading">
+        <div className="relative w-full">
+          <div
+            className="category-list-heading"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             <h2 className="category-list-heading-text">
               <span>Shop By</span>
               <br />
               <span>Department</span>
             </h2>
-            <p className="category-arrow">
+            <p
+              className={`category-arrow ${isOpen ? "rotate-180" : "rotate-0"}`}
+            >
               <FaAngleDown />
             </p>
           </div>
 
-          <ul className="category-list">
-            {categories.map((item, index) => (
-              <Link className="category-list-item" key={index} href={item.path}>
-                <li className="dropdown-list-item">{item.name}</li>
-              </Link>
-            ))}
-          </ul>
+          {isOpen && (
+            <ul className="category-list">
+              {categories.map((item, index) => (
+                <Link
+                  className="category-list-item"
+                  key={index}
+                  href={item.path}
+                >
+                  <li className="dropdown-list-item">{item.name}</li>
+                </Link>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
       {/* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */}
       <div className="md-bottom-nav">
         <div className="relative group dropdown w-1/3">
-          <div className="category-list-heading">
+          <div
+            className="category-list-heading"
+            onClick={() => setIsOpen(!isOpen)}
+          >
             <FaBars className="text-4xl" />
             <h2 className="category-list-heading-text">
               Shop By
               <br />
               Department
             </h2>
-            <p className="category-arrow">
+            <p
+              className={`category-arrow ${isOpen ? "rotate-180" : "rotate-0"}`}
+            >
               <FaAngleDown />
             </p>
           </div>
 
-          <ul className="category-list">
-            {categories.map((item, index) => (
-              <Link className="category-list-item" key={index} href={item.path}>
-                <li className="dropdown-list-item">{item.name}</li>
-              </Link>
-            ))}
-          </ul>
+          {isOpen && (
+            <ul className="category-list">
+              {categories.map((item, index) => (
+                <Link
+                  className="category-list-item"
+                  key={index}
+                  href={item.path}
+                >
+                  <li className="dropdown-list-item">{item.name}</li>
+                </Link>
+              ))}
+            </ul>
+          )}
         </div>
         <form className="lg-search-form">
           <input
