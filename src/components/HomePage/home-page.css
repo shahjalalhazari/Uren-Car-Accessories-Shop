@@ -4,11 +4,11 @@
 
 /* CAROUSEL BANNER SECTION */
 .carousel-bg {
-    @apply carousel-item relative w-full h-[90vh] bg-cover;
+    @apply h-full bg-cover bg-center grid grid-cols-3 px-8;
 }
 
 .carousel-content {
-    @apply text-white text-center flex items-center lg:ml-[100px];
+    @apply text-white text-center col-span-2 items-center py-60 space-y-8;
 }
 
 .carousel-sub-heading {
@@ -19,7 +19,7 @@
     @apply text-5xl text-primary uppercase font-bold;
 }
 
-.carousel-btns {
+/* .carousel-btns {
     @apply absolute bottom-[50px] right-[50px] flex gap-3 transform justify-between;
 }
 
@@ -38,6 +38,8 @@
 .carousel-right-btn:hover {
     @apply bg-primary text-secondary
 }
+
+*/
 
 @keyframes zoomInUp {
     from {
@@ -279,45 +281,26 @@
 /* --------------------- */
 
 /* ------------------- */
+/* 🔹 Mobile Devices */
 @media (max-width: 768px) {
     .slider-layout {
         @apply mx-6 mr-8 py-0 my-12;
     }
     /* CAROUSEL BANNER SECTION */
-    .mobile-screen .carousel-bg {
-        @apply carousel-item relative w-full h-auto bg-cover bg-center;
+    .carousel-bg {
+        @apply grid-cols-none px-6;
     }
 
-    .mobile-screen .carousel-content {
-        @apply text-white text-start px-6 py-16;
+    .carousel-content {
+        @apply text-start py-20 space-y-3;
+    }
+
+    .carousel-sub-heading {
+        @apply text-lg text-secondary font-bold uppercase;
     }
 
     .carousel-heading {
-        @apply text-xl text-primary uppercase font-bold;
-    }
-
-    .mobile-screen .carousel-sub-heading {
-        @apply text-sm text-secondary font-semibold uppercase;
-    }
-
-    .mobile-screen .carousel-btns {
-        @apply absolute bottom-6 right-6 flex gap-2 transform justify-between;
-    }
-
-    .mobile-screen .carousel-left-btn {
-        @apply bg-secondary px-4 py-2 rounded-full;
-    }
-
-    .mobile-screen .carousel-left-btn:hover {
-        @apply bg-secondary text-white
-    }
-
-    .mobile-screen .carousel-right-btn {
-        @apply bg-primary px-4 py-2 rounded-full;
-    }
-
-    .mobile-screen .carousel-right-btn:hover {
-        @apply bg-primary text-secondary
+        @apply text-2xl text-primary uppercase font-bold;
     }
 
     /* SHOPPING FACILITIES SECTION */
@@ -448,14 +431,12 @@
     .new-arrival-slider-card {
         @apply border border-[#ddd] p-4;
     }
-
     /* ------------------------ */
 
     /* TESTIMONIAL SECTION */
     .testimonial-content {
         @apply py-12 px-6 space-y-6;
     }
-
     .testimonial-comment {
         @apply text-base py-8 px-6 leading-normal;
     }
@@ -467,8 +448,25 @@
     .shop-by-brands-layout {
         @apply grid grid-cols-2 gap-4 mt-6 mb-8 border-y-0 border-l-0 border-[#ddd];
     }
-
     .shop-by-brands-item {
         @apply py-2 px-5 w-full border border-[#ddd];
+    }
+}
+/* 🔹 Tablet Devices */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .carousel-bg {
+        @apply grid-cols-none;
+    }
+
+    .carousel-content {
+        @apply py-40 space-y-5;
+    }
+
+    .carousel-sub-heading {
+        @apply text-xl text-secondary font-bold uppercase;
+    }
+
+    .carousel-heading {
+        @apply text-4xl text-primary uppercase font-bold;
     }
 }

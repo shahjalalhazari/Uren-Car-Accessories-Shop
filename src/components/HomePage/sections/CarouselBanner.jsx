@@ -1,135 +1,100 @@
 "use client"
-import { useEffect, useState } from "react";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import required modules
+import { Autoplay } from "swiper/modules";
 import PrimaryBtn from "@/components/shared/buttons/PrimaryBtn";
 
-
 const CarouselBanner = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  // Function to manually change slides
-  const handleSlideChange = (index) => {
-    setActiveIndex(index);
-  };
-
-  // Auto-slide effect every 5 seconds
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prevIndex) => (prevIndex + 1) % banners.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, []);
-
   return (
-    <div className="carousel w-full relative overflow-hidden mobile-screen">
-      <div
-        className="flex transition-transform duration-700 ease-in-out"
-        style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+    <>
+      <Swiper
+        spaceBetween={30}
+        centeredSlides={true}
+        modules={[Autoplay]}
+        autoplay={{ delay: 5000 }}
+        loop={true}
+        className=""
       >
-        {banners.map((banner, index) => {
-          const animationStyle =
-            index % 2 === 0 ? "animation-style-02" : "animation-style-01";
-          return (
+        {banners.map((banner) => (
+          <SwiperSlide key={banner.id}>
             <div
-              key={index}
-              className={`carousel-bg lg:min-w-full ${
-                index === activeIndex ? `slick-active ${animationStyle}` : ""
-              }`}
+              className="carousel-bg"
               style={{
-                backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(0,0,0,0.3)), 
-                url(/images/slider/${index + 1}.jpg)`,
-                backgroundPosition: "bottom",
+                backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0,0,0,0.5)), 
+                  url(${banner.image})`,
               }}
             >
               <div className="carousel-content">
-                <div className="carousel-text space-y-3 lg:space-y-5">
-                  <h5 className="carousel-sub-heading">{banner.subHeading}</h5>
-                  <h2 className="carousel-heading">{banner.heading}</h2>
-                  <div className="h-0.5 lg:h-1 bg-secondary w-14 lg:w-20 lg:mx-auto rounded"></div>
-                  <p className="w-[360px] lg:w-full text-sm lg:text-base pb-2">
-                    {banner.description}
-                  </p>
-                  <PrimaryBtn text="READ MORE" path="/" />
-                </div>
+                <h5 className="carousel-sub-heading">{banner.subHeading}</h5>
+                <h3 className="carousel-heading">{banner.heading}</h3>
+                <div className="h-0.5 md:h-1 bg-secondary w-16 md:w-20 md:mx-auto rounded"></div>
+                <p className="text-sm lg:text-base">{banner.description}</p>
+                <PrimaryBtn text="READ MORE" path="/" />
               </div>
             </div>
-          );
-        })}
-      </div>
-
-      {/* Navigation Buttons */}
-      <div className="carousel-btns">
-        <button
-          className="carousel-left-btn"
-          onClick={() =>
-            handleSlideChange(
-              (activeIndex - 1 + banners.length) % banners.length
-            )
-          }
-        >
-          ❮
-        </button>
-        <button
-          className="carousel-right-btn"
-          onClick={() => handleSlideChange((activeIndex + 1) % banners.length)}
-        >
-          ❯
-        </button>
-      </div>
-    </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </>
   );
 };
 
 export default CarouselBanner;
 
-
 const banners = [
   {
+    id: 1,
     heading: "Wheels & Tires",
     subHeading: "Save $120 when you buy",
     description:
       "Explore and immerse in exciting 360 content with Full dive’s all-in-one virtual reality platform",
-    nextSlide: "#slide2",
-    prevSlide: "#slide6",
+    image: "/images/slider/1.jpg",
   },
   {
+    id: 2,
     heading: "20% off Auto part",
     subHeading: "We have the part you need",
     description:
       "Explore and immerse in exciting 360 content with Full dive’s all-in-one virtual reality platform",
-    nextSlide: "#slide3",
-    prevSlide: "#slide1",
+    image: "/images/slider/2.jpg",
   },
   {
+    id: 3,
     heading: "Wheels & Tires",
     subHeading: "Save $120 when you buy",
     description:
       "Explore and immerse in exciting 360 content with Full dive’s all-in-one virtual reality platform",
-    nextSlide: "#slide4",
-    prevSlide: "#slide2",
+    image: "/images/slider/3.jpg",
   },
   {
+    id: 4,
     heading: "20% off Auto part",
     subHeading: "We have the part you need",
     description:
       "Explore and immerse in exciting 360 content with Full dive’s all-in-one virtual reality platform",
-    nextSlide: "#slide5",
-    prevSlide: "#slide3",
+    image: "/images/slider/4.jpg",
   },
   {
+    id: 5,
     heading: "Wheels & Tires",
     subHeading: "Save $120 when you buy",
     description:
       "Explore and immerse in exciting 360 content with Full dive’s all-in-one virtual reality platform",
-    nextSlide: "#slide6",
-    prevSlide: "#slide4",
+    image: "/images/slider/5.jpg",
   },
   {
+    id: 6,
     heading: "20% off Auto part",
     subHeading: "We have the part you need",
     description:
       "Explore and immerse in exciting 360 content with Full dive’s all-in-one virtual reality platform",
-    nextSlide: "#slide1",
-    prevSlide: "#slide5",
+    image: "/images/slider/6.jpg",
   },
 ];
