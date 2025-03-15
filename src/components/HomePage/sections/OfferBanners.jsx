@@ -15,7 +15,7 @@ const OfferBanners = () => {
   return (
     <div className="slider-layout relative">
       <Swiper
-        spaceBetween={0}
+        spaceBetween={20}
         loop={true}
         autoplay={{ delay: 3000 }}
         modules={[Navigation, Autoplay]}
@@ -37,7 +37,7 @@ const OfferBanners = () => {
         className="w-full"
       >
         {offerBannersList.map((offerBanner, index) => (
-          <SwiperSlide key={index} className="p-2">
+          <SwiperSlide key={index}>
             <Link href={`/offers/${encodeURIComponent(offerBanner.offerName)}`}>
               <div className="shadow-lg rounded-none hover:opacity-75 transition-all ease-in-out duration-300">
                 <Image

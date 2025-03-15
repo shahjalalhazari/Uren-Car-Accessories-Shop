@@ -53,7 +53,11 @@ const ProductsListWithLazyLoad = ({ productsList }) => {
   return (
     <div className="product-list-layout">
       {displayProducts.map((item, index) => (
-        <SingleProductCard singleProduct={item} key={index} />
+        <SingleProductCard
+          singleProduct={item}
+          key={index}
+          borderStyle={"border"}
+        />
       ))}
 
       {/* Lazy Load Trigger */}

@@ -21,7 +21,7 @@ const FeaturedCategories = () => {
       />
 
       {/* Featured Category List */}
-      <div className="relative mx-2">
+      <div className="relative">
         <Swiper
           spaceBetween={0}
           loop={true}

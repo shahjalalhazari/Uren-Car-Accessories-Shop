@@ -18,6 +18,34 @@
 }
 /* ------------------------- */
 
+/* CARDS */
+/* Single Product card style */
+.single-product-badges {
+    @apply absolute top-3 left-3 text-center space-y-2;
+}
+
+.single-product-content {
+    @apply flex flex-col items-center gap-y-2 p-7 pt-0;
+}
+
+.single-product-title {
+    @apply text-[#999] text-center transition-all ease-in-out duration-300;
+}
+
+.single-product-title:hover {
+    @apply text-primary;
+}
+
+.single-product-price {
+    @apply flex items-center justify-center space-x-2;
+}
+
+.single-product-old-price {
+    @apply text-sm text-[#999] line-through;
+}
+
+/* ------------------------- */
+
 /* BUTTONS */
 /* Primary Button */
 .primary-btn {

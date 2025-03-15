@@ -1,59 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
-import Link from "next/link";
-import Image from "next/image";
-import { BiHeart, BiShoppingBag } from "react-icons/bi";
-import { FaRegShareSquare } from "react-icons/fa";
+import { useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import SectionHeading from "@/components/shared/SectionHeading";
-import OfferBadge from "@/components/shared/badges/OfferBadge";
-import NewItemBadge from "@/components/shared/badges/NewItemBadge";
-import ProductRating from "@/components/shared/ProductRating";
-import OutlineBtn from "@/components/shared/buttons/OutlineBtn";
-
+import SingleProductCard from "@/components/shared/cards/SingleProductCard";
 
 const NewArrivalProducts = () => {
-  const [deviceType, setDeviceType] = useState("desktop");
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
-  useEffect(() => {
-    const updateDeviceType = () => {
-      if (window.innerWidth < 769) {
-        setDeviceType("mobile");
-      } else if (window.innerWidth < 1024) {
-        setDeviceType("tablet");
-      } else {
-        setDeviceType("desktop");
-      }
-    };
-
-    // Initial check
-    updateDeviceType();
-
-    // Add event listener to detect resize
-    window.addEventListener("resize", updateDeviceType);
-
-    // Cleanup listener
-    return () => window.removeEventListener("resize", updateDeviceType);
-  }, []);
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-      slidesToSlide: 6,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 769 },
-      items: 4,
-      slidesToSlide: 4,
-    },
-    mobile: {
-      breakpoint: { max: 768, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
   return (
     <div className="slider-layout">
       {/* Section Heading */}
@@ -62,77 +20,51 @@ const NewArrivalProducts = () => {
         subHeading="Top New On This Week"
       />
 
-      {/* Category List */}
-      <Carousel
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        responsive={responsive}
-        ssr={true}
-        infinite={true}
-        autoPlay={deviceType == "mobile"}
-        autoPlaySpeed={5000}
-        keyBoardControl={true}
-        customTransition="ease-in-out .5"
-        transitionDuration={3000}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={[]}
-        deviceType={deviceType}
-        itemClass="new-arrival-slider"
-      >
-        {newArrivalProducts.map((item, index) => (
-          <div key={index} className="new-arrival-slider-card">
-            <div className="relative">
-              <Image
-                src={item.image}
-                width={250}
-                height={250}
-                alt={item.name}
-                className="mx-auto p-0 m-0"
+      <div className="relative">
+        <Swiper
+          spaceBetween={0}
+          loop={true}
+          autoplay={{ delay: 3000 }}
+          modules={[Navigation, Autoplay]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
+          breakpoints={{
+            640: { slidesPerView: 1 }, // Small screens
+            768: { slidesPerView: 3 }, // Medium screens
+            1024: { slidesPerView: 6 }, // Large screens
+          }}
+          className="slider-container"
+        >
+          {newArrivalProducts.map((item, index) => (
+            <SwiperSlide key={index}>
+              <SingleProductCard
+                singleProduct={item}
+                key={index}
+                borderStyle={"border-r"}
               />
-              <div className="absolute top-3 left-3 text-center space-y-2">
-                {item.discountOf > 0 && (
-                  <OfferBadge discountOf={item.discountOf} />
-                )}
-                {item.isNew && <NewItemBadge />}
-              </div>
-            </div>
-            {/* Default Product Content */}
-            <div className="new-arrival-item-content">
-              <ProductRating rating={item.rating} />
-              <h2 className="text-[#999]">{item.name}</h2>
-              <p className="new-arrival-item-price">
-                <span className="text-blue">${item.price.toFixed(2)}</span>
-                {item.oldPrice > 0 && (
-                  <span className="text-sm line-through">
-                    ${item.oldPrice.toFixed(2)}
-                  </span>
-                )}
-              </p>
-              <div className="flex gap-4 mt-2">
-                {/* ADD TO CART BUTTON */}
-                {/* REPLACE */}
-                <Link href={"/"}>
-                  <OutlineBtn
-                    btnIcon={<BiShoppingBag />}
-                    btnTitle={"Add To Cart"}
-                  />
-                </Link>
-                {/* ADD TO WISHLIST BUTTON */}
-                <OutlineBtn
-                  btnIcon={<BiHeart />}
-                  btnTitle={"Add To Wishlist"}
-                />
-                {/* QUICK VIEW BUTTON */}
-                <OutlineBtn
-                  btnIcon={<FaRegShareSquare />}
-                  btnTitle={"Quick View"}
-                />
-              </div>
-            </div>
+            </SwiperSlide>
+          ))}
+
+          {/* Custom Navigation Buttons */}
+          <div className="navigation-btns">
+            <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
+              <FaChevronLeft className="text-base md:text-xl" />
+            </button>
+
+            <button ref={nextRef} className="right-6 md:right-8 offer-nav-btn">
+              <FaChevronRight className="text-base md:text-xl" />
+            </button>
           </div>
-        ))}
-      </Carousel>
+        </Swiper>
+      </div>
     </div>
   );
 };
@@ -141,7 +73,7 @@ export default NewArrivalProducts;
 
 const newArrivalProducts = [
   {
-    name: "Veni am offi ciis volup tates",
+    name: "Lorem Ipsum is simply",
     price: 89.99,
     oldPrice: 0.0,
     image: "/images/product/medium-size/1.png",
@@ -150,7 +82,7 @@ const newArrivalProducts = [
     discountOf: 24,
   },
   {
-    name: "Veniam offic iis volu ptates",
+    name: "Veniam offic iis voluptates",
     price: 750.0,
     oldPrice: 0.0,
     image: "/images/product/medium-size/2.png",

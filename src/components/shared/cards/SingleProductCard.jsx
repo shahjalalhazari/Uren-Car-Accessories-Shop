@@ -8,11 +8,11 @@ import ProductRating from "../ProductRating";
 import OutlineBtn from "../buttons/OutlineBtn";
 
 
-const SingleProductCard = ({ singleProduct }) => {
+const SingleProductCard = ({ singleProduct, borderStyle }) => {
   const { image, discountOf, isNew, name, oldPrice, price, rating } =
     singleProduct;
   return (
-    <div className="border">
+    <div className={`${borderStyle}`}>
       <div className="relative">
         <Link href={"/"}>
           <Image
@@ -23,23 +23,21 @@ const SingleProductCard = ({ singleProduct }) => {
             className="mx-auto p-0 m-0"
           />
         </Link>
-        <div className="absolute top-3 left-3 text-center space-y-2">
+        <div className="single-product-badges">
           {discountOf > 0 && <OfferBadge discountOf={discountOf} />}
           {isNew && <NewItemBadge />}
         </div>
       </div>
       {/* Default Product Content */}
-      <div className="flex flex-col items-center gap-y-2 p-7 pt-0">
+      <div className="single-product-content">
         <ProductRating rating={rating} />
         <Link href={"/"}>
-          <h2 className="text-[#999] hover:text-primary transition-all ease-in-out duration-300">
-            {name}
-          </h2>
+          <h2 className="single-product-title">{name}</h2>
         </Link>
-        <p className="flex items-center justify-center space-x-2">
+        <p className="single-product-price">
           <span className="text-blue">${price.toFixed(2)}</span>
           {oldPrice > 0 && (
-            <span className="text-sm text-[#999] line-through">
+            <span className="single-product-old-price">
               ${oldPrice.toFixed(2)}
             </span>
           )}
