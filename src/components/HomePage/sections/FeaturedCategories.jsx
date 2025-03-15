@@ -45,13 +45,13 @@ const FeaturedCategories = () => {
           className="slider-container"
         >
           {featuredCategories.map((item, index) => (
-            <SwiperSlide key={index} className="">
+            <SwiperSlide key={index}>
               <FeaturedCategorySingleCard categoryItem={item} />
             </SwiperSlide>
           ))}
 
           {/* Custom Navigation Buttons */}
-          <div className="navigation-btns">
+          <div className="slider-btns">
             <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
               <FaChevronLeft className="text-xl" />
             </button>

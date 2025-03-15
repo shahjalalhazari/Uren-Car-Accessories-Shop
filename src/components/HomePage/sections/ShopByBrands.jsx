@@ -6,7 +6,7 @@ import React from 'react';
 
 const ShopByBrands = () => {
     return (
-      <div className="shop-by-brands">
+      <div className="uren-container text-center">
         <SectionHeading
           heading="Shop By Brands"
           subHeading="Top Quality Partner"

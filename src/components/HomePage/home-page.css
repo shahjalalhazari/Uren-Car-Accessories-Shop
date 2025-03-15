@@ -1,4 +1,5 @@
 /* Large Devices (Default) */
+/* Slider's Styles */
 .slider-layout {
     @apply mx-8 my-20;
 }
@@ -6,6 +7,23 @@
     @apply w-full mt-12 border-y border-l;
 }
 
+.slider-btns {
+    @apply hidden transition-all ease-in-out duration-500;
+}
+
+.slider-layout:hover .slider-btns {
+    @apply block transition-all ease-in-out duration-500;
+}
+
+.offer-nav-btn {
+    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-[#000] p-5 rounded-md transition ease-in-out duration-500 z-10;
+}
+
+.offer-nav-btn:hover {
+    @apply bg-base-100 outline outline-1 outline-primary;
+}
+
+/* ------------------ */
 /* CAROUSEL BANNER SECTION */
 .carousel-bg {
     @apply h-full bg-cover bg-center grid grid-cols-3 px-8;
@@ -23,22 +41,6 @@
     @apply h-1 bg-secondary w-20 mx-auto rounded;
 }
 /* ---------------- */
-
-/* OFFER BANNERS SECTION */
-.navigation-btns {
-    @apply hidden transition-all ease-in-out duration-500;
-}
-.slider-layout:hover .navigation-btns {
-    @apply block transition-all ease-in-out duration-500;
-}
-.offer-nav-btn {
-    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-[#000] p-5 rounded-md transition ease-in-out duration-500 z-10;
-}
-.offer-nav-btn:hover {
-    @apply bg-base-100 outline outline-1 outline-primary;
-}
-/* ---------------- */
-
 /* SHOPPING FACILITIES SECTION */
 .shopping-facilities {
     @apply border border-primary;
@@ -163,7 +165,11 @@
 }
 
 .testimonial-content {
-    @apply relative z-10 py-20 px-28 text-center flex flex-col items-center space-y-8;
+    @apply relative z-10 py-20 px-28 text-center space-y-8 mx-auto;
+    }
+
+    .testimonial-client-name {
+        @apply text-base-100 text-3xl font-bold;
 }
 
 .testimonial-comment {
@@ -171,28 +177,35 @@
 }
 
 /* SHOP BY BRANDS SECTION */
-.shop-by-brands {
-    @apply mx-8 py-0 my-20 text-center;
-}
-
 .shop-by-brands-layout {
-    @apply grid grid-cols-6 w-full mt-8 mb-12 border-y border-l border-[#ddd];
+    @apply grid grid-cols-6 w-full mt-12 mb-10 border-y border-l;
 }
 
 .shop-by-brands-item {
-    @apply py-5 px-8 w-full border-r border-[#ddd];
+    @apply py-4 px-6 w-full border-r;
 }
-
 /* --------------------- */
 
 /* ------------------- */
 /* 🔹 Mobile Devices */
 @media (max-width: 768px) {
+    /* Slider's Styles */
     .slider-layout {
     @apply mx-6 my-12;
     }
     .slider-container {
         @apply mt-8;
+    }
+    .offer-banners-layout {
+        @apply mx-6 mt-12;
+    }
+
+    .slider-btns {
+        @apply block;
+    }
+
+    .offer-nav-btn {
+        @apply p-3 rounded;
     }
     /* CAROUSEL BANNER SECTION */
     .carousel-bg {
@@ -211,17 +224,6 @@
         @apply h-0.5 w-16 mx-0;
     }
     /* ------------------- */
-    /* OFFER BANNERS SECTION */
-    .offer-banners-layout {
-        @apply mx-6 mt-12;
-    }
-    .navigation-btns {
-        @apply block;
-    }
-    .offer-nav-btn {
-        @apply p-3 rounded;
-    }
-    /* ---------------- */
 
     /* SHOPPING FACILITIES SECTION */
     .shopping-facilities-layout {
@@ -318,28 +320,37 @@
     .testimonial-content {
         @apply py-12 px-6 space-y-6;
     }
+    .testimonial-client-name {
+        @apply text-xl;
+    }
     .testimonial-comment {
         @apply text-base py-8 px-6 leading-normal;
     }
+    /* ------------------------ */
     /* SHOP BY BRANDS SECTION */
-    .shop-by-brands {
-        @apply mx-6 py-0 my-12 text-center;
-    }
-
     .shop-by-brands-layout {
-        @apply grid grid-cols-2 gap-4 mt-6 mb-8 border-y-0 border-l-0 border-[#ddd];
+        @apply grid grid-cols-2 gap-4 mt-6 mb-8 border-y-0 border-l-0;
     }
     .shop-by-brands-item {
-        @apply py-2 px-5 w-full border border-[#ddd];
+        @apply py-2 px-5 w-full border;
     }
+    /* ------------------------ */
 }
 /* 🔹 Tablet Devices */
 @media (min-width: 768px) and (max-width: 1024px) {
+    /* Slider's Styles */
     .slider-layout {
         @apply my-16;
     }
     .slider-container {
         @apply mt-10;
+    }
+    .slider-btns {
+        @apply block;
+    }
+
+    .offer-nav-btn {
+        @apply p-4;
     }
     /* CAROUSEL BANNER SECTION */
     .carousel-bg {
@@ -355,15 +366,6 @@
         @apply text-4xl text-primary uppercase font-bold;
     }
     /* ------------------------- */
-
-    /* OFFER BANNERS SECTION */
-    .navigation-btns {
-        @apply block;
-    }
-    .offer-nav-btn {
-        @apply p-4;
-    }
-    /* ---------------- */
     /* FEATURED PRODUCTS SECTION */
     .featured-products {
         @apply px-8 py-16 grid grid-cols-2 gap-6
@@ -385,6 +387,30 @@
     .big-single-banner-content>p {
         @apply text-xs w-1/2;
     }
+    /* ------------------------ */
+    /* TESTIMONIAL SECTION */
+    .testimonial-content {
+        @apply py-16 px-8 space-y-6;
+    }
+
+    .testimonial-client-name {
+        @apply text-2xl;
+    }
+
+    .testimonial-comment {
+        @apply text-lg py-8 px-6 leading-normal;
+    }
+
+    /* ------------------------ */
+    /* SHOP BY BRANDS SECTION */
+    .shop-by-brands-layout {
+        @apply grid grid-cols-3 gap-6 mt-8 mb-10;
+    }
+
+    .shop-by-brands-item {
+        @apply py-2 px-5 w-full border;
+    }
+
     /* ------------------------ */
 }
 

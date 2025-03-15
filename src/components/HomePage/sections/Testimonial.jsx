@@ -29,9 +29,7 @@ const Testimonial = () => {
           <div className="testimonial-content">
             <div className="space-y-1 lg:space-y-3">
               <p className="text-primary">What’s Client Says</p>
-              <h2 className="text-base-100 text-2xl font-bold">
-                {testimonial.name}
-              </h2>
+              <h2 className="testimonial-client-name">{testimonial.name}</h2>
             </div>
             <p className="testimonial-comment">“ {testimonial.comment} ”</p>
             <Image
@@ -39,6 +37,7 @@ const Testimonial = () => {
               width={110}
               height={110}
               alt={testimonial.name}
+              className="mx-auto w-20 h-20 md:w-32 md:h-32"
             />
           </div>
         </SwiperSlide>

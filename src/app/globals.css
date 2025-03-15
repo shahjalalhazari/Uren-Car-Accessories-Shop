@@ -420,3 +420,10 @@
         @apply px-6 py-6 flex-col gap-y-4 items-center justify-between;
     }
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* BLOG's STYLE */
+    .blog-layout {
+        @apply grid grid-cols-3 gap-6 mt-8 mb-12;
+    }
+}

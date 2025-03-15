@@ -54,7 +54,7 @@ const NewArrivalProducts = () => {
           ))}
 
           {/* Custom Navigation Buttons */}
-          <div className="navigation-btns">
+          <div className="slider-btns">
             <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
               <FaChevronLeft className="text-base md:text-xl" />
             </button>
