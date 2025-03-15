@@ -1,51 +1,17 @@
 "use client";
-import { useEffect, useState } from "react";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { useRef } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import FeaturedCategorySingleCard from "@/components/shared/cards/FeaturedCategorySingleCard";
 import SectionHeading from "@/components/shared/SectionHeading";
 
 const FeaturedCategories = () => {
-  const [deviceType, setDeviceType] = useState("desktop");
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
-  useEffect(() => {
-    const updateDeviceType = () => {
-      if (window.innerWidth < 769) {
-        setDeviceType("mobile");
-      } else if (window.innerWidth < 1024) {
-        setDeviceType("tablet");
-      } else {
-        setDeviceType("desktop");
-      }
-    };
-
-    // Initial check
-    updateDeviceType();
-
-    // Add event listener to detect resize
-    window.addEventListener("resize", updateDeviceType);
-
-    // Cleanup listener
-    return () => window.removeEventListener("resize", updateDeviceType);
-  }, []);
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 6,
-      slidesToSlide: 6,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 769 },
-      items: 4,
-      slidesToSlide: 4,
-    },
-    mobile: {
-      breakpoint: { max: 768, min: 0 },
-      items: 2,
-      slidesToSlide: 2,
-    },
-  };
   return (
     <div className="slider-layout">
       {/* Section Heading */}
@@ -54,28 +20,48 @@ const FeaturedCategories = () => {
         subHeading="Top Featured Collections"
       />
 
-      {/* Category List */}
-      <Carousel
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        responsive={responsive}
-        ssr={true}
-        infinite={true}
-        autoPlay={deviceType == ["mobile"]}
-        autoPlaySpeed={5000}
-        keyBoardControl={true}
-        customTransition="ease-in-out .5"
-        transitionDuration={5000}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={[]}
-        deviceType={deviceType}
-        itemClass="mt-8 lg:mt-12 border lg:border-y lg:border-l"
-      >
-        {featuredCategories.map((item, index) => (
-          <FeaturedCategorySingleCard key={index} categoryItem={item} />
-        ))}
-      </Carousel>
+      {/* Featured Category List */}
+      <div className="relative mx-2">
+        <Swiper
+          spaceBetween={0}
+          loop={true}
+          autoplay={{ delay: 3000 }}
+          modules={[Navigation, Autoplay]}
+          navigation={{
+            prevEl: prevRef.current,
+            nextEl: nextRef.current,
+          }}
+          onInit={(swiper) => {
+            swiper.params.navigation.prevEl = prevRef.current;
+            swiper.params.navigation.nextEl = nextRef.current;
+            swiper.navigation.init();
+            swiper.navigation.update();
+          }}
+          breakpoints={{
+            640: { slidesPerView: 2 }, // Small screens
+            768: { slidesPerView: 4 }, // Medium screens
+            1024: { slidesPerView: 6 }, // Large screens
+          }}
+          className="slider-container"
+        >
+          {featuredCategories.map((item, index) => (
+            <SwiperSlide key={index} className="">
+              <FeaturedCategorySingleCard categoryItem={item} />
+            </SwiperSlide>
+          ))}
+
+          {/* Custom Navigation Buttons */}
+          <div className="navigation-btns">
+            <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
+              <FaChevronLeft className="text-xl" />
+            </button>
+
+            <button ref={nextRef} className="right-6 md:right-8 offer-nav-btn">
+              <FaChevronRight className="text-xl" />
+            </button>
+          </div>
+        </Swiper>
+      </div>
     </div>
   );
 };

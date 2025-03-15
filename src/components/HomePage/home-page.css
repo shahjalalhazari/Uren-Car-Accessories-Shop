@@ -1,5 +1,10 @@
+/* Large Devices (Default) */
 .slider-layout {
-    @apply ml-8 mr-10 py-0 my-20;
+    @apply mx-6 my-20;
+    }
+
+    .slider-container {
+        @apply w-full mt-12 border-y border-l
 }
 
 /* CAROUSEL BANNER SECTION */
@@ -21,13 +26,10 @@
 /* ---------------- */
 
 /* OFFER BANNERS SECTION */
-.offer-banners-layout {
-    @apply mx-8 p-0 mt-20;
-}
 .navigation-btns {
     @apply hidden transition-all ease-in-out duration-500;
 }
-.offer-banners-layout:hover .navigation-btns {
+.slider-layout:hover .navigation-btns {
     @apply block transition-all ease-in-out duration-500;
 }
 .offer-nav-btn {
@@ -42,46 +44,39 @@
 .shopping-facilities {
     @apply mx-8 py-0 mt-20 border border-primary;
 }
-
 .shopping-facilities-layout {
     @apply grid grid-cols-2 place-items-center py-8 gap-y-8;
 }
-
 .facility-item {
     @apply flex items-center gap-x-4;
 }
-
 .item-icon {
     @apply text-primary text-4xl;
 }
-
 .item-content {
     @apply flex flex-col gap-1.5;
 }
-
 .item-content>h6 {
     @apply font-bold;
 }
-
 .item-content>p {
     @apply text-[#999]
 }
-
 /* ----------------------- */
 /* FEATURED CATEGORIES SECTION */
 .category-item-card {
-    @apply bg-white flex flex-col items-center text-center py-5;
+    @apply bg-white flex flex-col items-center text-center py-5 border-r;
 }
 
 .category-item-card:hover {
     @apply shadow-xl;
 }
 
-.category-item-card-title {
+.category-card-title {
     @apply text-lg font-semibold text-[#999];
 }
 
-.category-item-card-title:hover {
+.category-card-title:hover {
     @apply text-primary
 }
 
@@ -248,7 +243,11 @@
 /* 🔹 Mobile Devices */
 @media (max-width: 768px) {
     .slider-layout {
-        @apply mx-6 mr-8 py-0 my-12;
+        @apply mx-4 my-12;
+        }
+
+        .slider-container {
+            @apply mt-8;
     }
     /* CAROUSEL BANNER SECTION */
     .carousel-bg {
@@ -271,15 +270,12 @@
     .offer-banners-layout {
         @apply mx-6 mt-12;
     }
-
     .navigation-btns {
         @apply block;
     }
-
     .offer-nav-btn {
         @apply p-3 rounded;
     }
-
     /* ---------------- */
 
     /* SHOPPING FACILITIES SECTION */
@@ -307,18 +303,7 @@
     /* ----------------------- */
 
     /* FEATURED CATEGORIES SECTION */
-    .category-item-card {
-    @apply bg-white flex flex-col items-center text-center py-5;
-    }
-    .category-item-card:hover {
-        @apply shadow-xl;
-    }
-    .category-item-card-title {
-        @apply text-lg font-semibold text-[#999];
-    }
-    .category-item-card-title:hover {
-        @apply text-primary
-    }
+    /* [Default Styles] */
     /* ----------------------- */
 
     /* FEATURED PRODUCTS SECTION */
@@ -433,6 +418,13 @@
 }
 /* 🔹 Tablet Devices */
 @media (min-width: 768px) and (max-width: 1024px) {
+    .slider-layout {
+        @apply my-16;
+    }
+
+    .slider-container {
+        @apply mt-10;
+    }
     /* CAROUSEL BANNER SECTION */
     .carousel-bg {
         @apply grid-cols-none;
@@ -449,10 +441,6 @@
     /* ------------------------- */
 
     /* OFFER BANNERS SECTION */
-    .offer-banners-layout {
-        @apply mx-6 mt-16;
-    }
-
     .navigation-btns {
         @apply block;
     }

@@ -13,14 +13,9 @@ const FeaturedCategorySingleCard = ({ categoryItem }) => {
           alt={categoryItem.name}
           className=""
         />
+        <h2 className="category-card-title">{categoryItem.name}</h2>
+        <p className="text-blue">&#40;{categoryItem.quantity} products&#41;</p>
       </Link>
-      {/* REPLACE */}
-      <Link href={`/categories/${encodeURIComponent(categoryItem.name)}`}>
-        <h2 className="category-item-card-title">{categoryItem.name}</h2>
-      </Link>
-      <p className="text-blue">
-        &#40;{categoryItem.quantity} products&#41;
-      </p>
     </div>
   );
 };

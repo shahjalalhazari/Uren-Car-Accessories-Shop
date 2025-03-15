@@ -1,14 +1,11 @@
 "use client";
-import "react-multi-carousel/lib/styles.css";
+import { useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
-
-// Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useRef } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const OfferBanners = () => {
@@ -16,7 +13,7 @@ const OfferBanners = () => {
   const nextRef = useRef(null);
 
   return (
-    <div className="offer-banners-layout relative">
+    <div className="slider-layout relative">
       <Swiper
         spaceBetween={0}
         loop={true}
@@ -48,7 +45,7 @@ const OfferBanners = () => {
                   alt={offerBanner.offerName}
                   width={500}
                   height={300}
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto"
                 />
               </div>
             </Link>
@@ -58,11 +55,11 @@ const OfferBanners = () => {
         {/* Custom Navigation Buttons */}
         <div className="navigation-btns">
           <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
-            <FaChevronLeft className="text-xl" />
+            <FaChevronLeft className="text-base md:text-xl" />
           </button>
 
           <button ref={nextRef} className="right-6 md:right-8 offer-nav-btn">
-            <FaChevronRight className="text-xl" />
+            <FaChevronRight className="text-base md:text-xl" />
           </button>
         </div>
       </Swiper>
