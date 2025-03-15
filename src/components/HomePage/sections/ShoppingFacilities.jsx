@@ -8,7 +8,7 @@ import {
 
 const ShoppingFacilities = () => {
   return (
-    <div className="shopping-facilities">
+    <div className="shopping-facilities uren-container">
       <div className="shopping-facilities-layout">
         <div className="facility-item">
           <div className="item-icon">

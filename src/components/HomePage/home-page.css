@@ -1,10 +1,9 @@
 /* Large Devices (Default) */
 .slider-layout {
     @apply mx-6 my-20;
-    }
-
-    .slider-container {
-        @apply w-full mt-12 border-y border-l
+}
+.slider-container {
+    @apply w-full mt-12 border-y border-l
 }
 
 /* CAROUSEL BANNER SECTION */
@@ -42,7 +41,7 @@
 
 /* SHOPPING FACILITIES SECTION */
 .shopping-facilities {
-    @apply mx-8 py-0 mt-20 border border-primary;
+    @apply border border-primary;
 }
 .shopping-facilities-layout {
     @apply grid grid-cols-2 place-items-center py-8 gap-y-8;
@@ -67,19 +66,15 @@
 .category-item-card {
     @apply bg-white flex flex-col items-center text-center py-5 border-r;
 }
-
 .category-item-card:hover {
     @apply shadow-xl;
 }
-
 .category-card-title {
     @apply text-lg font-semibold text-[#999];
 }
-
 .category-card-title:hover {
     @apply text-primary
 }
-
 /* ----------------------- */
 /* FEATURED PRODUCTS SECTION */
 .featured-products {
@@ -88,64 +83,49 @@
 .card-container {
     @apply bg-base-100 w-full shadow-md pt-10 px-6 pb-6;
 }
-
 /* Deal Of The Day Card */
 .deal-of-the-day .product-name {
     @apply text-black text-xl font-semibold;
 }
-
 .deal-of-the-day .product-name:hover {
     @apply text-primary;
 }
-
 .deal-of-the-day .old-price {
     @apply text-[#999] line-through
 }
-
 .deal-of-the-day .new-price {
     @apply text-secondary text-2xl font-bold
 }
-
 /* Countdown Timer */
 .timer-container {
     @apply flex text-center justify-between items-center;
 }
-
 .timer-box {
     @apply flex flex-col items-center justify-center border-2 border-[#ddd] py-3 px-2;
 }
-
 .timer-box>h5 {
     @apply text-primary text-xl font-semibold leading-tight;
 }
-
 .timer-box>p {
     @apply text-sm text-[#999]
 }
-
 /* ######################### */
-
 /* Weekly Featured Product Card */
 .weekly-product-single-card {
     @apply grid grid-cols-3 items-center py-2 border-b-2
 }
-
 .weekly-product-single-card:hover {
     @apply shadow-md
 }
-
 .weekly-product-single-card:last-child {
     @apply border-none
 }
-
 .weekly-product-name {
     @apply text-[#999] leading-4 my-2 text-sm
 }
-
 .weekly-product-name:hover {
     @apply text-secondary;
 }
-
 .weekly-product-price {
     @apply text-secondary text-lg font-semibold;
 }
@@ -165,7 +145,7 @@
 }
 
 .big-single-banner-content {
-    @apply px-10 py-24 text-white space-y-2.5 cursor-pointer;
+    @apply px-16 py-24 text-white space-y-4 cursor-pointer;
 }
 
 .big-single-banner-content>h5 {
@@ -173,7 +153,7 @@
 }
 
 .big-single-banner-content>h4 {
-    @apply uppercase text-3xl leading-7;
+    @apply uppercase text-3xl;
 }
 
 .big-single-banner-content>div {
@@ -243,11 +223,10 @@
 /* 🔹 Mobile Devices */
 @media (max-width: 768px) {
     .slider-layout {
-        @apply mx-4 my-12;
-        }
-
-        .slider-container {
-            @apply mt-8;
+    @apply mx-4 my-12;
+    }
+    .slider-container {
+        @apply mt-8;
     }
     /* CAROUSEL BANNER SECTION */
     .carousel-bg {
@@ -279,9 +258,6 @@
     /* ---------------- */
 
     /* SHOPPING FACILITIES SECTION */
-    .shopping-facilities {
-        @apply mx-8 py-0 mt-12 border border-primary;
-    }
     .shopping-facilities-layout {
             @apply flex flex-col place-items-center py-6 gap-y-4;
     }
@@ -355,33 +331,26 @@
     .weekly-product-name:hover {
         @apply text-secondary;
     }
-
     /* ----------------------------- */
 
     /* OFFER BIG BANNER SECTION */
     .big-banner-container {
-        @apply grid grid-cols-1 gap-y-4 w-full;
-    }
-    .big-single-banner {
-        @apply transition-all ease-in;
-    }
-    .big-single-banner:hover {
-        @apply opacity-80
+        @apply grid grid-cols-1 gap-y-4;
     }
     .big-single-banner-content {
-        @apply px-6 py-14 text-white space-y-2.5 cursor-pointer bg-center bg-cover;
+        @apply px-6 py-16 bg-center bg-cover space-y-3;
     }
     .big-single-banner-content>h5 {
-        @apply uppercase text-primary text-sm;
+        @apply text-sm;
     }
     .big-single-banner-content>h4 {
-        @apply uppercase text-xl leading-6;
+        @apply text-xl;
     }
     .big-single-banner-content>div {
-        @apply bg-transparent w-14 border-b border-primary;
+        @apply w-14;
     }
     .big-single-banner-content>p {
-        @apply text-sm w-full;
+        @apply text-xs w-full;
     }
     /* ------------------------ */
 
@@ -421,7 +390,6 @@
     .slider-layout {
         @apply my-16;
     }
-
     .slider-container {
         @apply mt-10;
     }
@@ -444,13 +412,39 @@
     .navigation-btns {
         @apply block;
     }
-
     .offer-nav-btn {
         @apply p-4;
     }
+    /* ---------------- */
+    /* FEATURED PRODUCTS SECTION */
+    .featured-products {
+        @apply px-8 py-16 grid grid-cols-2 gap-6
+    }
 
     /* ---------------- */
-    }
+/* OFFER BIG BANNER SECTION */
+.big-banner-container {
+    @apply grid grid-cols-1 gap-y-6;
+}
+
+.big-single-banner-content {
+    @apply p-20;
+}
+
+.big-single-banner-content>h5 {
+    @apply text-sm;
+}
+
+.big-single-banner-content>h4 {
+    @apply text-xl;
+}
+
+.big-single-banner-content>p {
+    @apply text-xs w-1/2;
+}
+
+/* ------------------------ */
+}
 
     /* CAROUSEL ANIMATION STYLES */
     @keyframes zoomInUp {

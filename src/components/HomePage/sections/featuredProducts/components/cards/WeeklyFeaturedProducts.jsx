@@ -12,7 +12,7 @@ const WeeklyFeaturedProducts = () => {
       />
 
       {/* All Weekly Featured Products List */}
-      <div className="h-[72vh] overflow-y-auto mt-4">
+      <div className="h-[50vh] md:h-[37vh] lg:h-[66vh] overflow-y-auto mt-4">
         {/* REPLACE */}
         {[...Array(10)].map((_, index) => (
           <FeaturedSingleProductCard key={index} />

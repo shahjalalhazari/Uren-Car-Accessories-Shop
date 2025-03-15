@@ -4,7 +4,7 @@ import React from 'react';
 
 const BigOfferBanners = () => {
     return (
-      <div className="px-6 lg:px-8 pb-12 lg:pb-20 bg-[#eee]">
+      <div className="px-6 md:px-8 pb-12 md:pb-16 lg:pb-20 bg-[#eee]">
         <div className="big-banner-container">
           <div className="big-single-banner">
             <div

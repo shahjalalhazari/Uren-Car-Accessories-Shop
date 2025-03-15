@@ -4,7 +4,7 @@
 
 /* containers */
 .uren-container {
-    @apply mx-6 md:mx-8 my-12 md:my-20 p-0;
+    @apply mx-8 my-20 p-0;
 }
 /* ------------------ */
 
@@ -310,6 +310,10 @@
 }
 /* ----------------------- */
 @media (max-width: 768px) {
+    /* containers */
+    .uren-container {
+        @apply mx-6 my-12;
+    }
     /* Page Breadcrumb */
     .breadcrumb-title {
         @apply text-2xl;
