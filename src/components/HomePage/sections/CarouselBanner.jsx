@@ -1,17 +1,15 @@
 "use client"
-// Import Swiper React components
+import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
+import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
-// import required modules
-import { Autoplay } from "swiper/modules";
 import PrimaryBtn from "@/components/shared/buttons/PrimaryBtn";
 
 const CarouselBanner = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+
   return (
     <>
       <Swiper
@@ -20,27 +18,40 @@ const CarouselBanner = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 5000 }}
         loop={true}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update activeIndex when slider change
         className=""
       >
-        {banners.map((banner) => (
-          <SwiperSlide key={banner.id}>
-            <div
-              className="carousel-bg"
-              style={{
-                backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0,0,0,0.5)), 
+        {banners.map((banner, index) => {
+          const animationStyle =
+            index % 2 === 0 ? "animation-style-02" : "animation-style-01";
+          return (
+            <SwiperSlide key={banner.id}>
+              <div
+                className={`carousel-bg ${
+                  index === activeIndex ? `slick-active ${animationStyle}` : ""
+                }`}
+                style={{
+                  backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0,0,0,0.5)), 
                   url(${banner.image})`,
-              }}
-            >
-              <div className="carousel-content">
-                <h5 className="carousel-sub-heading">{banner.subHeading}</h5>
-                <h3 className="carousel-heading">{banner.heading}</h3>
-                <div className="h-0.5 md:h-1 bg-secondary w-16 md:w-20 md:mx-auto rounded"></div>
-                <p className="text-sm lg:text-base">{banner.description}</p>
-                <PrimaryBtn text="READ MORE" path="/" />
+                }}
+              >
+                <div className="carousel-content">
+                  <div className="carousel-text space-y-3 md:space-y-5 lg:space-y-8">
+                    <h5 className="carousel-sub-heading">
+                      {banner.subHeading}
+                    </h5>
+                    <h2 className="carousel-heading">{banner.heading}</h2>
+                    <div className="carousel-content-divider"></div>
+                    <p className="text-sm lg:text-base w-full md:mx-auto">
+                      {banner.description}
+                    </p>
+                    <PrimaryBtn text="READ MORE" path="/" />
+                  </div>
+                </div>
               </div>
-            </div>
-          </SwiperSlide>
-        ))}
+            </SwiperSlide>
+          );
+        })}
       </Swiper>
     </>
   );

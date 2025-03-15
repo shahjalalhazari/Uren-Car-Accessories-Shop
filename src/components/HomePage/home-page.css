@@ -6,17 +6,17 @@
 .carousel-bg {
     @apply h-full bg-cover bg-center grid grid-cols-3 px-8;
 }
-
 .carousel-content {
-    @apply text-white text-center col-span-2 items-center py-60 space-y-8;
+    @apply text-white text-center col-span-2 items-center py-52;
 }
-
 .carousel-sub-heading {
     @apply text-2xl text-secondary font-bold uppercase;
 }
-
 .carousel-heading {
     @apply text-5xl text-primary uppercase font-bold;
+}
+.carousel-content-divider {
+    @apply h-1 bg-secondary w-20 mx-auto rounded;
 }
 
 /* .carousel-btns {
@@ -292,7 +292,7 @@
     }
 
     .carousel-content {
-        @apply text-start py-20 space-y-3;
+        @apply text-start py-16 space-y-3;
     }
 
     .carousel-sub-heading {
@@ -301,6 +301,10 @@
 
     .carousel-heading {
         @apply text-2xl text-primary uppercase font-bold;
+    }
+
+    .carousel-content-divider {
+        @apply h-0.5 w-16 mx-0;
     }
 
     /* SHOPPING FACILITIES SECTION */
@@ -459,7 +463,7 @@
     }
 
     .carousel-content {
-        @apply py-40 space-y-5;
+        @apply py-32 space-y-5;
     }
 
     .carousel-sub-heading {
