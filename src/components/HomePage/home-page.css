@@ -18,62 +18,26 @@
 .carousel-content-divider {
     @apply h-1 bg-secondary w-20 mx-auto rounded;
 }
-
-/* .carousel-btns {
-    @apply absolute bottom-[50px] right-[50px] flex gap-3 transform justify-between;
-}
-
-.carousel-left-btn {
-    @apply bg-secondary px-5 py-3 rounded-full;
-}
-
-.carousel-left-btn:hover {
-    @apply bg-secondary text-white
-}
-
-.carousel-right-btn {
-    @apply bg-primary px-5 py-3 rounded-full;
-}
-
-.carousel-right-btn:hover {
-    @apply bg-primary text-secondary
-}
-
-*/
-
-@keyframes zoomInUp {
-    from {
-        opacity: 0;
-        transform: translateY(200px);
-        -webkit-transform: translateY(200px);
-        -moz-transform: translateY(200px);
-        -ms-transform: translateY(200px);
-        -o-transform: translateY(200px);
-}
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-@keyframes zoomInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-200px);
-        -webkit-transform: translateX(-200px);
-        -moz-transform: translateX(-200px);
-        -ms-transform: translateX(-200px);
-        -o-transform: translateX(-200px);
-}
-
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
 /* ---------------- */
+
+/* OFFER BANNERS SECTION */
+.offer-banners-layout {
+    @apply mx-8 p-0 mt-20;
+}
+.navigation-btns {
+    @apply hidden transition-all ease-in-out duration-500;
+}
+.offer-banners-layout:hover .navigation-btns {
+    @apply block transition-all ease-in-out duration-500;
+}
+.offer-nav-btn {
+    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-[#000] p-5 rounded-md transition ease-in-out duration-500 z-10;
+}
+.offer-nav-btn:hover {
+    @apply bg-base-100 outline outline-1 outline-primary;
+}
+/* ---------------- */
+
 /* SHOPPING FACILITIES SECTION */
 .shopping-facilities {
     @apply mx-8 py-0 mt-20 border border-primary;
@@ -290,22 +254,33 @@
     .carousel-bg {
         @apply grid-cols-none px-6;
     }
-
     .carousel-content {
         @apply text-start py-16 space-y-3;
     }
-
     .carousel-sub-heading {
         @apply text-lg text-secondary font-bold uppercase;
     }
-
     .carousel-heading {
         @apply text-2xl text-primary uppercase font-bold;
     }
-
     .carousel-content-divider {
         @apply h-0.5 w-16 mx-0;
     }
+    /* ------------------- */
+    /* OFFER BANNERS SECTION */
+    .offer-banners-layout {
+        @apply mx-6 mt-12;
+    }
+
+    .navigation-btns {
+        @apply block;
+    }
+
+    .offer-nav-btn {
+        @apply p-3 rounded;
+    }
+
+    /* ---------------- */
 
     /* SHOPPING FACILITIES SECTION */
     .shopping-facilities {
@@ -458,19 +433,66 @@
 }
 /* 🔹 Tablet Devices */
 @media (min-width: 768px) and (max-width: 1024px) {
+    /* CAROUSEL BANNER SECTION */
     .carousel-bg {
         @apply grid-cols-none;
     }
-
     .carousel-content {
         @apply py-32 space-y-5;
     }
-
     .carousel-sub-heading {
         @apply text-xl text-secondary font-bold uppercase;
     }
-
     .carousel-heading {
         @apply text-4xl text-primary uppercase font-bold;
     }
+    /* ------------------------- */
+
+    /* OFFER BANNERS SECTION */
+    .offer-banners-layout {
+        @apply mx-6 mt-16;
+    }
+
+    .navigation-btns {
+        @apply block;
+    }
+
+    .offer-nav-btn {
+        @apply p-4;
+    }
+
+    /* ---------------- */
+    }
+
+    /* CAROUSEL ANIMATION STYLES */
+    @keyframes zoomInUp {
+        from {
+            opacity: 0;
+            transform: translateY(200px);
+            -webkit-transform: translateY(200px);
+            -moz-transform: translateY(200px);
+            -ms-transform: translateY(200px);
+            -o-transform: translateY(200px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomInLeft {
+        from {
+            opacity: 0;
+            transform: translateX(-200px);
+            -webkit-transform: translateX(-200px);
+            -moz-transform: translateX(-200px);
+            -ms-transform: translateX(-200px);
+            -o-transform: translateX(-200px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
 }

@@ -1,91 +1,76 @@
 "use client";
-import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+// Import Swiper React components
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+import { useRef } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+
 const OfferBanners = () => {
-  const [deviceType, setDeviceType] = useState("desktop");
+  const prevRef = useRef(null);
+  const nextRef = useRef(null);
 
-  useEffect(() => {
-    const updateDeviceType = () => {
-      if (window.innerWidth < 769) {
-        setDeviceType("mobile");
-      } else if (window.innerWidth < 1024) {
-        setDeviceType("tablet");
-      } else {
-        setDeviceType("desktop");
-      }
-    };
-
-    // Initial check
-    updateDeviceType();
-
-    // Add event listener to detect resize
-    window.addEventListener("resize", updateDeviceType);
-
-    // Cleanup listener
-    return () => window.removeEventListener("resize", updateDeviceType);
-  }, []);
-
-  const responsive = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 3,
-      slidesToSlide: 3,
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 769 },
-      items: 2,
-      slidesToSlide: 2,
-    },
-    mobile: {
-      breakpoint: { max: 768, min: 0 },
-      items: 1,
-      slidesToSlide: 1,
-    },
-  };
   return (
-    <div className="mx-6 lg:mx-4 p-0 mt-12 lg:mt-20">
-      <Carousel
-        swipeable={true}
-        draggable={true}
-        showDots={false}
-        responsive={responsive}
-        ssr={true}
-        infinite={true}
-        autoPlay={deviceType == "mobile"}
-        autoPlaySpeed={3000}
-        keyBoardControl={true}
-        customTransition="ease-in-out .5"
-        transitionDuration={2000}
-        containerClass="carousel-container"
-        removeArrowOnDeviceType={[]}
-        deviceType={deviceType}
-        itemClass="px-2 lg:px-5 z-[100]"
+    <div className="offer-banners-layout relative">
+      <Swiper
+        spaceBetween={0}
+        loop={true}
+        autoplay={{ delay: 3000 }}
+        modules={[Navigation, Autoplay]}
+        navigation={{
+          prevEl: prevRef.current,
+          nextEl: nextRef.current,
+        }}
+        onInit={(swiper) => {
+          swiper.params.navigation.prevEl = prevRef.current;
+          swiper.params.navigation.nextEl = nextRef.current;
+          swiper.navigation.init();
+          swiper.navigation.update();
+        }}
+        breakpoints={{
+          640: { slidesPerView: 1 }, // Small screens
+          768: { slidesPerView: 2 }, // Medium screens
+          1024: { slidesPerView: 3 }, // Large screens
+        }}
+        className="w-full"
       >
         {offerBannersList.map((offerBanner, index) => (
-          <Link
-            key={index}
-            href={`/offers/${encodeURIComponent(offerBanner.offerName)}`}
-          >
-            <Image
-              src={offerBanner.offerImg}
-              alt={offerBanner.offerName}
-              width={500}
-              height={300}
-              className="shadow-md"
-            />
-          </Link>
+          <SwiperSlide key={index} className="p-2">
+            <Link href={`/offers/${encodeURIComponent(offerBanner.offerName)}`}>
+              <div className="shadow-lg rounded-none hover:opacity-75 transition-all ease-in-out duration-300">
+                <Image
+                  src={offerBanner.offerImg}
+                  alt={offerBanner.offerName}
+                  width={500}
+                  height={300}
+                  className="w-full h-auto rounded-lg"
+                />
+              </div>
+            </Link>
+          </SwiperSlide>
         ))}
-      </Carousel>
+
+        {/* Custom Navigation Buttons */}
+        <div className="navigation-btns">
+          <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
+            <FaChevronLeft className="text-xl" />
+          </button>
+
+          <button ref={nextRef} className="right-6 md:right-8 offer-nav-btn">
+            <FaChevronRight className="text-xl" />
+          </button>
+        </div>
+      </Swiper>
     </div>
   );
 };
 
 export default OfferBanners;
-
 
 const offerBannersList = [
   {

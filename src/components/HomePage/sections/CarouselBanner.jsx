@@ -3,8 +3,6 @@ import { useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
 import PrimaryBtn from "@/components/shared/buttons/PrimaryBtn";
 
 const CarouselBanner = () => {
@@ -16,7 +14,7 @@ const CarouselBanner = () => {
         spaceBetween={30}
         centeredSlides={true}
         modules={[Autoplay]}
-        autoplay={{ delay: 5000 }}
+        autoplay={{ delay: 3000 }}
         loop={true}
         onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update activeIndex when slider change
         className=""
