@@ -4,7 +4,7 @@ import TopNavbar from './TopNavbar';
 const Navbar = () => {
   return (
     <>
-      <TopNavbar/>
+      <TopNavbar navItems={navItems} categories={categories} />
       <h1>Navbar Bottom Part</h1>
     </>
   );
