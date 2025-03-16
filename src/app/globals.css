@@ -1,3 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* ✅ Desktops & Large Screens (Default) */
+
+/* ✅ Mobile Phones (All sizes) */
+@media (max-width: 767px) {}
+
+/* ✅ Tablets (All sizes) */
+@media (min-width: 768px) and (max-width: 1023px) {}
