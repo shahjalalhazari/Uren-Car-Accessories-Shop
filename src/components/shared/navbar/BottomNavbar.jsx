@@ -12,6 +12,127 @@ const BottomNavbar = ({ navItems, categories }) => {
   return (
     <div className="navbar-bottom-part">
       {/* NAVBAR BOTTOM PART FOR LARGE DEVICES */}
+      <div className="lg-bottom-nav">
+        {/* Category Menu  */}
+        <div className="flex items-center gap-x-20">
+          <div className="relative group dropdown">
+            <div className="categories-list-heading">
+              <FaBars className="text-4xl" />
+              <h2 className="categories-list-heading-text">
+                <span>Shop By</span>
+                <br />
+                <span>Department</span>
+              </h2>
+              <p className="categories-arrow">
+                <FaAngleDown />
+              </p>
+            </div>
+
+            {/* Category List */}
+            <ul className="categories-list">
+              {categories.map((item, index) => (
+                <li key={index} className="dropdown-list-item">
+                  <Link
+                    href={`/shop/products/category?/${encodeURIComponent(
+                      item.name
+                    )}`}
+                  >
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Main Navigation */}
+          <div className="main-nav">
+            {navItems.map((item) => (
+              <Link
+                className={`main-nav-items ${
+                  pathname === item.path && "text-base-100 bg-dark p-[22px]"
+                }`}
+                key={item.path}
+                href={item.path}
+              >
+                {item.title}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        {/* Navbar right part */}
+        <div className="nav-right-side">
+          {/* Currency Dropdown */}
+          <div className="relative group dropdown">
+            <button className="dropdown-header">
+              <FaDollarSign /> <FaAngleDown className="dropdown-arrow" />
+            </button>
+            <ul className="dropdown-list">
+              <li className="dropdown-list-item dropdown-list-active">
+                <Link href="">د.إ UAE Dirhams</Link>
+              </li>
+              <li className="dropdown-list-item">
+                <Link href="">$ US Dollar</Link>
+              </li>
+              <li className="dropdown-list-item">
+                <Link href="">£ Pound Sterling</Link>
+              </li>
+              <li className="dropdown-list-item">
+                <Link href="">€ EUR</Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Language Dropdown  */}
+          <div className="relative group dropdown">
+            <button className="dropdown-header">
+              <Image
+                src="/images/menu/icon/1.jpg"
+                width="22"
+                height="15"
+                alt="English"
+              />{" "}
+              <FaAngleDown className="dropdown-arrow" />
+            </button>
+            <ul className="dropdown-list">
+              <li className="language-dropdown-item dropdown-list-active">
+                <Image
+                  src="/images/menu/icon/1.jpg"
+                  width="22"
+                  height="12"
+                  alt="English"
+                />{" "}
+                English
+              </li>
+              <li className="language-dropdown-item">
+                <Image
+                  src="/images/menu/icon/2.jpg"
+                  width="22"
+                  height="15"
+                  alt="English"
+                />{" "}
+                Français
+              </li>
+            </ul>
+          </div>
+
+          {/* User's Account */}
+          <div className="relative group dropdown">
+            <button className="dropdown-header">
+              <FaUser /> <FaAngleDown className="dropdown-arrow" />
+            </button>
+            <ul className={"dropdown-list"}>
+              <li className="dropdown-list-item dropdown-list-active">
+                <Link href="user/profile">My Account</Link>
+              </li>
+              <li className="dropdown-list-item">
+                <Link href="user/logout">Logout</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       {/* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */}
       <div className="md-bottom-nav">
         <div className="relative group dropdown w-1/3">
@@ -38,7 +159,11 @@ const BottomNavbar = ({ navItems, categories }) => {
             <ul className="categories-list">
               {categories.map((item, index) => (
                 <li key={index} className="dropdown-list-item">
-                  <Link href={`/offers/${encodeURIComponent(item.name)}`}>
+                  <Link
+                    href={`/shop/products/category?/${encodeURIComponent(
+                      item.name
+                    )}`}
+                  >
                     {item.name}
                   </Link>
                 </li>
@@ -84,7 +209,11 @@ const BottomNavbar = ({ navItems, categories }) => {
             <ul className="categories-list">
               {categories.map((item, index) => (
                 <li key={index} className="dropdown-list-item">
-                  <Link href={`/offers/${encodeURIComponent(item.name)}`}>
+                  <Link
+                    href={`/shop/products/category?/${encodeURIComponent(
+                      item.name
+                    )}`}
+                  >
                     {item.name}
                   </Link>
                 </li>

@@ -49,7 +49,7 @@
     @apply bg-primary px-6;
 }
 .categories-list-heading {
-    @apply bg-[#000] text-base-100 flex justify-between items-center py-4 px-8;
+    @apply bg-dark text-base-100 cursor-pointer flex justify-between items-center py-4 px-8;
 }
 .categories-list-heading-text {
     @apply uppercase font-semibold leading-none;
@@ -82,35 +82,29 @@
     }
     /* NAVBAR TOP PART FOR MEDIUM DEVICES */
     .md-top-nav {
-        @apply flex items-center justify-between px-8 mt-8 mb-10;
+        @apply flex items-center justify-between p-8 pb-10;
     }
     /* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
     .md-bottom-nav {
         @apply bg-primary px-8 py-6 flex gap-x-8 items-center;
     }
-
     .categories-list-heading {
         @apply py-3 px-6;
     }
-
     .categories-list-heading-text {
         @apply flex-col items-center justify-evenly font-semibold leading-none;
     }
-
     .categories-list {
         @apply py-3 max-h-[50vh] px-6;
     }
-
     .md-search-form {
         @apply flex w-2/3;
     }
-
     .md-search-input {
         @apply h-[60px] pl-5 pr-10 outline-none w-full;
     }
-
     .md-search-btn {
-        @apply bg-[#000] text-base-100 flex items-center px-5 py-4 font-semibold uppercase text-lg;
+        @apply bg-dark text-base-100 flex items-center px-5 py-4 font-semibold uppercase text-lg;
     }
 }
 
@@ -127,7 +121,7 @@
 
     /* NAVBAR TOP PART FOR LARGE DEVICES */
     .lg-top-nav {
-        @apply bg-base-100 flex items-center justify-between px-10 mt-10 mb-12;
+        @apply bg-base-100 flex items-center justify-between p-10 pb-12;
     }
     .lg-search-input {
         @apply p-[22px] w-3/4 outline-none border border-primary rounded-s-lg;
@@ -151,6 +145,84 @@
             @apply text-dark;
     }
     /* NAVBAR BOTTOM PART FOR LARGE DEVICES */
+    .lg-bottom-nav {
+        @apply bg-primary px-10 flex justify-between items-center;
+    }
+
+    .categories-list-heading {
+        @apply py-4 px-8 transition-all ease-in-out duration-500;
+    }
+
+    .categories-list-heading-text {
+        @apply flex-col pl-6 pr-20;
+    }
+
+    .categories-list {
+        @apply hidden px-8 py-4 max-h-[60vh];
+    }
+
+    .dropdown:hover .categories-arrow {
+        @apply rotate-180
+    }
+
+    .main-nav {
+        @apply flex gap-8 items-center;
+    }
+
+    .main-nav-items {
+        @apply font-bold uppercase transition-all ease-in-out duration-500;
+    }
+
+    .main-nav-items:hover {
+        @apply text-secondary;
+    }
+
+    .dropdown:hover .categories-list,
+    .dropdown:hover .dropdown-list {
+        @apply block;
+    }
+
+    /* Right Side Dropdown items */
+    .lg-bottom-nav .nav-right-side {
+        @apply flex items-center gap-x-8;
+    }
+
+    .nav-right-side .dropdown-header {
+        @apply flex items-center gap-x-1 text-lg cursor-pointer;
+    }
+
+    .dropdown-arrow {
+        @apply transition-transform ease-in-out duration-500;
+    }
+
+    .dropdown:hover .dropdown-arrow {
+        @apply rotate-180;
+    }
+
+    .dropdown-list {
+        @apply absolute z-[998] right-0 hidden w-max bg-base-100 border border-primary p-4 shadow-lg animate-fadeIn;
+    }
+
+    .dropdown-list-item {
+        @apply py-3;
+    }
+
+    .dropdown-list-active {
+        @apply text-secondary;
+    }
+
+    .dropdown-list-item:hover {
+        @apply bg-gray-100 text-secondary;
+    }
+
+    .language-dropdown-item {
+        @apply dropdown-list-item flex gap-x-2;
+    }
+
+    .language-dropdown-item:hover,
+    .dropdown-header:hover {
+        @apply cursor-pointer;
+    }
 }
 /* ------------------------------------------- */
 
