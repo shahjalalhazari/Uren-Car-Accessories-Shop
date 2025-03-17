@@ -1,85 +1,111 @@
-/* ✅ Desktops & Large Screens (Default) */
-/* Small & medium devices are hidden in large device */
-.md-top-nav, .sm-top-nav {
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* Large & Medium devices are hidden for Small devices */
+.lg-top-nav,
+.md-top-nav {
     @apply hidden;
 }
-/* NAVBAR TOP PART FOR LARGE DEVICES */
-.lg-top-nav {
-    @apply bg-base-100 flex justify-between px-8 mt-10 mb-12;
+/* NAVBAR TOP PART FOR SMALL DEVICES */
+.sm-top-nav {
+    @apply p-6 pb-8;
 }
-.lg-search-input {
-    @apply p-[22px] w-3/4 outline-none border border-primary rounded-s-lg;
+.sm-top-nav .uren-logo {
+    @apply mx-auto mb-4;
 }
-.lg-search-btn {
-    @apply bg-primary flex items-center px-5 py-4 font-bold rounded-e-lg uppercase text-lg transition-all ease-in-out duration-500;
-}
-.lg-search-btn:hover {
-    @apply bg-secondary text-base-100;
+.sm-top-navbar {
+    @apply flex justify-between items-center;
 }
 .nav-cart-btn {
-    @apply border border-primary py-2 flex gap-5 items-center px-12 rounded-lg transition-all ease-in-out duration-500;
+    @apply border border-primary py-1 flex gap-5 items-center px-12;
 }
-.nav-cart-btn:hover {
-    @apply bg-primary;
+.sidebar-overlay {
+    @apply fixed inset-0 bg-dark bg-opacity-60 z-[1000] transition-opacity duration-500 ease-in-out;
+    }
+
+.menu-sidebar {
+    @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-[1001] animate-fadeIn;
+    }
+
+.sidebar-close-btn {
+    @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px] transition-all ease-in-out duration-300;
+}
+
+.sidebar-search-form {
+    @apply bg-[#eee] flex justify-between items-center;
+}
+
+.sidebar-search-input {
+    @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
+}
+
+.sidebar-search-btn {
+    @apply text-xl text-[#999] p-5;
+}
+
+.sidebar-nav-list {
+    @apply space-y-2 text-[#999] font-semibold mt-8 mx-8;
 }
 .nav-phone-num {
-    @apply flex items-center justify-center gap-3 border rounded-lg border-primary px-12 py-[18px] text-2xl font-semibold text-secondary transition-all ease-in-out duration-500;
+    @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-xl font-semibold text-secondary;
 }
-.nav-phone-num:hover {
-    @apply text-dark;
-}
-/* ✅ Tablets (All sizes) */
-@media (min-width: 768px) and (max-width: 1367px) {
 
-    /* Small & large devices are hidden in medium device */
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* Large & Small devices are hidden for Medium devices */
     .lg-top-nav,
     .sm-top-nav {
-        @apply hidden
+        @apply hidden;
     }
 
     /* NAVBAR TOP PART FOR MEDIUM DEVICES */
     .md-top-nav {
-        @apply flex justify-between px-8 mt-8 mb-10;
+        @apply flex items-center justify-between px-8 mt-8 mb-10;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* Medium & Small devices are hidden for Large devices */
+    .md-top-nav,
+    .sm-top-nav {
+        @apply hidden;
+    }
+
+    /* NAVBAR TOP PART FOR LARGE DEVICES */
+    .lg-top-nav {
+        @apply bg-base-100 flex items-center justify-between px-10 mt-10 mb-12;
+    }
+
+    .lg-search-input {
+        @apply p-[22px] w-3/4 outline-none border border-primary rounded-s-lg;
+    }
+
+    .lg-search-btn {
+        @apply bg-primary flex items-center px-5 py-4 font-bold rounded-e-lg uppercase text-lg transition-all ease-in-out duration-500;
+    }
+
+    .lg-search-btn:hover {
+        @apply bg-secondary text-base-100;
     }
 
     .nav-cart-btn {
-        @apply border border-primary py-1 flex gap-5 items-center px-12;
+        @apply border border-primary py-2 flex gap-5 items-center px-12 rounded-lg transition-all ease-in-out duration-500;
     }
 
-    .sidebar-overlay {
-        @apply fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-500 ease-in-out;
+    .nav-cart-btn:hover {
+        @apply bg-primary;
     }
-
-    .menu-sidebar {
-        @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-50 animate-fadeIn;
-    }
-
-    .sidebar-close-btn {
-        @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px] transition-all ease-in-out duration-300;
-    }
-
-    .sidebar-search-form {
-        @apply bg-[#eee] flex justify-between items-center;
-    }
-
-    .sidebar-search-input {
-        @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
-    }
-
-    .sidebar-search-btn {
-        @apply text-xl text-[#999] p-5;
-    }
-
-    .sidebar-nav-list {
-        @apply space-y-2 text-[#999] font-semibold mt-8 mx-8;
-    }
-
     .nav-phone-num {
-        @apply px-12 py-2.5 text-xl;
+        @apply flex items-center justify-center gap-3 border rounded-lg border-primary px-12 py-[18px] text-2xl font-semibold text-secondary transition-all ease-in-out duration-500;
+        }
+
+        .nav-phone-num:hover {
+            @apply text-dark;
     }
-    }
-/* ✅ Mobile Phones (All sizes) */
-@media (max-width: 767px) {}
+}
+/* ------------------------------------------- */
+
 
 /* FadeIn Animations */
 @keyframes fadeIn {

@@ -16,7 +16,7 @@ const TopNavbar = ({ navItems, categories }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <div className="nav-top-part">
-      {/* NAVBAR TOP PART FOR LARGE (DEFAULT) DEVICES */}
+      {/* NAVBAR TOP PART FOR LARGE DEVICES */}
       <div className="lg-top-nav">
         <Link href="/">
           <Image
@@ -38,9 +38,8 @@ const TopNavbar = ({ navItems, categories }) => {
               Search
             </button>
           </form>
-          <li className="nav-cart-btn">
-            <Link href="/" className="">
-              {/* REPLACE */}
+          <Link href="/shop/cart" className="">
+            <li className="nav-cart-btn">
               <div className="flex gap-5 items-center">
                 <BiShoppingBag className="text-3xl" />
                 <div className="grid text-md">
@@ -50,8 +49,8 @@ const TopNavbar = ({ navItems, categories }) => {
                   </span>
                 </div>
               </div>
-            </Link>
-          </li>
+            </li>
+          </Link>
           <Link href="tel://971589196282">
             <li className="nav-phone-num">
               <BiSolidPhone />
@@ -63,7 +62,6 @@ const TopNavbar = ({ navItems, categories }) => {
 
       {/* NAVBAR TOP PART FOR MEDIUM DEVICES */}
       <div className="md-top-nav">
-        {/* LOGO */}
         <Link href="/">
           <Image
             width={"190"}
@@ -79,7 +77,7 @@ const TopNavbar = ({ navItems, categories }) => {
             <BiMenu />
           </div>
           {/* Cart */}
-          <Link href="/" className="">
+          <Link href="/shop/cart" className="">
             <div className="nav-cart-btn">
               <BiShoppingBag className="text-2xl" />
               <div className="grid text-sm ">
@@ -97,7 +95,6 @@ const TopNavbar = ({ navItems, categories }) => {
             </div>
           </Link>
         </div>
-
         {navbarOpen && (
           <>
             {/* Sidebar Overlay (Background Dim) */}
@@ -154,7 +151,7 @@ const TopNavbar = ({ navItems, categories }) => {
                 ))}
               </ul>
 
-              <hr className="border-[#ccc] mx-8 mt-6 mb-2" />
+              <hr className="border-[#ddd] mx-8 mt-6 mb-2" />
 
               <ul className="text-[#999] mx-4">
                 <div className="collapse collapse-arrow mb-[-25px]">
@@ -215,8 +212,158 @@ const TopNavbar = ({ navItems, categories }) => {
           </>
         )}
       </div>
-      {/* NAVBAR TOP PART FOR SMALL DEVICES */}
-      <div className="sm-top-nav">Top nav for small device</div>
+
+      {/* NAVBAR TOP PART FOR SMALL DEVICES (DEFAULT) */}
+      <div className="sm-top-nav">
+        <Link href="/">
+          <Image
+            width={"190"}
+            height={"40"}
+            src="/images/menu/logo/2.png"
+            alt="Uren's Logo"
+            className="uren-logo"
+          />
+        </Link>
+        <ul className="sm-top-navbar">
+          {/* Hamburger Menu Btn */}
+          <li className="text-5xl" onClick={() => setNavbarOpen(true)}>
+            <BiMenu />
+          </li>
+          {/* Cart */}
+          <Link href="/shop/cart" className="">
+            <div className="nav-cart-btn">
+              <BiShoppingBag className="text-2xl" />
+              <div className="grid text-sm ">
+                <span className="text-black">3 Items</span>
+                <span className="text-secondary font-semibold">$462.40</span>
+              </div>
+            </div>
+          </Link>
+
+          {navbarOpen && (
+            <>
+              {/* Sidebar Overlay (Background Dim) */}
+              <div
+                className={`sidebar-overlay ${
+                  navbarOpen ? "opacity-100 visible" : "opacity-0 invisible"
+                }`}
+                onClick={() => setNavbarOpen(false)}
+              ></div>
+
+              {/* Sidebar Menu */}
+              <div
+                className={`menu-sidebar w-3/4 ${
+                  navbarOpen ? "translate-x-0" : "translate-x-full"
+                }`}
+              >
+                {/* Close Button */}
+                <button
+                  className="sidebar-close-btn"
+                  onClick={() => setNavbarOpen(false)}
+                >
+                  <BiX />
+                </button>
+
+                {/* Search Form */}
+                <form className="sidebar-search-form">
+                  <input
+                    type="text"
+                    name="search"
+                    id="search"
+                    placeholder="Search Here..."
+                    className="sidebar-search-input"
+                  />
+                  <button type="submit" className="sidebar-search-btn">
+                    <BiSearch />
+                  </button>
+                </form>
+
+                {/* Menu Items */}
+                <ul className="sidebar-nav-list">
+                  {navItems.map((item) => (
+                    <li>
+                      <Link
+                        className={`font-semibold uppercase ${
+                          pathname === item.path && "text-secondary"
+                        }`}
+                        key={item.path}
+                        href={item.path}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        {item.title}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <hr className="border-[#ddd] mx-8 mt-6 mb-2" />
+                <ul className="text-[#999] mx-4">
+                  <div className="collapse collapse-arrow mb-[-25px]">
+                    <input type="radio" name="my-accordion-2" />
+                    <div className="collapse-title font-semibold">
+                      User Settings
+                    </div>
+                    <div className="collapse-content text-sm ml-4">
+                      <ul className="space-y-3">
+                        <li>
+                          <Link href={"/user/profile"}>My Account</Link>
+                        </li>
+                        <li>
+                          <Link href={"/"}>Sign In | Sign Up</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="collapse collapse-arrow mb-[-25px]">
+                    <input type="radio" name="my-accordion-2" />
+                    <div className="collapse-title font-semibold">Currency</div>
+                    <div className="collapse-content text-sm ml-4">
+                      <ul className="space-y-3">
+                        <li className="text-secondary">
+                          <Link href="/">$ US Dollar</Link>
+                        </li>
+                        <li>
+                          <Link href="">£ Pound Sterling</Link>
+                        </li>
+                        <li>
+                          <Link href="">€ EUR</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="collapse collapse-arrow">
+                    <input type="radio" name="my-accordion-2" />
+                    <div className="collapse-title font-semibold">Language</div>
+                    <div className="collapse-content text-sm ml-4">
+                      <ul className="space-y-3">
+                        <li className="text-secondary">
+                          <Link href="/">English</Link>
+                        </li>
+                        <li>
+                          <Link href="/">Français</Link>
+                        </li>
+                        <li>
+                          <Link href="/">Romanian</Link>
+                        </li>
+                        <li>
+                          <Link href="/">Japanese</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </ul>
+
+                {/* Phone Number */}
+                <Link href="tel://971589196282">
+                  <li className="nav-phone-num m-8">
+                    <BiSolidPhone />
+                    +971 58 919 6282
+                  </li>
+                </Link>
+              </div>
+            </>
+          )}
+        </ul>
+      </div>
     </div>
   );
 };
