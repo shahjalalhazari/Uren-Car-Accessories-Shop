@@ -14,7 +14,7 @@ const BottomNavbar = ({ navItems, categories }) => {
       {/* NAVBAR BOTTOM PART FOR LARGE DEVICES */}
       <div className="lg-bottom-nav">
         {/* Category Menu  */}
-        <div className="flex items-center gap-x-20">
+        <div className="flex items-center gap-x-16">
           <div className="relative group dropdown">
             <div className="categories-list-heading">
               <FaBars className="text-4xl" />
@@ -49,7 +49,8 @@ const BottomNavbar = ({ navItems, categories }) => {
             {navItems.map((item) => (
               <Link
                 className={`main-nav-items ${
-                  pathname === item.path && "text-base-100 bg-dark p-[22px]"
+                  pathname === item.path &&
+                  "text-base-100 bg-dark py-[18px] px-5"
                 }`}
                 key={item.path}
                 href={item.path}

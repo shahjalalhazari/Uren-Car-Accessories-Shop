@@ -20,13 +20,13 @@ const TopNavbar = ({ navItems, categories }) => {
       <div className="lg-top-nav">
         <Link href="/">
           <Image
-            width={"230"}
+            width={"220"}
             height={"40"}
             src="/images/menu/logo/2.png"
             alt="Uren's Logo"
           />
         </Link>
-        <ul className="flex gap-8">
+        <ul className="flex gap-8 items-center">
           <form className="flex">
             <input
               type="text"
@@ -88,7 +88,7 @@ const TopNavbar = ({ navItems, categories }) => {
 
           {/* Phone Number */}
           <Link href="tel://971589196282">
-            <div className="nav-phone-num px-12">
+            <div className="nav-phone-num">
               <BiSolidPhone />
               +971 58 919 6282
             </div>
@@ -135,12 +135,11 @@ const TopNavbar = ({ navItems, categories }) => {
               {/* Menu Items */}
               <ul className="sidebar-nav-list">
                 {navItems.map((item) => (
-                  <li>
+                  <li key={item.path}>
                     <Link
                       className={`font-semibold uppercase ${
                         pathname === item.path && "text-secondary"
                       }`}
-                      key={item.path}
                       href={item.path}
                       onClick={() => setNavbarOpen(false)}
                     >
@@ -280,12 +279,11 @@ const TopNavbar = ({ navItems, categories }) => {
                 {/* Menu Items */}
                 <ul className="sidebar-nav-list">
                   {navItems.map((item) => (
-                    <li>
+                    <li key={item.path}>
                       <Link
                         className={`font-semibold uppercase ${
                           pathname === item.path && "text-secondary"
                         }`}
-                        key={item.path}
                         href={item.path}
                         onClick={() => setNavbarOpen(false)}
                       >
