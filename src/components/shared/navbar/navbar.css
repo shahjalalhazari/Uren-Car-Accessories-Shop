@@ -1,7 +1,9 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
 /* Large & Medium devices are hidden for Small devices */
 .lg-top-nav,
-.md-top-nav {
+.md-top-nav,
+.lg-bottom-nav,
+.md-bottom-nav {
     @apply hidden;
 }
 /* NAVBAR TOP PART FOR SMALL DEVICES */
@@ -19,28 +21,22 @@
 }
 .sidebar-overlay {
     @apply fixed inset-0 bg-dark bg-opacity-60 z-[1000] transition-opacity duration-500 ease-in-out;
-    }
-
+}
 .menu-sidebar {
     @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-[1001] animate-fadeIn;
-    }
-
+}
 .sidebar-close-btn {
     @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px] transition-all ease-in-out duration-300;
 }
-
 .sidebar-search-form {
     @apply bg-[#eee] flex justify-between items-center;
 }
-
 .sidebar-search-input {
     @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
 }
-
 .sidebar-search-btn {
     @apply text-xl text-[#999] p-5;
 }
-
 .sidebar-nav-list {
     @apply space-y-2 text-[#999] font-semibold mt-8 mx-8;
 }
@@ -48,19 +44,54 @@
     @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-xl font-semibold text-secondary;
 }
 
+/* NAVBAR BOTTOM PART FOR SMALL DEVICES */
+.sm-bottom-nav {
+    @apply bg-primary px-6;
+}
+
+.categories-list-heading {
+    @apply bg-[#000] text-base-100 flex justify-between items-center py-4 px-8;
+}
+
+.categories-list-heading-text {
+    @apply uppercase font-semibold leading-none;
+}
+
+.categories-list {
+    @apply z-[999] absolute left-0 text-[#999] text-sm px-8 py-4 font-medium w-full max-h-[40vh] overflow-y-auto bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
+}
+
+.categories-arrow {
+    @apply text-3xl transition-transform duration-500 ease-in-out
+}
+
+.dropdown-list-item {
+    @apply py-2.5 border-b border-[#ddd];
+}
+
+.dropdown-list-item:last-child {
+    @apply border-none;
+}
+
+.dropdown-list-item:hover {
+    @apply bg-gray-100 text-secondary
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* Large & Small devices are hidden for Medium devices */
     .lg-top-nav,
-    .sm-top-nav {
+    .sm-top-nav,
+    .lg-bottom-nav,
+    .sm-bottom-nav {
         @apply hidden;
     }
-
     /* NAVBAR TOP PART FOR MEDIUM DEVICES */
     .md-top-nav {
         @apply flex items-center justify-between px-8 mt-8 mb-10;
     }
+    /* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
 }
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
@@ -68,7 +99,9 @@
 
     /* Medium & Small devices are hidden for Large devices */
     .md-top-nav,
-    .sm-top-nav {
+    .sm-top-nav,
+    .md-bottom-nav,
+    .sm-bottom-nav {
         @apply hidden;
     }
 
@@ -76,33 +109,28 @@
     .lg-top-nav {
         @apply bg-base-100 flex items-center justify-between px-10 mt-10 mb-12;
     }
-
     .lg-search-input {
         @apply p-[22px] w-3/4 outline-none border border-primary rounded-s-lg;
     }
-
     .lg-search-btn {
         @apply bg-primary flex items-center px-5 py-4 font-bold rounded-e-lg uppercase text-lg transition-all ease-in-out duration-500;
     }
-
     .lg-search-btn:hover {
         @apply bg-secondary text-base-100;
     }
-
     .nav-cart-btn {
         @apply border border-primary py-2 flex gap-5 items-center px-12 rounded-lg transition-all ease-in-out duration-500;
     }
-
     .nav-cart-btn:hover {
         @apply bg-primary;
     }
     .nav-phone-num {
         @apply flex items-center justify-center gap-3 border rounded-lg border-primary px-12 py-[18px] text-2xl font-semibold text-secondary transition-all ease-in-out duration-500;
-        }
-
-        .nav-phone-num:hover {
+    }
+    .nav-phone-num:hover {
             @apply text-dark;
     }
+    /* NAVBAR BOTTOM PART FOR LARGE DEVICES */
 }
 /* ------------------------------------------- */
 

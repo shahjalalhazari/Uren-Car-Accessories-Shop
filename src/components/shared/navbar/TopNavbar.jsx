@@ -68,7 +68,6 @@ const TopNavbar = ({ navItems, categories }) => {
             height={"40"}
             src="/images/menu/logo/2.png"
             alt="Uren's Logo"
-            className="uren-logo"
           />
         </Link>
         <div className="flex gap-x-6">
@@ -213,7 +212,7 @@ const TopNavbar = ({ navItems, categories }) => {
         )}
       </div>
 
-      {/* NAVBAR TOP PART FOR SMALL DEVICES (DEFAULT) */}
+      {/* NAVBAR TOP PART FOR SMALL DEVICES  */}
       <div className="sm-top-nav">
         <Link href="/">
           <Image

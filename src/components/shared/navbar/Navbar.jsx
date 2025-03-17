@@ -1,11 +1,12 @@
-import "./navbar.css"
-import TopNavbar from './TopNavbar';
+import BottomNavbar from "./BottomNavbar";
+import "./navbar.css";
+import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
   return (
     <>
       <TopNavbar navItems={navItems} categories={categories} />
-      <h1>Navbar Bottom Part</h1>
+      <BottomNavbar navItems={navItems} categories={categories} />
     </>
   );
 };
