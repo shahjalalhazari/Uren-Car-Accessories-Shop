@@ -1,10 +1,89 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* ✅ Desktops & Large Screens (Default) */
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* BUTTONS */
+.primary-btn {
+    @apply bg-primary text-black px-6 py-2 font-semibold uppercase shadow-md rounded transition-all ease-in-out duration-500;
+}
 
-/* ✅ Mobile Phones (All sizes) */
-@media (max-width: 767px) {}
+.primary-btn:hover {
+    @apply text-base-100 shadow-lg bg-secondary;
+}
 
-/* ✅ Tablets (All sizes) */
-@media (min-width: 768px) and (max-width: 1023px) {}
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* BUTTONS */
+    .primary-btn {
+        @apply px-8 py-3;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* BUTTONS */
+    .primary-btn {
+        @apply px-8 py-3 rounded-md;
+    }
+
+    .primary-btn:hover {
+        @apply shadow-xl;
+    }
+}
+
+
+/* CAROUSEL BANNER ANIMATIONS */
+/* Animation Style 01 */
+.slick-active.animation-style-01 .carousel-text>h5 {
+    animation: 1200ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>h2 {
+    animation: 1400ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1400ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>div {
+    animation: 1600ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1600ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>p {
+    animation: 1800ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1800ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>.primary-btn {
+    animation: 2000ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 2000ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+/* Animation Style 02 */
+.slick-active.animation-style-02 .carousel-text>h5 {
+    animation: 1400ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 1400ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>h2 {
+    animation: 1600ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 1600ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>div {
+    animation: 1800ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 1800ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>p {
+    animation: 2000ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 2000ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>.primary-btn {
+    animation: 2200ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 2200ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+/* ----------------------- */

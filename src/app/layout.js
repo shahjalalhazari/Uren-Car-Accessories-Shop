@@ -1,5 +1,6 @@
 import {Work_Sans } from "next/font/google";
 import "./globals.css";
+import 'animate.css';
 import Navbar from "@/components/shared/navbar/Navbar";
 
 const workSans = Work_Sans(

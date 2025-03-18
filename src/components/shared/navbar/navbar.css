@@ -162,7 +162,11 @@
         @apply flex-col pl-6 pr-20;
     }
     .categories-list {
-        @apply hidden px-8 py-4 max-h-[60vh];
+    @apply hidden px-0 py-0 max-h-[60vh];
+    }
+
+    .categories-list .dropdown-list-item {
+        @apply px-6 py-3;
     }
     .dropdown:hover .categories-arrow {
         @apply rotate-180
@@ -193,11 +197,11 @@
     .dropdown:hover .dropdown-arrow {
         @apply rotate-180;
     }
-    .dropdown-list {
-        @apply absolute z-[998] right-0 hidden w-max bg-base-100 border border-primary p-4 shadow-lg animate-fadeIn;
+    .nav-right-side .dropdown-list {
+        @apply absolute z-[998] right-0 hidden w-max bg-base-100 p-0 border border-primary shadow-lg animate-fadeIn;
     }
-    .dropdown-list-item {
-        @apply py-3;
+    .nav-right-side .dropdown-list-item {
+        @apply py-2 px-3;
     }
     .dropdown-list-active {
         @apply text-secondary;

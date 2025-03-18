@@ -1,0 +1,93 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* ### CAROUSEL BANNER SECTION ### */
+.carousel-bg {
+    @apply h-full bg-cover bg-center px-8;
+}
+
+.carousel-content {
+    @apply text-white py-16;
+}
+
+.carousel-text {
+    @apply space-y-3;
+}
+
+.carousel-sub-heading {
+    @apply text-lg text-secondary font-bold uppercase leading-tight;
+}
+
+.carousel-heading {
+    @apply text-2xl text-primary uppercase font-bold;
+}
+
+.carousel-content-divider {
+    @apply h-0.5 w-16 bg-secondary rounded;
+}
+.carousel-description {
+    @apply text-sm w-full;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* ### CAROUSEL BANNER SECTION ### */
+    .carousel-bg {
+        @apply h-full bg-cover bg-center px-6;
+    }
+
+    .carousel-content {
+        @apply py-28 text-center;
+    }
+    .carousel-text {
+        @apply space-y-4;
+    }
+
+    .carousel-sub-heading {
+        @apply text-xl;
+    }
+
+    .carousel-heading {
+        @apply text-4xl;
+    }
+
+    .carousel-content-divider {
+        @apply h-1  w-20 mx-auto rounded;
+    }
+
+    .carousel-description {
+        @apply text-sm w-3/4 mx-auto;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* ### CAROUSEL BANNER SECTION ### */
+    .carousel-bg {
+        @apply grid grid-cols-3 px-8;
+    }
+
+    .carousel-content {
+        @apply text-white text-center col-span-2 items-center py-44;
+    }
+
+    .carousel-sub-heading {
+        @apply text-2xl ;
+    }
+
+    .carousel-heading {
+        @apply text-5xl ;
+    }
+
+    .carousel-content-divider {
+        @apply h-1 bg-secondary w-20 mx-auto rounded;
+    }
+
+    .carousel-text {
+        @apply space-y-7;
+    }
+
+    .carousel-description {
+        @apply text-base w-3/4 mx-auto;
+    }
+}
