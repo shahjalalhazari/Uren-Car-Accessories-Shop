@@ -9,48 +9,42 @@ const CarouselBanner = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <>
-      <Swiper
-        spaceBetween={0}
-        centeredSlides={true}
-        modules={[Autoplay]}
-        autoplay={{ delay: 5000 }}
-        loop={true}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update activeIndex when slider change
-      >
-        {carouselBanners.map((banner, index) => {
-          const animationStyle =
-            index % 2 === 0 ? "animation-style-02" : "animation-style-01";
-          return (
-            <SwiperSlide key={banner.id}>
-              <div
-                className={`carousel-bg ${
-                  index === activeIndex ? `slick-active ${animationStyle}` : ""
-                }`}
-                style={{
-                  backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0,0,0,0.5)), 
+    <Swiper
+      spaceBetween={0}
+      centeredSlides={true}
+      modules={[Autoplay]}
+      autoplay={{ delay: 5000 }}
+      loop={true}
+      onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update activeIndex when slider change
+    >
+      {carouselBanners.map((banner, index) => {
+        const animationStyle =
+          index % 2 === 0 ? "animation-style-02" : "animation-style-01";
+        return (
+          <SwiperSlide key={banner.id}>
+            <div
+              className={`carousel-bg ${
+                index === activeIndex ? `slick-active ${animationStyle}` : ""
+              }`}
+              style={{
+                backgroundImage: `linear-gradient(45deg, rgba(0, 0, 0, 1), rgba(0,0,0,0.5)), 
                   url(${banner.image})`,
-                }}
-              >
-                <div className="carousel-content">
-                  <div className="carousel-text">
-                    <h5 className="carousel-sub-heading">
-                      {banner.subHeading}
-                    </h5>
-                    <h2 className="carousel-heading">{banner.heading}</h2>
-                    <div className="carousel-content-divider"></div>
-                    <p className="carousel-description">
-                      {banner.description}
-                    </p>
-                    <PrimaryBtn text="READ MORE" path="/" />
-                  </div>
+              }}
+            >
+              <div className="carousel-content">
+                <div className="carousel-text">
+                  <h5 className="carousel-sub-heading">{banner.subHeading}</h5>
+                  <h2 className="carousel-heading">{banner.heading}</h2>
+                  <div className="carousel-content-divider"></div>
+                  <p className="carousel-description">{banner.description}</p>
+                  <PrimaryBtn text="READ MORE" path="/" />
                 </div>
               </div>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
-    </>
+            </div>
+          </SwiperSlide>
+        );
+      })}
+    </Swiper>
   );
 };
 

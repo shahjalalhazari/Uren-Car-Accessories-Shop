@@ -1,25 +1,20 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
-/* ### CAROUSEL BANNER SECTION ### */
+/* *** CAROUSEL BANNER SECTION *** */
 .carousel-bg {
     @apply h-full bg-cover bg-center px-8;
 }
-
 .carousel-content {
     @apply text-white py-16;
 }
-
 .carousel-text {
     @apply space-y-3;
 }
-
 .carousel-sub-heading {
     @apply text-lg text-secondary font-bold uppercase leading-tight;
 }
-
 .carousel-heading {
     @apply text-2xl text-primary uppercase font-bold;
 }
-
 .carousel-content-divider {
     @apply h-0.5 w-16 bg-secondary rounded;
 }
@@ -27,35 +22,59 @@
     @apply text-sm w-full;
 }
 
+/* *** OFFER BANNERS SECTION *** */
+.slider-layout {
+    @apply mx-6 my-12;
+}
+
+.slider-container {
+    @apply mt-8;
+}
+
+.offer-banners-layout {
+    @apply mx-6 mt-12;
+}
+
+.offer-nav-btn {
+    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-3 rounded transition ease-in-out duration-500 z-[997];
+}
+
+.offer-nav-btn:hover {
+    @apply bg-base-100 outline outline-1 outline-primary;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
-    /* ### CAROUSEL BANNER SECTION ### */
+    /* *** CAROUSEL BANNER SECTION *** */
     .carousel-bg {
         @apply h-full bg-cover bg-center px-6;
     }
-
     .carousel-content {
         @apply py-28 text-center;
     }
     .carousel-text {
         @apply space-y-4;
     }
-
     .carousel-sub-heading {
         @apply text-xl;
     }
-
     .carousel-heading {
         @apply text-4xl;
     }
-
     .carousel-content-divider {
         @apply h-1  w-20 mx-auto rounded;
     }
-
     .carousel-description {
         @apply text-sm w-3/4 mx-auto;
+    }
+    /* *** OFFER BANNERS SECTION *** */
+    .slider-layout {
+        @apply my-16 mx-8;
+    }
+
+    .offer-nav-btn {
+        @apply p-5;
     }
 }
 
@@ -66,28 +85,42 @@
     .carousel-bg {
         @apply grid grid-cols-3 px-8;
     }
-
     .carousel-content {
         @apply text-white text-center col-span-2 items-center py-44;
     }
-
     .carousel-sub-heading {
         @apply text-2xl ;
     }
-
     .carousel-heading {
         @apply text-5xl ;
     }
-
     .carousel-content-divider {
         @apply h-1 bg-secondary w-20 mx-auto rounded;
     }
-
     .carousel-text {
         @apply space-y-7;
     }
-
     .carousel-description {
         @apply text-base w-3/4 mx-auto;
+    }
+    /* *** OFFER BANNERS SECTION *** */
+    .slider-layout {
+        @apply mx-8 my-20;
+    }
+
+    .slider-btns {
+        @apply hidden transition-transform ease-in-out duration-500;
+    }
+
+    .slider-layout:hover .slider-btns {
+        @apply block;
+    }
+
+    .offer-nav-btn {
+        @apply p-5 rounded-md;
+    }
+
+    .offer-nav-btn:hover {
+        @apply bg-base-100 outline outline-1 outline-primary;
     }
 }
