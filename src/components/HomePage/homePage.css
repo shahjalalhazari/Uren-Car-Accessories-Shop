@@ -1,4 +1,21 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* *** SHARED *** */
+.slider-layout {
+    @apply mx-6 mt-12;
+}
+
+.slider-container {
+    @apply border-y border-l border-[#ddd] w-full;
+}
+
+.slider-nav-btn {
+    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-3 rounded transition ease-in-out duration-500 z-[997];
+}
+
+.slider-nav-btn:hover {
+    @apply bg-base-100 outline outline-1 outline-primary;
+}
+
 /* *** CAROUSEL BANNER SECTION *** */
 .carousel-bg {
     @apply h-full bg-cover bg-center px-8;
@@ -21,47 +38,53 @@
 .carousel-description {
     @apply text-sm w-full;
 }
-
-/* *** OFFER BANNERS SECTION *** */
-.slider-layout {
-@apply mx-6 mt-12;
-}
-
-.offer-nav-btn {
-    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-3 rounded transition ease-in-out duration-500 z-[997];
-}
-
-.offer-nav-btn:hover {
-    @apply bg-base-100 outline outline-1 outline-primary;
-}
-
 /* *** SHOPPING FACILITIES SECTION *** */
 .shopping-facilities {
     @apply border border-primary space-y-6 p-8;
 }
-
 .facility-item {
     @apply flex flex-col items-center text-center;
 }
-
 .item-icon {
     @apply text-primary text-4xl mb-3;
 }
-
 .item-content {
     @apply space-y-1;
 }
-
 .item-content>h6 {
     @apply font-semibold;
 }
-
 .item-content>p {
     @apply text-[#999] text-sm
 }
 
+/* *** FEATURED CATEGORIES SECTION *** */
+.category-item-card {
+    @apply bg-white flex flex-col items-center text-center py-5 px-3 border-r border-[#ddd];
+}
+
+.category-item-card:hover {
+    @apply shadow-xl;
+}
+
+.category-card-title {
+    @apply text-lg font-semibold text-[#999];
+}
+
+.category-card-title:hover {
+    @apply text-primary
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
+    /* *** SHARED *** */
+    .slider-layout {
+        @apply mt-16 mx-8;
+    }
+
+    .slider-nav-btn {
+        @apply p-5;
+    }
 
     /* *** CAROUSEL BANNER SECTION *** */
     .carousel-bg {
@@ -85,26 +108,16 @@
     .carousel-description {
         @apply text-sm w-3/4 mx-auto;
     }
-    /* *** OFFER BANNERS SECTION *** */
-    .slider-layout {
-        @apply mt-16 mx-8;
-    }
-    .offer-nav-btn {
-        @apply p-5;
-    }
     /* *** SHOPPING FACILITIES SECTION *** */
     .shopping-facilities {
         @apply grid grid-cols-2 place-items-center py-8 gap-y-6;
     }
-
     .item-content {
         @apply space-y-1.5;
     }
-
     .item-content>h6 {
         @apply font-bold;
     }
-
     .item-content>p {
         @apply text-base
     }
@@ -112,8 +125,28 @@
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
 @media (min-width: 1025px) {
+    /* *** SHARED *** */
+    .slider-layout {
+        @apply mx-8 mt-20;
+    }
 
-    /* ### CAROUSEL BANNER SECTION ### */
+    .slider-btns {
+        @apply hidden transition-transform ease-in-out duration-500;
+    }
+
+    .slider-container:hover .slider-btns {
+        @apply block;
+    }
+
+    .slider-nav-btn {
+        @apply p-5 rounded-md;
+    }
+
+    .slider-nav-btn:hover {
+        @apply bg-base-100 outline outline-1 outline-primary;
+    }
+
+    /* *** CAROUSEL BANNER SECTION *** */
     .carousel-bg {
         @apply grid grid-cols-3 px-8;
     }
@@ -135,39 +168,19 @@
     .carousel-description {
         @apply text-base w-3/4 mx-auto;
     }
-    /* *** OFFER BANNERS SECTION *** */
-    .slider-layout {
-        @apply mx-8 mt-20;
-    }
-    .slider-btns {
-        @apply hidden transition-transform ease-in-out duration-500;
-    }
-    .slider-layout:hover .slider-btns {
-        @apply block;
-    }
-    .offer-nav-btn {
-        @apply p-5 rounded-md;
-    }
-    .offer-nav-btn:hover {
-        @apply bg-base-100 outline outline-1 outline-primary;
-    }
     /* *** SHOPPING FACILITIES SECTION *** */
     .shopping-facilities {
         @apply grid grid-cols-2 place-items-center py-8;
     }
-
     .facility-item {
         @apply space-x-4;
     }
-
     .item-content {
         @apply space-y-2;
     }
-
     .item-content>h6 {
         @apply font-bold;
     }
-
     .item-content>p {
         @apply text-base
     }

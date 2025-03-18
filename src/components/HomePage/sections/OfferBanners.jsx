@@ -34,11 +34,15 @@ const OfferBanners = () => {
           768: { slidesPerView: 2 }, // Medium screens
           1025: { slidesPerView: 3 }, // Large screens
         }}
-        className="w-full"
+        className="slider-container"
       >
         {offerBannersList.map((offerBanner, index) => (
           <SwiperSlide key={index}>
-            <Link href={`/shop/products/offer?${encodeURIComponent(offerBanner.offerName)}`}>
+            <Link
+              href={`/shop/products/offer?${encodeURIComponent(
+                offerBanner.offerName
+              )}`}
+            >
               <div className="shadow-lg rounded-none hover:opacity-75 transition-all ease-in-out duration-300">
                 <Image
                   src={offerBanner.offerImg}
@@ -54,11 +58,11 @@ const OfferBanners = () => {
 
         {/* Custom Navigation Buttons */}
         <div className="slider-btns">
-          <button ref={prevRef} className="left-6 md:left-8 offer-nav-btn">
+          <button ref={prevRef} className="left-6 md:left-8 slider-nav-btn">
             <FaChevronLeft className="text-base md:text-xl" />
           </button>
 
-          <button ref={nextRef} className="right-6 md:right-8 offer-nav-btn">
+          <button ref={nextRef} className="right-6 md:right-8 slider-nav-btn">
             <FaChevronRight className="text-base md:text-xl" />
           </button>
         </div>

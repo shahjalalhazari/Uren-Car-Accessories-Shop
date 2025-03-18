@@ -33,7 +33,7 @@ const BottomNavbar = ({ navItems, categories }) => {
               {categories.map((item, index) => (
                 <li key={index} className="dropdown-list-item">
                   <Link
-                    href={`/shop/products/category?/${encodeURIComponent(
+                    href={`/shop/products/category?${encodeURIComponent(
                       item.name
                     )}`}
                   >
