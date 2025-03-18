@@ -24,15 +24,7 @@
 
 /* *** OFFER BANNERS SECTION *** */
 .slider-layout {
-    @apply mx-6 my-12;
-}
-
-.slider-container {
-    @apply mt-8;
-}
-
-.offer-banners-layout {
-    @apply mx-6 mt-12;
+@apply mx-6 mt-12;
 }
 
 .offer-nav-btn {
@@ -41,6 +33,31 @@
 
 .offer-nav-btn:hover {
     @apply bg-base-100 outline outline-1 outline-primary;
+}
+
+/* *** SHOPPING FACILITIES SECTION *** */
+.shopping-facilities {
+    @apply border border-primary space-y-6 p-8;
+}
+
+.facility-item {
+    @apply flex flex-col items-center text-center;
+}
+
+.item-icon {
+    @apply text-primary text-4xl mb-3;
+}
+
+.item-content {
+    @apply space-y-1;
+}
+
+.item-content>h6 {
+    @apply font-semibold;
+}
+
+.item-content>p {
+    @apply text-[#999] text-sm
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -70,11 +87,26 @@
     }
     /* *** OFFER BANNERS SECTION *** */
     .slider-layout {
-        @apply my-16 mx-8;
+        @apply mt-16 mx-8;
     }
-
     .offer-nav-btn {
         @apply p-5;
+    }
+    /* *** SHOPPING FACILITIES SECTION *** */
+    .shopping-facilities {
+        @apply grid grid-cols-2 place-items-center py-8 gap-y-6;
+    }
+
+    .item-content {
+        @apply space-y-1.5;
+    }
+
+    .item-content>h6 {
+        @apply font-bold;
+    }
+
+    .item-content>p {
+        @apply text-base
     }
 }
 
@@ -105,22 +137,38 @@
     }
     /* *** OFFER BANNERS SECTION *** */
     .slider-layout {
-        @apply mx-8 my-20;
+        @apply mx-8 mt-20;
     }
-
     .slider-btns {
         @apply hidden transition-transform ease-in-out duration-500;
     }
-
     .slider-layout:hover .slider-btns {
         @apply block;
     }
-
     .offer-nav-btn {
         @apply p-5 rounded-md;
     }
-
     .offer-nav-btn:hover {
         @apply bg-base-100 outline outline-1 outline-primary;
+    }
+    /* *** SHOPPING FACILITIES SECTION *** */
+    .shopping-facilities {
+        @apply grid grid-cols-2 place-items-center py-8;
+    }
+
+    .facility-item {
+        @apply space-x-4;
+    }
+
+    .item-content {
+        @apply space-y-2;
+    }
+
+    .item-content>h6 {
+        @apply font-bold;
+    }
+
+    .item-content>p {
+        @apply text-base
     }
 }
