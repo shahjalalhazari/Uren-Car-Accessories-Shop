@@ -3,15 +3,12 @@
 .slider-layout {
     @apply mx-6 mt-12;
 }
-
 .slider-container {
     @apply border-y border-l border-[#ddd] w-full;
 }
-
 .slider-nav-btn {
     @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-3 rounded transition ease-in-out duration-500 z-[997];
 }
-
 .slider-nav-btn:hover {
     @apply bg-base-100 outline outline-1 outline-primary;
 }
@@ -62,17 +59,88 @@
 .category-item-card {
     @apply bg-white flex flex-col items-center text-center py-5 px-3 border-r border-[#ddd];
 }
-
 .category-item-card:hover {
     @apply shadow-xl;
 }
-
 .category-card-title {
     @apply text-lg font-semibold text-[#999];
 }
-
 .category-card-title:hover {
     @apply text-primary
+}
+
+/* *** FEATURED PRODUCTS SECTION *** */
+.featured-products {
+    @apply px-6 py-12 bg-[#eee] space-y-4;
+}
+
+.card-container {
+    @apply bg-base-100 w-full shadow-md p-6 pt-8;
+}
+
+/* Deal Of The Day Card */
+.deal-of-the-day .product-name {
+    @apply text-black text-lg font-semibold leading-snug;
+}
+
+.deal-of-the-day .product-name:hover {
+    @apply text-primary;
+}
+
+.deal-of-the-day .old-price {
+    @apply text-[#999] line-through
+}
+
+.deal-of-the-day .new-price {
+    @apply text-secondary text-2xl font-bold
+}
+
+.timer-container {
+    @apply flex text-center justify-between items-center;
+}
+
+.timer-box {
+    @apply flex flex-col items-center justify-center border border-[#ddd] p-3;
+}
+
+.timer-container .colon {
+    @apply font-bold text-xl text-[#999];
+}
+
+.timer-box>h5 {
+    @apply text-primary text-xl font-semibold leading-tight;
+}
+
+.timer-box>p {
+    @apply text-sm text-[#999]
+}
+
+.card-container .card-height {
+    @apply h-[50vh] overflow-y-auto mt-4;
+}
+
+.horizontal-product-card {
+    @apply grid grid-cols-3 items-center py-2 border-b-2
+}
+
+.horizontal-product-card:hover {
+    @apply shadow-md
+}
+
+.horizontal-product-card:last-child {
+    @apply border-none
+}
+
+.horizontal-product-name {
+    @apply text-[#999] leading-4 my-2 text-sm
+}
+
+.horizontal-product-name:hover {
+    @apply text-secondary;
+}
+
+.horizontal-product-price {
+    @apply text-secondary text-lg font-semibold;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -81,7 +149,6 @@
     .slider-layout {
         @apply mt-16 mx-8;
     }
-
     .slider-nav-btn {
         @apply p-5;
     }
@@ -121,6 +188,14 @@
     .item-content>p {
         @apply text-base
     }
+    /* *** FEATURED PRODUCTS SECTION *** */
+    .featured-products {
+        @apply px-8 py-16 space-y-0 grid grid-cols-2 gap-6;
+    }
+
+    .card-container .card-height {
+        @apply h-[42vh];
+    }
 }
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
@@ -129,19 +204,15 @@
     .slider-layout {
         @apply mx-8 mt-20;
     }
-
     .slider-btns {
         @apply hidden transition-transform ease-in-out duration-500;
     }
-
     .slider-container:hover .slider-btns {
         @apply block;
     }
-
     .slider-nav-btn {
         @apply p-5 rounded-md;
     }
-
     .slider-nav-btn:hover {
         @apply bg-base-100 outline outline-1 outline-primary;
     }
@@ -183,5 +254,22 @@
     }
     .item-content>p {
         @apply text-base
+    }
+    /* *** FEATURED PRODUCTS SECTION *** */
+    .featured-products {
+        @apply px-8 py-20 space-y-0 grid grid-cols-4 gap-8;
+    }
+
+    .card-container {
+        @apply bg-base-100 w-full shadow-md pt-10 p-6;
+    }
+
+    .card-container .card-height {
+        @apply h-[72vh];
+    }
+
+    /* Deal Of The Day Card */
+    .deal-of-the-day .product-name {
+        @apply text-xl;
     }
 }
