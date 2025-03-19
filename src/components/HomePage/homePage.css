@@ -15,7 +15,7 @@
 
 /* *** CAROUSEL BANNER SECTION *** */
 .carousel-bg {
-    @apply h-full bg-cover bg-center px-8;
+    @apply h-full bg-cover bg-center px-6;
 }
 .carousel-content {
     @apply text-white py-16;
@@ -73,74 +73,89 @@
 .featured-products {
     @apply px-6 py-12 bg-[#eee] space-y-4;
 }
-
 .card-container {
     @apply bg-base-100 w-full shadow-md p-6 pt-8;
 }
-
-/* Deal Of The Day Card */
 .deal-of-the-day .product-name {
     @apply text-black text-lg font-semibold leading-snug;
 }
-
 .deal-of-the-day .product-name:hover {
     @apply text-primary;
 }
-
 .deal-of-the-day .old-price {
     @apply text-[#999] line-through
 }
-
 .deal-of-the-day .new-price {
     @apply text-secondary text-2xl font-bold
 }
-
 .timer-container {
     @apply flex text-center justify-between items-center;
 }
-
 .timer-box {
     @apply flex flex-col items-center justify-center border border-[#ddd] p-3;
 }
-
 .timer-container .colon {
     @apply font-bold text-xl text-[#999];
 }
-
 .timer-box>h5 {
     @apply text-primary text-xl font-semibold leading-tight;
 }
-
 .timer-box>p {
     @apply text-sm text-[#999]
 }
-
 .card-container .card-height {
     @apply h-[50vh] overflow-y-auto mt-4;
 }
-
 .horizontal-product-card {
     @apply grid grid-cols-3 items-center py-2 border-b-2
 }
-
 .horizontal-product-card:hover {
     @apply shadow-md
 }
-
 .horizontal-product-card:last-child {
     @apply border-none
 }
-
 .horizontal-product-name {
     @apply text-[#999] leading-4 my-2 text-sm
 }
-
 .horizontal-product-name:hover {
     @apply text-secondary;
 }
-
 .horizontal-product-price {
     @apply text-secondary text-lg font-semibold;
+}
+
+/* *** OFFER BIG BANNER SECTION *** */
+.big-banner-container {
+    @apply space-y-4 px-6 w-full pb-12 bg-[#eee];
+}
+
+.big-single-banner {
+    @apply transition-all ease-in-out duration-500;
+}
+
+.big-single-banner:hover {
+    @apply opacity-80 shadow-lg;
+}
+
+.big-single-banner-content {
+    @apply px-8 py-16 bg-center bg-cover text-white cursor-pointer space-y-4;
+}
+
+.big-single-banner-content>h5 {
+    @apply text-sm uppercase text-primary;
+}
+
+.big-single-banner-content>h4 {
+    @apply text-xl uppercase;
+}
+
+.big-single-banner-content>div {
+    @apply w-16 bg-transparent border-b-2 border-primary;
+}
+
+.big-single-banner-content>p {
+    @apply text-xs w-full;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -155,7 +170,7 @@
 
     /* *** CAROUSEL BANNER SECTION *** */
     .carousel-bg {
-        @apply h-full bg-cover bg-center px-6;
+        @apply h-full bg-cover bg-center px-8;
     }
     .carousel-content {
         @apply py-28 text-center;
@@ -192,9 +207,32 @@
     .featured-products {
         @apply px-8 py-16 space-y-0 grid grid-cols-2 gap-6;
     }
-
     .card-container .card-height {
         @apply h-[42vh];
+    }
+    /* *** OFFER BIG BANNER SECTION *** */
+    .big-banner-container {
+        @apply space-y-6 px-8 pb-16;
+    }
+
+    .big-single-banner-content {
+        @apply px-16 py-24;
+    }
+
+    .big-single-banner-content>h5 {
+        @apply text-base;
+    }
+
+    .big-single-banner-content>h4 {
+        @apply text-2xl;
+    }
+
+    .big-single-banner-content>div {
+        @apply w-20;
+    }
+
+    .big-single-banner-content>p {
+        @apply text-sm w-3/4;
     }
 }
 
@@ -259,17 +297,37 @@
     .featured-products {
         @apply px-8 py-20 space-y-0 grid grid-cols-4 gap-8;
     }
-
     .card-container {
         @apply bg-base-100 w-full shadow-md pt-10 p-6;
     }
-
     .card-container .card-height {
         @apply h-[72vh];
     }
-
-    /* Deal Of The Day Card */
     .deal-of-the-day .product-name {
         @apply text-xl;
     }
+/* *** OFFER BIG BANNER SECTION *** */
+.big-banner-container {
+    @apply space-y-0 px-8 pb-20 grid grid-cols-2 gap-8;
+}
+
+.big-single-banner-content {
+    @apply px-16 py-24;
+}
+
+.big-single-banner-content>h5 {
+    @apply text-lg;
+}
+
+.big-single-banner-content>h4 {
+    @apply text-3xl;
+}
+
+.big-single-banner-content>div {
+    @apply w-20;
+}
+
+.big-single-banner-content>p {
+    @apply text-sm w-3/4;
+}
 }

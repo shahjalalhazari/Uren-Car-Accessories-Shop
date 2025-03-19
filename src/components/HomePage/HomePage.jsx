@@ -1,4 +1,5 @@
 import "./homePage.css"
+import BigOfferBanners from "./sections/BigOfferBanners";
 import CarouselBanner from "./sections/CarouselBanner";
 import FeaturedCategories from "./sections/FeaturedCategories";
 import FeaturedProducts from "./sections/FeaturedProducts/FeaturedProducts";
@@ -13,6 +14,7 @@ const HomePage = () => {
       <ShoppingFacilities />
       <FeaturedCategories />
       <FeaturedProducts />
+      <BigOfferBanners />
     </>
   );
 };
