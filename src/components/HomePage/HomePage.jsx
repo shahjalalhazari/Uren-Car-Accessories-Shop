@@ -6,6 +6,7 @@ import FeaturedProducts from "./sections/FeaturedProducts/FeaturedProducts";
 import NewArrivalProducts from "./sections/NewArrivalProducts";
 import OfferBanners from "./sections/OfferBanners";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
+import Testimonial from "./sections/Testimonial";
 
 const HomePage = () => {
   return (
@@ -17,6 +18,7 @@ const HomePage = () => {
       <FeaturedProducts />
       <BigOfferBanners />
       <NewArrivalProducts />
+      <Testimonial />
     </>
   );
 };
