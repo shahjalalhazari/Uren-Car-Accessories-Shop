@@ -129,31 +129,24 @@
 .big-banner-container {
     @apply space-y-4 px-6 w-full pb-12 bg-[#eee];
 }
-
 .big-single-banner {
     @apply transition-all ease-in-out duration-500;
 }
-
 .big-single-banner:hover {
     @apply opacity-80 shadow-lg;
 }
-
 .big-single-banner-content {
     @apply px-8 py-16 bg-center bg-cover text-white cursor-pointer space-y-4;
 }
-
 .big-single-banner-content>h5 {
     @apply text-sm uppercase text-primary;
 }
-
 .big-single-banner-content>h4 {
     @apply text-xl uppercase;
 }
-
 .big-single-banner-content>div {
     @apply w-16 bg-transparent border-b-2 border-primary;
 }
-
 .big-single-banner-content>p {
     @apply text-xs w-full;
 }
@@ -214,23 +207,18 @@
     .big-banner-container {
         @apply space-y-6 px-8 pb-16;
     }
-
     .big-single-banner-content {
         @apply px-16 py-24;
     }
-
     .big-single-banner-content>h5 {
         @apply text-base;
     }
-
     .big-single-banner-content>h4 {
         @apply text-2xl;
     }
-
     .big-single-banner-content>div {
         @apply w-20;
     }
-
     .big-single-banner-content>p {
         @apply text-sm w-3/4;
     }
@@ -306,28 +294,23 @@
     .deal-of-the-day .product-name {
         @apply text-xl;
     }
-/* *** OFFER BIG BANNER SECTION *** */
-.big-banner-container {
-    @apply space-y-0 px-8 pb-20 grid grid-cols-2 gap-8;
-}
-
-.big-single-banner-content {
-    @apply px-16 py-24;
-}
-
-.big-single-banner-content>h5 {
-    @apply text-lg;
-}
-
-.big-single-banner-content>h4 {
-    @apply text-3xl;
-}
-
-.big-single-banner-content>div {
-    @apply w-20;
-}
-
-.big-single-banner-content>p {
-    @apply text-sm w-3/4;
-}
+    /* *** OFFER BIG BANNER SECTION *** */
+    .big-banner-container {
+        @apply space-y-0 px-8 pb-20 grid grid-cols-2 gap-8;
+    }
+    .big-single-banner-content {
+        @apply px-16 py-24;
+    }
+    .big-single-banner-content>h5 {
+        @apply text-lg;
+    }
+    .big-single-banner-content>h4 {
+        @apply text-3xl;
+    }
+    .big-single-banner-content>div {
+        @apply w-20;
+    }
+    .big-single-banner-content>p {
+        @apply text-sm w-3/4;
+    }
 }
