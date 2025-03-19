@@ -5,7 +5,7 @@ import SectionHeading from '@/components/shared/headings/SectionHeading';
 
 const ShopByBrands = () => {
     return (
-      <div className="uren-container text-center">
+      <div className="uren-container shop-by-brands">
         <SectionHeading
           heading="Shop By Brands"
           subHeading="Top Quality Partner"
@@ -13,9 +13,12 @@ const ShopByBrands = () => {
 
         {/* Brands Lists */}
         <div className="shop-by-brands-layout">
-          {brandsList.slice(0,6).map((brand, index) => (
+          {brandsList.slice(0, 6).map((brand, index) => (
             // REPLACE
-            <Link href={`/shop/products?brand=${encodeURIComponent(brand.name)}`} key={index}>
+            <Link
+              href={`/shop/products?brand=${encodeURIComponent(brand.name)}`}
+              key={index}
+            >
               <Image
                 src={brand.image}
                 width={175}

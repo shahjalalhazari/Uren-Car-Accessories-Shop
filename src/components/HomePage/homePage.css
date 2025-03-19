@@ -174,14 +174,15 @@
 }
 
 /* *** SHOP BY BRANDS SECTION *** */
+.shop-by-brands {
+    @apply text-center mb-12;
+}
 .shop-by-brands-layout {
     @apply grid grid-cols-2 gap-4 mt-6 mb-8;
 }
-
 .shop-by-brands-item {
     @apply py-2 px-5 w-full border border-[#ddd] uren-transition;
 }
-
 .shop-by-brands-item:hover {
     @apply shadow-xl;
 }
@@ -271,10 +272,12 @@
         @apply p-8 text-base;
     }
     /* *** SHOP BY BRANDS SECTION *** */
+    .shop-by-brands {
+        @apply mb-16;
+    }
     .shop-by-brands-layout {
         @apply grid grid-cols-3 gap-6 mt-8 mb-10;
     }
-
     .shop-by-brands-item {
         @apply py-2 px-5 w-full border;
     }
@@ -383,10 +386,12 @@
         @apply p-8 text-base;
     }
     /* *** SHOP BY BRANDS SECTION *** */
-    .shop-by-brands-layout {
-        @apply grid grid-cols-6 w-full mt-12 mb-10 gap-0 border-y border-l;
+    .shop-by-brands {
+        @apply mb-20;
     }
-
+    .shop-by-brands-layout {
+        @apply grid grid-cols-6 w-full mt-12 mb-16 gap-0 border-y border-l;
+    }
     .shop-by-brands-item {
         @apply py-4 px-6 w-full border-0 border-r;
     }
