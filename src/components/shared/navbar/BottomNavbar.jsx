@@ -16,7 +16,7 @@ const BottomNavbar = ({ navItems, categories }) => {
         {/* Category Menu  */}
         <div className="flex items-center gap-x-16">
           <div className="relative group dropdown">
-            <div className="categories-list-heading">
+            <div className="categories-list-heading uren-transition">
               <FaBars className="text-4xl" />
               <h2 className="categories-list-heading-text">
                 <span>Shop By</span>
@@ -138,7 +138,7 @@ const BottomNavbar = ({ navItems, categories }) => {
       <div className="md-bottom-nav">
         <div className="relative group dropdown w-1/3">
           <div
-            className="categories-list-heading"
+            className="categories-list-heading uren-transition"
             onClick={() => setIsOpen(!isOpen)}
           >
             <FaBars className="text-4xl" />
@@ -189,7 +189,7 @@ const BottomNavbar = ({ navItems, categories }) => {
       <div className="sm-bottom-nav">
         <div className="relative w-full">
           <div
-            className="categories-list-heading"
+            className="categories-list-heading uren-transition"
             onClick={() => setIsOpen(!isOpen)}
           >
             <h2 className="categories-list-heading-text">

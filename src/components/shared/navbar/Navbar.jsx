@@ -1,5 +1,6 @@
 import BottomNavbar from "./BottomNavbar";
 import "./navbar.css";
+import StickyNavbar from "./StickyNavbar";
 import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
@@ -7,6 +8,7 @@ const Navbar = () => {
     <>
       <TopNavbar navItems={navItems} categories={categories} />
       <BottomNavbar navItems={navItems} categories={categories} />
+      <StickyNavbar navItems={navItems} />
     </>
   );
 };

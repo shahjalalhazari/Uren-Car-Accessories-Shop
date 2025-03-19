@@ -33,13 +33,13 @@ const TopNavbar = ({ navItems, categories }) => {
               placeholder="Search Here..."
               className="lg-search-input"
             />
-            <button className="lg-search-btn" type="submit">
+            <button className="lg-search-btn uren-transition" type="submit">
               <BiSearch className="inline-block mr-1.5 text-xl" />
               Search
             </button>
           </form>
           <Link href="/shop/cart" className="">
-            <li className="nav-cart-btn">
+            <li className="nav-cart-btn uren-transition">
               <div className="flex gap-5 items-center">
                 <BiShoppingBag className="text-3xl" />
                 <div className="grid text-md">
@@ -52,7 +52,7 @@ const TopNavbar = ({ navItems, categories }) => {
             </li>
           </Link>
           <Link href="tel://971589196282">
-            <li className="nav-phone-num">
+            <li className="nav-phone-num uren-transition">
               <BiSolidPhone />
               +971 58 919 6282
             </li>
@@ -112,7 +112,7 @@ const TopNavbar = ({ navItems, categories }) => {
             >
               {/* Close Button */}
               <button
-                className="sidebar-close-btn"
+                className="sidebar-close-btn uren-transition"
                 onClick={() => setNavbarOpen(false)}
               >
                 <BiX />
