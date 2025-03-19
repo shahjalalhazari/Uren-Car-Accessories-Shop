@@ -5,6 +5,7 @@ import FeaturedCategories from "./sections/FeaturedCategories";
 import FeaturedProducts from "./sections/FeaturedProducts/FeaturedProducts";
 import NewArrivalProducts from "./sections/NewArrivalProducts";
 import OfferBanners from "./sections/OfferBanners";
+import ShopByBrands from "./sections/ShopByBrands";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
 import Testimonial from "./sections/Testimonial";
 
@@ -19,6 +20,7 @@ const HomePage = () => {
       <BigOfferBanners />
       <NewArrivalProducts />
       <Testimonial />
+      <ShopByBrands />
     </>
   );
 };

@@ -7,9 +7,14 @@
     @apply mx-6 mt-12 p-0;
 }
 
+/* *** ANIMATION *** */
+.uren-transition {
+    @apply transition-all duration-500 ease-in-out;
+}
+
 /* *** BUTTONS *** */
 .primary-btn {
-    @apply bg-primary text-black px-6 py-2 font-semibold uppercase shadow-md rounded transition-all ease-in-out duration-500;
+    @apply bg-primary text-black px-6 py-2 font-semibold uppercase shadow-md rounded uren-transition;
 }
 .primary-btn:hover {
     @apply text-base-100 shadow-xl bg-secondary;
@@ -21,7 +26,7 @@
     @apply shadow-lg;
 }
 .outline-btn {
-    @apply border border-[#ddd] py-3 px-4 text-lg font-semibold text-[#999] text-center transition-all duration-500 ease-in-out;
+    @apply border border-[#ddd] py-3 px-4 text-lg font-semibold text-[#999] text-center uren-transition;
 }
 .outline-btn:hover {
     @apply bg-primary text-base-100 border-primary shadow-lg;
@@ -32,27 +37,21 @@
 .single-product-card:hover {
     @apply shadow-md;
 }
-
 .single-product-badges {
     @apply absolute top-3 left-3 text-center space-y-2;
 }
-
 .single-product-content {
     @apply flex flex-col items-center gap-y-2 p-6 pt-0;
 }
-
 .single-product-title {
-    @apply text-[#999] text-sm text-center transition-all ease-in-out duration-500;
+    @apply text-[#999] text-sm text-center uren-transition;
 }
-
 .single-product-title:hover {
     @apply text-primary;
 }
-
 .single-product-price {
     @apply flex items-center justify-center space-x-2;
 }
-
 .single-product-old-price {
     @apply text-sm text-[#999] line-through;
 }

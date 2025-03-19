@@ -1,4 +1,9 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* *** ANIMATION *** */
+.uren-transition {
+    @apply transition-all duration-500 ease-in-out;
+}
+
 /* *** SHARED *** */
 .slider-layout {
     @apply mx-6 mt-12;
@@ -7,7 +12,7 @@
     @apply border-y border-l border-[#ddd] w-full;
 }
 .slider-nav-btn {
-    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-3 rounded transition ease-in-out duration-500 z-[997];
+    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-3 rounded uren-transition z-[997];
 }
 .slider-nav-btn:hover {
     @apply bg-base-100 outline outline-1 outline-primary;
@@ -130,7 +135,7 @@
     @apply space-y-4 px-6 w-full pb-12 bg-[#eee];
 }
 .big-single-banner {
-    @apply transition-all ease-in-out duration-500;
+    @apply uren-transition;
 }
 .big-single-banner:hover {
     @apply opacity-80 shadow-lg;
@@ -155,21 +160,30 @@
 .testimonial {
     @apply relative w-full h-full mt-12;
 }
-
 .testimonial-bg-img {
     @apply absolute left-0 top-0 w-[150%] h-full bg-cover bg-center bg-[url(/images/testimonial/bg-1.jpg)];
 }
-
 .testimonial-content {
     @apply relative z-[996] text-center mx-auto py-12 px-16 space-y-4;
 }
-
 .testimonial-client-name {
     @apply text-base-100 font-semibold text-xl;
 }
-
 .testimonial-comment {
     @apply text-base-100 bg-black bg-opacity-30 text-sm p-6 border border-white border-opacity-30 leading-snug;
+}
+
+/* *** SHOP BY BRANDS SECTION *** */
+.shop-by-brands-layout {
+    @apply grid grid-cols-2 gap-4 mt-6 mb-8;
+}
+
+.shop-by-brands-item {
+    @apply py-2 px-5 w-full border border-[#ddd] uren-transition;
+}
+
+.shop-by-brands-item:hover {
+    @apply shadow-xl;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -247,17 +261,22 @@
     .testimonial {
         @apply mt-16;
     }
-
     .testimonial-content {
         @apply py-16 px-28 space-y-6;
     }
-
     .testimonial-client-name {
         @apply text-2xl;
     }
-
     .testimonial-comment {
         @apply p-8 text-base;
+    }
+    /* *** SHOP BY BRANDS SECTION *** */
+    .shop-by-brands-layout {
+        @apply grid grid-cols-3 gap-6 mt-8 mb-10;
+    }
+
+    .shop-by-brands-item {
+        @apply py-2 px-5 w-full border;
     }
 }
 
@@ -354,16 +373,21 @@
     .testimonial {
         @apply mt-20;
     }
-
     .testimonial-content {
         @apply py-28 px-52 space-y-8;
     }
-
     .testimonial-client-name {
         @apply text-3xl;
     }
-
     .testimonial-comment {
         @apply p-8 text-base;
+    }
+    /* *** SHOP BY BRANDS SECTION *** */
+    .shop-by-brands-layout {
+        @apply grid grid-cols-6 w-full mt-12 mb-10 gap-0 border-y border-l;
+    }
+
+    .shop-by-brands-item {
+        @apply py-4 px-6 w-full border-0 border-r;
     }
 }

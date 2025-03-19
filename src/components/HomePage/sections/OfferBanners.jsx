@@ -39,7 +39,7 @@ const OfferBanners = () => {
         {offerBannersList.map((offerBanner, index) => (
           <SwiperSlide key={index}>
             <Link
-              href={`/shop/products/offer?${encodeURIComponent(
+              href={`/shop/products?offer=${encodeURIComponent(
                 offerBanner.offerName
               )}`}
             >
