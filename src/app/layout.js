@@ -2,6 +2,7 @@ import {Work_Sans } from "next/font/google";
 import "./globals.css";
 import 'animate.css';
 import Navbar from "@/components/shared/navbar/Navbar";
+import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
 
 const workSans = Work_Sans(
   {
@@ -26,6 +27,7 @@ export default function RootLayout({ children }) {
         {/* Full Navbar */}
         <Navbar/>
         {children}
+        <ScrollToTopBtn/>
       </body>
     </html>
   );
