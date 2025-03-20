@@ -68,45 +68,64 @@
 .blog-section {
     @apply px-6 py-12 bg-[#eee] text-center;
 }
-
 .blog-layout {
     @apply mt-6 mb-8 text-start space-y-4;
 }
-
 .blog-image {
     @apply relative cursor-pointer uren-transition;
 }
-
 .blog-image:hover {
     @apply opacity-80
 }
-
 .blog-date {
     @apply absolute top-0 right-0 z-50 bg-secondary text-base-100 font-semibold text-sm px-3 py-1;
 }
-
 .blog-content {
     @apply p-4 space-y-2;
 }
-
 .blog-title {
     @apply text-dark font-semibold leading-tight uren-transition;
 }
-
 .blog-title:hover {
     @apply text-primary;
 }
-
 .blog-description {
     @apply text-sm text-[#999];
 }
-
 .blog-description .read-more {
     @apply text-secondary font-semibold uren-transition;
 }
-
 .blog-description .read-more:hover {
     @apply underline;
+}
+
+/* *** NEWSLETTER SECTION *** */
+.newsletter-bg {
+    @apply bg-fixed bg-center bg-cover;
+}
+
+.newsletter-content {
+    @apply px-6 py-12 w-full h-full text-base-100 z-10 bg-black bg-opacity-70 text-center;
+}
+
+.newsletter-heading {
+    @apply text-3xl font-semibold mb-2.5;
+}
+
+.newsletter-form {
+    @apply mt-10 space-y-6 mx-auto w-full;
+}
+
+.newsletter-form>input {
+    @apply w-full pl-5 py-3;
+}
+
+.newsletter-submit-btn {
+    @apply py-3 mx-auto bg-primary uppercase px-12 font-bold text-black uren-transition;
+}
+
+.newsletter-submit-btn:hover {
+    @apply bg-secondary text-base-100;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -129,6 +148,18 @@
     .blog-layout {
         @apply mt-8 mb-10 space-y-0 grid grid-cols-2 gap-6;
     }
+    /* *** NEWSLETTER SECTION *** */
+    .newsletter-content {
+        @apply px-8 py-16;
+    }
+
+    .newsletter-heading {
+        @apply text-4xl font-semibold mb-4;
+    }
+
+    .newsletter-form {
+        @apply mt-12 space-y-0 mx-auto w-full flex;
+    }
 }
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
@@ -149,6 +180,18 @@
 
     .blog-layout {
         @apply mt-12 mb-16 space-y-0 grid grid-cols-4 gap-8;
+    }
+    /* *** NEWSLETTER SECTION *** */
+    .newsletter-content {
+        @apply px-8 py-20;
+    }
+
+    .newsletter-heading {
+        @apply text-4xl mb-4;
+    }
+
+    .newsletter-form {
+        @apply mt-16 space-y-0 mx-auto w-1/2 flex;
     }
 }
 
