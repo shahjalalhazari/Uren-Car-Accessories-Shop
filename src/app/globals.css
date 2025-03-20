@@ -134,7 +134,7 @@
     @apply bg-[#222] px-6;
 }
 .top-footer-layout {
-    @apply py-12 grid grid-cols-2 gap-10 text-[#999];
+    @apply py-12 grid grid-cols-2 gap-x-6 gap-y-10 text-[#999];
 }
 .footer-aside {
     @apply col-span-2 space-y-4;
@@ -248,7 +248,7 @@
         @apply px-8;
     }
     .top-footer-layout {
-        @apply py-16 grid grid-cols-3 gap-12;
+        @apply py-16 grid grid-cols-3 gap-x-8 gap-y-12;
     }
     .footer-aside {
         @apply space-y-6;
@@ -324,7 +324,7 @@
         @apply px-8;
     }
     .top-footer-layout {
-        @apply py-20 grid grid-cols-6 gap-12;
+        @apply py-20 grid grid-cols-6 gap-x-10 gap-y-14;
     }
     .footer-aside {
         @apply space-y-6;
