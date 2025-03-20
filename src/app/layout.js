@@ -4,6 +4,7 @@ import 'animate.css';
 import Navbar from "@/components/shared/navbar/Navbar";
 import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
 import Newsletter from "@/components/shared/Newsletter";
+import Footer from './../components/shared/footer/Footer';
 
 const workSans = Work_Sans(
   {
@@ -27,11 +28,17 @@ export default function RootLayout({ children }) {
       >
         {/* Full Navbar */}
         <Navbar/>
+        
         {children}
+
         {/* Scroll To Top Button */}
         <ScrollToTopBtn />
+
         {/* Newsletter Section */}
-        <Newsletter/>
+        <Newsletter />
+        
+        {/* Whole Footer  */}
+        <Footer/>
       </body>
     </html>
   );

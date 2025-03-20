@@ -128,6 +128,61 @@
     @apply bg-secondary text-base-100;
 }
 
+/* *** FOOTER *** */
+/* Top Part */
+.uren-footer {
+    @apply bg-[#222] px-6;
+}
+
+.top-footer-layout {
+    @apply py-12 grid grid-cols-2 gap-10 text-[#999];
+}
+
+.footer-aside {
+    @apply col-span-2 space-y-4;
+}
+
+.footer-contacts-heading {
+    @apply text-base-100 font-semibold;
+}
+
+.footer-actions {
+    @apply text-base text-base-100 p-3 rounded-full;
+}
+
+.footer-actions:hover {
+    @apply bg-opacity-50;
+}
+
+.footer-nav-heading {
+    @apply text-base-100 font-bold uppercase;
+}
+
+.footer-nav>div {
+    @apply bg-primary w-16 h-0.5 mt-3 mb-4 rounded-full;
+}
+
+.footer-nav-item-list {
+    @apply space-y-2;
+}
+
+.footer-nav-link {
+    @apply uren-transition;
+}
+
+.footer-nav-link:hover {
+    @apply text-primary underline;
+}
+
+/* Bottom Part */
+.bottom-footer-layout {
+    @apply py-6 border-[#444] border-t space-y-4 text-base-100 text-center;
+}
+
+.bottom-footer-layout .payment {
+    @apply w-3/4 mx-auto;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
@@ -160,6 +215,37 @@
     .newsletter-form {
         @apply mt-12 space-y-0 mx-auto w-full flex;
     }
+    /* *** FOOTER *** */
+    /* Top Part */
+    .uren-footer {
+        @apply px-8;
+    }
+
+    .top-footer-layout {
+        @apply py-16 grid grid-cols-3 gap-12;
+    }
+
+    .footer-aside {
+        @apply space-y-6;
+    }
+
+    .footer-nav-heading {
+        @apply text-lg;
+    }
+
+    .footer-nav-item-list {
+        @apply space-y-3;
+    }
+
+    /* Bottom Part */
+    .bottom-footer-layout {
+        @apply py-8 space-y-0 flex items-center justify-between;
+    }
+
+    .bottom-footer-layout .payment {
+        @apply w-1/2 mx-0;
+    }
+
 }
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
@@ -191,8 +277,39 @@
     }
 
     .newsletter-form {
-        @apply mt-16 space-y-0 mx-auto w-1/2 flex;
-    }
+        @apply mt-14 space-y-0 mx-auto w-1/2 flex;
+        }
+
+        /* *** FOOTER *** */
+        /* Top Part */
+        .uren-footer {
+            @apply px-8;
+        }
+
+        .top-footer-layout {
+            @apply py-20 grid grid-cols-6 gap-12;
+        }
+
+        .footer-aside {
+            @apply space-y-6;
+        }
+
+        .footer-nav>div {
+            @apply h-1;
+        }
+
+        .footer-nav-item-list {
+            @apply space-y-3;
+        }
+
+        /* Bottom Part */
+        .bottom-footer-layout {
+            @apply py-8 space-y-0 flex items-center justify-between;
+        }
+
+        .bottom-footer-layout .payment {
+            @apply w-1/4 mx-0;
+        }
 }
 
 
