@@ -4,7 +4,7 @@
     @apply mb-12 text-[#999];
 }
 .about-us-layout {
-    @apply space-y-4 items-center;
+    @apply space-y-4;
 }
 
 .about-us-img {
@@ -83,6 +83,6 @@
 
     /* Project Count Area */
     .project-count-layout {
-        @apply space-y-0 grid grid-cols-4 gap-0 mt-16;
+        @apply space-y-0 grid grid-cols-4 gap-0 mt-14;
     }
 }

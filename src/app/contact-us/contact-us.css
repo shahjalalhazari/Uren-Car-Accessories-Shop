@@ -1,0 +1,75 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+.contact-layout {
+    @apply space-y-6 mt-10 text-[#999];
+}
+.contact-page-title {
+    @apply font-medium text-3xl text-dark uppercase;
+}
+.contact-form {
+    @apply mt-4 text-sm;
+}
+.contact-form-group {
+    @apply space-y-2 mb-4;
+}
+.contact-form-group label {
+    @apply cursor-text;
+}
+.contact-form-group input {
+    @apply h-8 pl-3 w-full border border-[#ddd] outline-none text-dark;
+}
+.contact-form-group textarea {
+    @apply h-20 min-h-8 px-3 py-3 w-full border border-[#ddd] outline-none text-dark;
+}
+/* Address Book */
+.address-book-message {
+    @apply mt-5 text-sm mb-6;
+}
+.address-block {
+    @apply pb-2 border-b border-[#ddd]
+}
+.address-block h5 {
+    @apply text-xl mb-2 text-dark font-semibold flex items-center gap-x-2;
+}
+.address-block p {
+    @apply text-sm mb-1
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .contact-layout {
+        @apply space-y-0 mt-12 grid grid-cols-2 gap-6 items-center;
+    }
+    .contact-form-group input {
+        @apply h-8 pl-4;
+    }
+    .contact-form-group textarea {
+        @apply px-4;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+    .contact-layout {
+        @apply space-y-0 mt-14 grid grid-cols-2 gap-8 items-center;
+    }
+
+    .contact-page-title {
+        @apply text-4xl;
+    }
+
+    .contact-form {
+        @apply mt-5;
+    }
+
+    .contact-form-group {
+        @apply mb-5;
+    }
+
+    .contact-form-group input {
+        @apply h-10 pl-4;
+    }
+
+    .contact-form-group textarea {
+        @apply h-20 min-h-10 px-4;
+    }
+}
