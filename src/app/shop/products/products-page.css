@@ -14,7 +14,7 @@
 
 /* *** SIDEBAR ITEMS *** */
 .sidebar-item-container {
-    @apply bg-[#eee] p-6 border border-[#ddd] w-full;
+    @apply bg-[#eee] p-6 pb-4 border border-[#ddd] w-full;
 }
 
 .item-collapse-btn {
@@ -34,7 +34,7 @@
 }
 
 .list-items-container {
-    @apply overflow-hidden;
+    @apply overflow-hidden mt-2;
 }
 
 .container-open {
@@ -76,7 +76,7 @@
 
     /* *** SIDEBAR ITEMS *** */
     .sidebar-item-container {
-        @apply p-4;
+        @apply p-4 pb-2;
     }
     .item-collapse-btn {
         @apply hidden;
@@ -87,6 +87,9 @@
     }
     .container-open {
         @apply max-h-full;
+    }
+    .list-item {
+        @apply text-sm
     }
 }
 

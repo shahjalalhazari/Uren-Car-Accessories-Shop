@@ -6,13 +6,11 @@ import { BiChevronDown, BiChevronUp } from "react-icons/bi";
 
 const CategoriesList = ({ categoriesList }) => {
   const [isOpen, setIsOpen] = useState(true); // Default open on medium & large screen
-  const [smallDevice, setSmallDevice] = useState(false);
 
   useEffect(() => {
     const updateDeviceType = () => {
       if (window.innerWidth < 769) {
         setIsOpen(false); // if screen is small then set isOpen "false"
-        setSmallDevice(true)
       }
     };
 
@@ -44,7 +42,7 @@ const CategoriesList = ({ categoriesList }) => {
       <h5 className="item-heading hidden md:block">Categories</h5>
 
       {/* Divider */}
-      <div className="relative my-2 lg:my-3">
+      <div className="relative mt-2 lg:mt-3">
         <div className="divider-1"></div>
         <div className="divider-2"></div>
       </div>

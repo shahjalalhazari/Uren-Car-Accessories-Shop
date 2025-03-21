@@ -27,7 +27,7 @@ const ProductsPage = () => {
             {/* Price Range Filter */}
             <PriceRangeFilter />
             {/* Brand's Names List */}
-            <BrandNamesList brandsList={brandsList} />
+            <BrandNamesList />
             {/* Ad Banner */}
             <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hidden lg:block hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
           </aside>

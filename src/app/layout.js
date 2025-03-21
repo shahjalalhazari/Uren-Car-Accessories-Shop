@@ -5,6 +5,7 @@ import Navbar from "@/components/shared/navbar/Navbar";
 import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
 import Newsletter from "@/components/shared/Newsletter";
 import Footer from './../components/shared/footer/Footer';
+import { CarProvider } from "@/context/CarContext";
 
 const workSans = Work_Sans(
   {
@@ -26,19 +27,22 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased m-0 p-0`}
       >
-        {/* Full Navbar */}
-        <Navbar/>
-        
-        {children}
+        {/* Wrap whole project with Car Provider context */}
+        <CarProvider >
+          {/* Full Navbar */}
+          <Navbar/>
+          
+          {children}
 
-        {/* Scroll To Top Button */}
-        <ScrollToTopBtn />
+          {/* Scroll To Top Button */}
+          <ScrollToTopBtn />
 
-        {/* Newsletter Section */}
-        <Newsletter />
-        
-        {/* Whole Footer  */}
-        <Footer/>
+          {/* Newsletter Section */}
+          <Newsletter />
+          
+          {/* Whole Footer  */}
+          <Footer />
+        </CarProvider>
       </body>
     </html>
   );
