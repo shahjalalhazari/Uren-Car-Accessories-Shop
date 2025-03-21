@@ -41,7 +41,7 @@ const NewArrivalProducts = () => {
             768: { slidesPerView: 3 }, // Medium screens
             1024: { slidesPerView: 6 }, // Large screens
           }}
-          className="slider-container"
+          className="slider-container uren-slider"
         >
           {newArrivalProducts.map((item, index) => (
             <SwiperSlide key={index}>

@@ -17,7 +17,7 @@ const AboutUsPage = () => {
       <PageBreadcrumb breadcrumbTitle={"About Us"} breadcrumbLink={"About Us"} />
 
       {/* Main content */}
-      <div className="uren-container about-us">
+      <div className="uren-container text-[#999]">
         <div className="about-us-layout">
           <Link href={"/"} className="about-us-img uren-transition">
             <Image src="/images/about-us/1.jpg" width="2000" height="800" alt="Uren Store"/>

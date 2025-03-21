@@ -1,8 +1,5 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
 /* Main Content Area */
-.about-us {
-    @apply mb-12 text-[#999];
-}
 .about-us-layout {
     @apply space-y-4;
 }
@@ -39,10 +36,6 @@
 @media (min-width: 768px) and (max-width: 1024px) {
 
     /* Main Content Area */
-    .about-us {
-        @apply mb-16;
-    }
-
     .about-us-layout {
         @apply space-y-0 grid grid-cols-2 gap-6 items-center;
     }
@@ -65,10 +58,6 @@
 @media (min-width: 1025px) {
 
     /* Main Content Area */
-    .about-us {
-        @apply mb-20;
-    }
-
     .about-us-layout {
         @apply space-y-0 grid grid-cols-2 gap-8 items-center;
     }

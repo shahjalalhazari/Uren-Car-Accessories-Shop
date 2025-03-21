@@ -42,7 +42,7 @@ const FeaturedCategories = () => {
             768: { slidesPerView: 3 }, // Medium screens
             1024: { slidesPerView: 6 }, // Large screens
           }}
-          className="slider-container"
+          className="slider-container uren-slider"
         >
           {featuredCategories.map((item, index) => (
             <SwiperSlide key={index}>

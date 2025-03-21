@@ -13,7 +13,7 @@ const ContactUsPage = () => {
   return (
     <div>
       <PageBreadcrumb breadcrumbLink={"Contact Us"} breadcrumbTitle={"Contact Us"}/>
-      <div className="uren-container mb-12 md:mb-16 lg:mb-20">
+      <div className="uren-container">
         {/* Google Map */}
         <GoogleMapLocations />
 

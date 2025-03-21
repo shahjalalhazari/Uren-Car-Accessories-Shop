@@ -5,7 +5,7 @@ import SectionHeading from '@/components/shared/headings/SectionHeading';
 
 const ShopByBrands = () => {
     return (
-      <div className="uren-container shop-by-brands">
+      <div className="uren-container text-center">
         <SectionHeading
           heading="Shop By Brands"
           subHeading="Top Quality Partner"

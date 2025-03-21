@@ -4,7 +4,7 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
 /* *** CONTAINER *** */
 .uren-container {
-    @apply mx-6 mt-12 p-0;
+    @apply mx-6 my-12 p-0;
 }
 
 /* *** ANIMATION *** */
@@ -173,7 +173,7 @@
 
 /* *** 404 Not Found Page *** */
 .not-found-404 {
-    @apply uren-container mb-12 text-center text-[#999];
+    @apply uren-container text-center text-[#999];
 }
 .error-heading {
     @apply text-7xl pb-1 text-primary font-bold;
@@ -218,7 +218,7 @@
 
     /* CONTAINER */
     .uren-container {
-        @apply mx-8 mt-16 p-0;
+        @apply mx-8 my-16;
     }
 
     /* BUTTONS */
@@ -293,7 +293,7 @@
 @media (min-width: 1025px) {
     /* CONTAINER */
     .uren-container {
-        @apply mx-8 mt-20 p-0;
+        @apply mx-8 my-20;
     }
 
     /* BUTTONS */
