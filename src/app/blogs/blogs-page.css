@@ -1,0 +1,123 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* *** LAYOUTS *** */
+.blogs-page-layout {
+    @apply grid grid-cols-1 gap-4;
+}
+
+.blogs-sidebar {
+    @apply space-y-4 w-full;
+}
+
+.blogs-list-layout {
+    @apply grid grid-cols-1 gap-4;
+}
+
+/* *** SEARCH BOX *** */
+.item-collapse-btn {
+    @apply flex justify-center items-center cursor-pointer gap-x-2;
+}
+.item-heading {
+    @apply uppercase font-semibold text-[#333];
+}
+.sidebar-divider {
+    @apply mt-2 mb-5 border-[#ddd];
+}
+
+.list-items-container {
+    @apply overflow-hidden;
+}
+.container-open {
+    @apply opacity-100 overflow-y-auto max-h-60;
+}
+
+.container-close {
+    @apply max-h-0 opacity-0;
+}
+
+.blog-search-form {
+    @apply relative;
+}
+
+.blog-search-form input {
+    @apply border border-[#ddd] w-full text-sm py-2 pl-3 outline-none;
+}
+
+.blog-search-form button {
+    @apply absolute top-3 right-3 text-[#999];
+}
+.blog-search-form button:hover {
+    @apply text-primary;
+}
+
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* *** LAYOUTS *** */
+    .blogs-page-layout {
+        @apply grid grid-cols-3 gap-6;
+    }
+
+    .blogs-sidebar {
+        @apply space-y-6;
+    }
+
+    .blogs-list {
+        @apply col-span-2;
+    }
+
+    .blogs-list-layout {
+        @apply grid grid-cols-2 gap-6;
+    }
+
+    /* *** SEARCH BOX *** */
+    .item-collapse-btn {
+        @apply hidden;
+    }
+
+    .item-heading {
+        @apply text-lg;
+    }
+
+    .container-open {
+        @apply max-h-full;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* *** LAYOUTS *** */
+    .blogs-page-layout {
+        @apply grid grid-cols-4 gap-8;
+    }
+
+    .blogs-sidebar {
+        @apply space-y-8;
+    }
+
+    .blogs-list {
+        @apply col-span-3;
+    }
+
+    .blogs-list-layout {
+        @apply grid grid-cols-3 gap-8;
+    }
+
+    /* *** SEARCH BOX *** */
+    .item-collapse-btn {
+        @apply hidden;
+    }
+
+    .item-heading {
+        @apply text-xl;
+    }
+
+    .sidebar-divider {
+        @apply mb-6;
+    }
+
+    .container-open {
+        @apply max-h-full;
+    }
+}
