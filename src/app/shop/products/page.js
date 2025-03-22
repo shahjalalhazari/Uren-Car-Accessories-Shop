@@ -5,13 +5,42 @@ import PriceRangeFilter from "@/components/shop/products/PriceRangeFilter";
 import SortingDropdown from "@/components/shop/products/SortingDropdown";
 import Image from "next/image";
 import "./products-page.css";
+import ProductsListWithLazyLoad from "@/components/shop/products/ProductsListWithLazyLoad";
 
 export const metadata = {
   title: "Products",
   keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
 };
 
-const ProductsPage = () => {
+const ProductsPage = async ({ searchParams }) => {
+  const { sort } = await searchParams;
+  
+  const sortType = sort || "default";
+  let sortedProducts = [...ProductsList];
+
+  switch (sortType) {
+    case "a-z": // Name, A to Z
+      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      break;
+    case "z-a": // Name, Z to A
+      sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+      break;
+    case "low-high": // Price, low to high
+      sortedProducts.sort((a, b) => a.price - b.price);
+      break;
+    case "high-low": // Price, high to low
+      sortedProducts.sort((a, b) => b.price - a.price);
+      break;
+    case "highest": // Rating (Highest)
+      sortedProducts.sort((a, b) => b.rating - a.rating);
+      break;
+    case "lowest": // Rating (Lowest)
+      sortedProducts.sort((a, b) => a.rating - b.rating);
+      break;
+    default:
+      sortedProducts = [...ProductsList];
+  }
+
   return (
     <div>
       {/* Page Breadcrumb */}
@@ -20,14 +49,18 @@ const ProductsPage = () => {
       {/* Main content */}
       <main className="uren-container">
         <div className="products-page-layout">
+
           {/* Left Side */}
           <aside className="products-sidebar">
             {/* Categories List */}
             <CategoriesList categoriesList={categoriesList} />
+
             {/* Price Range Filter */}
             <PriceRangeFilter />
+
             {/* Brand's Names List */}
             <BrandNamesList />
+
             {/* Ad Banner */}
             <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hidden lg:block hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
           </aside>
@@ -35,14 +68,10 @@ const ProductsPage = () => {
           {/* Right Side (All Products List) */}
           <div className="products-list">
             {/* Sorting Dropdown */}
-            <div className="products-list-layout">
               <SortingDropdown />
-              <SortingDropdown />
-              <SortingDropdown />
-            </div>
 
             {/* Products List with Lazy loading*/}
-            {/* <ProductsListWithLazyLoad productsList={sortedProducts} /> */}
+            <ProductsListWithLazyLoad productsList={sortedProducts} />
           </div>
         </div>
       </main>
@@ -120,45 +149,6 @@ const categoriesList = [
     added:""
   },
 ]
-
-const brandsList = [
-  {
-    id: 1,
-    name: "Brand Name 1",
-    price: 120,
-    image: "/images/brand/1.jpg",
-  },
-  {
-    id: 2,
-    name: "Brand Name 2",
-    price: 120,
-    image: "/images/brand/2.jpg",
-  },
-  {
-    id: 3,
-    name: "Brand Name 3",
-    price: 120,
-    image: "/images/brand/3.jpg",
-  },
-  {
-    id: 4,
-    name: "Brand Name 4",
-    price: 120,
-    image: "/images/brand/4.jpg",
-  },
-  {
-    id: 5,
-    name: "Brand Name 5",
-    price: 120,
-    image: "/images/brand/5.jpg",
-  },
-  {
-    id: 6,
-    name: "Brand Name 6",
-    price: 120,
-    image: "/images/brand/6.jpg",
-  },
-];
 
 const ProductsList = [
   {
