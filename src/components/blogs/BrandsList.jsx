@@ -25,12 +25,6 @@ const BrandsList = () => {
   }, []);
 
   return (
-    // <div>
-    //   <h6 className="blog-aside-title"></h6>
-    //   <hr />
-
-    // </div>
-
     <div className="sidebar-item-container">
       <div className="item-collapse-btn" onClick={() => setIsOpen(!isOpen)}>
         <h5 className="item-heading">Car Brands</h5>
