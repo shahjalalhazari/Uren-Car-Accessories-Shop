@@ -113,7 +113,7 @@
         @apply col-span-2;
     }
     .blogs-list-layout {
-        @apply grid grid-cols-2 gap-6;
+        @apply grid grid-cols-2 gap-6 space-y-0;
     }
 
     /* *** SIDEBAR ITEM CONTAINER *** */
@@ -173,7 +173,7 @@
         @apply col-span-3;
     }
     .blogs-list-layout {
-        @apply grid grid-cols-3 gap-8;
+        @apply grid grid-cols-3 gap-8 space-y-0;
     }
 
     /* *** SEARCH BOX *** */

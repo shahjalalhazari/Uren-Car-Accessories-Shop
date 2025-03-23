@@ -41,10 +41,7 @@ const BlogsPage = () => {
         </aside>
         
         {/* Right Side (All Products List) */}
-          <div className="col-span-3">
-            <BlogsListWithLazyLoading allBlogs={blogs}/>
-            <BlogsListWithLazyLoading allBlogs={blogs}/>
-            <BlogsListWithLazyLoading allBlogs={blogs}/>
+          <div className="blogs-list">
             <BlogsListWithLazyLoading allBlogs={blogs}/>
           </div>
       </div>

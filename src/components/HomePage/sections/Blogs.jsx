@@ -12,7 +12,7 @@ const Blogs = () => {
         />
         <div className="blog-layout">
           {blogs.map((blog, index) => (
-            <SingleBlogCard blog={blog} key={index} />
+            <SingleBlogCard blog={blog} key={index} bg={"bg-base-100"} />
           ))}
         </div>
         <PrimaryBtn text={"SEE MORE"} path={"/blogs"} />
