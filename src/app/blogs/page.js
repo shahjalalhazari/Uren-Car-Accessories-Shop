@@ -6,6 +6,7 @@ import BrandsList from "@/components/blogs/BrandsList";
 import CarModels from "@/components/blogs/CarModels";
 import Tags from "@/components/blogs/Tags";
 import BlogsListWithLazyLoading from "@/components/blogs/BlogsListWithLazyLoading";
+import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
 
 export const metadata = {
   title: "Blogs",
@@ -14,10 +15,12 @@ export const metadata = {
 
 
 const BlogsPage = () => {
-    return (
+  return (
+    <>
+    <PageBreadcrumb breadcrumbLink={"Blogs"} breadcrumbTitle={"Blogs"}/>
         <div className="uren-container blogs-page-layout">
             {/* Left Side */}
-          <aside className="space-y-8">
+          <aside className="blogs-sidebar">
             {/* Search box */}
             <SearchBox />
 
@@ -44,7 +47,8 @@ const BlogsPage = () => {
             <BlogsListWithLazyLoading allBlogs={blogs}/>
             <BlogsListWithLazyLoading allBlogs={blogs}/>
           </div>
-        </div>
+      </div>
+      </>
     );
 };
 
