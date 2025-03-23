@@ -89,15 +89,12 @@
 .tag-list {
     @apply flex flex-wrap gap-2 mt-4 text-[#999];
 }
-
 .single-tag {
     @apply flex items-center gap-1 px-2.5 py-1.5 text-sm border border-[#bbb];
 }
-
 .tag-selected {
     @apply bg-blue text-white border-none;
 }
-
 .single-tag:hover {
     @apply bg-primary text-base-100;
 }
@@ -157,7 +154,6 @@
     .tag-list {
         @apply flex flex-wrap gap-2 mt-5;
     }
-
     .single-tag {
         @apply px-2.5 py-1.5 text-sm;
     }
