@@ -4,7 +4,7 @@
 .blogs-list-layout {
     @apply space-y-4 w-full;
 }
-/* *** SEARCH BOX *** */
+/* *** SIDEBAR ITEM CONTAINER *** */
 .sidebar-item-container {
     @apply bg-[#eee] p-4 border border-[#ddd] w-full;
 }
@@ -17,31 +17,49 @@
 .sidebar-divider {
     @apply mt-2 border-[#999];
 }
-
 .list-items-container {
     @apply overflow-hidden;
 }
 .container-open {
     @apply opacity-100 overflow-y-auto max-h-60;
 }
-
 .container-close {
     @apply max-h-0 opacity-0;
 }
 
+/* *** SEARCH BOX *** */
 .blog-search-form {
     @apply relative mt-4;
 }
-
 .blog-search-form input {
     @apply border border-[#ddd] w-full text-sm py-2 pl-3 outline-none;
 }
-
 .blog-search-form button {
     @apply absolute top-3 right-3 text-[#999];
 }
 .blog-search-form button:hover {
     @apply text-primary;
+}
+
+/* *** ARCHIVES *** */
+.archives-list {
+    @apply mt-4 text-[#999] text-sm;
+}
+
+.archives-list li {
+    @apply py-1.5 border-b border-[#bbb] transition-all duration-500 ease-in-out;
+}
+
+.archives-list li:hover {
+    @apply text-primary shadow
+}
+
+.archives-list li:first-child {
+    @apply pt-0
+}
+
+.archives-list li:last-child {
+    @apply border-none pb-0
 }
 
 
@@ -52,40 +70,43 @@
     .blogs-page-layout {
         @apply grid grid-cols-3 gap-6;
     }
-
     .blogs-sidebar {
         @apply space-y-6;
     }
-
     .blogs-list {
         @apply col-span-2;
     }
-
     .blogs-list-layout {
         @apply grid grid-cols-2 gap-6;
     }
 
-    /* *** SEARCH BOX *** */
+    /* *** SIDEBAR ITEM CONTAINER *** */
     .sidebar-item-container {
         @apply bg-transparent p-0 border-none;
     }
-
     .sidebar-divider {
         @apply border-[#ddd];
     }
     .item-collapse-btn {
         @apply hidden;
     }
-
     .item-heading {
         @apply text-lg;
     }
-
     .container-open {
         @apply max-h-full;
     }
+    /* *** SEARCH BOX *** */
     .blog-search-form {
         @apply mt-5;
+    }
+    /* *** ARCHIVES *** */
+    .archives-list {
+        @apply mt-5;
+    }
+
+    .archives-list li {
+        @apply border-[#ddd];
     }
 }
 
@@ -96,15 +117,12 @@
     .blogs-page-layout {
         @apply grid grid-cols-4 gap-8;
     }
-
     .blogs-sidebar {
         @apply space-y-8;
     }
-
     .blogs-list {
         @apply col-span-3;
     }
-
     .blogs-list-layout {
         @apply grid grid-cols-3 gap-8;
     }
@@ -113,23 +131,28 @@
     .sidebar-item-container {
         @apply bg-transparent p-0 border-none;
     }
-
     .item-collapse-btn {
         @apply hidden;
     }
-
     .item-heading {
         @apply text-xl;
     }
-
     .sidebar-divider {
         @apply border-[#ddd];
     }
-
     .container-open {
         @apply max-h-full;
     }
+    /* *** SEARCH BOX *** */
     .blog-search-form {
         @apply mt-6;
+    }
+    /* *** ARCHIVES *** */
+    .archives-list {
+        @apply mt-6;
+    }
+
+    .archives-list li {
+        @apply py-2 border-[#ddd];
     }
 }
