@@ -31,8 +31,8 @@ const StickyNavbar = ({navItems}) => {
       <div className="main-nav">
         {navItems.map((item) => (
           <Link
-            className={`main-nav-items uren-transition ${
-              pathname === item.path && "text-base-100 bg-dark p-4 lg:p-5"
+            className={`main-nav-items py-4 lg:py-5 uren-transition ${
+              pathname === item.path && "text-base-100 bg-dark px-4 lg:px-5"
             }`}
             key={item.path}
             href={item.path}

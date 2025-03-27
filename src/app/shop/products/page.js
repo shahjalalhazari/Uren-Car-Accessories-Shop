@@ -44,7 +44,7 @@ const ProductsPage = async ({ searchParams }) => {
   return (
     <div>
       {/* Page Breadcrumb */}
-      <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"All Products"}/>
+      <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"Products"}/>
       
       {/* Main content */}
       <main className="uren-container">
@@ -151,7 +151,7 @@ const categoriesList = [
 ]
 
 const ProductsList = [
-  {
+  {id: 1,
     name: "Oil Filter",
     price: 89.99,
     oldPrice: 0.0,
@@ -160,7 +160,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 2,
     name: "Brake Pads",
     price: 750.0,
     oldPrice: 0.0,
@@ -169,7 +169,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 55,
   },
-  {
+  {id: 3,
     name: "Head Light",
     price: 89.99,
     oldPrice: 150.0,
@@ -178,7 +178,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 0,
   },
-  {
+  {id: 4,
     name: "Alternator",
     price: 250.5,
     oldPrice: 175.99,
@@ -187,7 +187,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 33,
   },
-  {
+  {id: 5,
     name: "Gear Filter",
     price: 550.75,
     oldPrice: 440.65,
@@ -196,7 +196,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 74,
   },
-  {
+  {id: 6,
     name: "Tail Light",
     price: 89.99,
     oldPrice: 0.0,
@@ -205,7 +205,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 60,
   },
-  {
+  {id: 7,
     name: "Air Filter",
     price: 135.0,
     oldPrice: 0.0,
@@ -214,7 +214,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 8,
     name: "Shock Absorbers",
     price: 999.99,
     oldPrice: 0.0,
@@ -223,7 +223,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 44,
   },
-  {
+  {id: 9,
     name: "Brake Discs",
     price: 89.99,
     oldPrice: 120.99,
@@ -232,7 +232,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 10,
     name: "Bumper",
     price: 345.99,
     oldPrice: 300.0,
@@ -241,7 +241,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 19,
   },
-  {
+  {id: 11,
     name: "Ignition Coils",
     price: 240.99,
     oldPrice: 0.0,
@@ -250,7 +250,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 12,
     name: "A/C Filter",
     price: 89.99,
     oldPrice: 110.0,
@@ -259,7 +259,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 42,
   },
-  {
+  {id: 13,
     name: "Spark Plug",
     price: 89.99,
     oldPrice: 0.0,
@@ -268,7 +268,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 25,
   },
-  {
+  {id: 14,
     name: "Radiator",
     price: 110.99,
     oldPrice: 0.0,
@@ -277,7 +277,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 15,
     name: "Compressor",
     price: 189.99,
     oldPrice: 220.0,
@@ -286,7 +286,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 66,
   },
-  {
+  {id: 16,
     name: "Oil Filter",
     price: 89.99,
     oldPrice: 0.0,
@@ -295,7 +295,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 17,
     name: "Brake Pads",
     price: 750.0,
     oldPrice: 0.0,
@@ -304,7 +304,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 55,
   },
-  {
+  {id: 18,
     name: "Head Light",
     price: 89.99,
     oldPrice: 150.0,
@@ -313,7 +313,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 0,
   },
-  {
+  {id: 19,
     name: "Alternator",
     price: 250.5,
     oldPrice: 175.99,
@@ -322,7 +322,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 33,
   },
-  {
+  {id: 20,
     name: "Gear Filter",
     price: 550.75,
     oldPrice: 440.65,
@@ -331,7 +331,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 74,
   },
-  {
+  {id: 21,
     name: "Tail Light",
     price: 89.99,
     oldPrice: 0.0,
@@ -340,7 +340,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 60,
   },
-  {
+  {id: 22,
     name: "Air Filter",
     price: 135.0,
     oldPrice: 0.0,
@@ -349,7 +349,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 23,
     name: "Shock Absorbers",
     price: 999.99,
     oldPrice: 0.0,
@@ -358,7 +358,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 44,
   },
-  {
+  {id: 24,
     name: "Brake Discs",
     price: 89.99,
     oldPrice: 120.99,
@@ -367,7 +367,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 25,
     name: "Bumper",
     price: 345.99,
     oldPrice: 300.0,
@@ -376,7 +376,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 19,
   },
-  {
+  {id: 26,
     name: "Ignition Coils",
     price: 240.99,
     oldPrice: 0.0,
@@ -385,7 +385,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 27,
     name: "A/C Filter",
     price: 89.99,
     oldPrice: 110.0,
@@ -394,7 +394,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 42,
   },
-  {
+  {id: 28,
     name: "Spark Plug",
     price: 89.99,
     oldPrice: 0.0,
@@ -403,7 +403,7 @@ const ProductsList = [
     isNew: false,
     discountOf: 25,
   },
-  {
+  {id: 29,
     name: "Radiator",
     price: 110.99,
     oldPrice: 0.0,
@@ -412,7 +412,7 @@ const ProductsList = [
     isNew: true,
     discountOf: 24,
   },
-  {
+  {id: 30,
     name: "Compressor",
     price: 189.99,
     oldPrice: 220.0,

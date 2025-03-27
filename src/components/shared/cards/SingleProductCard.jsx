@@ -8,13 +8,13 @@ import { BiHeart, BiShoppingBag } from 'react-icons/bi';
 import { FaRegShareSquare } from 'react-icons/fa';
 
 const SingleProductCard = ({ singleProduct, borderStyle }) => {
-  const { image, discountOf, isNew, name, oldPrice, price, rating } =
+  const { image, discountOf, isNew, name, oldPrice, price, rating, id } =
     singleProduct;
 
   return (
     <div className={`${borderStyle} single-product-card`}>
       <div className="relative">
-        <Link href={"/"}>
+        <Link href={`/shop/products/${id}`}>
           <Image
             src={image}
             width={250}
@@ -31,11 +31,13 @@ const SingleProductCard = ({ singleProduct, borderStyle }) => {
       {/* Default Product Content */}
       <div className="single-product-content">
         <ProductRating rating={rating} />
-        <Link href={"/"}>
+        <Link href={`/shop/products/${id}`}>
           <h2 className="single-product-title">{name}</h2>
         </Link>
         <p className="single-product-price">
-          <span className="text-secondary font-semibold">${price.toFixed(2)}</span>
+          <span className="text-secondary font-semibold">
+            ${price.toFixed(2)}
+          </span>
           {oldPrice > 0 && (
             <span className="single-product-old-price">
               ${oldPrice.toFixed(2)}
