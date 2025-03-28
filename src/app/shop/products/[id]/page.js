@@ -1,3 +1,4 @@
+import ProductImgsGallery from "@/components/shop/product-details/ProductImgsGallery";
 import "./product-details.css"
 import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
 
@@ -10,7 +11,7 @@ const ProductDetailPage = async ({ params }) => {
       <PageBreadcrumb breadcrumbLink={"Products Name"} breadcrumbTitle={"Product's Name"}/>
       <div className="uren-container">
         <div className="product-details-layout">
-          <div>Photo Gallery</div>
+          <ProductImgsGallery images={images}  zoom={2.5} autoplayDelay={7000} />
           <div className="product-details-content">
             <h3>Dolorem odio provident ut nihil</h3>
             <p><span>Brands:</span> Buxton</p>

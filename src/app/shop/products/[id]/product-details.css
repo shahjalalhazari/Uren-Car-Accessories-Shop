@@ -18,15 +18,16 @@
 .product-details-description {}
 
 /* Product Images Gallery */
-.product-details-photo-gallery {
-    @apply w-full mx-auto relative;
+.photo-gallery-layout {
+    @apply w-full flex flex-col items-center;
+}
+
+.details-photo-gallery {
+    @apply w-full mx-auto relative mt-6;
 }
 
 .details-active-img {
-    @apply relative h-[400px] w-full cursor-move overflow-hidden border;
-}
-.images-slider {
-    @apply mt-6 w-full;
+    @apply w-full border border-[#ddd];
 }
 
 .details-slider-image {
@@ -55,14 +56,17 @@
     }
 
     /* Product Images Gallery */
+    .details-photo-gallery {
+        @apply mt-8;
+    }
+
     .slider-btns {
         @apply hidden
     }
 
-    .images-slider:hover .slider-btns {
+    .details-photo-gallery:hover .slider-btns {
         @apply block
     }
-
 }
 
 
