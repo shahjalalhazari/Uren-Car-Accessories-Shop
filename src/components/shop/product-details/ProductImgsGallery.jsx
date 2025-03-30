@@ -14,7 +14,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 const ProductImgsGallery = ({ images }) => {
   const [activeImage, setActiveImage] = useState(images[0]);
   const prevRef = useRef(null);
-    const nextRef = useRef(null);
+  const nextRef = useRef(null);
 
   return (
     <div className="photo-gallery-layout">
@@ -42,13 +42,13 @@ const ProductImgsGallery = ({ images }) => {
           swiper.navigation.update();
         }}
         breakpoints={{
-          0: { slidesPerView: 3 }, // Small screens
-          640: { slidesPerView: 3 }, // Small screens
-          768: { slidesPerView: 4 }, // Medium screens
-          1024: { slidesPerView: 5 }, // Large screens
+          0: { slidesPerView: 3 },
+          640: { slidesPerView: 3 },
+          768: { slidesPerView: 4 },
+          1024: { slidesPerView: 5 },
         }}
         loop={true}
-        autoplay={{ delay: 8000 }}
+        autoplay={{ delay: 15000 }}
         className="details-photo-gallery"
         onSlideChange={(swiper) => setActiveImage(images[swiper.realIndex])}
       >

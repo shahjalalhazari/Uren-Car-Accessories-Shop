@@ -13,9 +13,30 @@
     @apply grid grid-cols-1 gap-y-8
 }
 
-.product-details-content {}
+.product-details-content {
+    @apply text-sm;
+}
 
-.product-details-description {}
+.product-details-content h3 {
+    @apply text-xl text-primary;
+}
+
+.product-details-content li {
+    @apply font-bold text-[#999] transition-all ease-in-out duration-500;
+}
+
+.product-details-content li>a,
+li>span {
+    @apply font-normal
+}
+
+.product-details-content li>a:hover {
+    @apply text-primary underline;
+}
+
+.product-details-description {
+    @apply mt-8;
+}
 
 /* Product Images Gallery */
 .photo-gallery-layout {

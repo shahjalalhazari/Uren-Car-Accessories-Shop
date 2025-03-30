@@ -1,6 +1,6 @@
 import { BiSolidStar, BiSolidStarHalf, BiStar } from "react-icons/bi";
 
-const ProductRating = ({ rating }) => {
+const ProductRating = ({ rating, text = "sm" }) => {
   const renderStars = () => {
     const totalStars = 5;
 
@@ -21,9 +21,9 @@ const ProductRating = ({ rating }) => {
   };
 
   return (
-    <div className="flex items-center space-x-1 mt-2">
+    <div className={`flex items-center space-x-1 mt-2 text-${text}`}>
       {renderStars()}{" "}
-      <span className="text-blue ml-2 text-xs">&#40;122 Reviews&#41;</span>
+      <span className={`text-blue ml-2`}>&#40;122 Reviews&#41;</span>
     </div>
   );
 };
