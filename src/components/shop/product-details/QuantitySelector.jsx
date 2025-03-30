@@ -41,7 +41,7 @@ const QuantitySelector = ({ min = 1, max = 10, onChange }) => {
   };
 
   return (
-    <div className="flex items-center space-x-4 my-4">
+    <div className="flex items-center space-x-4 my-3">
       <label className="font-bold text-[#999] ">Quantity: </label>
 
       <div className=" border border-[#ddd] text-[#999]  w-fit flex items-center">

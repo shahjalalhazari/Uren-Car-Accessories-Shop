@@ -1,6 +1,5 @@
 "use client"
 import SecondaryBtn from "@/components/shared/buttons/SecondaryBtn";
-import ProductRating from "@/components/shared/ProductRating";
 import { useState } from "react";
 import { FaStar } from "react-icons/fa";
 
@@ -37,9 +36,9 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
   return (
     <div>
       {/* Tabs Navigation */}
-      <ul className="bg-[#eee] p-8 flex gap-x-6 items-center uppercase text-[#999] font-bold mt-8">
+      <ul className="product-details-tabs">
         <li
-          className={`cursor-pointer uren-transition hover:text-primary ${
+          className={`details-tabs-heading uren-transition ${
             activeTab === "description" ? "text-primary" : ""
           }`}
           onClick={() => setActiveTab("description")}
@@ -47,10 +46,10 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
           Description
         </li>
         <li>
-          <div className="border-b-2 border-[#999] w-8"></div>
+          <div className="border-b-[4px] border-body rounded-full w-8"></div>
         </li>
         <li
-          className={`cursor-pointer uren-transition hover:text-primary ${
+          className={`details-tabs-heading uren-transition ${
             activeTab === "reviews" ? "text-primary" : ""
           }`}
           onClick={() => setActiveTab("reviews")}
@@ -60,49 +59,55 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
       </ul>
 
       {/* Tab Content */}
-      <div className="p-6 border border-gray-200">
+      <div className="details-tab-content">
         {activeTab === "description" ? (
           <div>
-            <h2 className="text-xl font-bold mb-4">Product Description</h2>
-            <p className="text-[#999]">{description}</p>
+            {description === null ? (
+              <p className="text-body text-sm">No Description Found</p>
+            ) : (
+              <p className="text-body text-sm">{description}</p>
+            )}
           </div>
         ) : (
           <div>
-            <h2 className="text-xl font-bold">Product Reviews</h2>
-            <div className="grid grid-cols-2 gap-x-8">
+            <div className="grid md:grid-cols-2 gap-6">
               {/* Reviews List */}
               {reviews.length > 0 ? (
                 <ul className="space-y-4">
                   {reviews.map((review, index) => (
-                    <li key={index} className="border-b pb-2">
-                      <p className="text-dark font-semibold">{review.name}</p>
-                      <div className="flex gap-1 text-yellow-500">
-                        {Array.from({ length: 5 }, (_, i) => (
-                          <FaStar
-                            key={i}
-                            className={
-                              i < review.rating ? "text-primary" : "text-[#999]"
-                            }
-                          />
-                        ))}
+                    <li key={index} className="product-review">
+                      <p className="text-body text-sm">{review.comment}</p>
+                      <div className="text-sm">
+                        <div className="review-stars">
+                          {Array.from({ length: 5 }, (_, i) => (
+                            <FaStar
+                              key={i}
+                              className={
+                                i < review.rating ? "text-primary" : "text-body"
+                              }
+                            />
+                          ))}
+                        </div>
+                        <p className="text-body">
+                          by{" "}
+                          <span className="font-semibold">{review.name}</span>
+                        </p>
                       </div>
-                      <p className="text-gray-600">{review.comment}</p>
                     </li>
                   ))}
                 </ul>
               ) : (
-                <p>No reviews yet.</p>
+                <p className="text-sm text-body">No reviews yet.</p>
               )}
               {/* Review Form */}
-              <form onSubmit={handleSubmitReview} className="">
-                <h3 className="text-xl font-bold mb-2">Write a Review</h3>
+              <form onSubmit={handleSubmitReview} className="review-form">
+                <h3 className="tab-content-heading">Write a Review</h3>
                 <input
                   type="text"
                   name="name"
                   placeholder="Your Name"
                   value={newReview.name}
                   onChange={handleChange}
-                  className="border p-2 w-full mb-2"
                   required
                 />
                 <textarea
@@ -110,8 +115,7 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
                   placeholder="Your Review"
                   value={newReview.comment}
                   onChange={handleChange}
-                  className="border p-2 w-full mb-2"
-                  rows="3"
+                  rows="2"
                   required
                 ></textarea>
 
@@ -120,17 +124,15 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
                   {Array.from({ length: 5 }, (_, i) => (
                     <FaStar
                       key={i}
-                      className={`cursor-pointer ${
-                        i < newReview.rating
-                          ? "text-yellow-500"
-                          : "text-gray-300"
+                      className={`cursor-pointer text-sm ${
+                        i < newReview.rating ? "text-primary" : "text-body"
                       }`}
                       onClick={() => handleStarClick(i + 1)}
                     />
                   ))}
-                  </div>
-                  
-                  <SecondaryBtn text={"Submit Review"}/>
+                </div>
+
+                <SecondaryBtn text={"Submit Review"} />
               </form>
             </div>
           </div>
