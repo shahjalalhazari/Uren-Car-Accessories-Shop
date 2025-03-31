@@ -46,7 +46,7 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
           Description
         </li>
         <li>
-          <div className="border-b-[4px] border-body rounded-full w-8"></div>
+          <div className=""></div>
         </li>
         <li
           className={`details-tabs-heading uren-transition ${
@@ -58,7 +58,7 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
         </li>
       </ul>
 
-      {/* Tab Content */}
+      {/* Tab Contents */}
       <div className="details-tab-content">
         {activeTab === "description" ? (
           <div>
@@ -70,10 +70,10 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
           </div>
         ) : (
           <div>
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="reviews-layout">
               {/* Reviews List */}
               {reviews.length > 0 ? (
-                <ul className="space-y-4">
+                <ul className="reviews-list">
                   {reviews.map((review, index) => (
                     <li key={index} className="product-review">
                       <p className="text-body text-sm">{review.comment}</p>
@@ -124,7 +124,7 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
                   {Array.from({ length: 5 }, (_, i) => (
                     <FaStar
                       key={i}
-                      className={`cursor-pointer text-sm ${
+                      className={`cursor-pointer text-sm lg:text-base ${
                         i < newReview.rating ? "text-primary" : "text-body"
                       }`}
                       onClick={() => handleStarClick(i + 1)}

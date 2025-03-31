@@ -37,7 +37,7 @@ const ProductDetailPage = async ({ params }) => {
             <h5>AED 599.99 <span className="text-xs font-normal text-body line-through">799.99</span></h5>
 
             {/* Product Rating */}
-            <div className="my-3 md:my-4"><ProductRating rating={3.5} text={"base"} /></div>
+            <div className="my-3"><ProductRating rating={3.5} text={"base"} /></div>
             <ul className="space-y-2 font-semibold">
               <li>Category: <Link href={"/"}>Tire</Link></li>
               <li>Brand: <Link href={"/"}>Toyota</Link> </li>
