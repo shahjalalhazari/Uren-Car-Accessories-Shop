@@ -8,6 +8,7 @@ import AddToCartBtn from "@/components/shared/buttons/AddToCartBtn";
 import OutlineBtn from "@/components/shared/buttons/OutlineBtn";
 import { BiHeart } from "react-icons/bi";
 import ProductDetailsTabs from "@/components/shop/product-details/ProductDetailsTabs";
+import RelatedProductSlider from "@/components/shop/product-details/RelatedProductSlider";
 
 
 // set page title using generate meta data dynamically
@@ -76,6 +77,9 @@ const ProductDetailPage = async ({ params }) => {
             { name: "Jane Smith", comment: "Good quality, worth the price." },
           ]}
         />
+
+        {/* Related Products Slider */}
+        <RelatedProductSlider/>
       </div>
     </>
   );
