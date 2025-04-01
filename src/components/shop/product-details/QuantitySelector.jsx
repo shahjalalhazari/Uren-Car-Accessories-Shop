@@ -41,16 +41,16 @@ const QuantitySelector = ({ min = 1, max = 10, onChange }) => {
   };
 
   return (
-    <div className="flex items-center space-x-4 my-3">
-      <label className="font-bold text-[#999] ">Quantity: </label>
+    <div className="qty-selector">
+      <label>Quantity: </label>
 
-      <div className=" border border-[#ddd] text-[#999]  w-fit flex items-center">
+      <div className="qty-selector-box">
         {/* Input Field */}
         <input
           type="number"
           value={quantity}
           onChange={handleInputChange}
-          className="w-12 text-center border-none outline-none appearance-none text-dark
+          className="qty-input-field
                     [&::-webkit-inner-spin-button]:appearance-none 
                     [&::-webkit-outer-spin-button]:appearance-none"
           min={min}
@@ -59,18 +59,12 @@ const QuantitySelector = ({ min = 1, max = 10, onChange }) => {
 
         <div className="flex flex-col">
           {/* Increase Button */}
-          <button
-            onClick={handleIncrease}
-            className="px-1.5 py-0.5 border-l border-[#ddd]"
-          >
+          <button onClick={handleIncrease} className="qty-inc-dec-btn">
             <FaAngleUp size={14} />
           </button>
 
           {/* Decrease Button */}
-          <button
-            onClick={handleDecrease}
-            className="px-1.5 py-0.5 border-l border-t border-[#ddd]"
-          >
+          <button onClick={handleDecrease} className="border-t qty-inc-dec-btn">
             <FaAngleDown size={14} />
           </button>
         </div>

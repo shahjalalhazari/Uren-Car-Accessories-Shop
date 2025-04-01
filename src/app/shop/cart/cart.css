@@ -1,0 +1,32 @@
+.table-head {
+    @apply border-y border-l border-uren-border;
+}
+
+.table-body {
+    @apply border-b border-l border-uren-border;
+}
+.table-head>tr>th,
+.table-body>tr>td {
+    @apply border-r text-center place-items-center p-4;
+}
+
+/* QUANTITY SELECTOR */
+.qty-selector {
+    @apply flex-none space-x-0 my-0;
+}
+
+.qty-selector>label {
+    @apply hidden;
+}
+
+.qty-selector-box {
+    @apply border border-uren-border text-body w-fit flex items-center;
+}
+
+.qty-input-field {
+    @apply w-12 text-center border-none outline-none appearance-none text-dark;
+}
+
+.qty-inc-dec-btn {
+    @apply px-1.5 py-0.5 border-l border-uren-border;
+}
