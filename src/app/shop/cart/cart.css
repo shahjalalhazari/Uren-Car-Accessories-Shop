@@ -1,3 +1,9 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* CART TABLE */
+.cart-table {
+    @apply text-body text-sm;
+}
+
 .table-head {
     @apply border-y border-l border-uren-border;
 }
@@ -10,6 +16,23 @@
     @apply border-r text-center place-items-center p-4;
 }
 
+.table-product-title {
+    @apply max-w-[200px] cursor-pointer;
+}
+
+.table-product-remove {
+    @apply text-xl;
+}
+
+.table-product-title:hover,
+.table-product-remove:hover {
+    @apply text-primary;
+}
+
+.cart-currency {
+    @apply text-xs opacity-70;
+}
+
 /* QUANTITY SELECTOR */
 .qty-selector {
     @apply flex-none space-x-0 my-0;
@@ -20,13 +43,114 @@
 }
 
 .qty-selector-box {
-    @apply border border-uren-border text-body w-fit flex items-center;
+    @apply border border-uren-border text-body text-sm w-fit flex items-center;
 }
 
 .qty-input-field {
-    @apply w-12 text-center border-none outline-none appearance-none text-dark;
+    @apply w-10 text-center border-none outline-none appearance-none text-dark;
 }
 
 .qty-inc-dec-btn {
     @apply px-1.5 py-0.5 border-l border-uren-border;
+}
+/* CART BOTTOM PART */
+.cart-btm-layout {
+    @apply grid grid-cols-1 gap-y-4 mt-6;
+}
+
+/* COUPON CODE */
+.coupon-code-form {
+    @apply space-x-4;
+}
+
+.coupon-input {
+    @apply text-sm text-body px-4 py-3 outline-none border border-uren-border;
+}
+
+.coupon-form-btn {
+    @apply text-base-100 font-bold bg-body px-4 py-3 text-sm;
+}
+
+.coupon-submit-btn:hover {
+    @apply bg-primary;
+}
+
+/* CART CALCULATION */
+.cart-total {
+    @apply text-center;
+}
+
+.cart-total>h5 {
+    @apply text-xl text-dark font-bold leading-none;
+}
+
+.cart-total-table {
+    @apply border border-uren-border border-b-0 text-base text-body font-bold my-4;
+}
+
+.cart-total-table>p {
+    @apply flex justify-between py-3 px-4 border-b border-uren-border;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* CART TABLE */
+    .table-product-title {
+        @apply max-w-[250px];
+    }
+
+    /* CART BOTTOM PART */
+    .cart-btm-layout {
+        @apply grid grid-cols-2 gap-y-0 gap-x-6 mt-8;
+    }
+
+    /* CART CALCULATION */
+    .cart-total {
+        @apply text-end;
+    }
+
+    .cart-total>h5 {
+        @apply text-2xl text-start;
+    }
+
+    .cart-total-table {
+        @apply my-4;
+    }
+
+    .cart-total-table>p {
+        @apply px-6;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* QUANTITY SELECTOR */
+    .qty-input-field {
+        @apply w-12;
+    }
+
+    /* CART BOTTOM PART */
+    .cart-btm-layout {
+        @apply grid grid-cols-3 gap-y-0 gap-x-8 mt-8;
+    }
+
+    /* COUPON CODE */
+    .coupon-code-form {
+        @apply space-x-6 col-span-2;
+    }
+
+    /* CART CALCULATION */
+    .cart-total {
+        @apply text-end;
+    }
+
+    .cart-total>h5 {
+        @apply text-2xl text-start;
+    }
+
+    .cart-total-table {
+        @apply my-6;
+    }
 }
