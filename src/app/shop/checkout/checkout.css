@@ -1,0 +1,84 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* LAYOUTs */
+.checkout-layout {
+    @apply grid grid-cols-1 gap-y-4;
+}
+
+/* COMMON */
+.checkout-heading {
+    @apply text-xl font-bold text-[#333] uppercase mb-2;
+}
+
+hr {
+    @apply border border-uren-border;
+}
+
+/* ORDER CART */
+.order-cart {
+    @apply bg-gray-bg text-body p-6;
+}
+
+.table-head {
+    @apply text-base uppercase text-center;
+}
+
+.table-total {
+    @apply text-base uppercase text-[#333];
+}
+
+.product-list {
+    @apply text-sm;
+}
+
+.table tr {
+    @apply border-b-2 border-uren-border;
+}
+
+.table tr:last-child {
+    @apply border-none
+}
+
+
+.billing-address{}
+
+
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* LAYOUTs */
+    .checkout-layout {
+        @apply grid grid-cols-1 gap-y-6;
+    }
+
+    /* COMMON */
+    .checkout-heading {
+        @apply text-2xl;
+    }
+
+    /* ORDER CART */
+    .table-head {
+        @apply text-start;
+    }
+}
+
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+    /* LAYOUTs */
+    .checkout-layout {
+        @apply grid grid-cols-2 gap-y-0 gap-x-8;
+    }
+
+    /* COMMON */
+    .checkout-heading {
+        @apply text-3xl;
+    }
+
+    /* ORDER CART */
+    .order-cart {
+        @apply p-8;
+    }
+    .table-total {
+        @apply text-lg;
+    }
+}

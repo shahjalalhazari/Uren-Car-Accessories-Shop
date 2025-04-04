@@ -73,7 +73,7 @@ const CartPage = () => {
               <p><span>Coupon:</span> <span>- AED 0.00</span></p>
               <p className="text-dark"><span>Total:</span> <span>AED 150.00</span></p>
             </div>
-            <Link href={"shop/checkout"}>
+            <Link href={"/shop/checkout"}>
               <SecondaryBtn text={"PROCEED TO CHECKOUT"} />
             </Link>
             {/* <button type="submit" className="text-base-100 font-bold bg-body px-6 py-3 text-sm uren-transition hover:bg-primary">PROCEED TO CHECKOUT</button> */}
