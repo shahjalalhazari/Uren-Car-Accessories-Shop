@@ -38,8 +38,42 @@ hr {
     @apply border-none
 }
 
+/* DELIVERY ADDRESS FORM */
+.delivery-form {
+    @apply mt-4 text-body;
+}
 
-.billing-address{}
+.form-input-layout {
+    @apply grid grid-cols-1;
+}
+
+.form-group {
+    @apply my-3;
+}
+
+.delivery-form-label {
+    @apply text-sm;
+}
+
+.delivery-form-label span {
+    @apply text-secondary;
+}
+
+.delivery-form-input {
+    @apply text-sm mt-2 w-full border border-uren-border outline-none px-3 py-2;
+}
+
+.save-address {
+    @apply flex gap-x-2 items-center;
+}
+
+.delivery-form-btn {
+    @apply bg-primary py-3 w-full text-dark uppercase font-semibold cursor-pointer mt-6
+}
+
+.delivery-form-btn:hover {
+    @apply bg-secondary text-base-100;
+}
 
 
 
@@ -58,6 +92,10 @@ hr {
     /* ORDER CART */
     .table-head {
         @apply text-start;
+    }
+    /* DELIVERY ADDRESS FORM */
+    .form-input-layout {
+        @apply grid grid-cols-2 gap-x-6;
     }
 }
 
@@ -80,5 +118,13 @@ hr {
     }
     .table-total {
         @apply text-lg;
+    }
+    /* DELIVERY ADDRESS FORM */
+    .delivery-form {
+        @apply mt-6;
+    }
+
+    .form-input-layout {
+        @apply grid grid-cols-2 gap-x-8;
     }
 }

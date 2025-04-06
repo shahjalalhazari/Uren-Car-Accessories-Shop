@@ -44,24 +44,82 @@ const CheckoutPage = () => {
                   <th>Cart Subtotal</th>
                   <th>450.00</th>
                 </tr>
-                {/* row 5 */}
+                {/* row 4 | Delivery Fee */}
                 <tr className='product-list uppercase'>
-                  <th>Coupon</th>
+                  <th>Delivery Cost (+)</th>
+                  <th>10.00</th>
+                </tr>
+                {/* row 5 | Coupon */}
+                <tr className='product-list uppercase'>
+                  <th>Coupon (-)</th>
                   <th>45.00</th>
                 </tr>
-                {/* row 6 */}
+                {/* row 6 | Total */}
                 <tr className='table-total'>
                   <th>Total</th>
-                  <th>405.00</th>
+                  <th>415.00</th>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        {/* BILLING ADDRESS */}
-        <div className="">
-          Billing Details
+        {/* DELIVERY ADDRESS */}
+        <div className="delivery-address">
+          <h3 className='checkout-heading'>Delivery Address</h3>
+          <hr />
+          <form className="delivery-form">
+            <div className="form-input-layout">
+              {/* Full Name */}
+              <div className="form-group">
+                <label htmlFor="name" className="delivery-form-label">Full Name <span>*</span></label>
+                <input type="text" name="name" required className="delivery-form-input"/>
+              </div>
+              {/* Mobile Number */}
+              <div className="form-group">
+                <label htmlFor="number" className="delivery-form-label">Mobile Number <span>*</span></label>
+                <input type="text" name="number" required className="delivery-form-input"/>
+              </div>
+            </div>
+            {/* Address */}
+            <div className="form-group">
+              <label htmlFor="address" className="delivery-form-label">Address <span>*</span></label>
+              <input type="text" name="address" required placeholder="Street Name, Area" className="delivery-form-input"/>
+            </div>
+            <div className="form-input-layout">
+              {/* Apartment */}
+              <div className="form-group">
+                <label htmlFor="apartment" className="delivery-form-label">Apartment</label>
+                <input type="text" name="apartment" placeholder="optional" className="delivery-form-input"/>
+              </div>
+              {/* Town/City */}
+              <div className="form-group">
+                <label htmlFor="city" className="delivery-form-label">Town / City <span>*</span></label>
+                <input type="text" name="city" required className="delivery-form-input"/>
+              </div>
+            </div>
+            <div className="form-input-layout">
+              {/* State */}
+              <div className="form-group">
+                <label htmlFor="state" className="delivery-form-label">State <span>*</span></label>
+                <input type="text" name="state" required className="delivery-form-input"/>
+              </div>
+              {/* Country */}
+              <div className="form-group">
+                <label htmlFor="country" className="delivery-form-label">Country <span>*</span></label>
+                <input type="text" name="country" required className="delivery-form-input"/>
+              </div>
+            </div>
+
+            {/* Save Address */}
+            <div className="form-group save-address">
+              <input type="checkbox" />
+              <label htmlFor="country" className="delivery-form-label">Save Address.</label>
+            </div>
+            
+            {/* Submit Button */}
+            <input type="submit" value="Place An Order" className="delivery-form-btn uren-transition" />
+          </form>
         </div>
       </div>
     </div>
