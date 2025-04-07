@@ -75,6 +75,15 @@ hr {
     @apply bg-secondary text-base-100;
 }
 
+/* PAYMENT METHOD */
+.payment-method {
+    @apply mt-8 text-body;
+}
+
+.payment-method-form {
+    @apply mt-4 flex items-center justify-between;
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */

@@ -62,6 +62,42 @@ const CheckoutPage = () => {
               </tbody>
             </table>
           </div>
+          
+          <div className="payment-method">
+            <h3 className='checkout-heading'>how you want pay?</h3>
+            <hr />
+            <form className="payment-method-form">
+              <div className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  id="card"
+                  name="payment"
+                  value="card"
+                />
+                <label htmlFor="card">Pay with Card</label>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  id="paypal"
+                  name="payment"
+                  value="paypal"
+                />
+                <label htmlFor="paypal">PayPal</label>
+              </div>
+
+              <div className="flex items-center gap-2">
+                <input
+                  type="radio"
+                  id="cod"
+                  name="payment"
+                  value="cod"
+                />
+                <label htmlFor="cod">Cash On Delivery</label>
+              </div>
+            </form>
+          </div>
         </div>
 
         {/* DELIVERY ADDRESS */}
