@@ -67,7 +67,7 @@ const CheckoutPage = () => {
             <h3 className='checkout-heading'>how you want pay?</h3>
             <hr />
             <form className="payment-method-form">
-              <div className="flex items-center gap-2">
+              <div className="payment-method-form-input">
                 <input
                   type="radio"
                   id="card"
@@ -77,7 +77,7 @@ const CheckoutPage = () => {
                 <label htmlFor="card">Pay with Card</label>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="payment-method-form-input">
                 <input
                   type="radio"
                   id="paypal"
@@ -87,7 +87,7 @@ const CheckoutPage = () => {
                 <label htmlFor="paypal">PayPal</label>
               </div>
 
-              <div className="flex items-center gap-2">
+              <div className="payment-method-form-input">
                 <input
                   type="radio"
                   id="cod"

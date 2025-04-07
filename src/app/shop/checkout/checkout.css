@@ -77,14 +77,26 @@ hr {
 
 /* PAYMENT METHOD */
 .payment-method {
-    @apply mt-8 text-body;
+    @apply mt-4 text-body;
 }
 
 .payment-method-form {
-    @apply mt-4 flex items-center justify-between;
+    @apply mt-4 grid grid-cols-1 gap-y-4;
 }
 
+.payment-method-form-input {
+    @apply flex items-center gap-2;
+}
 
+.payment-method-form-input:hover {
+    @apply text-primary;
+
+}
+
+.payment-method-form-input>input,
+.payment-method-form-input>label {
+    @apply cursor-pointer;
+}
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -105,6 +117,10 @@ hr {
     /* DELIVERY ADDRESS FORM */
     .form-input-layout {
         @apply grid grid-cols-2 gap-x-6;
+    }
+    /* PAYMENT METHOD */
+    .payment-method-form {
+        @apply mt-4 grid grid-cols-2 gap-y-4;
     }
 }
 
@@ -135,5 +151,13 @@ hr {
 
     .form-input-layout {
         @apply grid grid-cols-2 gap-x-8;
+    }
+    /* PAYMENT METHOD */
+    .payment-method {
+        @apply mt-8;
+    }
+
+    .payment-method-form {
+        @apply mt-5 grid grid-cols-3 gap-y-4;
     }
 }
