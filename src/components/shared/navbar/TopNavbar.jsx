@@ -11,9 +11,12 @@ import {
   BiX,
 } from "react-icons/bi";
 
-const TopNavbar = ({ navItems, categories }) => {
+const TopNavbar = ({ navItems, isUser }) => {
   const pathname = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
+
+  const isSignIn = pathname.split("/").includes("signin");
+  console.log(isSignIn);
   return (
     <div className="nav-top-part">
       {/* NAVBAR TOP PART FOR LARGE DEVICES */}
@@ -149,9 +152,9 @@ const TopNavbar = ({ navItems, categories }) => {
                 ))}
               </ul>
 
-              <hr className="border-[#ddd] mx-8 mt-6 mb-2" />
+              <hr className="border-uren-border mx-8 mt-6 mb-2" />
 
-              <ul className="text-[#999] mx-4">
+              <ul className="text-body mx-4">
                 <div className="collapse collapse-arrow mb-[-25px]">
                   <input type="radio" name="my-accordion-2" />
                   <div className="collapse-title font-semibold">
@@ -159,12 +162,20 @@ const TopNavbar = ({ navItems, categories }) => {
                   </div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      <li>
-                        <Link href={"/user/profile"}>My Account</Link>
-                      </li>
-                      <li>
-                        <Link href={"/"}>Sign In | Sign Up</Link>
-                      </li>
+                      {isUser ? (
+                        <>
+                          <li>
+                            <Link href={"/user/profile"}>My Account</Link>
+                          </li>
+                          <li>
+                            <Link href={"/"}>Logout</Link>
+                          </li>
+                        </>
+                      ) : (
+                        <li>
+                          <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                        </li>
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -292,8 +303,8 @@ const TopNavbar = ({ navItems, categories }) => {
                     </li>
                   ))}
                 </ul>
-                <hr className="border-[#ddd] mx-8 mt-6 mb-2" />
-                <ul className="text-[#999] mx-4">
+                <hr className="border-uren-border mx-8 mt-6 mb-2" />
+                <ul className="text-body mx-4">
                   <div className="collapse collapse-arrow mb-[-25px]">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title font-semibold">
@@ -301,12 +312,20 @@ const TopNavbar = ({ navItems, categories }) => {
                     </div>
                     <div className="collapse-content text-sm ml-4">
                       <ul className="space-y-3">
-                        <li>
-                          <Link href={"/user/profile"}>My Account</Link>
-                        </li>
-                        <li>
-                          <Link href={"/"}>Sign In | Sign Up</Link>
-                        </li>
+                        {isUser ? (
+                          <>
+                            <li>
+                              <Link href={"/user/profile"}>My Account</Link>
+                            </li>
+                            <li>
+                              <Link href={"/"}>Logout</Link>
+                            </li>
+                          </>
+                        ) : (
+                          <li>
+                            <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                          </li>
+                        )}
                       </ul>
                     </div>
                   </div>

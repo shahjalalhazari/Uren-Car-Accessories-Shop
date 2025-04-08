@@ -4,11 +4,13 @@ import StickyNavbar from "./StickyNavbar";
 import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
+  const user = false;
+
   return (
     <>
-      <TopNavbar navItems={navItems} categories={categories} />
-      <BottomNavbar navItems={navItems} categories={categories} />
-      <StickyNavbar navItems={navItems} />
+      <TopNavbar navItems={navItems} categories={categories} isUser={user} />
+      <BottomNavbar navItems={navItems} categories={categories} isUser={user} />
+      <StickyNavbar navItems={navItems} isUser={user} />
     </>
   );
 };

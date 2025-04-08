@@ -36,10 +36,10 @@
     @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
 }
 .sidebar-search-btn {
-    @apply text-xl text-[#999] p-5;
+    @apply text-xl text-body p-5;
 }
 .sidebar-nav-list {
-    @apply space-y-4 text-[#999] font-semibold mt-8 mx-8;
+    @apply space-y-4 text-body font-semibold mt-8 mx-8;
 }
 .nav-phone-num {
     @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-lg font-semibold text-secondary;
@@ -56,13 +56,13 @@
     @apply uppercase font-semibold leading-none;
 }
 .categories-list {
-    @apply z-[999] absolute left-0 text-[#999] text-sm px-8 py-4 font-medium w-full max-h-[40vh] overflow-y-auto bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
+    @apply z-[999] absolute left-0 text-body text-sm px-8 py-4 font-medium w-full max-h-[40vh] overflow-y-auto bg-base-100 shadow-lg border border-primary border-t-0 animate-fadeIn;
 }
 .categories-arrow {
     @apply text-3xl transition-transform duration-500 ease-in-out
 }
 .dropdown-list-item {
-    @apply py-2.5 border-b border-[#ddd];
+    @apply py-2.5 border-b border-uren-border;
 }
 .dropdown-list-item:last-child {
     @apply border-none;

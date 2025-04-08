@@ -1,0 +1,80 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* LAYOUTs */
+.signin-layout {
+    @apply grid grid-cols-1 gap-y-4;
+}
+
+.signin-layout-item {
+    @apply shadow-md border border-uren-border p-6;
+}
+
+.item-heading {
+    @apply text-xl text-dark-gray font-bold;
+}
+
+/* LOGIN FORM */
+.login-form {
+    @apply mt-6 w-full;
+}
+.form-group {
+    @apply w-full text-sm text-body mb-6;
+}
+.form-group label {
+    @apply mb-3 block;
+}
+.form-group>label>span {
+    @apply text-secondary;
+}
+
+.form-group input {
+    @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
+}
+.remember-forgot {
+    @apply flex justify-between items-center text-sm text-body;
+}
+
+.remember-checkbox {
+    @apply appearance-none h-4 w-4 border border-uren-border outline-none cursor-pointer;
+}
+.remember-checkbox:checked {
+    @apply bg-primary border-transparent;
+}
+.forgot-password:hover{
+    @apply text-primary
+}
+.submit-btn {
+    @apply bg-primary w-1/3 text-dark font-semibold px-5 py-3 mt-6 cursor-pointer;
+}
+
+.submit-btn:hover {
+    @apply bg-secondary text-base-100;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* LAYOUTs */
+    .signin-layout {
+        @apply grid grid-cols-2 gap-y-0 gap-x-6;
+    }
+
+    .signin-layout-item {
+        @apply shadow-lg;
+    }
+}
+
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+    /* LAYOUTs */
+    .signin-layout {
+        @apply grid grid-cols-2 gap-y-0 gap-x-8;
+    }
+
+    .signin-layout-item {
+        @apply shadow-xl p-8;
+    }
+
+    .item-heading {
+        @apply text-2xl;
+    }
+}

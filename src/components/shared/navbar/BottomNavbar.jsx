@@ -6,7 +6,7 @@ import { useState } from "react";
 import { BiSearch } from "react-icons/bi";
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
-const BottomNavbar = ({ navItems, categories }) => {
+const BottomNavbar = ({ navItems, categories, isUser }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -123,12 +123,31 @@ const BottomNavbar = ({ navItems, categories }) => {
               <FaUser /> <FaAngleDown className="dropdown-arrow" />
             </button>
             <ul className={"dropdown-list"}>
-              <li className="dropdown-list-item dropdown-list-active">
-                <Link href="user/profile">My Account</Link>
-              </li>
-              <li className="dropdown-list-item">
-                <Link href="user/logout">Logout</Link>
-              </li>
+              {isUser ? (
+                <>
+                  {/* <li className="dropdown-list-item dropdown-list-active"> */}
+                  <li
+                    className={`dropdown-list-item ${
+                      pathname.split("/").includes("profile") &&
+                      "dropdown-list-active"
+                    }`}
+                  >
+                    <Link href={"/user/profile"}>My Account</Link>
+                  </li>
+                  <li className="dropdown-list-item">
+                    <Link href={"/"}>Logout</Link>
+                  </li>
+                </>
+              ) : (
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("signin") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                </li>
+              )}
             </ul>
           </div>
         </div>

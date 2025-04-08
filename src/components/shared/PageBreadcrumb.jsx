@@ -6,8 +6,13 @@ import { usePathname } from "next/navigation";
 const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
   const url = usePathname();
   const urlParts = url.split("/").filter(Boolean);
+
+  // Shop Related
   const isShop = urlParts.includes("shop");
   const isProductDetails = urlParts.length >= 3;
+
+  // User Related
+  const isUser = urlParts.includes("user");
 
   return (
     <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[25vh] lg:h-[50vh]">
@@ -21,6 +26,7 @@ const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
             </li>
 
             {isShop && <li>Shop</li>}
+            {isUser && <li>User</li>}
             {isProductDetails && (
               <li className="hover:text-primary uren-transition">
                 <Link href={"/shop/products"}>Products</Link>

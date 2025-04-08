@@ -6,7 +6,7 @@ import { BiShoppingBag } from "react-icons/bi";
 import { FaAngleDown, FaUser } from "react-icons/fa";
 
 
-const StickyNavbar = ({navItems}) => {
+const StickyNavbar = ({ navItems, isUser }) => {
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
 
@@ -21,7 +21,7 @@ const StickyNavbar = ({navItems}) => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-  
+
   return (
     <nav
       className={`sticky-navbar uren-transition ${
@@ -60,12 +60,31 @@ const StickyNavbar = ({navItems}) => {
             <FaUser /> <FaAngleDown className="dropdown-arrow" />
           </button>
           <ul className={"dropdown-list"}>
-            <li className="dropdown-list-item">
-              <Link href="user/profile">My Account</Link>
-            </li>
-            <li className="dropdown-list-item">
-              <Link href="user/logout">Logout</Link>
-            </li>
+            {isUser ? (
+              <>
+                {/* <li className="dropdown-list-item dropdown-list-active"> */}
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("profile") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/user/profile"}>My Account</Link>
+                </li>
+                <li className="dropdown-list-item">
+                  <Link href={"/"}>Logout</Link>
+                </li>
+              </>
+            ) : (
+              <li
+                className={`dropdown-list-item ${
+                  pathname.split("/").includes("signin") &&
+                  "dropdown-list-active"
+                }`}
+              >
+                <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+              </li>
+            )}
           </ul>
         </div>
       </div>

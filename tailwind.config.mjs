@@ -16,6 +16,7 @@ export default {
         primary: "#ffc400",
         secondary: "#e52e06",
         dark: "#000",
+        "dark-gray":"#333",
         blue: "#0886cf",
         "body": "#999",
         "base-100": "#ffffff",
