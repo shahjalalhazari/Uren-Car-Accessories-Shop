@@ -5,22 +5,23 @@
 }
 
 .signin-layout-item {
-    @apply shadow-md border border-uren-border p-6;
+    @apply shadow-md border border-uren-border p-6 max-h-fit;
 }
 
 .item-heading {
     @apply text-xl text-dark-gray font-bold;
 }
 
-/* LOGIN FORM */
-.login-form {
-    @apply mt-6 w-full;
+/* FORM */
+.login-form,
+.register-form {
+    @apply w-full mt-6;
 }
 .form-group {
-    @apply w-full text-sm text-body mb-6;
+    @apply w-full text-sm text-body mt-5;
 }
 .form-group label {
-    @apply mb-3 block;
+    @apply block mb-3;
 }
 .form-group>label>span {
     @apply text-secondary;
@@ -29,8 +30,12 @@
 .form-group input {
     @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
 }
+.show-password {
+    @apply absolute bottom-[14px] right-5 text-base cursor-pointer;
+}
+
 .remember-forgot {
-    @apply flex justify-between items-center text-sm text-body;
+    @apply flex justify-between items-center text-sm text-body mt-5;
 }
 
 .remember-checkbox {
@@ -43,11 +48,15 @@
     @apply text-primary
 }
 .submit-btn {
-    @apply bg-primary w-1/3 text-dark font-semibold px-5 py-3 mt-6 cursor-pointer;
+    @apply bg-primary mt-8 font-bold w-full text-dark px-5 py-3 cursor-pointer uppercase;
 }
 
 .submit-btn:hover {
     @apply bg-secondary text-base-100;
+}
+
+.register-form .form-group:last-child {
+    @apply mb-0;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -59,6 +68,9 @@
 
     .signin-layout-item {
         @apply shadow-lg;
+    }
+    .submit-btn {
+        @apply w-1/2;
     }
 }
 
@@ -76,5 +88,13 @@
 
     .item-heading {
         @apply text-2xl;
+    }
+    .login-form,
+    .register-form {
+        @apply mt-8;
+    }
+
+    .submit-btn {
+        @apply w-1/3;
     }
 }
