@@ -1,3 +1,4 @@
+import InputField from "@/components/shared/fields/InputField";
 import "./checkout.css"
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 
@@ -13,7 +14,7 @@ const CheckoutPage = () => {
         <div className="order-cart">
           <h3 className='checkout-heading'>Your order</h3>
           <hr />
-          <div className="overflow-x-auto mt-4 lg:mt-6">
+          <div className="overflow-x-auto mt-5 lg:mt-8">
             <table className="table">
               {/* head */}
               <thead className='table-head'>
@@ -66,8 +67,8 @@ const CheckoutPage = () => {
           <div className="payment-method">
             <h3 className='checkout-heading'>how you want pay?</h3>
             <hr />
-            <form className="payment-method-form">
-              <div className="payment-method-form-input">
+            <form className="pm-form">
+              <div className="pm-form-input">
                 <input
                   type="radio"
                   id="card"
@@ -77,7 +78,7 @@ const CheckoutPage = () => {
                 <label htmlFor="card">Pay with Card</label>
               </div>
 
-              <div className="payment-method-form-input">
+              <div className="pm-form-input">
                 <input
                   type="radio"
                   id="paypal"
@@ -87,7 +88,7 @@ const CheckoutPage = () => {
                 <label htmlFor="paypal">PayPal</label>
               </div>
 
-              <div className="payment-method-form-input">
+              <div className="pm-form-input">
                 <input
                   type="radio"
                   id="cod"
@@ -106,55 +107,44 @@ const CheckoutPage = () => {
           <hr />
           <form className="delivery-form">
             <div className="form-input-layout">
-              {/* Full Name */}
-              <div className="form-group">
-                <label htmlFor="name" className="delivery-form-label">Full Name <span>*</span></label>
-                <input type="text" name="name" required className="delivery-form-input"/>
-              </div>
-              {/* Mobile Number */}
-              <div className="form-group">
-                <label htmlFor="number" className="delivery-form-label">Mobile Number <span>*</span></label>
-                <input type="text" name="number" required className="delivery-form-input"/>
-              </div>
+              {/* Full Name Field */}
+              <InputField name={"name"} label={"Full Name"} type={"text"} required={true} placeholder={"Your Full Name"}/>
+
+              {/* Mobile Number Field */}
+              <InputField name={"number"} label={"Mobile Number"} type={"text"} required={true} placeholder={"Phone Number"}/>
             </div>
             {/* Address */}
-            <div className="form-group">
-              <label htmlFor="address" className="delivery-form-label">Address <span>*</span></label>
-              <input type="text" name="address" required placeholder="Street Name, Area" className="delivery-form-input"/>
-            </div>
+              <InputField name={"address"} label={"Address"} type={"text"} required={true} placeholder={"Area, Street Name"}/>
+
             <div className="form-input-layout">
               {/* Apartment */}
-              <div className="form-group">
-                <label htmlFor="apartment" className="delivery-form-label">Apartment</label>
-                <input type="text" name="apartment" placeholder="optional" className="delivery-form-input"/>
-              </div>
+              <InputField name={"apartment"} label={"Apartment"} type={"text"} required={false} placeholder={"Building, Apartment (Optional)"}/>
+
               {/* Town/City */}
-              <div className="form-group">
-                <label htmlFor="city" className="delivery-form-label">Town / City <span>*</span></label>
-                <input type="text" name="city" required className="delivery-form-input"/>
-              </div>
+              <InputField name={"city"} label={"Town / City"} type={"text"} required={true} placeholder={"Town / City Name"}/>
             </div>
             <div className="form-input-layout">
               {/* State */}
-              <div className="form-group">
-                <label htmlFor="state" className="delivery-form-label">State <span>*</span></label>
-                <input type="text" name="state" required className="delivery-form-input"/>
-              </div>
+              <InputField name={"state"} label={"State"} type={"text"} required={true} placeholder={"State / District"}/>
+
               {/* Country */}
-              <div className="form-group">
-                <label htmlFor="country" className="delivery-form-label">Country <span>*</span></label>
-                <input type="text" name="country" required className="delivery-form-input"/>
-              </div>
+              <InputField name={"country"} label={"Country"} type={"text"} required={true} placeholder={"Your Country"}/>
             </div>
 
             {/* Save Address */}
-            <div className="form-group save-address">
-              <input type="checkbox" />
-              <label htmlFor="country" className="delivery-form-label">Save Address.</label>
+            <div className="flex gap-x-2 items-center">
+              <input
+                type="checkbox"
+                name="save-address"
+                id="save-address"
+                className="save-address uren-transition" />
+              <label htmlFor="save-address" className="save-address-label">Save For Again</label>
             </div>
             
             {/* Submit Button */}
-            <input type="submit" value="Place An Order" className="delivery-form-btn uren-transition" />
+            <div className="md:w-1/2 md:mx-auto">
+              <input type="submit" value="Place An Order" className="submit-btn uren-transition" />
+            </div>
           </form>
         </div>
       </div>

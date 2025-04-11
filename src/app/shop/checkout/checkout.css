@@ -6,7 +6,7 @@
 
 /* COMMON */
 .checkout-heading {
-    @apply text-xl font-bold text-[#333] uppercase mb-2;
+    @apply text-xl font-bold text-dark-gray uppercase mb-2;
 }
 
 hr {
@@ -23,7 +23,7 @@ hr {
 }
 
 .table-total {
-    @apply text-base uppercase text-[#333];
+    @apply text-base uppercase text-dark-gray;
 }
 
 .product-list {
@@ -40,61 +40,78 @@ hr {
 
 /* DELIVERY ADDRESS FORM */
 .delivery-form {
-    @apply mt-4 text-body;
-}
-
+    @apply mt-5 text-body w-full;
+    }
 .form-input-layout {
     @apply grid grid-cols-1;
 }
-
 .form-group {
-    @apply my-3;
-}
+    @apply w-full text-sm mb-4;
+    }
 
-.delivery-form-label {
-    @apply text-sm;
-}
+    .form-group label {
+        @apply block mb-3;
+    }
 
-.delivery-form-label span {
-    @apply text-secondary;
-}
+    .form-group>label>span {
+        @apply text-secondary;
+    }
 
-.delivery-form-input {
-    @apply text-sm mt-2 w-full border border-uren-border outline-none px-3 py-2;
+    .form-group input {
+        @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
 }
 
 .save-address {
-    @apply flex gap-x-2 items-center;
+    @apply appearance-none h-4 w-4 border border-uren-border outline-none cursor-pointer;
 }
 
-.delivery-form-btn {
-    @apply bg-primary py-3 w-full text-dark uppercase font-semibold cursor-pointer mt-6
+.save-address:checked {
+    @apply bg-primary border-transparent;
 }
 
-.delivery-form-btn:hover {
+.save-address-label {
+    @apply cursor-pointer;
+}
+
+.save-address-label:hover {
+    @apply text-primary;
+}
+
+.submit-btn {
+    @apply bg-primary mt-8 font-bold w-full text-dark px-5 py-3 cursor-pointer uppercase;
+}
+
+.submit-btn:hover {
     @apply bg-secondary text-base-100;
 }
 
 /* PAYMENT METHOD */
 .payment-method {
-    @apply mt-4 text-body;
+    @apply mt-5 text-body;
 }
 
-.payment-method-form {
+.pm-form {
     @apply mt-4 grid grid-cols-1 gap-y-4;
 }
 
-.payment-method-form-input {
+.pm-form-input {
     @apply flex items-center gap-2;
 }
 
-.payment-method-form-input:hover {
-    @apply text-primary;
-
+.pm-form-input>input {
+    @apply appearance-none h-4 w-4 rounded-full bg-base-100 border border-uren-border outline-none cursor-pointer;
 }
 
-.payment-method-form-input>input,
-.payment-method-form-input>label {
+.pm-form-input>input:checked {
+    @apply bg-primary border-transparent;
+}
+
+.pm-form-input:hover {
+    @apply text-primary;
+}
+
+.pm-form-input>input,
+.pm-input>label {
     @apply cursor-pointer;
 }
 
@@ -119,8 +136,8 @@ hr {
         @apply grid grid-cols-2 gap-x-6;
     }
     /* PAYMENT METHOD */
-    .payment-method-form {
-        @apply mt-4 grid grid-cols-2 gap-y-4;
+    .pm-form {
+        @apply mt-5 grid grid-cols-2 gap-y-6;
     }
 }
 
@@ -129,7 +146,7 @@ hr {
 @media (min-width: 1025px) {
     /* LAYOUTs */
     .checkout-layout {
-        @apply grid grid-cols-2 gap-y-0 gap-x-8;
+        @apply grid grid-cols-2 gap-y-8 gap-x-8;
     }
 
     /* COMMON */
@@ -146,7 +163,7 @@ hr {
     }
     /* DELIVERY ADDRESS FORM */
     .delivery-form {
-        @apply mt-6;
+        @apply mt-8;
     }
 
     .form-input-layout {
@@ -157,7 +174,7 @@ hr {
         @apply mt-8;
     }
 
-    .payment-method-form {
-        @apply mt-5 grid grid-cols-3 gap-y-4;
+    .pm-form {
+        @apply mt-8 grid grid-cols-3 gap-y-4;
     }
 }
