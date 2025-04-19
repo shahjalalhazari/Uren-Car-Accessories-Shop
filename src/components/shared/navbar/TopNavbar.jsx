@@ -16,6 +16,7 @@ const TopNavbar = ({ navItems, isUser }) => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   const isSignIn = pathname.split("/").includes("signin");
+  const isProfile = pathname.split("/").includes("profile");
   console.log(isSignIn);
   return (
     <div className="nav-top-part">
@@ -155,14 +156,15 @@ const TopNavbar = ({ navItems, isUser }) => {
               <hr className="border-uren-border mx-8 mt-6 mb-2" />
 
               <ul className="text-body mx-4">
-                <div className="collapse collapse-arrow mb-[-25px]">
+                <div className="collapse collapse-arrow mb-[-10px]">
                   <input type="radio" name="my-accordion-2" />
                   <div className="collapse-title font-semibold">
                     User Settings
                   </div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      {isUser ? (
+                      {/* TODO */}
+                      {/* {isUser ? (
                         <>
                           <li>
                             <Link href={"/user/profile"}>My Account</Link>
@@ -175,22 +177,46 @@ const TopNavbar = ({ navItems, isUser }) => {
                         <li>
                           <Link href={"/user/signin"}>Sign In | Sign Up</Link>
                         </li>
-                      )}
+                      )} */}
+                      <li
+                        className={`${
+                          pathname.split("/").includes("profile") &&
+                          "dropdown-list-active"
+                        }`}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        <Link href={"/user/profile"}>My Account</Link>
+                      </li>
+                      <li onClick={() => setNavbarOpen(false)}>
+                        <Link href={"/"}>Logout</Link>
+                      </li>
+                      <li
+                        className={`${
+                          pathname.split("/").includes("signin") &&
+                          "dropdown-list-active"
+                        }`}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                      </li>
                     </ul>
                   </div>
                 </div>
-                <div className="collapse collapse-arrow mb-[-25px]">
+                <div className="collapse collapse-arrow mb-[-10px]">
                   <input type="radio" name="my-accordion-2" />
                   <div className="collapse-title font-semibold">Currency</div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      <li className="text-secondary">
+                      <li
+                        className="text-secondary"
+                        onClick={() => setNavbarOpen(false)}
+                      >
                         <Link href="/">$ US Dollar</Link>
                       </li>
-                      <li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="">£ Pound Sterling</Link>
                       </li>
-                      <li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="">€ EUR</Link>
                       </li>
                     </ul>
@@ -201,16 +227,19 @@ const TopNavbar = ({ navItems, isUser }) => {
                   <div className="collapse-title font-semibold">Language</div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      <li className="text-secondary">
+                      <li
+                        className="text-secondary"
+                        onClick={() => setNavbarOpen(false)}
+                      >
                         <Link href="/">English</Link>
                       </li>
-                      <li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="/">Français</Link>
                       </li>
-                      <li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="/">Romanian</Link>
                       </li>
-                      <li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="/">Japanese</Link>
                       </li>
                     </ul>
@@ -305,14 +334,15 @@ const TopNavbar = ({ navItems, isUser }) => {
                 </ul>
                 <hr className="border-uren-border mx-8 mt-6 mb-2" />
                 <ul className="text-body mx-4">
-                  <div className="collapse collapse-arrow mb-[-25px]">
+                  <div className="collapse collapse-arrow mb-[-10px]">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title font-semibold">
                       User Settings
                     </div>
                     <div className="collapse-content text-sm ml-4">
                       <ul className="space-y-3">
-                        {isUser ? (
+                        {/* TODO */}
+                        {/* {isUser ? (
                           <>
                             <li>
                               <Link href={"/user/profile"}>My Account</Link>
@@ -325,22 +355,46 @@ const TopNavbar = ({ navItems, isUser }) => {
                           <li>
                             <Link href={"/user/signin"}>Sign In | Sign Up</Link>
                           </li>
-                        )}
+                        )} */}
+                        <li
+                          className={`${
+                            pathname.split("/").includes("profile") &&
+                            "dropdown-list-active"
+                          }`}
+                          onClick={() => setNavbarOpen(false)}
+                        >
+                          <Link href={"/user/profile"}>My Account</Link>
+                        </li>
+                        <li onClick={() => setNavbarOpen(false)}>
+                          <Link href={"/"}>Logout</Link>
+                        </li>
+                        <li
+                          className={`${
+                            pathname.split("/").includes("signin") &&
+                            "dropdown-list-active"
+                          }`}
+                          onClick={() => setNavbarOpen(false)}
+                        >
+                          <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                        </li>
                       </ul>
                     </div>
                   </div>
-                  <div className="collapse collapse-arrow mb-[-25px]">
+                  <div className="collapse collapse-arrow mb-[-10px]">
                     <input type="radio" name="my-accordion-2" />
                     <div className="collapse-title font-semibold">Currency</div>
                     <div className="collapse-content text-sm ml-4">
                       <ul className="space-y-3">
-                        <li className="text-secondary">
+                        <li
+                          className="text-secondary"
+                          onClick={() => setNavbarOpen(false)}
+                        >
                           <Link href="/">$ US Dollar</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setNavbarOpen(false)}>
                           <Link href="">£ Pound Sterling</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setNavbarOpen(false)}>
                           <Link href="">€ EUR</Link>
                         </li>
                       </ul>
@@ -351,16 +405,19 @@ const TopNavbar = ({ navItems, isUser }) => {
                     <div className="collapse-title font-semibold">Language</div>
                     <div className="collapse-content text-sm ml-4">
                       <ul className="space-y-3">
-                        <li className="text-secondary">
+                        <li
+                          className="text-secondary"
+                          onClick={() => setNavbarOpen(false)}
+                        >
                           <Link href="/">English</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setNavbarOpen(false)}>
                           <Link href="/">Français</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setNavbarOpen(false)}>
                           <Link href="/">Romanian</Link>
                         </li>
-                        <li>
+                        <li onClick={() => setNavbarOpen(false)}>
                           <Link href="/">Japanese</Link>
                         </li>
                       </ul>

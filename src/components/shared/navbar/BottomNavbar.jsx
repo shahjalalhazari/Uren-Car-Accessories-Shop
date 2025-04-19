@@ -9,6 +9,7 @@ import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 const BottomNavbar = ({ navItems, categories, isUser }) => {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
+  
   return (
     <div className="navbar-bottom-part">
       {/* NAVBAR BOTTOM PART FOR LARGE DEVICES */}
@@ -123,9 +124,9 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
               <FaUser /> <FaAngleDown className="dropdown-arrow" />
             </button>
             <ul className={"dropdown-list"}>
-              {isUser ? (
+              {/* TODO */}
+              {/* {isUser ? (
                 <>
-                  {/* <li className="dropdown-list-item dropdown-list-active"> */}
                   <li
                     className={`dropdown-list-item ${
                       pathname.split("/").includes("profile") &&
@@ -147,7 +148,26 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
                 >
                   <Link href={"/user/signin"}>Sign In | Sign Up</Link>
                 </li>
-              )}
+              )} */}
+              <li
+                className={`dropdown-list-item ${
+                  pathname.split("/").includes("profile") &&
+                  "dropdown-list-active"
+                }`}
+              >
+                <Link href={"/user/profile"}>My Account</Link>
+              </li>
+              <li className="dropdown-list-item">
+                <Link href={"/"}>Logout</Link>
+              </li>
+              <li
+                className={`dropdown-list-item ${
+                  pathname.split("/").includes("signin") &&
+                  "dropdown-list-active"
+                }`}
+              >
+                <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+              </li>
             </ul>
           </div>
         </div>

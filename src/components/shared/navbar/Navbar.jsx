@@ -4,7 +4,7 @@ import StickyNavbar from "./StickyNavbar";
 import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
-  const user = false;
+  const user = true;
 
   return (
     <>
