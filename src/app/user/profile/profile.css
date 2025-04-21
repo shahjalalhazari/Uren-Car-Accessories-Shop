@@ -1,6 +1,9 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
 /* LAYOUTs */
-.profile-layout {
+.profile-layout,
+.ordered-list,
+.addresses-layout,
+.payment-methods-layout {
     @apply grid grid-cols-1 gap-y-4;
 }
 
@@ -26,19 +29,32 @@
 .body-text {
     @apply text-sm text-body;
 }
-
-/* ORDERS */
-.ordered-list {
-    @apply mt-6 grid grid-cols-1 gap-y-4;
+.profile-page-btn {
+    @apply w-full bg-primary py-3 text-base-100 font-semibold uppercase;
 }
+
+.profile-page-btn:hover {
+    @apply bg-secondary;
+}
+/* ORDERS */
 .ordered-list-item {
     @apply text-sm text-body space-y-1;
 }
 .ordered-list-item>div {
     @apply bg-gray-bg p-3 border border-uren-border;
 }
+.ordered-list-item>div:last-child {
+    @apply py-2;
+}
 .item-head{
     @apply flex items-center justify-between;
+}
+.text-highlight {
+    @apply text-dark-gray font-semibold;
+}
+
+.item-price {
+    @apply text-dark-gray font-bold;
 }
 .item-body-content{
     @apply flex items-center justify-between;
@@ -46,17 +62,42 @@
 .item-body-imgs{
     @apply flex items-center gap-x-3 overflow-y-auto mt-2;
 }
-.item-footer{
-    @apply flex gap-x-1 items-center text-dark-gray justify-center;
+.item-body-imgs>img {
+    @apply border border-uren-border w-[60px] h-[60px];
 }
+.item-footer{
+    @apply flex gap-x-1 cursor-pointer items-center text-dark-gray justify-center;
+    }
+
+    .item-footer:hover {
+        @apply text-primary;
+    }
+
+    /* ADDRESSES */
+    .addresses {
+        @apply text-sm text-body;
+    }
+
+    /* PAYMENT METHODS */
+    .card-actions {
+        @apply flex gap-x-4 items-center justify-center;
+    }
+
+    .card-actions>button {
+        @apply text-center text-xs text-body font-semibold mt-2;
+    }
+
+    .card-actions>button:hover {
+        @apply text-primary;
+    }
 
 /* ACCOUNT DETAILS */
 .form-group {
-    @apply w-full text-sm text-body mt-5;
-}
+    @apply w-full text-sm text-body mb-4;
+    }
 
 .form-group label {
-    @apply block mb-3;
+    @apply block mb-2;
 }
 
 .form-group>label>span {
@@ -67,6 +108,10 @@
     @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
 }
 
+.show-password {
+    @apply absolute bottom-[14px] right-5 text-base cursor-pointer;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -74,14 +119,25 @@
     .profile-layout {
         @apply grid grid-cols-1 gap-y-6;
     }
-
-    /* ORDERS */
-    .ordered-list {
-        @apply mt-6 grid grid-cols-2 gap-y-0 gap-x-6;
+    .ordered-list,
+    .addresses-layout,
+    .payment-methods-layout {
+        @apply grid grid-cols-2 gap-y-6 gap-x-6;
     }
 
+    /* ORDERS */
     .ordered-list-item>div {
-        @apply bg-gray-bg p-4 border border-uren-border;
+        @apply p-4;
+    }
+
+    /* PAYMENT METHODS */
+    .card-actions {
+        @apply flex gap-x-6;
+    }
+
+    /* ACCOUNT DETAILS */
+    .form-group {
+        @apply mb-6;
     }
 }
 
@@ -92,9 +148,12 @@
     .profile-layout {
         @apply grid grid-cols-4 gap-y-0 gap-x-8;
     }
+    .ordered-list,
+    .addresses-layout {
+        @apply grid grid-cols-2 gap-y-8 gap-x-8;
+    }
 
     /* SIDEBAR */
-
     .tab-item {
         @apply px-8 py-4 cursor-pointer uppercase text-sm;
     }
@@ -109,15 +168,45 @@
     }
 
     /* ORDERS */
-    .ordered-list {
-        @apply mt-6 grid grid-cols-2 gap-y-0 gap-x-8;
-    }
 
     .ordered-list-item>div {
         @apply p-5;
-    }
+        }
+
+        .ordered-list-item>div:last-child {
+            @apply p-4;
+        }
+
+        .item-price {
+            @apply text-base;
+        }
 
     .item-body-imgs {
         @apply mt-4;
+    }
+    .item-body-imgs>img {
+        @apply w-16 h-16;
+    }
+
+    .item-footer {
+        @apply text-base;
+    }
+
+    /* PAYMENT METHODS */
+    .payment-methods-layout {
+        @apply grid grid-cols-3 gap-y-8 gap-x-8 mt-8;
+    }
+
+    .card-actions {
+        @apply flex gap-x-6;
+    }
+
+    .card-actions>button {
+        @apply text-center text-xs text-body font-semibold mt-4;
+    }
+
+    /* ACCOUNT DETAILS */
+    .form-group {
+        @apply mb-8;
     }
 }
