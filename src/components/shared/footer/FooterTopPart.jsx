@@ -112,12 +112,12 @@ const FooterTopPart = ({ navItems }) => {
             </Link>
           </li>
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/return-policy"} className="footer-nav-link">
               Returns
             </Link>
           </li>
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/locations"} className="footer-nav-link">
               Shop Locations
             </Link>
           </li>
@@ -129,18 +129,23 @@ const FooterTopPart = ({ navItems }) => {
         <div></div>
         <ul className="footer-nav-item-list">
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/delivery-info"} className="footer-nav-link">
               Delivery Information
             </Link>
           </li>
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/privacy-policy"} className="footer-nav-link">
               Privacy Policy
             </Link>
           </li>
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/t&c"} className="footer-nav-link">
               Terms & Conditions
+            </Link>
+          </li>
+          <li className="">
+            <Link href={"/faq"} className="footer-nav-link">
+              FAQ
             </Link>
           </li>
         </ul>
@@ -151,7 +156,7 @@ const FooterTopPart = ({ navItems }) => {
         <div></div>
         <ul className="footer-nav-item-list">
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/user/profile"} className="footer-nav-link">
               My Profile
             </Link>
           </li>
@@ -161,12 +166,12 @@ const FooterTopPart = ({ navItems }) => {
             </Link>
           </li>
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/user/profile"} className="footer-nav-link">
               Order History
             </Link>
           </li>
           <li className="">
-            <Link href={"/"} className="footer-nav-link">
+            <Link href={"/shop/wish-list"} className="footer-nav-link">
               Wish List
             </Link>
           </li>
