@@ -13,6 +13,84 @@ hr {
     @apply border border-uren-border;
 }
 
+/* FORM */
+.form-input-layout {
+    @apply grid grid-cols-1;
+}
+.form-group {
+    @apply w-full text-sm text-body;
+    }
+
+.form-group label {
+    @apply block mb-3;
+}
+
+.form-group>label>span {
+    @apply text-secondary;
+}
+
+.form-group input {
+    @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
+}
+
+.show-password {
+    @apply absolute bottom-[14px] right-5 text-base cursor-pointer;
+}
+
+.save-form-data {
+    @apply appearance-none h-4 w-4 border border-uren-border outline-none cursor-pointer;
+}
+
+.save-form-data:checked {
+    @apply bg-primary border-transparent;
+}
+
+.save-form-data-label {
+    @apply cursor-pointer;
+}
+
+.save-form-data-label:hover {
+    @apply text-primary;
+}
+
+.submit-btn {
+    @apply bg-primary font-bold w-full text-dark-gray px-5 py-3 cursor-pointer uppercase;
+}
+
+.submit-btn:hover {
+    @apply bg-secondary text-base-100;
+}
+
+/* ACCORDION */
+.accordion-layout {
+    @apply w-full space-y-4 mb-4;
+}
+
+.accordion-header {
+    @apply border-t-[3px] border-primary text-body;
+}
+
+.accordion-heading-text {
+    @apply w-full py-3 px-6 text-sm bg-gray-bg text-start text-dark-gray flex gap-x-2 items-center;
+}
+
+.accordion-action {
+    @apply cursor-pointer;
+}
+
+.accordion-action:hover {
+    @apply text-primary underline;
+}
+
+/* LOGIN ACCORDION */
+.login-accordion {
+    @apply grid grid-cols-1 border border-uren-border mt-4 p-6;
+}
+
+.checkout-login-form {
+    @apply space-y-4;
+}
+
 /* ORDER CART */
 .order-cart {
     @apply bg-gray-bg text-body p-6;
@@ -39,51 +117,13 @@ hr {
 }
 
 /* DELIVERY ADDRESS FORM */
-.delivery-form {
-    @apply mt-5 text-body w-full;
-    }
-.form-input-layout {
-    @apply grid grid-cols-1;
-}
-.form-group {
-    @apply w-full text-sm mb-4;
-    }
-
-    .form-group label {
-        @apply block mb-3;
-    }
-
-    .form-group>label>span {
-        @apply text-secondary;
-    }
-
-    .form-group input {
-        @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
+/* .delivery-form {
+    @apply text-body w-full;
 }
 
-.save-address {
-    @apply appearance-none h-4 w-4 border border-uren-border outline-none cursor-pointer;
-}
-
-.save-address:checked {
-    @apply bg-primary border-transparent;
-}
-
-.save-address-label {
-    @apply cursor-pointer;
-}
-
-.save-address-label:hover {
-    @apply text-primary;
-}
-
-.submit-btn {
-    @apply bg-primary mt-8 font-bold w-full text-dark px-5 py-3 cursor-pointer uppercase;
-}
-
-.submit-btn:hover {
-    @apply bg-secondary text-base-100;
-}
+.delivery-form .form-group {
+    @apply mt-4;
+} */
 
 /* PAYMENT METHOD */
 .payment-method {
@@ -127,6 +167,19 @@ hr {
         @apply text-2xl;
     }
 
+    /* ACCORDION */
+    .accordion-layout {
+        @apply w-full space-y-6 mb-6;
+    }
+
+    .accordion-heading-text {
+        @apply px-6 flex gap-x-3;
+    }
+
+    /* LOGIN ACCORDION */
+    .login-accordion {
+        @apply grid grid-cols-2 mt-6 p-6;
+    }
     /* ORDER CART */
     .table-head {
         @apply text-start;
@@ -154,6 +207,24 @@ hr {
         @apply text-3xl;
     }
 
+    /* ACCORDION */
+    .accordion-layout {
+        @apply space-y-8 mb-8;
+    }
+
+    .accordion-heading-text {
+        @apply py-3 px-8 flex gap-x-4;
+    }
+
+    /* LOGIN ACCORDION */
+    .login-accordion {
+        @apply grid grid-cols-3 mt-8 p-8;
+    }
+
+    .checkout-login-form {
+        @apply space-y-6;
+    }
+
     /* ORDER CART */
     .order-cart {
         @apply p-8;
@@ -162,9 +233,11 @@ hr {
         @apply text-lg;
     }
     /* DELIVERY ADDRESS FORM */
-    .delivery-form {
+    /* .delivery-form {
         @apply mt-8;
     }
+
+    */
 
     .form-input-layout {
         @apply grid grid-cols-2 gap-x-8;
