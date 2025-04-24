@@ -1,6 +1,7 @@
 "use client";
 import InputField from "@/components/shared/fields/InputField";
 import PasswordField from "@/components/shared/fields/PasswordField";
+import { Ruthie } from "next/font/google";
 import { useState } from "react";
 import { FaPercent, FaUserAlt } from "react-icons/fa";
 
@@ -30,7 +31,7 @@ const CheckoutAccordion = () => {
             loginAccordion ? "max-h-[500px]" : "max-h-0"
           }`}
         >
-          <div className="login-accordion">
+          <div className="accordion-item">
             <form className="checkout-login-form">
               {/* EMAIL FIELD */}
               <InputField
@@ -38,7 +39,8 @@ const CheckoutAccordion = () => {
                 name={"login-email"}
                 required={true}
                 type={"email"}
-                placeholder={""} />
+                placeholder={""}
+              />
 
               {/* PASSWORD FIELD */}
               <PasswordField
@@ -90,14 +92,23 @@ const CheckoutAccordion = () => {
         </div>
 
         <div
-          className={`overflow-hidden transition-all duration-500 px-4 ${
-            couponAccordion ? "max-h-[500px] py-4" : "max-h-0"
+          className={`overflow-hidden transition-all duration-1000 ${
+            couponAccordion ? "max-h-[500px]" : "max-h-0"
           }`}
         >
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rerum,
-            repellat.
-          </p>
+          <div className="accordion-item">
+            {/* DISCOUNT COUPON */}
+            <form className="coupon-code-form">
+              <input
+                type="text"
+                placeholder="Coupon Code"
+                className="coupon-input"
+              />
+              <button type="submit" className="uren-transition coupon-form-btn">
+                APPLY COUPON
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </div>

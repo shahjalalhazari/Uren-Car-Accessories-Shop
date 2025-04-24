@@ -71,7 +71,7 @@
     @apply text-base-100 font-bold bg-body px-4 py-3 text-sm;
 }
 
-.coupon-submit-btn:hover {
+.coupon-form-btn:hover {
     @apply bg-primary;
 }
 

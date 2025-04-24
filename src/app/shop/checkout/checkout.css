@@ -82,13 +82,29 @@ hr {
     @apply text-primary underline;
 }
 
-/* LOGIN ACCORDION */
-.login-accordion {
+.accordion-item {
     @apply grid grid-cols-1 border border-uren-border mt-4 p-6;
 }
-
+/* LOGIN ACCORDION */
 .checkout-login-form {
     @apply space-y-4;
+}
+
+/* DISCOUNT COUPON ACCORDION */
+.coupon-code-form {
+    @apply grid grid-cols-2 gap-x-4;
+}
+
+.coupon-code-form>input {
+    @apply border border-uren-border text-sm w-full p-3 outline-none;
+}
+
+.coupon-form-btn {
+    @apply text-base-100 font-semibold bg-body p-3 text-sm;
+}
+
+.coupon-form-btn:hover {
+    @apply bg-primary;
 }
 
 /* ORDER CART */
@@ -175,10 +191,13 @@ hr {
     .accordion-heading-text {
         @apply px-6 flex gap-x-3;
     }
-
-    /* LOGIN ACCORDION */
-    .login-accordion {
+    .accordion-item {
         @apply grid grid-cols-2 mt-6 p-6;
+    }
+
+    /* DISCOUNT COUPON ACCORDION */
+    .coupon-code-form {
+        @apply gap-x-6;
     }
     /* ORDER CART */
     .table-head {
@@ -216,13 +235,16 @@ hr {
         @apply py-3 px-8 flex gap-x-4;
     }
 
-    /* LOGIN ACCORDION */
-    .login-accordion {
+    .accordion-item {
         @apply grid grid-cols-3 mt-8 p-8;
     }
-
+    /* LOGIN ACCORDION */
     .checkout-login-form {
         @apply space-y-6;
+    }
+    /* DISCOUNT COUPON ACCORDION */
+    .coupon-code-form {
+        @apply gap-x-8;
     }
 
     /* ORDER CART */
