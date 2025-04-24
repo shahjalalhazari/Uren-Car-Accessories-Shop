@@ -14,8 +14,11 @@ hr {
 }
 
 /* FORM */
+.form-layout {
+    @apply space-y-4;
+}
 .form-input-layout {
-    @apply grid grid-cols-1;
+    @apply grid grid-cols-1 gap-y-4;
 }
 .form-group {
     @apply w-full text-sm text-body;
@@ -36,7 +39,9 @@ hr {
 .show-password {
     @apply absolute bottom-[14px] right-5 text-base cursor-pointer;
 }
-
+.save-data {
+    @apply flex gap-x-2 items-center text-body;
+}
 .save-form-data {
     @apply appearance-none h-4 w-4 border border-uren-border outline-none cursor-pointer;
 }
@@ -85,11 +90,6 @@ hr {
 .accordion-item {
     @apply grid grid-cols-1 border border-uren-border mt-4 p-6;
 }
-/* LOGIN ACCORDION */
-.checkout-login-form {
-    @apply space-y-4;
-}
-
 /* DISCOUNT COUPON ACCORDION */
 .coupon-code-form {
     @apply grid grid-cols-2 gap-x-4;
@@ -133,14 +133,9 @@ hr {
 }
 
 /* DELIVERY ADDRESS FORM */
-/* .delivery-form {
-    @apply text-body w-full;
+.delivery-form {
+    @apply mt-6 space-y-4;
 }
-
-.delivery-form .form-group {
-    @apply mt-4;
-} */
-
 /* PAYMENT METHOD */
 .payment-method {
     @apply mt-5 text-body;
@@ -182,6 +177,14 @@ hr {
     .checkout-heading {
         @apply text-2xl;
     }
+    /* FORM */
+    .form-layout {
+        @apply space-y-6;
+    }
+
+    .form-input-layout {
+        @apply grid grid-cols-2 gap-x-6 gap-y-6;
+    }
 
     /* ACCORDION */
     .accordion-layout {
@@ -203,10 +206,6 @@ hr {
     .table-head {
         @apply text-start;
     }
-    /* DELIVERY ADDRESS FORM */
-    .form-input-layout {
-        @apply grid grid-cols-2 gap-x-6;
-    }
     /* PAYMENT METHOD */
     .pm-form {
         @apply mt-5 grid grid-cols-2 gap-y-6;
@@ -225,6 +224,14 @@ hr {
     .checkout-heading {
         @apply text-3xl;
     }
+    /* FORM */
+    .form-layout {
+        @apply space-y-6;
+    }
+
+    .form-input-layout {
+        @apply grid grid-cols-2 gap-x-8 gap-y-6;
+    }
 
     /* ACCORDION */
     .accordion-layout {
@@ -238,10 +245,6 @@ hr {
     .accordion-item {
         @apply grid grid-cols-3 mt-8 p-8;
     }
-    /* LOGIN ACCORDION */
-    .checkout-login-form {
-        @apply space-y-6;
-    }
     /* DISCOUNT COUPON ACCORDION */
     .coupon-code-form {
         @apply gap-x-8;
@@ -253,16 +256,6 @@ hr {
     }
     .table-total {
         @apply text-lg;
-    }
-    /* DELIVERY ADDRESS FORM */
-    /* .delivery-form {
-        @apply mt-8;
-    }
-
-    */
-
-    .form-input-layout {
-        @apply grid grid-cols-2 gap-x-8;
     }
     /* PAYMENT METHOD */
     .payment-method {

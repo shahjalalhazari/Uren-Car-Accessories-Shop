@@ -32,7 +32,7 @@ const CheckoutAccordion = () => {
           }`}
         >
           <div className="accordion-item">
-            <form className="checkout-login-form">
+            <form className="form-layout">
               {/* EMAIL FIELD */}
               <InputField
                 label={"E-mail"}
@@ -48,7 +48,7 @@ const CheckoutAccordion = () => {
                 name={"password"}
                 placeholder={""}
               />
-              <div className="flex gap-x-2 items-center">
+              <div className="save-data">
                 {/* SAVE LOGIN DATA */}
                 <input
                   type="checkbox"

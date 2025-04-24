@@ -110,7 +110,7 @@ const CheckoutPage = () => {
           <div className="delivery-address">
             <h3 className='checkout-heading'>Delivery Address</h3>
             <hr />
-            <form className="delivery-form">
+            <form className="form-layout mt-6 lg:mt-8">
               <div className="form-input-layout">
                 {/* Full Name Field */}
                 <InputField name={"name"} label={"Full Name"} type={"text"} required={true} placeholder={"Your Full Name"}/>
@@ -139,7 +139,7 @@ const CheckoutPage = () => {
               </div>
 
               {/* Save Address */}
-              <div className="flex gap-x-2 items-center">
+              <div className="save-data">
                 <input
                   type="checkbox"
                   name="save-address-data"
