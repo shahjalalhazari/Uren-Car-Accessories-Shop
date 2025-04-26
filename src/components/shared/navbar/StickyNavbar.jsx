@@ -71,6 +71,14 @@ const StickyNavbar = ({ navItems, isUser }) => {
                 >
                   <Link href={"/user/profile"}>My Account</Link>
                 </li>
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("dashboard") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/dashboard"}>Dashboard</Link>
+                </li>
                 <li className="dropdown-list-item">
                   <Link href={"/"}>Logout</Link>
                 </li>

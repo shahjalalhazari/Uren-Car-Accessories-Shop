@@ -183,6 +183,15 @@ const TopNavbar = ({ navItems, isUser }) => {
                       >
                         <Link href={"/user/profile"}>My Account</Link>
                       </li>
+                      <li
+                        className={`${
+                          pathname.split("/").includes("dashboard") &&
+                          "dropdown-list-active"
+                        }`}
+                        onClick={() => setNavbarOpen(false)}
+                      >
+                        <Link href={"/dashboard"}>Dashboard</Link>
+                      </li>
                       <li onClick={() => setNavbarOpen(false)}>
                         <Link href={"/"}>Logout</Link>
                       </li>
@@ -360,6 +369,15 @@ const TopNavbar = ({ navItems, isUser }) => {
                           onClick={() => setNavbarOpen(false)}
                         >
                           <Link href={"/user/profile"}>My Account</Link>
+                        </li>
+                        <li
+                          className={`${
+                            pathname.split("/").includes("dashboard") &&
+                            "dropdown-list-active"
+                          }`}
+                          onClick={() => setNavbarOpen(false)}
+                        >
+                          <Link href={"/dashboard"}>Dashboard</Link>
                         </li>
                         <li onClick={() => setNavbarOpen(false)}>
                           <Link href={"/"}>Logout</Link>

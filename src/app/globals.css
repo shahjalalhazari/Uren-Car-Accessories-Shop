@@ -160,6 +160,9 @@
 .footer-nav-link {
     @apply uren-transition;
 }
+.footer-active-nav-link {
+    @apply text-primary;
+}
 .footer-nav-link:hover {
     @apply text-primary underline;
 }
