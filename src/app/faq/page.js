@@ -1,6 +1,11 @@
 import Accordion from "@/components/faq/Accordion";
 import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
 
+export const metadata = {
+  title: "FAQs",
+  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
+};
+
 
 const FAQPage = () => {
   return (

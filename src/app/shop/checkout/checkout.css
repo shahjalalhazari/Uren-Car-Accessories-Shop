@@ -76,7 +76,7 @@ hr {
 }
 
 .accordion-heading-text {
-    @apply w-full py-3 px-6 text-sm bg-gray-bg text-start text-dark-gray flex gap-x-2 items-center;
+    @apply w-full py-3 px-4 text-sm bg-gray-bg text-start text-dark-gray flex gap-x-2 items-center;
 }
 
 .accordion-action {
@@ -88,7 +88,7 @@ hr {
 }
 
 .accordion-item {
-    @apply grid grid-cols-1 border border-uren-border mt-4 p-6;
+    @apply grid grid-cols-1 border border-uren-border mt-4 p-4;
 }
 /* DISCOUNT COUPON ACCORDION */
 .coupon-code-form {
@@ -226,11 +226,11 @@ hr {
     }
     /* FORM */
     .form-layout {
-        @apply space-y-6;
+        @apply space-y-8;
     }
 
     .form-input-layout {
-        @apply grid grid-cols-2 gap-x-8 gap-y-6;
+        @apply grid grid-cols-2 gap-x-8 gap-y-8;
     }
 
     /* ACCORDION */

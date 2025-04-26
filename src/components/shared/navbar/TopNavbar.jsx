@@ -14,10 +14,6 @@ import {
 const TopNavbar = ({ navItems, isUser }) => {
   const pathname = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
-
-  const isSignIn = pathname.split("/").includes("signin");
-  const isProfile = pathname.split("/").includes("profile");
-  console.log(isSignIn);
   return (
     <div className="nav-top-part">
       {/* NAVBAR TOP PART FOR LARGE DEVICES */}

@@ -4,6 +4,10 @@ import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
 import PasswordField from "@/components/shared/fields/PasswordField";
 import InputField from "@/components/shared/fields/InputField";
 
+export const metadata = {
+  title: "Signin & Signup",
+  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
+};
 
 const SignInUPPage = () => {
   return (

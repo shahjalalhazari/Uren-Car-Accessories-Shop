@@ -6,6 +6,11 @@ import { BiSolidTrash } from "react-icons/bi";
 import SecondaryBtn from "@/components/shared/buttons/SecondaryBtn";
 import Link from "next/link";
 
+export const metadata = {
+  title: "Cart",
+  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
+};
+
 const CartPage = () => {
   return (
     <div className=''>

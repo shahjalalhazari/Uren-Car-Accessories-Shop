@@ -101,7 +101,9 @@ const CheckoutAccordion = () => {
             <form className="coupon-code-form">
               <input
                 type="text"
-                placeholder="Coupon Code"
+                required
+                name="coupon-code"
+                placeholder="Enter Coupon Code"
                 className="coupon-input"
               />
               <button type="submit" className="uren-transition coupon-form-btn">

@@ -3,6 +3,11 @@ import "./checkout.css"
 import PageBreadcrumb from '@/components/shared/PageBreadcrumb';
 import CheckoutAccordion from "@/components/shop/checkout/CheckoutAccordion";
 
+export const metadata = {
+  title: "Checkout",
+  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
+};
+
 const CheckoutPage = () => {
 
   return (
