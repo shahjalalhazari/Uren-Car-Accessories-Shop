@@ -26,7 +26,7 @@
     @apply shadow-lg;
 }
 .outline-btn {
-    @apply border border-[#ddd] py-3 px-4 text-lg font-semibold text-[#999] text-center uren-transition;
+    @apply border border-uren-border py-3 px-4 text-lg font-semibold text-body text-center uren-transition;
 }
 .outline-btn:hover {
     @apply bg-primary text-base-100 border-primary shadow-lg;
@@ -58,7 +58,7 @@
     @apply flex flex-col items-center gap-y-2 p-6 pt-0;
 }
 .single-product-title {
-    @apply text-[#999] text-sm text-center uren-transition;
+    @apply text-body text-sm text-center uren-transition;
 }
 .single-product-title:hover {
     @apply text-primary;
@@ -67,12 +67,12 @@
     @apply flex items-center justify-center space-x-2;
 }
 .single-product-old-price {
-    @apply text-sm text-[#999] line-through;
+    @apply text-sm text-body line-through;
 }
 
 /* *** BLOG's STYLE *** */
 .blog-section {
-    @apply px-6 py-12 bg-[#eee] text-center;
+    @apply px-6 py-12 bg-gray-bg text-center;
 }
 .blog-layout {
     @apply mt-6 mb-8 text-start space-y-4;
@@ -96,7 +96,7 @@
     @apply text-primary;
 }
 .blog-description {
-    @apply text-sm text-[#999];
+    @apply text-sm text-body;
 }
 .blog-description .read-more {
     @apply text-secondary font-semibold uren-transition;
@@ -134,7 +134,7 @@
     @apply bg-[#222] px-6;
 }
 .top-footer-layout {
-    @apply py-12 grid grid-cols-2 gap-x-6 gap-y-10 text-[#999];
+    @apply py-12 grid grid-cols-2 gap-x-6 gap-y-10 text-body;
 }
 .footer-aside {
     @apply col-span-2 space-y-4;
@@ -176,7 +176,7 @@
 
 /* *** 404 Not Found Page *** */
 .not-found-404 {
-    @apply uren-container text-center text-[#999];
+    @apply uren-container text-center text-body;
 }
 .error-heading {
     @apply text-7xl pb-1 text-primary font-bold;
@@ -185,7 +185,7 @@
     @apply text-2xl font-bold pb-3;
 }
 .error-search-form {
-    @apply mt-5 mb-6 w-3/4 mx-auto border border-[#ddd] flex justify-between items-center px-5 py-3;
+    @apply mt-5 mb-6 w-3/4 mx-auto border border-uren-border flex justify-between items-center px-5 py-3;
 }
 .error-search-form input {
     @apply text-start text-sm w-full outline-none;
@@ -200,7 +200,7 @@
     @apply bg-primary text-white font-bold text-sm py-3 px-7 uppercase uren-transition
 }
 .back-to-home-btn:hover {
-    @apply bg-[#999];
+    @apply bg-body;
 }
 
 /* *** PAGE BREADCRUMB *** */

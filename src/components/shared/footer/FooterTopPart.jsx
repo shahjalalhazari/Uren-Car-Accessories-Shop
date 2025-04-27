@@ -1,7 +1,5 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   FaFacebookF,
   FaGithub,
@@ -17,11 +15,16 @@ const FooterTopPart = ({
   CSNavItems,
   extraNavItems,
   myAccountNavItems,
+  inventoryNavItems,
 }) => {
-  const pathname = usePathname();
+  const isStaff = true;
 
   return (
-    <footer className="top-footer-layout">
+    <footer
+      className={`top-footer-layout ${
+        isStaff ? "lg:grid-cols-7 md:grid-cols-4" : ""
+      }`}
+    >
       {/* Column 1 */}
       <aside className="footer-aside">
         <Image
@@ -98,6 +101,10 @@ const FooterTopPart = ({
       <FooterNavColumn title={"Extras"} navItems={extraNavItems} />
       {/* Column 5 | ACCOUNT */}
       <FooterNavColumn title={"My Account"} navItems={myAccountNavItems} />
+      {/* Column 6 | INVENTORY */}
+      {isStaff && (
+        <FooterNavColumn title={"Inventory"} navItems={inventoryNavItems} />
+      )}
     </footer>
   );
 };

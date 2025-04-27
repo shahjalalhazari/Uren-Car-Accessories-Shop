@@ -29,17 +29,9 @@ export default function RootLayout({ children }) {
       >
         {/* Wrap whole project with Car Provider context */}
         <CarProvider >
-          {/* Full Navbar */}
-          <Navbar/>
           
           {children}
 
-          {/* Scroll To Top Button */}
-          <ScrollToTopBtn />
-
-          {/* Newsletter Section */}
-          <Newsletter />
-          
           {/* Whole Footer  */}
           <Footer />
         </CarProvider>

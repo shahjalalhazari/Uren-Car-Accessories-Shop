@@ -91,11 +91,7 @@ hr {
     @apply grid grid-cols-1 border border-uren-border mt-4 p-4;
 }
 /* DISCOUNT COUPON ACCORDION */
-.coupon-code-form {
-    @apply grid grid-cols-2 gap-x-4;
-}
-
-.coupon-code-form>input {
+.coupon-input {
     @apply border border-uren-border text-sm w-full p-3 outline-none;
 }
 
@@ -197,11 +193,6 @@ hr {
     .accordion-item {
         @apply grid grid-cols-2 mt-6 p-6;
     }
-
-    /* DISCOUNT COUPON ACCORDION */
-    .coupon-code-form {
-        @apply gap-x-6;
-    }
     /* ORDER CART */
     .table-head {
         @apply text-start;
@@ -226,7 +217,7 @@ hr {
     }
     /* FORM */
     .form-layout {
-        @apply space-y-8;
+        @apply space-y-6;
     }
 
     .form-input-layout {
@@ -244,10 +235,6 @@ hr {
 
     .accordion-item {
         @apply grid grid-cols-3 mt-8 p-8;
-    }
-    /* DISCOUNT COUPON ACCORDION */
-    .coupon-code-form {
-        @apply gap-x-8;
     }
 
     /* ORDER CART */

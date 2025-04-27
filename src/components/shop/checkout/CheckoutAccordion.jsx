@@ -2,6 +2,7 @@
 import InputField from "@/components/shared/fields/InputField";
 import PasswordField from "@/components/shared/fields/PasswordField";
 import { Ruthie } from "next/font/google";
+import Link from "next/link";
 import { useState } from "react";
 import { FaPercent, FaUserAlt } from "react-icons/fa";
 
@@ -70,8 +71,17 @@ const CheckoutAccordion = () => {
                 value="Login"
                 className="submit-btn uren-transition"
               />
+              <p className="text-center text-sm">
+                Don't Have An Account?{" "}
+                <Link
+                  href={"/user/signin"}
+                  className="accordion-action underline uren-transition"
+                >
+                  Click Here
+                </Link>
+              </p>
             </form>
-            <div className=""></div>
+            <div className="col-span-2"></div>
           </div>
         </div>
       </div>
@@ -98,7 +108,7 @@ const CheckoutAccordion = () => {
         >
           <div className="accordion-item">
             {/* DISCOUNT COUPON */}
-            <form className="coupon-code-form">
+            <form className="grid grid-cols-2 gap-x-4 md:gap-x-6 lg:gap-x-8">
               <input
                 type="text"
                 required
@@ -110,6 +120,7 @@ const CheckoutAccordion = () => {
                 APPLY COUPON
               </button>
             </form>
+            <div className="col-span-2"></div>
           </div>
         </div>
       </div>

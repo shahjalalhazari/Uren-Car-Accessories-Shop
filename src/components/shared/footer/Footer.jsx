@@ -1,6 +1,5 @@
-
-import FooterBottomPart from './FooterBottomPart';
-import FooterTopPart from './FooterTopPart';
+import FooterBottomPart from "./FooterBottomPart";
+import FooterTopPart from "./FooterTopPart";
 
 const Footer = () => {
   return (
@@ -10,6 +9,7 @@ const Footer = () => {
         CSNavItems={customerServiceItems}
         extraNavItems={extraItems}
         myAccountNavItems={myAccountItems}
+        inventoryNavItems={inventoryItems}
       />
       <FooterBottomPart />
     </div>
@@ -94,11 +94,6 @@ const myAccountItems = [
     path: "/user/profile",
   },
   {
-    id: 2,
-    title: "Dashboard",
-    path: "/dashboard",
-  },
-  {
     id: 3,
     title: "Order Cart",
     path: "/shop/cart",
@@ -112,5 +107,28 @@ const myAccountItems = [
     id: 5,
     title: "Wish List",
     path: "/shop/wishlist",
+  },
+];
+
+const inventoryItems = [
+  {
+    id: 1,
+    title: "Inventory",
+    path: "/inventory",
+  },
+  {
+    id: 2,
+    title: "Manage Products",
+    path: "/manage-products",
+  },
+  {
+    id: 3,
+    title: "Add Products",
+    path: "/add-products",
+  },
+  {
+    id: 4,
+    title: "Manage Users",
+    path: "/manage-users",
   },
 ];
