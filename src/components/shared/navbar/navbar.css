@@ -17,6 +17,17 @@
 .sm-top-navbar {
     @apply flex justify-between items-center;
 }
+.inventory-btn {
+    @apply border border-primary flex gap-x-3 items-center text-2xl uppercase px-4 py-2 font-semibold text-primary;
+}
+
+.inventory-btn>span {
+    @apply text-dark-gray;
+}
+
+.inventory-btn:hover {
+    @apply bg-secondary text-base-100;
+}
 .nav-cart-btn {
     @apply border border-primary py-1 flex gap-5 items-center px-12;
 }
@@ -87,6 +98,17 @@
     /* NAVBAR TOP PART FOR MEDIUM DEVICES */
     .md-top-nav {
         @apply flex items-center justify-between p-8 pb-10;
+    }
+    .inventory-btn {
+        @apply flex gap-x-4 text-2xl px-6 py-2;
+    }
+
+    .inventory-btn>span {
+        @apply text-dark-gray;
+    }
+
+    .inventory-btn:hover {
+        @apply bg-secondary text-base-100;
     }
     .nav-cart-btn {
         @apply border border-primary py-1 flex gap-5 items-center px-8;
@@ -178,6 +200,22 @@
     }
     .lg-search-btn:hover {
         @apply bg-secondary text-base-100;
+    }
+    .inventory-btn {
+        @apply border border-primary flex gap-x-4 items-center text-3xl uppercase rounded-lg px-10 py-3 font-semibold text-primary;
+    }
+
+    .inventory-btn>span {
+        @apply text-dark-gray;
+    }
+
+    .inventory-btn:hover,
+    .inventory-btn:hover .inventory-btn>span {
+        @apply bg-secondary text-base-100;
+    }
+
+    .nav-inventory-icon {
+        @apply text-3xl text-primary;
     }
     .nav-cart-btn {
         @apply border border-primary py-1 flex gap-5 items-center px-12 rounded-lg;

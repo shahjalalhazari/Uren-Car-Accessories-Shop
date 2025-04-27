@@ -4,14 +4,16 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 import {
+  BiHome,
   BiMenu,
   BiSearch,
   BiShoppingBag,
   BiSolidPhone,
+  BiStoreAlt,
   BiX,
 } from "react-icons/bi";
 
-const TopNavbar = ({ navItems, isUser }) => {
+const TopNavbar = ({ navItems, isUser, isStaff }) => {
   const pathname = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
   return (
@@ -38,25 +40,48 @@ const TopNavbar = ({ navItems, isUser }) => {
               Search
             </button>
           </form>
-          <Link href="/shop/cart" className="">
-            <li className="nav-cart-btn uren-transition">
-              <div className="flex gap-5 items-center">
-                <BiShoppingBag className="text-3xl" />
-                <div className="grid text-md">
-                  <span className="text-black">3 Items</span>
-                  <span className="text-secondary text-xl font-semibold">
-                    AED 462.40
-                  </span>
-                </div>
-              </div>
-            </li>
-          </Link>
-          <Link href="tel://971589196282">
-            <li className="nav-phone-num uren-transition">
-              <BiSolidPhone />
-              +971 58 919 6282
-            </li>
-          </Link>
+
+          {/* If the user is staff then user can see INVENTORY BUTTON or the user is a normal user then user can see CART & PHONE BUTTON. */}
+          {/* If staff user is on inventory or inventory related any page then staff can see HOME BUTTON or INVENTORY BUTTON for all other normal pages. */}
+          {isStaff ? (
+            <>
+              {pathname.split("/").includes("inventory") ? (
+                <Link href="/">
+                  <li className="inventory-btn uren-transition">
+                    <BiHome /> <span>Home</span>
+                  </li>
+                </Link>
+              ) : (
+                <Link href="/inventory">
+                  <li className="inventory-btn uren-transition">
+                    <BiStoreAlt /> <span>Inventory</span>
+                  </li>
+                </Link>
+              )}
+            </>
+          ) : (
+            <>
+              <Link href="/shop/cart">
+                <li className="nav-cart-btn uren-transition">
+                  <div className="flex gap-5 items-center">
+                    <BiShoppingBag className="text-3xl" />
+                    <div className="grid text-md">
+                      <span className="text-black">3 Items</span>
+                      <span className="text-secondary text-xl font-semibold">
+                        AED 462.40
+                      </span>
+                    </div>
+                  </div>
+                </li>
+              </Link>
+              <Link href="tel://971589196282">
+                <li className="nav-phone-num uren-transition">
+                  <BiSolidPhone />
+                  +971 58 919 6282
+                </li>
+              </Link>
+            </>
+          )}
         </ul>
       </div>
 
@@ -75,24 +100,48 @@ const TopNavbar = ({ navItems, isUser }) => {
           <div className="text-5xl pr-5" onClick={() => setNavbarOpen(true)}>
             <BiMenu />
           </div>
-          {/* Cart */}
-          <Link href="/shop/cart" className="">
-            <div className="nav-cart-btn">
-              <BiShoppingBag className="text-2xl" />
-              <div className="grid text-sm ">
-                <span className="text-black">3 Items</span>
-                <span className="text-secondary font-semibold">$462.40</span>
-              </div>
-            </div>
-          </Link>
 
-          {/* Phone Number */}
-          <Link href="tel://971589196282">
-            <div className="nav-phone-num">
-              <BiSolidPhone />
-              +971 58 919 6282
-            </div>
-          </Link>
+          {/* If the user is staff then user can see INVENTORY BUTTON or the user is a normal user then user can see CART & PHONE BUTTON. */}
+          {/* If staff user is on inventory or inventory related any page then staff can see HOME BUTTON or INVENTORY BUTTON for all other normal pages. */}
+          {isStaff ? (
+            <>
+              {pathname.split("/").includes("inventory") ? (
+                <Link href="/">
+                  <li className="inventory-btn uren-transition">
+                    <BiHome /> <span>Home</span>
+                  </li>
+                </Link>
+              ) : (
+                <Link href="/inventory">
+                  <li className="inventory-btn uren-transition">
+                    <BiStoreAlt /> <span>Inventory</span>
+                  </li>
+                </Link>
+              )}
+            </>
+          ) : (
+            <>
+              {/* Cart */}
+              <Link href="/shop/cart">
+                <div className="nav-cart-btn">
+                  <BiShoppingBag className="text-2xl" />
+                  <div className="grid text-sm ">
+                    <span className="text-black">3 Items</span>
+                    <span className="text-secondary font-semibold">
+                      $462.40
+                    </span>
+                  </div>
+                </div>
+              </Link>
+              {/* Phone Number */}
+              <Link href="tel://971589196282">
+                <div className="nav-phone-num">
+                  <BiSolidPhone />
+                  +971 58 919 6282
+                </div>
+              </Link>
+            </>
+          )}
         </div>
         {navbarOpen && (
           <>
@@ -183,15 +232,6 @@ const TopNavbar = ({ navItems, isUser }) => {
                       >
                         <Link href={"/user/profile"}>My Account</Link>
                       </li>
-                      <li
-                        className={`${
-                          pathname.split("/").includes("dashboard") &&
-                          "dropdown-list-active"
-                        }`}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        <Link href={"/dashboard"}>Dashboard</Link>
-                      </li>
                       <li onClick={() => setNavbarOpen(false)}>
                         <Link href={"/"}>Logout</Link>
                       </li>
@@ -272,16 +312,37 @@ const TopNavbar = ({ navItems, isUser }) => {
           <li className="text-5xl" onClick={() => setNavbarOpen(true)}>
             <BiMenu />
           </li>
+
+          {/* If the user is staff then user can see INVENTORY BUTTON or the user is a normal user then user can see CART & PHONE BUTTON. */}
+          {/* If staff user is on inventory or inventory related any page then staff can see HOME BUTTON or INVENTORY BUTTON for all other normal pages. */}
+          {isStaff ? (
+            <>
+              {pathname.split("/").includes("inventory") ? (
+                <Link href="/">
+                  <li className="inventory-btn uren-transition">
+                    <BiHome /> <span>Home</span>
+                  </li>
+                </Link>
+              ) : (
+                <Link href="/inventory">
+                  <li className="inventory-btn uren-transition">
+                    <BiStoreAlt /> <span>Inventory</span>
+                  </li>
+                </Link>
+              )}
+            </>
+          ) : (
+            <Link href="/shop/cart" className="">
+              <li className="nav-cart-btn">
+                <BiShoppingBag className="text-2xl" />
+                <div className="grid text-sm ">
+                  <span className="text-black">3 Items</span>
+                  <span className="text-secondary font-semibold">$462.40</span>
+                </div>
+              </li>
+            </Link>
+          )}
           {/* Cart */}
-          <Link href="/shop/cart" className="">
-            <div className="nav-cart-btn">
-              <BiShoppingBag className="text-2xl" />
-              <div className="grid text-sm ">
-                <span className="text-black">3 Items</span>
-                <span className="text-secondary font-semibold">$462.40</span>
-              </div>
-            </div>
-          </Link>
 
           {navbarOpen && (
             <>
@@ -369,15 +430,6 @@ const TopNavbar = ({ navItems, isUser }) => {
                           onClick={() => setNavbarOpen(false)}
                         >
                           <Link href={"/user/profile"}>My Account</Link>
-                        </li>
-                        <li
-                          className={`${
-                            pathname.split("/").includes("dashboard") &&
-                            "dropdown-list-active"
-                          }`}
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          <Link href={"/dashboard"}>Dashboard</Link>
                         </li>
                         <li onClick={() => setNavbarOpen(false)}>
                           <Link href={"/"}>Logout</Link>

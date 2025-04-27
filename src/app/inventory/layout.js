@@ -1,14 +1,15 @@
-import SlideAbleMenu from '@/components/inventory/SlideAbleMenu';
+import SidebarMenu from "@/components/inventory/SidebarMenu";
 import "./inventory.css"
+import InventoryNavbar from "@/components/shared/navbar/InventoryNavbar";
 
 const DashboardLayout = ({children}) => {
-    return (
-        <div>
-            Dashboard Layout
-        <SlideAbleMenu/>
-            {children}
-        </div>
-    );
+  return (
+    <div>
+      <InventoryNavbar/>
+      <SidebarMenu/>
+      {children}
+    </div>
+  );
 };
 
 export default DashboardLayout;

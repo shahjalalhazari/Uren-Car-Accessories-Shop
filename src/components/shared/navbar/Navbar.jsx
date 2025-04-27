@@ -5,12 +5,23 @@ import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
   const user = true;
+  const isStaff = true;
 
   return (
     <>
-      <TopNavbar navItems={navItems} categories={categories} isUser={user} />
-      <BottomNavbar navItems={navItems} categories={categories} isUser={user} />
-      <StickyNavbar navItems={navItems} isUser={user} />
+      <TopNavbar
+        navItems={navItems}
+        categories={categories}
+        isUser={user}
+        isStaff={isStaff}
+      />
+      <BottomNavbar
+        navItems={navItems}
+        categories={categories}
+        isUser={user}
+        isStaff={isStaff}
+      />
+      <StickyNavbar navItems={navItems} isUser={user} isStaff={isStaff} />
     </>
   );
 };
