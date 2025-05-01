@@ -4,11 +4,15 @@ import InventoryNavbar from "@/components/shared/navbar/InventoryNavbar";
 
 const DashboardLayout = ({children}) => {
   return (
-    <div>
+    <>
       <InventoryNavbar/>
-      <SidebarMenu/>
-      {children}
-    </div>
+      <div className="inventory-container inventory-layout">
+        <SidebarMenu/>
+        <div className="grid-cols-3">
+          {children}
+        </div>
+      </div>
+    </>
   );
 };
 

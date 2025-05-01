@@ -113,22 +113,22 @@ const myAccountItems = [
 const inventoryItems = [
   {
     id: 1,
-    title: "Inventory",
+    title: "Dashboard",
     path: "/inventory",
   },
   {
     id: 2,
     title: "Manage Products",
-    path: "/manage-products",
+    path: "/inventory/manage-products",
   },
   {
     id: 3,
     title: "Add Products",
-    path: "/add-products",
+    path: "/inventory/add-products",
   },
   {
     id: 4,
     title: "Manage Users",
-    path: "/manage-users",
+    path: "/inventory/manage-users",
   },
 ];
