@@ -8,7 +8,7 @@ const DashboardLayout = ({children}) => {
       <InventoryNavbar/>
       <div className="inventory-container inventory-layout">
         <SidebarMenu/>
-        <div className="grid-cols-3">
+        <div className="md:col-span-2 lg:col-span-3">
           {children}
         </div>
       </div>

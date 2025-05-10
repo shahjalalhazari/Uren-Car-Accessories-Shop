@@ -25,6 +25,11 @@
     @apply bg-primary text-base-100;
 }
 
+/* HEADING */
+.inventory-heading {
+    @apply text-xl text-dark-gray uppercase font-bold mb-4;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -41,6 +46,10 @@
     /* SIDEBAR MENU */
     .sidebar-menu-item {
         @apply py-2;
+    }
+    /* HEADING */
+    .inventory-heading {
+        @apply text-2xl mb-6;
     }
 }
 
@@ -60,5 +69,9 @@
     /* SIDEBAR MENU */
     .sidebar-menu-item {
         @apply px-8 py-2.5 text-lg;
+    }
+    /* HEADING */
+    .inventory-heading {
+        @apply text-3xl mb-8;
     }
 }

@@ -1,0 +1,74 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* ADD CATEGORY ACCORDION */
+.add-cat-accordion {
+    @apply bg-gray-bg w-full p-4 border border-uren-border;
+}
+.accordion-header {
+    @apply flex gap-1 text-sm text-body;
+}
+.accordion-header-action {
+    @apply text-dark-gray cursor-pointer flex items-center gap-1;
+}
+.accordion-header-action:hover {
+    @apply text-primary;
+}
+.accordion-body {
+    @apply overflow-hidden transition-all duration-1000;
+}
+
+/* ADD CATEGORY FORM */
+.add-category-from{
+    @apply grid grid-cols-1 gap-y-4 items-end mt-6;
+}
+.form-group {
+    @apply w-full text-sm text-body;
+}
+.form-group label {
+    @apply block mb-3;
+}
+
+.form-group>label>span {
+    @apply text-secondary;
+}
+
+.form-group input {
+    @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
+}
+
+.file-input-field {
+    @apply file-input rounded-none file-input-sm text-sm outline-none h-11 w-full;
+}
+
+.submit-btn {
+    @apply bg-primary w-full text-base-100 font-semibold py-2.5 cursor-pointer;
+}
+
+.submit-btn:hover {
+    @apply bg-secondary;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* ADD CATEGORY ACCORDION */
+    .add-cat-accordion {
+        @apply p-6;
+    }
+
+    /* ADD CATEGORY FORM */
+    .add-category-from {
+        @apply mt-6;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+    /* ADD CATEGORY ACCORDION */
+    .add-cat-accordion {
+        @apply p-8;
+    }
+    /* ADD CATEGORY FORM */
+    .add-category-from {
+        @apply grid grid-cols-3 gap-y-0 gap-x-8 mt-8;
+    }
+
+}
