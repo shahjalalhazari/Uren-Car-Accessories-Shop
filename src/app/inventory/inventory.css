@@ -10,7 +10,7 @@
 
 /* SIDEBAR MENU */
 .sidebar-menu {
-    @apply flex flex-col bg-gray-bg text-body border border-b-0 border-uren-border;
+    @apply flex flex-col bg-gray-bg max-h-fit text-body border border-b-0 border-uren-border;
 }
 
 .sidebar-menu-item {
