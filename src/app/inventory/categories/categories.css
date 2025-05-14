@@ -47,6 +47,15 @@
     @apply bg-secondary;
 }
 
+/* SORTING DROPDOWN */
+.sorting-dropdown {
+    @apply mt-4 flex items-center justify-end gap-x-4 text-sm text-body;
+}
+
+.dropdown-items-list {
+    @apply text-sm outline-none rounded-none border border-uren-border px-4 py-2 cursor-pointer;
+}
+
 /* CATEGORY LIST TABLE */
 .categories-table {
     @apply border border-uren-border table-fixed w-full mt-4 text-center text-body text-sm;
@@ -89,6 +98,14 @@ td {
     .add-category-from {
         @apply mt-6;
     }
+    /* SORTING DROPDOWN */
+    .sorting-dropdown {
+        @apply mt-6;
+    }
+
+    .dropdown-items-list {
+        @apply px-5 py-3;
+    }
     /* CATEGORY LIST TABLE */
     .categories-table {
         @apply mt-6;
@@ -112,6 +129,15 @@ td {
     /* ADD CATEGORY FORM */
     .add-category-from {
         @apply grid grid-cols-3 gap-y-0 gap-x-8 mt-8;
+    }
+
+    /* SORTING DROPDOWN */
+    .sorting-dropdown {
+        @apply mt-8 gap-x-6;
+    }
+
+    .dropdown-items-list {
+        @apply px-6 py-4;
     }
 
     /* CATEGORY LIST TABLE */
