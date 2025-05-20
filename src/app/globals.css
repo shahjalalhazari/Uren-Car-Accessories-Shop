@@ -70,6 +70,65 @@
     @apply text-sm text-body line-through;
 }
 
+/* *** FORM INPUT FIELDs *** */
+.form-group,
+.form-img-group {
+    @apply w-full text-sm text-body;
+}
+
+.form-group label,
+.form-img-group label {
+    @apply block mb-3;
+}
+
+.form-group>label>span,
+.form-img-group>label>span {
+    @apply text-secondary;
+}
+
+.form-group input {
+    @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
+}
+
+/* for image field */
+.form-img-group input {
+    @apply border border-uren-border text-sm w-full outline-none;
+}
+
+.file-input-field {
+    @apply file-input rounded-none file-input-sm text-sm outline-none h-11 w-full;
+}
+
+/* button */
+.submit-btn {
+    @apply bg-primary w-full text-base-100 font-semibold py-2.5 cursor-pointer;
+}
+
+.submit-btn:hover {
+    @apply bg-secondary;
+}
+
+/* *** ACCORDION *** */
+.uren-accordion {
+    @apply bg-gray-bg w-full p-4 border border-uren-border;
+}
+
+.accordion-header {
+    @apply flex gap-1 text-sm text-body;
+}
+
+.accordion-header-action {
+    @apply text-dark-gray cursor-pointer flex items-center gap-1;
+}
+
+.accordion-header-action:hover {
+    @apply text-primary;
+}
+
+.accordion-body {
+    @apply overflow-hidden transition-all duration-1000;
+}
+
 /* *** BLOG's STYLE *** */
 .blog-section {
     @apply px-6 py-12 bg-gray-bg text-center;
@@ -219,14 +278,18 @@
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
-    /* CONTAINER */
+    /* *** CONTAINER *** */
     .uren-container {
         @apply mx-8 my-16;
     }
 
-    /* BUTTONS */
+    /* *** BUTTONS *** */
     .primary-btn {
         @apply px-8 py-3;
+    }
+    /* *** ACCORDION *** */
+    .uren-accordion {
+        @apply p-6;
     }
     /* *** BLOG's STYLE *** */
     .blog-section {
@@ -294,14 +357,18 @@
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
 @media (min-width: 1025px) {
-    /* CONTAINER */
+    /* *** CONTAINER *** */
     .uren-container {
         @apply mx-8 my-20;
     }
 
-    /* BUTTONS */
+    /* *** BUTTONS *** */
     .primary-btn {
         @apply px-8 py-3 rounded-md;
+    }
+    /* *** ACCORDION *** */
+    .uren-accordion {
+        @apply p-8;
     }
     /* *** BLOG's STYLE *** */
     .blog-section {

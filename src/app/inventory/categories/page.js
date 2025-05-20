@@ -1,7 +1,9 @@
 
-import CategoriesTable from "@/components/inventory/categories/CategoriesTable";
 import "./categories.css"
-import AddCateAccordion from "@/components/inventory/categories/AddCateAccordion";
+import CategoriesTable from "@/components/inventory/categories/CategoriesTable";
+import UrenAccordion from "@/components/shared/UrenAccordion";
+import ImageField from "@/components/shared/fields/ImageField";
+import InputField from "@/components/shared/fields/InputField";
 
 
 export const metadata = {
@@ -11,11 +13,35 @@ export const metadata = {
 
 
 const CategoriesPage = () => {
+
+
+  const addCateForm =(
+    <form className="add-category-from">
+      {/* IMAGE FIELD */}
+      <ImageField name={"category-img"} label={"Category Image"} />
+
+      {/* NAME FIELD */}
+      <InputField
+        label={"Category Name"}
+        name={"category-name"}
+        required={true}
+        type={"text"}
+        placeholder={"Enter Category Name"}
+      />
+
+      {/* SUBMIT BUTTON */}
+      <input
+        type="submit"
+        value="Add New"
+        className="submit-btn uren-transition"
+      />
+    </form>
+  )
   
   return (
     <>
-      {/* ADD CATEGORY ACCORDION */}
-      <AddCateAccordion />
+      {/* ADD CATEGORY ACCORDION & FORM */}
+      <UrenAccordion form={addCateForm} heading={"Want to add new Category?"}/>
 
       {/* CATEGORIES TABLE WITH SORTING DROPDOWN */}
       <CategoriesTable categories={categories}/>

@@ -1,11 +1,8 @@
-"use client";
-import { useState } from "react";
-import { FaAngleDown } from "react-icons/fa";
-import InputField from "@/components/shared/fields/InputField";
-import ImageField from "@/components/shared/fields/ImageField";
+"use client"
+import { useState } from 'react';
 
-const AddCateAccordion = () => {
-  const [addCategory, setAddCategory] = useState(false);
+const AddBrandAccordion = () => {
+  const [addBrand, setAddBrand] = useState(false);
 
   return (
     <div className="uren-transition add-cat-accordion">
@@ -22,7 +19,6 @@ const AddCateAccordion = () => {
           />
         </span>
       </p>
-
       <div
         className={`accordion-body ${
           addCategory ? "max-h-[500px]" : "max-h-0"
@@ -31,7 +27,6 @@ const AddCateAccordion = () => {
         <form className="add-category-from">
           {/* IMAGE FIELD */}
           <ImageField name={"category-img"} label={"Category Image"} />
-
           {/* NAME FIELD */}
           <InputField
             label={"Category Name"}
@@ -40,7 +35,6 @@ const AddCateAccordion = () => {
             type={"text"}
             placeholder={"Enter Category Name"}
           />
-
           {/* SUBMIT BUTTON */}
           <input
             type="submit"
@@ -53,4 +47,4 @@ const AddCateAccordion = () => {
   );
 };
 
-export default AddCateAccordion;
+export default AddBrandAccordion;
