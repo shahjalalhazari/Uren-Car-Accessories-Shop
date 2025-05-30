@@ -2,6 +2,7 @@
 import "./categories.css"
 import CategoriesTable from "@/components/inventory/categories/CategoriesTable";
 import UrenAccordion from "@/components/shared/UrenAccordion";
+import FormSubmitBtn from "@/components/shared/buttons/FormSubmitBtn";
 import ImageField from "@/components/shared/fields/ImageField";
 import InputField from "@/components/shared/fields/InputField";
 
@@ -13,10 +14,10 @@ export const metadata = {
 
 
 const CategoriesPage = () => {
-
+  const loading = false;
 
   const addCateForm =(
-    <form className="add-category-from">
+    <form className="accordion-form-layout grid-cols-1 lg:grid-cols-3">
       {/* IMAGE FIELD */}
       <ImageField name={"category-img"} label={"Category Image"} />
 
@@ -30,11 +31,7 @@ const CategoriesPage = () => {
       />
 
       {/* SUBMIT BUTTON */}
-      <input
-        type="submit"
-        value="Add New"
-        className="submit-btn uren-transition"
-      />
+      <FormSubmitBtn loading={loading} text={"Add New"} size={"md"}/>
     </form>
   )
   

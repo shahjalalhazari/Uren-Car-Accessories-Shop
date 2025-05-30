@@ -25,7 +25,7 @@ const SidebarMenu = () => {
               pathname === item.path && "active-menu-item"
             }`}
           >
-            {item.icon}
+            <span className="text-xl">{item.icon}</span>
             {item.title}
           </li>
         </Link>
@@ -81,7 +81,7 @@ const menuItems = [
   },
   {
     id: 8,
-    title: "Brands",
+    title: "Brands & Models",
     path: "/inventory/brands",
     icon: <TbBrandCake />,
   },

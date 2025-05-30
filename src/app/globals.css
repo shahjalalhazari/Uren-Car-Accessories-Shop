@@ -101,11 +101,15 @@
 
 /* button */
 .submit-btn {
-    @apply bg-primary w-full text-base-100 font-semibold py-2.5 cursor-pointer;
+    @apply bg-primary w-full text-base-100 font-semibold py-2.5 cursor-pointer uppercase;
 }
 
 .submit-btn:hover {
     @apply bg-secondary;
+}
+
+.submit-btn:disabled {
+    @apply cursor-wait bg-body flex items-center justify-center;
 }
 
 /* *** ACCORDION *** */
@@ -127,6 +131,9 @@
 
 .accordion-body {
     @apply overflow-hidden transition-all duration-1000;
+}
+.accordion-content {
+    @apply mt-6;
 }
 
 /* *** BLOG's STYLE *** */
@@ -369,6 +376,9 @@
     /* *** ACCORDION *** */
     .uren-accordion {
         @apply p-8;
+    }
+    .accordion-content {
+        @apply mt-8;
     }
     /* *** BLOG's STYLE *** */
     .blog-section {

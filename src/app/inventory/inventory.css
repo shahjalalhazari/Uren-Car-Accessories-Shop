@@ -30,6 +30,11 @@
     @apply text-xl text-dark-gray uppercase font-bold mb-4;
 }
 
+/* ACCORDION FORM */
+.accordion-form-layout {
+    @apply grid gap-4 items-end;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -73,5 +78,9 @@
     /* HEADING */
     .inventory-heading {
         @apply text-3xl mb-8;
+    }
+    /* ACCORDION FORM */
+    .accordion-form-layout {
+        @apply grid gap-8;
     }
 }

@@ -28,7 +28,7 @@ const UrenAccordion = ({form, heading}) => {
         }`}
       >
         {/* ACCORDION BODY CONTENT */}
-        {form}
+        <div className="accordion-content">{form}</div>
       </div>
     </div>
   );
