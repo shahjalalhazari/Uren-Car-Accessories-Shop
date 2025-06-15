@@ -118,17 +118,42 @@ const inventoryItems = [
   },
   {
     id: 2,
-    title: "Manage Products",
-    path: "/inventory/manage-products",
+    title: "Add Products",
+    path: "/inventory/add-products",
   },
   {
     id: 3,
-    title: "Add Products",
-    path: "/inventory/add-products",
+    title: "Manage Products",
+    path: "/inventory/manage-products",
   },
   {
     id: 4,
     title: "Manage Users",
     path: "/inventory/manage-users",
+  },
+  {
+    id: 5,
+    title: "Orders",
+    path: "/inventory/orders",
+  },
+  {
+    id: 6,
+    title: "Sells",
+    path: "/inventory/sells",
+  },
+  {
+    id: 7,
+    title: "Categories",
+    path: "/inventory/categories",
+  },
+  {
+    id: 8,
+    title: "Brands & Models",
+    path: "/inventory/brands",
+  },
+  {
+    id: 9,
+    title: "Tags",
+    path: "/inventory/tags",
   },
 ];

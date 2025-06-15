@@ -8,37 +8,6 @@
     @apply text-sm outline-none rounded-none border border-uren-border px-4 py-2 cursor-pointer;
 }
 
-/* CATEGORY LIST TABLE */
-.categories-table {
-    @apply border border-uren-border table-fixed w-full mt-4 text-center text-body text-sm;
-}
-
-th,
-td {
-    @apply m-0 p-0;
-}
-
-.table-head th {
-    @apply py-2 px-1 uppercase border-b border-r border-uren-border text-dark-gray;
-}
-
-.table-body td {
-    @apply border-b border-r border-uren-border p-2;
-}
-
-.table-head th:last-child,
-.table-body td:last-child {
-    @apply border-r-0;
-}
-
-.table-btns {
-    @apply space-y-1
-}
-
-.table-btn {
-    @apply btn text-base-100 rounded-none btn-sm
-}
-
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
     /* ADD CATEGORY FORM */
@@ -49,18 +18,6 @@ td {
 
     .dropdown-items-list {
         @apply px-5 py-3;
-    }
-    /* CATEGORY LIST TABLE */
-    .categories-table {
-        @apply mt-6;
-    }
-
-    .table-btns {
-        @apply space-y-0 space-x-2;
-    }
-
-    .table-btn {
-        @apply btn-md;
     }
 }
 
@@ -74,23 +31,4 @@ td {
     .dropdown-items-list {
         @apply px-6 py-4;
     }
-
-    /* CATEGORY LIST TABLE */
-    .categories-table {
-        @apply mt-8;
-    }
-
-
-    .table-head th {
-        @apply py-4 px-2;
-    }
-
-    .table-btns {
-        @apply space-y-0 space-x-4;
-    }
-
-    .table-btn {
-        @apply btn-md;
-    }
-
 }

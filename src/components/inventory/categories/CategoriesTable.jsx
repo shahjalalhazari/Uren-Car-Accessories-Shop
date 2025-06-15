@@ -1,4 +1,5 @@
 "use client"
+import TableActionBtn from "@/components/shared/buttons/TableActionBtn";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -44,14 +45,14 @@ const CategoriesTable = ({ categories }) => {
           <option value="default">Default</option>
           <option value="name-asc">Name (A - Z)</option>
           <option value="name-desc">Name (Z - A)</option>
-          <option value="items-asc">Items (Low to High)</option>
-          <option value="items-desc">Items (High to Low)</option>
+          <option value="items-asc">Total Items (Low to High)</option>
+          <option value="items-desc">Total Items (High to Low)</option>
         </select>
       </div>
 
       {/* TABLE */}
-      <table className="categories-table">
-        <thead className="table-head">
+      <table className="inventory-table">
+        <thead className="table-head bg-gray-100">
           <tr>
             <th>Image</th>
             <th>Name</th>
@@ -70,21 +71,19 @@ const CategoriesTable = ({ categories }) => {
                   alt={category.name}
                 />
               </td>
-              <td>{category.name}</td>
-              <td>{category.items} Products</td>
+              <td className="item-name">{category.name}</td>
+              <td className="uppercase">{category.items} Products</td>
               <td className="table-btns">
-                <button
-                  className="btn-warning table-btn"
-                  title="Edit Category Info"
-                >
-                  <FaEdit />
-                </button>
-                <button
-                  className="btn-secondary table-btn"
-                  title="Delete Category"
-                >
-                  <FaTrash />
-                </button>
+                <TableActionBtn
+                  title={"Edit Category Info"}
+                  btn={<FaEdit />}
+                  btnType={"btn-warning"}
+                />
+                <TableActionBtn
+                  title={"Delete Category"}
+                  btn={<FaTrash />}
+                  btnType={"btn-secondary"}
+                />
               </td>
             </tr>
           ))}

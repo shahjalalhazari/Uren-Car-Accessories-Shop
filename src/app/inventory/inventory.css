@@ -35,6 +35,41 @@
     @apply grid gap-4 items-end;
 }
 
+/* INVENTORY TABLE */
+.inventory-table {
+    @apply border border-uren-border table-fixed w-full mt-4 text-center text-body text-sm;
+}
+
+th,
+td {
+    @apply m-0 p-0 w-fit;
+}
+
+.table-head th {
+    @apply py-2 px-1 uppercase border-b border-r border-uren-border text-dark-gray bg-gray-bg;
+}
+
+.table-body td {
+    @apply border-b border-r border-uren-border p-2 text-center;
+}
+
+.item-name {
+    @apply font-semibold uppercase text-sm;
+}
+
+.table-head th:last-child,
+.table-body td:last-child {
+    @apply border-r-0;
+}
+
+.table-btns {
+    @apply space-y-1 w-fit
+}
+
+.table-btn {
+    @apply btn text-base-100 rounded-none btn-sm;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -55,6 +90,18 @@
     /* HEADING */
     .inventory-heading {
         @apply text-2xl mb-6;
+    }
+    /* INVENTORY TABLE */
+    .inventory-table {
+        @apply mt-6;
+    }
+
+    .table-btns {
+        @apply space-y-0 space-x-2;
+    }
+
+    .table-btn {
+        @apply btn-sm py-3 h-fit;
     }
 }
 
@@ -82,5 +129,25 @@
     /* ACCORDION FORM */
     .accordion-form-layout {
         @apply grid gap-8;
+    }
+    /* INVENTORY TABLE */
+    .inventory-table {
+        @apply mt-8;
+    }
+
+    .table-head th {
+        @apply py-4 px-2;
+    }
+
+    .item-name {
+        @apply font-bold uppercase text-base;
+    }
+
+    .table-btns {
+        @apply space-y-0 space-x-4;
+    }
+
+    .table-btn {
+        @apply btn-md;
     }
 }
