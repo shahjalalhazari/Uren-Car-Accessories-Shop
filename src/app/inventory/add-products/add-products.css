@@ -1,0 +1,39 @@
+/* FORM LAYOUT */
+.add-product-form-layout {
+    @apply grid grid-cols-1 gap-4;
+}
+
+/* DROPDOWN SELECT FIELD */
+.select-field {
+    @apply select select-md w-full rounded-none outline-none text-sm border border-uren-border;
+}
+
+/* TAG INPUT FIELD */
+.input-tags {
+    @apply flex flex-wrap gap-2 items-center;
+}
+
+.single-tag {
+    @apply bg-gray-bg py-1.5 px-2.5 text-dark-gray flex gap-1.5 border border-uren-border;
+}
+
+
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* FORM LAYOUT */
+    .add-product-form-layout {
+        @apply grid grid-cols-2 gap-6;
+    }
+}
+
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* FORM LAYOUT */
+    .add-product-form-layout {
+        @apply grid grid-cols-4 gap-8;
+    }
+}

@@ -10,7 +10,7 @@ import "./brands.css"
 import TableActionBtn from "@/components/shared/buttons/TableActionBtn";
 
 const BrandsPage = () => {
-  const { carBrandList, modelList } = useCarBrand();
+  const { carBrandList, modelsList } = useCarBrand();
   const loading = false;
 
 
