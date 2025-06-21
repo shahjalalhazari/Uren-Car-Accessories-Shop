@@ -13,6 +13,7 @@
     "animate.css": "^4.1.1",
     "daisyui": "^4.12.23",
     "framer-motion": "^12.6.3",
+    "mongodb": "^6.17.0",
     "next": "15.1.7",
     "rc-slider": "^11.1.8",
     "react": "^19.0.0",

@@ -1,11 +1,9 @@
 import {Work_Sans } from "next/font/google";
 import "./globals.css";
 import 'animate.css';
-import Navbar from "@/components/shared/navbar/Navbar";
-import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
-import Newsletter from "@/components/shared/Newsletter";
 import Footer from './../components/shared/footer/Footer';
 import { CarProvider } from "@/context/CarContext";
+import AuthProvider from "@/providers/AuthProvider";
 
 const workSans = Work_Sans(
   {
@@ -27,14 +25,17 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased m-0 p-0`}
       >
-        {/* Wrap whole project with Car Provider context */}
-        <CarProvider >
-          
-          {children}
+        {/* WRAP WHOLE PROJECT WITH AUTH PROVIDER */}
+        <AuthProvider>
+          {/* WRAP PROJECT WITH CAR PROVIDER CONTEXT */}
+          <CarProvider >
+            
+            {children}
 
-          {/* Whole Footer  */}
-          <Footer />
-        </CarProvider>
+            {/* WHOLE FOOTER  */}
+            <Footer />
+          </CarProvider>
+        </AuthProvider>
       </body>
     </html>
   );
