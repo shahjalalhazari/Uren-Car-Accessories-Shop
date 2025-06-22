@@ -3,9 +3,10 @@ import "./signin.css";
 import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
 import PasswordField from "@/components/shared/fields/PasswordField";
 import InputField from "@/components/shared/fields/InputField";
+import RegisterForm from "@/components/user/signin/RegisterForm";
 
 export const metadata = {
-  title: "Signin & Signup",
+  title: "Login & Register",
   keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
 };
 
@@ -20,7 +21,7 @@ const SignInUPPage = () => {
 
             <form className="login-form">
               {/* Email Field */}
-              <InputField label={"E-mail"} name={"email"} type={"email"} placeholder={"E-mail Address"} required={false}/>
+              <InputField label={"E-mail"} name={"email"} type={"email"} placeholder={"E-mail Address"} required={true}/>
               
               {/* Password Field */}
               <PasswordField name={"password"} label={"Password"} placeholder={"Enter Password"}/>
@@ -43,23 +44,11 @@ const SignInUPPage = () => {
             </form>
           </div>
 
-          {/* Register */}
+          {/* REGISTER */}
           <div className="signin-layout-item">
             <h4 className="item-heading">Register</h4>
-
-            <form className="register-form">
-              {/* Email Field */}
-              <InputField label={"E-mail"} name={"email"} type={"email"} placeholder={"E-mail Address"} required={false}/>
-              
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8">
-                {/* Password Field */}
-                <PasswordField name={"password"} label={"Password"} placeholder={"Enter Password"} />
-                {/* Confirm Password Field */}
-                <PasswordField name={"confirm-password"} label={"Confirm Password"} placeholder={"Confirm Password"}/>
-              </div>
-
-              <input type="submit" value="Register" className="submit-btn uren-transition"/>
-            </form>
+            {/* REGISTER FORM */}
+            <RegisterForm/>
           </div>
         </div>
     </div>
