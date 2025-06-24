@@ -1,13 +1,14 @@
-"use client"
+"use client";
+import { useState } from 'react';
+import Link from 'next/link';
 import InputField from '@/components/shared/fields/InputField';
 import PasswordField from '@/components/shared/fields/PasswordField';
-import { useState } from 'react';
 
-const RegisterForm = () => {
+const LoginForm = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const RegisterHandler = async (event) => {
+  const loginHandler = async (event) => {
     // START LOADING
     setLoading(true);
 
@@ -16,22 +17,21 @@ const RegisterForm = () => {
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
-    const confirmPassword = form.confirmPassword.value;
+    const remember = form.rememberLogin.checked;
 
     setMessage("");
 
-    // CREATE NEW USER DATA
-    const newUser = { email, password, confirmPassword };
-    console.log(newUser);
+    const loginDate = {email, password, remember};
+    console.log(loginDate);
 
-    // RESET THE REGISTER FORM
+    // RESET THE FORM
     form.reset();
-  };
+  }
 
   return (
     <>
       {message && <div className="error-message">{message}</div>}
-      <form className="register-form" onSubmit={RegisterHandler}>
+      <form className="login-form" onSubmit={loginHandler}>
         {/* Email Field */}
         <InputField
           label={"E-mail"}
@@ -40,20 +40,25 @@ const RegisterForm = () => {
           placeholder={"E-mail Address"}
           required={true}
         />
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8">
-          {/* Password Field */}
-          <PasswordField
-            name={"password"}
-            label={"Password"}
-            placeholder={"Enter Password"}
-          />
-          {/* Confirm Password Field */}
-          <PasswordField
-            name={"confirmPassword"}
-            label={"Confirm Password"}
-            placeholder={"Confirm Password"}
-          />
+        {/* Password Field */}
+        <PasswordField
+          name={"password"}
+          label={"Password"}
+          placeholder={"Enter Password"}
+        />
+        <div className="remember-forgot">
+          <div className="flex gap-x-2 items-center">
+            <input
+              type="checkbox"
+              name="rememberLogin"
+              id="rememberLogin"
+              className="remember-checkbox uren-transition"
+            />
+            <label htmlFor="rememberLogin">Remember Me</label>
+          </div>
+          <p className="forgot-password uren-transition">
+            <Link href={"user/forgot-password"}>Forgot password?</Link>
+          </p>
         </div>
         <button
           type="submit"
@@ -63,7 +68,7 @@ const RegisterForm = () => {
           {loading ? (
             <span className="loading loading-infinity loading-md"></span>
           ) : (
-            "Register"
+            "Login"
           )}
         </button>
       </form>
@@ -71,4 +76,4 @@ const RegisterForm = () => {
   );
 };
 
-export default RegisterForm;
+export default LoginForm;
