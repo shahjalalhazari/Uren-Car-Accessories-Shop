@@ -1,31 +1,50 @@
 "use client"
 import InputField from '@/components/shared/fields/InputField';
 import PasswordField from '@/components/shared/fields/PasswordField';
-import { useState } from 'react';
+import { useState } from "react";
 
 const RegisterForm = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const RegisterHandler = async (event) => {
+    event.preventDefault();
     // START LOADING
     setLoading(true);
+    // SET EMPTY MESSAGE ON EACH SUBMIT
+    setMessage("");
 
     // GET SUBMITTED DATA
-    event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     const confirmPassword = form.confirmPassword.value;
 
-    setMessage("");
-
     // CREATE NEW USER DATA
     const newUser = { email, password, confirmPassword };
-    console.log(newUser);
 
-    // RESET THE REGISTER FORM
-    form.reset();
+    try {
+      // SEND REGISTRATION DATA TO DB
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        body: JSON.stringify(newUser),
+        headers: { "Content-Type": "application/json" },
+      });
+
+      const data = await res.json();
+      setMessage(data.message);
+
+      if (data.success) {
+        // RESET THE REGISTER FORM
+        form.reset();
+      }
+    } catch (error) {
+      // TODO: REMOVE
+      console.log("Error", error);
+      setMessage(error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
