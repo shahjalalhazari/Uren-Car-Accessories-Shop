@@ -73,7 +73,7 @@
     @apply text-3xl transition-transform duration-500 ease-in-out
 }
 .dropdown-list-item {
-    @apply py-2.5 border-b border-uren-border;
+    @apply py-2.5 border-b border-uren-border cursor-pointer;
 }
 .dropdown-list-item:last-child {
     @apply border-none;

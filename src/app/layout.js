@@ -3,6 +3,7 @@ import "./globals.css";
 import 'animate.css';
 import Footer from './../components/shared/footer/Footer';
 import { CarProvider } from "@/context/CarContext";
+import AuthProviders from "@/providers/AuthProviders";
 
 const workSans = Work_Sans(
   {
@@ -24,12 +25,15 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased m-0 p-0`}
       >
-        {/* WRAP PROJECT WITH CAR PROVIDER CONTEXT */}
-        <CarProvider >
-          {children}
-          {/* WHOLE FOOTER  */}
-          <Footer />
-        </CarProvider>
+        {/* WRAP PROJECT WITH AUTH PROVIDER FOR AUTHENTICATION */}
+        <AuthProviders>
+          {/* WRAP PROJECT WITH CAR PROVIDER CONTEXT */}
+          <CarProvider >
+            {children}
+            {/* WHOLE FOOTER  */}
+            <Footer />
+          </CarProvider>
+        </AuthProviders>
       </body>
     </html>
   );

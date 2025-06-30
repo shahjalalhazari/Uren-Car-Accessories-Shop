@@ -1,14 +1,15 @@
 "use client"
+import { signOut } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiShoppingBag } from "react-icons/bi";
 import { FaAngleDown, FaUser } from "react-icons/fa";
 
-
 const StickyNavbar = ({ navItems, isUser }) => {
   const [isVisible, setIsVisible] = useState(false);
   const pathname = usePathname();
+  const userAuthenticated = isUser.status;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -60,9 +61,8 @@ const StickyNavbar = ({ navItems, isUser }) => {
             <FaUser /> <FaAngleDown className="dropdown-arrow" />
           </button>
           <ul className={"dropdown-list"}>
-            {isUser ? (
+            {userAuthenticated === "authenticated" ? (
               <>
-                {/* <li className="dropdown-list-item dropdown-list-active"> */}
                 <li
                   className={`dropdown-list-item ${
                     pathname.split("/").includes("profile") &&
@@ -72,7 +72,7 @@ const StickyNavbar = ({ navItems, isUser }) => {
                   <Link href={"/user/profile"}>My Account</Link>
                 </li>
                 <li className="dropdown-list-item">
-                  <Link href={"/"}>Logout</Link>
+                  <p onClick={() => signOut()}>Logout</p>
                 </li>
               </>
             ) : (

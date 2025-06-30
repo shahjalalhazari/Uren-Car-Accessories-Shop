@@ -1,3 +1,5 @@
+"use client";
+import { signOut, useSession } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -9,6 +11,7 @@ import {
   FaXTwitter,
 } from "react-icons/fa6";
 import FooterNavColumn from "./FooterNavColumn";
+import { usePathname } from "next/navigation";
 
 const FooterTopPart = ({
   infoNavItems,
@@ -17,6 +20,8 @@ const FooterTopPart = ({
   myAccountNavItems,
   inventoryNavItems,
 }) => {
+  const pathname = usePathname();
+  const session = useSession();
   const isStaff = true;
 
   return (
@@ -95,12 +100,51 @@ const FooterTopPart = ({
 
       {/* Column 2 | INFORMATION */}
       <FooterNavColumn title={"Information"} navItems={infoNavItems} />
+
       {/* Column 3 | CUSTOMER SERVICES */}
       <FooterNavColumn title={"Customer Services"} navItems={CSNavItems} />
+
       {/* Column 4 | EXTRAS */}
       <FooterNavColumn title={"Extras"} navItems={extraNavItems} />
+
       {/* Column 5 | ACCOUNT */}
-      <FooterNavColumn title={"My Account"} navItems={myAccountNavItems} />
+      <nav className="footer-nav">
+        <h6 className="footer-nav-heading">My Account</h6>
+        <div></div>
+        <ul className="footer-nav-item-list">
+          {session.status === "authenticated" ? (
+            <>
+              {myAccountNavItems?.map((item) => (
+                <li
+                  key={item.id}
+                  className={`${
+                    pathname === item.path && "footer-active-nav-link"
+                  }`}
+                >
+                  <Link href={item.path} className="footer-nav-link">
+                    {item.title}
+                  </Link>
+                </li>
+              ))}
+              <li className="footer-nav-link cursor-pointer">
+                <p onClick={() => signOut()}>Logout</p>
+              </li>
+            </>
+          ) : (
+            <li
+              className={`${
+                pathname.split("/").includes("signin") &&
+                "footer-active-nav-link"
+              }`}
+            >
+              <Link href={"/user/signin"} className="footer-nav-link">
+                Sign In | Sign Up
+              </Link>
+            </li>
+          )}
+        </ul>
+      </nav>
+
       {/* Column 6 | INVENTORY */}
       {isStaff && (
         <FooterNavColumn title={"Inventory"} navItems={inventoryNavItems} />

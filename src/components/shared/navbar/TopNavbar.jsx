@@ -1,4 +1,5 @@
 "use client";
+import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -16,6 +17,8 @@ import {
 const TopNavbar = ({ navItems, isUser, isStaff }) => {
   const pathname = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const userAuthenticated = isUser.status;
+
   return (
     <div className="nav-top-part">
       {/* NAVBAR TOP PART FOR LARGE DEVICES */}
@@ -208,42 +211,32 @@ const TopNavbar = ({ navItems, isUser, isStaff }) => {
                   </div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      {/* TODO */}
-                      {/* {isUser ? (
+                      {userAuthenticated === "authenticated" ? (
                         <>
-                          <li>
+                          <li
+                            className={`${
+                              pathname.split("/").includes("profile") &&
+                              "dropdown-list-active"
+                            }`}
+                            onClick={() => setNavbarOpen(false)}
+                          >
                             <Link href={"/user/profile"}>My Account</Link>
                           </li>
-                          <li>
-                            <Link href={"/"}>Logout</Link>
+                          <li onClick={() => setNavbarOpen(false)}>
+                            <p onClick={() => signOut()}>Logout</p>
                           </li>
                         </>
                       ) : (
-                        <li>
+                        <li
+                          className={`${
+                            pathname.split("/").includes("signin") &&
+                            "dropdown-list-active"
+                          }`}
+                          onClick={() => setNavbarOpen(false)}
+                        >
                           <Link href={"/user/signin"}>Sign In | Sign Up</Link>
                         </li>
-                      )} */}
-                      <li
-                        className={`${
-                          pathname.split("/").includes("profile") &&
-                          "dropdown-list-active"
-                        }`}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        <Link href={"/user/profile"}>My Account</Link>
-                      </li>
-                      <li onClick={() => setNavbarOpen(false)}>
-                        <Link href={"/"}>Logout</Link>
-                      </li>
-                      <li
-                        className={`${
-                          pathname.split("/").includes("signin") &&
-                          "dropdown-list-active"
-                        }`}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        <Link href={"/user/signin"}>Sign In | Sign Up</Link>
-                      </li>
+                      )}
                     </ul>
                   </div>
                 </div>
@@ -407,42 +400,32 @@ const TopNavbar = ({ navItems, isUser, isStaff }) => {
                     </div>
                     <div className="collapse-content text-sm ml-4">
                       <ul className="space-y-3">
-                        {/* TODO */}
-                        {/* {isUser ? (
+                        {userAuthenticated === "authenticated" ? (
                           <>
-                            <li>
+                            <li
+                              className={`${
+                                pathname.split("/").includes("profile") &&
+                                "dropdown-list-active"
+                              }`}
+                              onClick={() => setNavbarOpen(false)}
+                            >
                               <Link href={"/user/profile"}>My Account</Link>
                             </li>
-                            <li>
-                              <Link href={"/"}>Logout</Link>
+                            <li onClick={() => setNavbarOpen(false)}>
+                              <p onClick={() => signOut()}>Logout</p>
                             </li>
                           </>
                         ) : (
-                          <li>
+                          <li
+                            className={`${
+                              pathname.split("/").includes("signin") &&
+                              "dropdown-list-active"
+                            }`}
+                            onClick={() => setNavbarOpen(false)}
+                          >
                             <Link href={"/user/signin"}>Sign In | Sign Up</Link>
                           </li>
-                        )} */}
-                        <li
-                          className={`${
-                            pathname.split("/").includes("profile") &&
-                            "dropdown-list-active"
-                          }`}
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          <Link href={"/user/profile"}>My Account</Link>
-                        </li>
-                        <li onClick={() => setNavbarOpen(false)}>
-                          <Link href={"/"}>Logout</Link>
-                        </li>
-                        <li
-                          className={`${
-                            pathname.split("/").includes("signin") &&
-                            "dropdown-list-active"
-                          }`}
-                          onClick={() => setNavbarOpen(false)}
-                        >
-                          <Link href={"/user/signin"}>Sign In | Sign Up</Link>
-                        </li>
+                        )}
                       </ul>
                     </div>
                   </div>

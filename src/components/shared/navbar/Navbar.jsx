@@ -1,10 +1,12 @@
+"use client";
+import { useSession } from "next-auth/react";
 import BottomNavbar from "./BottomNavbar";
 import "./navbar.css";
 import StickyNavbar from "./StickyNavbar";
 import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
-  const user = true;
+  const session = useSession();
   const isStaff = true;
 
   return (
@@ -12,16 +14,16 @@ const Navbar = () => {
       <TopNavbar
         navItems={navItems}
         categories={categories}
-        isUser={user}
+        isUser={session}
         isStaff={isStaff}
       />
       <BottomNavbar
         navItems={navItems}
         categories={categories}
-        isUser={user}
+        isUser={session}
         isStaff={isStaff}
       />
-      <StickyNavbar navItems={navItems} isUser={user} isStaff={isStaff} />
+      <StickyNavbar navItems={navItems} isUser={session} isStaff={isStaff} />
     </>
   );
 };
