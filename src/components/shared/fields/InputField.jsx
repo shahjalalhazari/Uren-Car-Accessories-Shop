@@ -4,6 +4,7 @@ const InputField = ({
   label,
   type,
   name,
+  id = "",
   placeholder = "",
   required,
   className = "",
@@ -16,6 +17,7 @@ const InputField = ({
       <input
         type={type}
         name={name}
+        id={id}
         placeholder={placeholder}
         required={required}
         className={className}

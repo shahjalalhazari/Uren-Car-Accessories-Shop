@@ -81,6 +81,6 @@ export const POST = async (req) => {
     return new Response(JSON.stringify({
       message: "Something went wrong! While creating user.",
       success: false
-    }), {status:400, headers: { "Content-Type": "application/json" }})
+    }), {status: 500, headers: { "Content-Type": "application/json" }})
   }
 };

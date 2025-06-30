@@ -1,32 +1,46 @@
 "use client";
-import { useState } from 'react';
-import Link from 'next/link';
-import InputField from '@/components/shared/fields/InputField';
-import PasswordField from '@/components/shared/fields/PasswordField';
+import { useState } from "react";
+import { signIn } from "next-auth/react";
+import Link from "next/link";
+import InputField from "@/components/shared/fields/InputField";
+import PasswordField from "@/components/shared/fields/PasswordField";
+import { useRouter } from "next/navigation";
 
 const LoginForm = () => {
+  const route = useRouter();
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
   const loginHandler = async (event) => {
+    event.preventDefault();
     // START LOADING
     setLoading(true);
+    // SET EMPTY MESSAGE ON EACH SUBMIT
+    setMessage("");
 
     // GET SUBMITTED DATA
-    event.preventDefault();
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
     const remember = form.rememberLogin.checked;
 
-    setMessage("");
+    const loginData = { email, password, remember };
 
-    const loginDate = {email, password, remember};
-    console.log(loginDate);
+    // SEND USER CREDENTIALS FOR LOGIN
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+    });
 
-    // RESET THE FORM
-    form.reset();
-  }
+    if (res.ok) {
+      form.reset();
+      route.push("/");
+    } else {
+      setMessage(res.error);
+    }
+    setLoading(false);
+  };
 
   return (
     <>
@@ -36,6 +50,7 @@ const LoginForm = () => {
         <InputField
           label={"E-mail"}
           name={"email"}
+          id="LoginEmail"
           type={"email"}
           placeholder={"E-mail Address"}
           required={true}
@@ -43,6 +58,7 @@ const LoginForm = () => {
         {/* Password Field */}
         <PasswordField
           name={"password"}
+          id="loginPassword"
           label={"Password"}
           placeholder={"Enter Password"}
         />

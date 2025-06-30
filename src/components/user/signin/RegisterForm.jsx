@@ -55,6 +55,7 @@ const RegisterForm = () => {
         <InputField
           label={"E-mail"}
           name={"email"}
+          id={"registerEmail"}
           type={"email"}
           placeholder={"E-mail Address"}
           required={true}
@@ -64,12 +65,14 @@ const RegisterForm = () => {
           {/* Password Field */}
           <PasswordField
             name={"password"}
+            id={"registerPassword"}
             label={"Password"}
             placeholder={"Enter Password"}
           />
           {/* Confirm Password Field */}
           <PasswordField
             name={"confirmPassword"}
+            id={"registerConfirmPassword"}
             label={"Confirm Password"}
             placeholder={"Confirm Password"}
           />
