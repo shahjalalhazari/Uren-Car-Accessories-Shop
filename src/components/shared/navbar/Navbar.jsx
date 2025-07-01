@@ -7,23 +7,16 @@ import TopNavbar from "./TopNavbar";
 
 const Navbar = () => {
   const session = useSession();
-  const isStaff = true;
 
   return (
     <>
-      <TopNavbar
-        navItems={navItems}
-        categories={categories}
-        isUser={session}
-        isStaff={isStaff}
-      />
+      <TopNavbar navItems={navItems} categories={categories} isUser={session} />
       <BottomNavbar
         navItems={navItems}
         categories={categories}
         isUser={session}
-        isStaff={isStaff}
       />
-      <StickyNavbar navItems={navItems} isUser={session} isStaff={isStaff} />
+      <StickyNavbar navItems={navItems} isUser={session} />
     </>
   );
 };

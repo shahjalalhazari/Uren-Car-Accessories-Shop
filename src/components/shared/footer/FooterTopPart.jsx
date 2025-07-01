@@ -22,12 +22,14 @@ const FooterTopPart = ({
 }) => {
   const pathname = usePathname();
   const session = useSession();
-  const isStaff = true;
+  const isStaff = session.data?.user?.role;
 
   return (
     <footer
       className={`top-footer-layout ${
-        isStaff ? "lg:grid-cols-7 md:grid-cols-4" : ""
+        isStaff === "admin"
+          ? "md:grid-cols-4 lg:grid-cols-7"
+          : "md:grid-cols-3 lg:grid-cols-6"
       }`}
     >
       {/* Column 1 */}
@@ -40,7 +42,7 @@ const FooterTopPart = ({
         />
         <p className="text-sm">
           We are a team of designers and developers that create high quality
-          HTML Template & Woocommerce, Shopify Theme.
+          HTML Template & Woo-commerce, Shopify Theme.
         </p>
         <div className="space-y-3 text-sm">
           <p>
@@ -146,7 +148,7 @@ const FooterTopPart = ({
       </nav>
 
       {/* Column 6 | INVENTORY */}
-      {isStaff && (
+      {isStaff === "admin" && (
         <FooterNavColumn title={"Inventory"} navItems={inventoryNavItems} />
       )}
     </footer>

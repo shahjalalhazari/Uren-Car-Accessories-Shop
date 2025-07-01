@@ -321,7 +321,7 @@
         @apply px-8;
     }
     .top-footer-layout {
-        @apply py-16 grid grid-cols-3 gap-x-8 gap-y-12;
+        @apply py-16 gap-x-8 gap-y-12;
     }
     .footer-aside {
         @apply space-y-6;
@@ -404,7 +404,7 @@
         @apply px-8;
     }
     .top-footer-layout {
-        @apply py-20 grid grid-cols-6 gap-x-10 gap-y-14;
+        @apply py-20 gap-x-10 gap-y-14;
     }
     .footer-aside {
         @apply space-y-6;

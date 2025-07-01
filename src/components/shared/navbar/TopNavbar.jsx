@@ -14,10 +14,11 @@ import {
   BiX,
 } from "react-icons/bi";
 
-const TopNavbar = ({ navItems, isUser, isStaff }) => {
+const TopNavbar = ({ navItems, isUser }) => {
   const pathname = usePathname();
   const [navbarOpen, setNavbarOpen] = useState(false);
   const userAuthenticated = isUser.status;
+  const isStaff = isUser.data?.user?.role;
 
   return (
     <div className="nav-top-part">
@@ -46,7 +47,7 @@ const TopNavbar = ({ navItems, isUser, isStaff }) => {
 
           {/* If the user is staff then user can see INVENTORY BUTTON or the user is a normal user then user can see CART & PHONE BUTTON. */}
           {/* If staff user is on inventory or inventory related any page then staff can see HOME BUTTON or INVENTORY BUTTON for all other normal pages. */}
-          {isStaff ? (
+          {isStaff === "admin" ? (
             <>
               {pathname.split("/").includes("inventory") ? (
                 <Link href="/">
@@ -106,7 +107,7 @@ const TopNavbar = ({ navItems, isUser, isStaff }) => {
 
           {/* If the user is staff then user can see INVENTORY BUTTON or the user is a normal user then user can see CART & PHONE BUTTON. */}
           {/* If staff user is on inventory or inventory related any page then staff can see HOME BUTTON or INVENTORY BUTTON for all other normal pages. */}
-          {isStaff ? (
+          {isStaff === "admin" ? (
             <>
               {pathname.split("/").includes("inventory") ? (
                 <Link href="/">
@@ -308,7 +309,7 @@ const TopNavbar = ({ navItems, isUser, isStaff }) => {
 
           {/* If the user is staff then user can see INVENTORY BUTTON or the user is a normal user then user can see CART & PHONE BUTTON. */}
           {/* If staff user is on inventory or inventory related any page then staff can see HOME BUTTON or INVENTORY BUTTON for all other normal pages. */}
-          {isStaff ? (
+          {isStaff === "admin" ? (
             <>
               {pathname.split("/").includes("inventory") ? (
                 <Link href="/">
