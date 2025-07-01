@@ -22,12 +22,12 @@ const FooterTopPart = ({
 }) => {
   const pathname = usePathname();
   const session = useSession();
-  const isStaff = session.data?.user?.role;
+  const userRole = session.data?.user?.role;
 
   return (
     <footer
       className={`top-footer-layout ${
-        isStaff === "admin"
+        userRole === "admin"
           ? "md:grid-cols-4 lg:grid-cols-7"
           : "md:grid-cols-3 lg:grid-cols-6"
       }`}
@@ -148,7 +148,7 @@ const FooterTopPart = ({
       </nav>
 
       {/* Column 6 | INVENTORY */}
-      {isStaff === "admin" && (
+      {userRole === "admin" && (
         <FooterNavColumn title={"Inventory"} navItems={inventoryNavItems} />
       )}
     </footer>
