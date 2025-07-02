@@ -8,6 +8,7 @@ const InputField = ({
   placeholder = "",
   required,
   className = "",
+  defaultValue = "",
 }) => {
   return (
     <div className="form-group">
@@ -21,6 +22,7 @@ const InputField = ({
         placeholder={placeholder}
         required={required}
         className={className}
+        defaultValue={defaultValue}
       />
     </div>
   );

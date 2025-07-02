@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { signIn } from "next-auth/react";
 import Link from "next/link";
 import InputField from "@/components/shared/fields/InputField";
@@ -10,6 +10,12 @@ const LoginForm = () => {
   const route = useRouter();
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [rememberedEmail, setRememberedEmail] = useState("");
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberedEmail");
+    if (savedEmail) setRememberedEmail(savedEmail);
+  }, []);
 
   const loginHandler = async (event) => {
     event.preventDefault();
@@ -24,8 +30,6 @@ const LoginForm = () => {
     const password = form.password.value;
     const remember = form.rememberLogin.checked;
 
-    const loginData = { email, password, remember };
-
     // SEND USER CREDENTIALS FOR LOGIN
     const res = await signIn("credentials", {
       email,
@@ -34,10 +38,15 @@ const LoginForm = () => {
     });
 
     if (res.ok) {
+      if (remember) {
+        localStorage.setItem("rememberedEmail", email);
+      } else {
+        localStorage.removeItem("rememberedEmail");
+      }
       form.reset();
       route.push("/");
     } else {
-      setMessage(res.error);
+      setMessage(res.error || "Login Failed!");
     }
     setLoading(false);
   };
@@ -54,6 +63,7 @@ const LoginForm = () => {
           type={"email"}
           placeholder={"E-mail Address"}
           required={true}
+          defaultValue={rememberedEmail}
         />
         {/* Password Field */}
         <PasswordField
@@ -69,6 +79,7 @@ const LoginForm = () => {
               name="rememberLogin"
               id="rememberLogin"
               className="remember-checkbox uren-transition"
+              defaultChecked={!!rememberedEmail}
             />
             <label htmlFor="rememberLogin">Remember Me</label>
           </div>
