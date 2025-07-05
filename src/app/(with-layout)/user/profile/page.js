@@ -25,5 +25,4 @@ const tabs = [
   "Addresses",
   "Payment Methods",
   "Account Details",
-  "Logout",
 ];

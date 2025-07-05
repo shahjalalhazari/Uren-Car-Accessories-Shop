@@ -1,12 +1,22 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ATMCardDisplay from "@/components/user/profile/ATMCardDisplay";
 import Image from "next/image";
 import { FaRegStar } from "react-icons/fa";
 import PasswordField from "@/components/shared/fields/PasswordField";
+import { signOut } from "next-auth/react";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const ClientProfilePage = ({ tabs }) => {
-  const [activeTab, setActiveTab] = useState("Dashboard");
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialTab = searchParams.get("tab") || "Dashboard";
+  const [activeTab, setActiveTab] = useState(initialTab);
+
+  useEffect(() => {
+    const newTab = searchParams.get("tab") || "Dashboard";
+    setActiveTab(newTab);
+  }, [searchParams]);
 
   return (
     <div className="uren-container profile-layout">
@@ -18,11 +28,19 @@ const ClientProfilePage = ({ tabs }) => {
             className={`tab-item uren-transition ${
               activeTab === tab ? "bg-primary" : ""
             }`}
-            onClick={() => setActiveTab(tab)}
+            onClick={() => {
+              setActiveTab(tab);
+              const newParams = new URLSearchParams(searchParams.toString());
+              newParams.set("tab", tab);
+              router.replace(`?${newParams.toString()}`, { scroll: false });
+            }}
           >
             {tab}
           </li>
         ))}
+        <li className={`tab-item uren-transition`} onClick={() => signOut()}>
+          Logout
+        </li>
       </ul>
 
       {/* MAIN CONTENT */}
