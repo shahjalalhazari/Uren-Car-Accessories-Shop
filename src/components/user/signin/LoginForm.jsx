@@ -4,10 +4,11 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import InputField from "@/components/shared/fields/InputField";
 import PasswordField from "@/components/shared/fields/PasswordField";
-import { useRouter } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 
 const LoginForm = () => {
-  const route = useRouter();
+  const searchParams = useSearchParams();
+  const path = searchParams.get("redirect") || "/";
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [rememberedEmail, setRememberedEmail] = useState("");
@@ -34,7 +35,8 @@ const LoginForm = () => {
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: false,
+      redirect: true,
+      callbackUrl: path,
     });
 
     if (res.ok) {
@@ -43,8 +45,6 @@ const LoginForm = () => {
       } else {
         localStorage.removeItem("rememberedEmail");
       }
-      form.reset();
-      route.push("/");
     } else {
       setMessage(res.error || "Login Failed!");
     }
