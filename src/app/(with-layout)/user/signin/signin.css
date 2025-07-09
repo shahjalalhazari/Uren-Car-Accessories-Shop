@@ -18,7 +18,11 @@
     @apply w-full mt-6;
 }
 .error-message {
-    @apply text-sm text-center mt-4 bg-secondary bg-opacity-15 py-2 px-4 text-secondary border border-secondary
+    @apply text-sm text-center mt-4 bg-secondary bg-opacity-15 py-2 px-4 text-secondary border border-secondary;
+    }
+
+    .success-message {
+        @apply text-sm text-center mt-4 bg-green-500 bg-opacity-15 py-2 px-4 text-green-800 border border-green-800;
 }
 .form-group {
     @apply w-full text-sm text-body mt-5;

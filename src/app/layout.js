@@ -4,6 +4,8 @@ import 'animate.css';
 import Footer from './../components/shared/footer/Footer';
 import { CarProvider } from "@/context/CarContext";
 import AuthProviders from "@/providers/AuthProviders";
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const workSans = Work_Sans(
   {
@@ -29,6 +31,20 @@ export default function RootLayout({ children }) {
         <AuthProviders>
           {/* WRAP PROJECT WITH CAR PROVIDER CONTEXT */}
           <CarProvider >
+            {/* REACT TOASTIFY */}
+            <ToastContainer
+              position="top-center"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              transition={Bounce}
+            />
             {children}
             {/* WHOLE FOOTER  */}
             <Footer />

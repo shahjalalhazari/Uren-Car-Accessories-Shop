@@ -6,6 +6,7 @@ import { useState } from "react";
 const RegisterForm = () => {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
+  const [registrationSuccess, setRegistrationSuccess] = useState(false);
 
   const RegisterHandler = async (event) => {
     event.preventDefault();
@@ -36,11 +37,10 @@ const RegisterForm = () => {
 
       if (data.success) {
         // RESET THE REGISTER FORM
+        setRegistrationSuccess(true);
         form.reset();
       }
     } catch (error) {
-      // TODO: REMOVE
-      console.log("Error", error);
       setMessage(error);
     } finally {
       setLoading(false);
@@ -49,7 +49,15 @@ const RegisterForm = () => {
 
   return (
     <>
-      {message && <div className="error-message">{message}</div>}
+      {message && (
+        <div
+          className={`${
+            registrationSuccess ? "success-message" : "error-message"
+          }`}
+        >
+          {message}
+        </div>
+      )}
       <form className="register-form" onSubmit={RegisterHandler}>
         {/* Email Field */}
         <InputField
