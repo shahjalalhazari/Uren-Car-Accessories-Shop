@@ -1,33 +1,54 @@
-import { NextResponse } from "next/server";
+import {NextResponse} from "next/server";
 import jwt from 'jsonwebtoken';
-import { connectDB } from "@/lib/connectDB";
+import {connectDB} from "@/lib/connectDB";
 
 
 export const GET = async (req) => {
-    const { searchParams } = new URL(req.url);
-    const token = searchParams.get("token");
+  const {searchParams} = new URL(req.url);
+  const token = searchParams.get("token");
+  const redirectUrl = new URL("/user/signin", req.url);
 
-    if (!token) {
-        return NextResponse.redirect(new URL("/user/signin?error=InvalidToken", req.url));
+  // NO TOKEN.
+  if (!token) {
+    redirectUrl.searchParams.set("errorMessage", "Invalid verification token");
+    return NextResponse.redirect(redirectUrl);
+  };
+
+  try {
+    // DECODE THE TOKEN
+    const decoded = jwt.verify(token, process.env.NEXTAUTH_SECRET);
+
+    // CONNECT TO DB.
+    const db = await connectDB();
+    const userCollection = db.collection("Users");
+    
+    // FIND THE USER.
+    const user = await userCollection.findOne({
+      email: decoded.email
+    });
+
+    // NO USER FOUND.
+    if (!user) {
+      redirectUrl.searchParams.set("errorMessage", "User not found");
+      return NextResponse.redirect(redirectUrl);
     };
 
-    try {
-        const decoded = jwt.verify(token, process.env.NEXTAUTH_SECRET);
-        const db = await connectDB();
-        const userCollection = db.collection("Users");
+    // UPDATE THE USER STATUS.
+    await userCollection.updateOne({
+      email: decoded.email
+    }, {
+      $set: {
+        status: "verified"
+      }
+    });
 
-        const user = await userCollection.findOne({email: decoded.email});
-        if (!user) {
-            return NextResponse.redirect(new URL("/user/signin?error=UserNotFound", req.url));
-        };
+    // RESPONSE SUCCESS MESSAGE.
+    redirectUrl.searchParams.set("successMessage", "Email verified. You can login now.");
+    return NextResponse.redirect(redirectUrl);
 
-        await userCollection.updateOne(
-            { email: decoded.email },
-            { $set: { status: "verified" } }
-        );
-
-        return NextResponse.redirect(new URL("/user/signin?verified=1", req.url));
-    } catch (error) {
-        return NextResponse.redirect(new URL("/user/signin?error=TokenExpiredOrInvalid", req.url));
-    };
+  } catch (error) {
+    // RESPONSE ERROR MESSAGE.
+    redirectUrl.searchParams.set("errorMessage", "Link expired or invalid.");
+    return NextResponse.redirect(redirectUrl);
+  };
 };

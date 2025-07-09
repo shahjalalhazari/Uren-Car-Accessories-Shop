@@ -54,7 +54,6 @@ export const POST = async (req) => {
     const userExists = await userCollection.findOne({
       email: email
     });
-
     if (userExists) {
       return new Response(JSON.stringify({
         message: "User already exists!",

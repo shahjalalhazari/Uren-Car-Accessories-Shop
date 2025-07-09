@@ -4,26 +4,46 @@ import { signIn } from "next-auth/react";
 import Link from "next/link";
 import InputField from "@/components/shared/fields/InputField";
 import PasswordField from "@/components/shared/fields/PasswordField";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 const LoginForm = () => {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const path = searchParams.get("redirect") || "/";
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [rememberedEmail, setRememberedEmail] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
 
   useEffect(() => {
+    const verified = searchParams.get("successMessage");
+    const error = searchParams.get("errorMessage");
     const savedEmail = localStorage.getItem("rememberedEmail");
+
+    if (verified) {
+      setLoginSuccess(true);
+      setMessage(verified);
+    }
+    if (error) setMessage(error);
     if (savedEmail) setRememberedEmail(savedEmail);
-  }, []);
+
+    // REMOVE QUERY PARAMS FROM URL.
+    if (verified || error) {
+      const url = new URL(window.location);
+      url.searchParams.delete("successMessage");
+      url.searchParams.delete("errorMessage");
+      window.history.replaceState({}, document.title, url.pathname);
+    }
+  }, [searchParams]);
 
   const loginHandler = async (event) => {
     event.preventDefault();
-    // START LOADING
+    // START LOADING.
     setLoading(true);
-    // SET EMPTY MESSAGE ON EACH SUBMIT
+    // SET EMPTY MESSAGE ON EACH SUBMIT.
     setMessage("");
+    // SET LOGIN SUCCESS FALSE ON EACH SUBMIT.
+    setLoginSuccess(false);
 
     // GET SUBMITTED DATA
     const form = event.target;
@@ -31,29 +51,41 @@ const LoginForm = () => {
     const password = form.password.value;
     const remember = form.rememberLogin.checked;
 
-    // SEND USER CREDENTIALS FOR LOGIN
+    // SEND USER CREDENTIALS FOR LOGIN.
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: true,
+      redirect: false,
       callbackUrl: path,
     });
 
+    // LOGIN SUCCESSFUL, REDIRECT THE USER.
     if (res.ok) {
+      // REMEMBER IS CHECKED.
       if (remember) {
         localStorage.setItem("rememberedEmail", email);
       } else {
         localStorage.removeItem("rememberedEmail");
       }
+      // REDIRECT USER AFTER LOGIN
+      router.push(path);
     } else {
+      // SET THE ERROR MESSAGE.
       setMessage(res.error || "Login Failed!");
     }
+    // FINALLY STOP THE LOADING.
     setLoading(false);
   };
 
   return (
     <>
-      {message && <div className="error-message">{message}</div>}
+      {message && (
+        <div
+          className={`${loginSuccess ? "success-message" : "error-message"}`}
+        >
+          {message}
+        </div>
+      )}
       <form className="login-form" onSubmit={loginHandler}>
         {/* Email Field */}
         <InputField
