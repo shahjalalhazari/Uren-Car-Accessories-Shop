@@ -1,8 +1,11 @@
+import Navbar from "@/components/shared/navbar/Navbar";
 import Link from "next/link";
 import { BiSearchAlt2 } from "react-icons/bi";
 
 export default function NotFound() {
   return (
+    <>
+    <Navbar/>
     <div className="not-found-404">
       <h1 className="error-heading">404</h1>
       <h2 className="error-subheading">PAGE NOT FOUND</h2>
@@ -19,6 +22,7 @@ export default function NotFound() {
       <Link href="/" className="back-to-home-btn">
         Back To Home Page
       </Link>
-    </div>
+      </div>
+    </>
   );
 }
