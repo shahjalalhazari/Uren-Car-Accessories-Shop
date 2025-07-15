@@ -6,6 +6,7 @@ import { CarProvider } from "@/context/CarContext";
 import AuthProviders from "@/providers/AuthProviders";
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const workSans = Work_Sans(
   {
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
               transition={Bounce}
             />
             {children}
+            <SpeedInsights />
             {/* WHOLE FOOTER  */}
             <Footer />
           </CarProvider>
