@@ -1,6 +1,22 @@
 import { connectDB } from "@/lib/connectDB";
+import { NextResponse } from "next/server";
 
 
+// GET ALL CATEGORIES.
+export const GET = async () => {
+    const db = await connectDB();
+    const categoryCollection = db.collection("Categories");
+
+    try {
+        const categories = await categoryCollection.find().toArray();
+        return NextResponse.json(categories);
+    } catch (error) {
+        return NextResponse.json("Something Went wrong!");
+    }
+};
+
+
+// POST REQUEST ENDPOINT FOR CREATE NEW CATEGORY.
 export const POST = async (req) => {
     try {
         // GET SUBMITTED DATA.
