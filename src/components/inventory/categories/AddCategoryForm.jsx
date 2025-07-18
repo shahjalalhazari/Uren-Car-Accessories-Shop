@@ -9,21 +9,24 @@ import { toast } from 'react-toastify';
 const AddCategoryForm = () => {
   const [loading, setLoading] = useState(false);
 
+  // HANDLER FOR ADD NEW CATEGORY.
   const handleAddCategory = async (event) => {
     event.preventDefault();
     setLoading(true);
-    setError("");
 
+    // GET THE FORM DATA
     const form = event.target;
     const image = form.categoryImg.files[0];
     const name = form.categoryName.value;
 
+    // CHECK EMPTY FIELDS.
     if (!name || !image) {
       toast.error("All fields are required!");
       setLoading(false);
       return;
-    };
+    }
 
+    // CREATE NEW FORMDATA FOR CLOUDINARY AND APPEND SUBMITTED IMAGE/FILE FOR UPLOAD.
     const formDate = new FormData();
     formDate.append("file", image);
     formDate.append(
@@ -32,6 +35,7 @@ const AddCategoryForm = () => {
     );
 
     try {
+      // UPLOAD IMAGE TO CLOUDINARY.
       const cloudinaryRes = await fetch(
         `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
         {
@@ -39,20 +43,56 @@ const AddCategoryForm = () => {
           body: formDate,
         }
       );
-
       const cloudinaryData = await cloudinaryRes.json();
-      console.log("cloudinary Date", cloudinaryData);
+      // TODO: REMOVE
+      console.log(cloudinaryData);
+      // CHECK IMAGE UPLOADED STATUS.
+      if (!cloudinaryData.secure_url)
+        toast.error(cloudinaryData.error.message || "Image Upload Failed!");
+
+      // CREATE NEW CATEGORY DATA.
+      const newCategory = {
+        name,
+        image: cloudinaryData.secure_url,
+        publicId: cloudinaryData.public_id,
+      };
+
+      // SEND CATEGORY DATA TO DB WITH POST METHOD.
+      const categoryRes = await fetch("/api/inventory/category", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newCategory),
+      });
+
+      // GET THE RESPONSE OF POST METHOD ENDPOINT.
+      const result = await categoryRes.json();
+      // TODO: REMOVE
+      console.log("Result", result);
+
+      // IF SUCCESSFULLY CATEGORY CREATED.
+      if (result.success) {
+        toast.success(result.message || "Category Created Successfully!");
+        form.reset();
+      } else {
+        toast.error(
+          result.message || "Something wrong while creating category!"
+        );
+      }
     } catch (error) {
+      // IF ANY ERROR
       console.log(error);
-      toast.error("Something went wrong!")
+      toast.error("Something went wrong!");
     } finally {
+      // STOP THE LOADING.
       setLoading(false);
     }
-
-  }
+  };
 
   const AddCateForm = (
-    <form className="accordion-form-layout grid-cols-1 lg:grid-cols-3" onSubmit={handleAddCategory}>
+    <form
+      className="accordion-form-layout grid-cols-1 lg:grid-cols-3"
+      onSubmit={handleAddCategory}
+    >
       {/* IMAGE FIELD */}
       <ImageField name={"categoryImg"} label={"Category Image"} />
       {/* NAME FIELD */}
@@ -66,7 +106,7 @@ const AddCategoryForm = () => {
       {/* SUBMIT BUTTON */}
       <FormSubmitBtn loading={loading} text={"Add New"} size={"md"} />
     </form>
-  )
+  );
 
   return (
     <UrenAccordion form={AddCateForm} heading={"Want to add new Category?"} />
