@@ -1,4 +1,5 @@
 
+import AddCategoryForm from "@/components/inventory/categories/AddCategoryForm";
 import "./categories.css"
 import CategoriesTable from "@/components/inventory/categories/CategoriesTable";
 import UrenAccordion from "@/components/shared/UrenAccordion";
@@ -14,31 +15,10 @@ export const metadata = {
 
 
 const CategoriesPage = () => {
-  const loading = false;
-
-  const addCateForm =(
-    <form className="accordion-form-layout grid-cols-1 lg:grid-cols-3">
-      {/* IMAGE FIELD */}
-      <ImageField name={"category-img"} label={"Category Image"} />
-
-      {/* NAME FIELD */}
-      <InputField
-        label={"Category Name"}
-        name={"category-name"}
-        required={true}
-        type={"text"}
-        placeholder={"Enter Category Name"}
-      />
-
-      {/* SUBMIT BUTTON */}
-      <FormSubmitBtn loading={loading} text={"Add New"} size={"md"}/>
-    </form>
-  )
-  
   return (
     <>
-      {/* ADD CATEGORY ACCORDION & FORM */}
-      <UrenAccordion form={addCateForm} heading={"Want to add new Category?"}/>
+      {/* ADD CATEGORY FORM */}
+      <AddCategoryForm/>
 
       {/* CATEGORIES TABLE WITH SORTING DROPDOWN */}
       <CategoriesTable categories={categories}/>
