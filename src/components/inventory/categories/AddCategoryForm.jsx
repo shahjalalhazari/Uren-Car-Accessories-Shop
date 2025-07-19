@@ -58,7 +58,7 @@ const AddCategoryForm = () => {
       };
 
       // SEND CATEGORY DATA TO DB WITH POST METHOD.
-      const categoryRes = await fetch("/api/inventory/category", {
+      const categoryRes = await fetch("/api/inventory/categories", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCategory),
