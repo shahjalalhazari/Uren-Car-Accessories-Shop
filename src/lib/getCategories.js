@@ -1,3 +1,5 @@
+import { toast } from "react-toastify";
+
 // GET ALL CATEGORIES FROM DB.
 export const getCategories = async () => {
     try {
@@ -6,13 +8,13 @@ export const getCategories = async () => {
         });
 
         if (!res.ok) {
-            toast.error("Failed to fetching categories!");
+            console.log("Failed to fetching categories!");
         }
 
         const data = res.json();
         return data;
     } catch (error) {
-        toast.error(error);
+        console.log(error);
         return [];
     }
 };
