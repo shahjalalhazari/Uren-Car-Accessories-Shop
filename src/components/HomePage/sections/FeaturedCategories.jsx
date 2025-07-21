@@ -8,7 +8,7 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import SectionHeading from "@/components/shared/headings/SectionHeading";
 import FeaturedCategorySingleCard from "@/components/shared/cards/FeaturedCategorySingleCard";
 
-const FeaturedCategories = () => {
+const FeaturedCategories = ({ categories }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -44,7 +44,7 @@ const FeaturedCategories = () => {
           }}
           className="slider-container uren-slider"
         >
-          {featuredCategories.map((item, index) => (
+          {categories?.map((item, index) => (
             <SwiperSlide key={index}>
               <FeaturedCategorySingleCard categoryItem={item} />
             </SwiperSlide>
@@ -69,65 +69,65 @@ const FeaturedCategories = () => {
 export default FeaturedCategories;
 
 
-const featuredCategories = [
-  {
-    name: "Brakes & Rotors",
-    quantity: 8,
-    image: "/images/featured-categories/1.png",
-  },
-  {
-    name: "Interior",
-    quantity: 15,
-    image: "/images/featured-categories/2.png",
-  },
-  {
-    name: "Lighting",
-    quantity: 10,
-    image: "/images/featured-categories/3.png",
-  },
-  {
-    name: "Performance",
-    quantity: 5,
-    image: "/images/featured-categories/4.png",
-  },
-  {
-    name: "Suspension Systems",
-    quantity: 18,
-    image: "/images/featured-categories/5.png",
-  },
-  {
-    name: "Wheels & Tires",
-    quantity: 26,
-    image: "/images/featured-categories/6.png",
-  },
-  {
-    name: "Brakes & Rotors",
-    quantity: 8,
-    image: "/images/featured-categories/4.png",
-  },
-  {
-    name: "Interior",
-    quantity: 15,
-    image: "/images/featured-categories/6.png",
-  },
-  {
-    name: "Lighting",
-    quantity: 10,
-    image: "/images/featured-categories/5.png",
-  },
-  {
-    name: "Performance",
-    quantity: 5,
-    image: "/images/featured-categories/1.png",
-  },
-  {
-    name: "Suspension Systems",
-    quantity: 18,
-    image: "/images/featured-categories/2.png",
-  },
-  {
-    name: "Wheels & Tires",
-    quantity: 26,
-    image: "/images/featured-categories/3.png",
-  },
-];
+// const featuredCategories = [
+//   {
+//     name: "Brakes & Rotors",
+//     quantity: 8,
+//     image: "/images/featured-categories/1.png",
+//   },
+//   {
+//     name: "Interior",
+//     quantity: 15,
+//     image: "/images/featured-categories/2.png",
+//   },
+//   {
+//     name: "Lighting",
+//     quantity: 10,
+//     image: "/images/featured-categories/3.png",
+//   },
+//   {
+//     name: "Performance",
+//     quantity: 5,
+//     image: "/images/featured-categories/4.png",
+//   },
+//   {
+//     name: "Suspension Systems",
+//     quantity: 18,
+//     image: "/images/featured-categories/5.png",
+//   },
+//   {
+//     name: "Wheels & Tires",
+//     quantity: 26,
+//     image: "/images/featured-categories/6.png",
+//   },
+//   {
+//     name: "Brakes & Rotors",
+//     quantity: 8,
+//     image: "/images/featured-categories/4.png",
+//   },
+//   {
+//     name: "Interior",
+//     quantity: 15,
+//     image: "/images/featured-categories/6.png",
+//   },
+//   {
+//     name: "Lighting",
+//     quantity: 10,
+//     image: "/images/featured-categories/5.png",
+//   },
+//   {
+//     name: "Performance",
+//     quantity: 5,
+//     image: "/images/featured-categories/1.png",
+//   },
+//   {
+//     name: "Suspension Systems",
+//     quantity: 18,
+//     image: "/images/featured-categories/2.png",
+//   },
+//   {
+//     name: "Wheels & Tires",
+//     quantity: 26,
+//     image: "/images/featured-categories/3.png",
+//   },
+// ];

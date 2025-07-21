@@ -56,11 +56,11 @@
 }
 /* *** PRODUCT SORTING *** */
 .product-sorting {
-    @apply text-end space-x-5 mt-4 mb-4;
+    @apply text-end space-x-5 mb-4;
 }
 
 .sorting-dropdown {
-    @apply select select-bordered select-sm rounded-none max-w-xs text-sm
+    @apply select select-bordered select-sm rounded-none max-w-xs text-sm text-body;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -100,7 +100,7 @@
         @apply text-sm
     }
     .product-sorting {
-        @apply mt-0 mb-6;
+        @apply mb-6;
     }
 }
 

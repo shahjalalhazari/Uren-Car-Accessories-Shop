@@ -8,12 +8,14 @@ export const getCategories = async () => {
         });
 
         if (!res.ok) {
+            // TODO: REMOVE
             console.log("Failed to fetching categories!");
         }
 
         const data = res.json();
         return data;
     } catch (error) {
+        // TODO: REMOVE
         console.log(error);
         return [];
     }

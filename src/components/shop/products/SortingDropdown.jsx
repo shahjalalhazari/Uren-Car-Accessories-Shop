@@ -20,7 +20,7 @@ const SortingDropdown = () => {
 
   return (
     <div className="product-sorting">
-      <label className="text-sm">Sort By:</label>
+      <label className="text-sm text-body">Sort By:</label>
       <select
         className="sorting-dropdown"
         onChange={handleSortChange}

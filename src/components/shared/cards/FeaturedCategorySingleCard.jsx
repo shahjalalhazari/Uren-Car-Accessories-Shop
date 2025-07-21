@@ -6,17 +6,13 @@ const FeaturedCategorySingleCard = ({ categoryItem }) => {
 
   return (
     <div className="category-item-card">
-      <Link
-        href={`/shop/products/category?${encodeURIComponent(
-          name
-        )}`}
-      >
+      <Link href={`/shop/products/category?${encodeURIComponent(name)}`}>
         <Image
           src={image}
-          width={200}
-          height={220}
+          width={100}
+          height={100}
           alt={name}
-          className=""
+          className="h-[250px] w-[200px] bg-cover"
         />
         <h2 className="category-card-title">{name}</h2>
         <p className="text-blue">&#40;{quantity} products&#41;</p>

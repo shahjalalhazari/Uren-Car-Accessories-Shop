@@ -80,6 +80,7 @@ const AddCategoryForm = () => {
       }
     } catch (error) {
       // IF ANY ERROR
+      // TODO: REMOVE
       console.log(error);
       toast.error("Something went wrong!");
     } finally {

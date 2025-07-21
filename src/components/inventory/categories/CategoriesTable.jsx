@@ -66,7 +66,7 @@ const CategoriesTable = ({ categories }) => {
               <td className="flex items-center justify-center w-full">
                 <Image
                   src={category.image}
-                  width={150}
+                  width={100}
                   height={120}
                   alt={category.name}
                 />

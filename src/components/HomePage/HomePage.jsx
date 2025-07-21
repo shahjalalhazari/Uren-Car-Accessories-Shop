@@ -1,4 +1,5 @@
-import "./homePage.css"
+import { getCategories } from "@/lib/getCategories";
+import "./homePage.css";
 import BigOfferBanners from "./sections/BigOfferBanners";
 import Blogs from "./sections/Blogs";
 import CarouselBanner from "./sections/CarouselBanner";
@@ -10,13 +11,15 @@ import ShopByBrands from "./sections/ShopByBrands";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
 import Testimonial from "./sections/Testimonial";
 
-const HomePage = () => {
+const HomePage = async () => {
+  const categories = await getCategories();
+
   return (
     <>
       <CarouselBanner />
       <OfferBanners />
       <ShoppingFacilities />
-      <FeaturedCategories />
+      <FeaturedCategories categories={categories} />
       <FeaturedProducts />
       <BigOfferBanners />
       <NewArrivalProducts />

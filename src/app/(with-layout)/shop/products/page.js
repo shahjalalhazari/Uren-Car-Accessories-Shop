@@ -6,6 +6,7 @@ import SortingDropdown from "@/components/shop/products/SortingDropdown";
 import Image from "next/image";
 import "./products-page.css";
 import ProductsListWithLazyLoad from "@/components/shop/products/ProductsListWithLazyLoad";
+import { getCategories } from "@/lib/getCategories";
 
 export const metadata = {
   title: "Products",
@@ -14,6 +15,8 @@ export const metadata = {
 
 const ProductsPage = async ({ searchParams }) => {
   const { sort } = await searchParams;
+  const categories= await getCategories();
+  console.log(categories);
   
   const sortType = sort || "default";
   let sortedProducts = [...ProductsList];
@@ -53,7 +56,7 @@ const ProductsPage = async ({ searchParams }) => {
           {/* Left Side */}
           <aside className="products-sidebar">
             {/* Categories List */}
-            <CategoriesList categoriesList={categoriesList} />
+            <CategoriesList categoriesList={categories} />
 
             {/* Price Range Filter */}
             <PriceRangeFilter />
@@ -82,73 +85,73 @@ const ProductsPage = async ({ searchParams }) => {
 export default ProductsPage;
 
 
-const categoriesList = [
-  {
-    name: "Games & Consoles",
-    image: "",
-    added:""
-  },
-  {
-    name: "Appliances",
-    image: "",
-    added:""
-  },
-  {
-    name: "Audio",
-    image: "",
-    added:""
-  },
-  {
-    name: "Bakeware",
-    image: "",
-    added:""
-  },
-  {
-    name: "Body Parts",
-    image: "",
-    added:""
-  },
-  {
-    name: "Cameras & Camcoders",
-    image: "",
-    added:""
-  },
-  {
-    name: "Car Parts",
-    image: "",
-    added:""
-  },
-  {
-    name: "Cookies & Crackers",
-    image: "",
-    added:""
-  },
-  {
-    name: "Interior",
-    image: "",
-    added:""
-  },
-  {
-    name: "Brakes & Rotors",
-    image: "",
-    added:""
-  },
-  {
-    name: "Lighting",
-    image: "",
-    added:""
-  },
-  {
-    name: "Perfomance",
-    image: "",
-    added:""
-  },
-  {
-    name: "Wheels & Tires",
-    image: "",
-    added:""
-  },
-]
+// const categoriesList = [
+//   {
+//     name: "Games & Consoles",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Appliances",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Audio",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Bakeware",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Body Parts",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Cameras & Camcoders",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Car Parts",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Cookies & Crackers",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Interior",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Brakes & Rotors",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Lighting",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Perfomance",
+//     image: "",
+//     added:""
+//   },
+//   {
+//     name: "Wheels & Tires",
+//     image: "",
+//     added:""
+//   },
+// ]
 
 const ProductsList = [
   {id: 1,
