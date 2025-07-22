@@ -1,93 +1,11 @@
-"use client";
-import { useSession } from "next-auth/react";
-import BottomNavbar from "./BottomNavbar";
+import { getCategories } from "@/lib/getCategories";
 import "./navbar.css";
-import StickyNavbar from "./StickyNavbar";
-import TopNavbar from "./TopNavbar";
+import NavbarWrapper from "./NavbarWrapper";
 
-const Navbar = () => {
-  const session = useSession();
+const Navbar = async () => {
+  const categories = await getCategories();
 
-  return (
-    <>
-      <TopNavbar navItems={navItems} categories={categories} isUser={session} />
-      <BottomNavbar
-        navItems={navItems}
-        categories={categories}
-        isUser={session}
-      />
-      <StickyNavbar navItems={navItems} isUser={session} />
-    </>
-  );
+  return <NavbarWrapper categories={categories} />;
 };
 
 export default Navbar;
-
-const navItems = [
-  {
-    title: "HOME",
-    path: "/",
-  },
-  {
-    title: "PRODUCTS",
-    path: "/shop/products",
-  },
-  {
-    title: "ABOUT US",
-    path: "/about-us",
-  },
-  {
-    title: "SERVICES",
-    path: "/services",
-  },
-  {
-    title: "BLOGS",
-    path: "/blogs",
-  },
-  {
-    title: "CONTACT US",
-    path: "/contact-us",
-  },
-];
-
-const categories = [
-  {
-    name: "Games & Consoles",
-  },
-  {
-    name: "Appliances",
-  },
-  {
-    name: "Audio",
-  },
-  {
-    name: "Brake ware",
-  },
-  {
-    name: "Body Parts",
-  },
-  {
-    name: "Cameras & Cam coders",
-  },
-  {
-    name: "Car Parts",
-  },
-  {
-    name: "Cookies & Crackers",
-  },
-  {
-    name: "Interior",
-  },
-  {
-    name: "Brakes & Rotors",
-  },
-  {
-    name: "Lighting",
-  },
-  {
-    name: "Performance",
-  },
-  {
-    name: "Wheels & Tires",
-  },
-];

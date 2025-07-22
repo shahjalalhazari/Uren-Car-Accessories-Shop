@@ -25,7 +25,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
               <h2 className="categories-list-heading-text">
                 <span>Shop By</span>
                 <br />
-                <span>Department</span>
+                <span>Categories</span>
               </h2>
               <p className="categories-arrow">
                 <FaAngleDown />
@@ -167,7 +167,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
             <h2 className="categories-list-heading-text">
               Shop By
               <br />
-              Department
+              Categories
             </h2>
             <p
               className={`categories-arrow ${
@@ -217,7 +217,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
             <h2 className="categories-list-heading-text">
               <span>Shop By</span>
               <br />
-              <span>Department</span>
+              <span>Categories</span>
             </h2>
             <p
               className={`categories-arrow ${
