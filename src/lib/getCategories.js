@@ -1,9 +1,12 @@
-import { toast } from "react-toastify";
+const BASE_URL = process.env.NODE_ENV === "development"
+    ? process.env.NEXT_PUBLIC_BASE_URL
+    : process.env.NEXT_PUBLIC_LIVE_URL;
+
 
 // GET ALL CATEGORIES FROM DB.
 export const getCategories = async () => {
     try {
-        const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/inventory/categories`, {
+        const res = await fetch(`${BASE_URL}/api/inventory/categories`, {
             cache: "no-store",
         });
 

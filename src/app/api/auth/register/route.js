@@ -88,14 +88,17 @@ export const POST = async (req) => {
     });
 
     // CREATE TOKEN VERIFICATION URL.
-    const verifyURL = `${process.env.EMAIL_VERIFY_URL}?token=${token}`;
+    // const verifyURL = `${process.env.EMAIL_VERIFY_URL}?token=${token}`;
+    const verifyURL = process.env.NODE_ENV === "development"
+      ? `${process.env.EMAIL_VERIFY_DEV_URL}?token=${token}`
+      : `${process.env.EMAIL_VERIFY_LIVE_URL}?token=${token}`;
 
     // SEND THE VERIFICATION MAIL TO THE USER PROVIDED EMAIL ADDRESS.
     await transporter.sendMail({
       from: process.env.EMAIL_FROM,
       to: email,
       subject: "Verify Your Email - Uren Car Accessories Shop",
-      html: `<p>Click the link to verify your email: <a href="${verifyURL}">Verify Email</a>. This link will be valid for next an hour.</p>`,
+      html: `<p>Click the link to verify your email: <a href="${verifyURL}">Verify Email</a>. This link will be valid for an hour.</p>`,
     });
 
     // RESPONSE SUCCESS MESSAGE
