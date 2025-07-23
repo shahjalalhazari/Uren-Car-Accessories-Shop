@@ -11,6 +11,8 @@ import ShopByBrands from "./sections/ShopByBrands";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
 import Testimonial from "./sections/Testimonial";
 
+export const dynamic = "force-dynamic";
+
 const HomePage = async () => {
   const categories = await getCategories();
 

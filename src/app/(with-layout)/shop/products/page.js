@@ -13,6 +13,8 @@ export const metadata = {
   keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
 };
 
+export const dynamic = "force-dynamic";
+
 const ProductsPage = async ({ searchParams }) => {
   const { sort } = await searchParams;
   const categories= await getCategories();

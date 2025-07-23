@@ -7,7 +7,7 @@ const BASE_URL = process.env.NODE_ENV === "development"
 export const getCategories = async () => {
     try {
         const res = await fetch(`${BASE_URL}/api/inventory/categories`, {
-            cache: "no-store",
+            next: {revalidate: 60}
         });
 
         if (!res.ok) {
