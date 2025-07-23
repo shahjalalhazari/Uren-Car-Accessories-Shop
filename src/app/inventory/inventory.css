@@ -71,6 +71,23 @@ td {
 }
 
 
+/* INVENTORY MODAL */
+.uren-modal-bg {
+    @apply fixed inset-0 bg-black/70 flex items-center justify-center z-50;
+}
+
+.uren-modal {
+    @apply bg-white p-4 w-full h-fit mx-6 border border-primary relative;
+}
+
+.modal-close-btn {
+    @apply btn btn-xs rounded-none text-secondary right-4 top-4 absolute;
+}
+
+.modal-heading {
+    @apply text-xl font-bold text-dark-gray uppercase mb-4 text-center;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
@@ -102,6 +119,18 @@ td {
 
     .table-btn {
         @apply btn-sm py-3 h-fit;
+    }
+    /* INVENTORY MODAL */
+    .uren-modal {
+        @apply p-6 w-3/4 h-fit mx-0;
+    }
+
+    .modal-close-btn {
+        @apply btn-sm right-6 top-6;
+    }
+
+    .modal-heading {
+        @apply mb-6;
     }
 }
 
@@ -150,4 +179,16 @@ td {
     .table-btn {
         @apply btn-md;
     }
+/* INVENTORY MODAL */
+.uren-modal {
+    @apply p-8 w-3/4 mx-8;
+}
+
+.modal-close-btn {
+    @apply btn-sm right-8 top-8;
+}
+
+.modal-heading {
+    @apply text-2xl mb-8;
+}
 }

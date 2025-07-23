@@ -1,5 +1,6 @@
 "use client"
 import TableActionBtn from "@/components/shared/buttons/TableActionBtn";
+import UrenModal from "@/components/shared/modal/UrenModal";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
@@ -7,6 +8,15 @@ import { FaEdit, FaTrash } from "react-icons/fa";
 const CategoriesTable = ({ categories }) => {
   const [sortType, setSortType] = useState("default");
   const [sortedCategories, setSortedCategories] = useState(categories);
+
+  // MODAL
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState(null);
+
+  const handleCategoryEdit = (category) => {
+    setSelectedCategory(category);
+    setIsModalOpen(true);
+  };
 
   useEffect(() => {
     let sorted;
@@ -78,6 +88,7 @@ const CategoriesTable = ({ categories }) => {
                   title={"Edit Category Info"}
                   btn={<FaEdit />}
                   btnType={"btn-warning"}
+                  onClick={() => handleCategoryEdit(category)}
                 />
                 <TableActionBtn
                   title={"Delete Category"}
@@ -89,6 +100,13 @@ const CategoriesTable = ({ categories }) => {
           ))}
         </tbody>
       </table>
+      {isModalOpen && selectedCategory && (
+        <UrenModal
+          category={selectedCategory}
+          onClose={() => setIsModalOpen(false)}
+          heading={"Edit Category"}
+        />
+      )}
     </>
   );
 };

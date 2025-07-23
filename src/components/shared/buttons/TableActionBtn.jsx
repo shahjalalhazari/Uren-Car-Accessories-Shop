@@ -1,9 +1,9 @@
-const TableActionBtn = ({title, btnType, btn}) => {
-    return (
-      <button className={`table-btn ${btnType}`} title={title}>
-        {btn}
-      </button>
-    );
+const TableActionBtn = ({ title, btnType, btn, onClick }) => {
+  return (
+    <button className={`table-btn ${btnType}`} title={title} onClick={onClick}>
+      {btn}
+    </button>
+  );
 };
 
 export default TableActionBtn;
