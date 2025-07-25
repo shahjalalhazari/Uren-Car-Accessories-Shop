@@ -46,15 +46,21 @@ td {
 }
 
 .table-head th {
-    @apply py-2 px-1 uppercase border-b border-r border-uren-border text-dark-gray bg-gray-bg;
+    @apply py-2 px-1 uppercase border-b border-r border-uren-border text-dark-gray bg-gray-bg text-sm leading-4;
 }
 
 .table-body td {
     @apply border-b border-r border-uren-border p-2 text-center;
 }
-
+.cat-img {
+    @apply w-[60px] h-[80px] bg-cover;
+}
 .item-name {
-    @apply font-semibold uppercase text-sm;
+    @apply font-semibold uppercase text-xs;
+    }
+
+    .item-qty {
+        @apply uppercase text-xs;
 }
 
 .table-head th:last-child,
@@ -112,6 +118,18 @@ td {
     .inventory-table {
         @apply mt-6;
     }
+    .table-head th {
+        @apply text-base;
+    }
+
+    .cat-img {
+        @apply w-[80px] h-[100px];
+    }
+
+    .item-name,
+    .item-qty {
+        @apply text-sm;
+    }
 
     .table-btns {
         @apply space-y-0 space-x-2;
@@ -165,11 +183,16 @@ td {
     }
 
     .table-head th {
-        @apply py-4 px-2;
+        @apply py-4 px-2 text-lg;
+        }
+
+        .cat-img {
+            @apply w-[90px] h-[110px];
     }
 
-    .item-name {
-        @apply font-bold uppercase text-base;
+    .item-name,
+    .item-qty {
+        @apply text-base;
     }
 
     .table-btns {

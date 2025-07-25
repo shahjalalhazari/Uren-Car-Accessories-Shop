@@ -1,9 +1,9 @@
 "use client"
 import TableActionBtn from "@/components/shared/buttons/TableActionBtn";
-import UrenModal from "@/components/shared/modal/UrenModal";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import UpdateFormModal from "./UpdateFormModal";
 
 const CategoriesTable = ({ categories }) => {
   const [sortType, setSortType] = useState("default");
@@ -45,10 +45,10 @@ const CategoriesTable = ({ categories }) => {
   return (
     <>
       {/* CATEGORIES SORTING */}
-      <div className="sorting-dropdown">
+      <div className="uren-sorting mt-4 md:mt-6 lg:mt-8">
         <label htmlFor="">Sort By:</label>
         <select
-          className="dropdown-items-list"
+          className="sorting-dropdown"
           value={sortType}
           onChange={(e) => setSortType(e.target.value)}
         >
@@ -101,10 +101,9 @@ const CategoriesTable = ({ categories }) => {
         </tbody>
       </table>
       {isModalOpen && selectedCategory && (
-        <UrenModal
-          category={selectedCategory}
+        <UpdateFormModal
+          categories={selectedCategory}
           onClose={() => setIsModalOpen(false)}
-          heading={"Edit Category"}
         />
       )}
     </>

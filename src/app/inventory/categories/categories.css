@@ -1,34 +1,13 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
-/* SORTING DROPDOWN */
-.sorting-dropdown {
-    @apply mt-4 flex items-center justify-end gap-x-4 text-sm text-body;
-}
 
-.dropdown-items-list {
-    @apply text-sm outline-none rounded-none border border-uren-border px-4 py-2 cursor-pointer;
-}
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
     /* ADD CATEGORY FORM */
-    /* SORTING DROPDOWN */
-    .sorting-dropdown {
-        @apply mt-6;
-    }
 
-    .dropdown-items-list {
-        @apply px-5 py-3;
-    }
 }
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
 @media (min-width: 1025px) {
-    /* SORTING DROPDOWN */
-    .sorting-dropdown {
-        @apply mt-8 gap-x-6;
-    }
 
-    .dropdown-items-list {
-        @apply px-6 py-4;
-    }
 }

@@ -19,8 +19,8 @@ const SortingDropdown = () => {
   };
 
   return (
-    <div className="product-sorting">
-      <label className="text-sm text-body">Sort By:</label>
+    <div className="uren-sorting">
+      <label>Sort By:</label>
       <select
         className="sorting-dropdown"
         onChange={handleSortChange}

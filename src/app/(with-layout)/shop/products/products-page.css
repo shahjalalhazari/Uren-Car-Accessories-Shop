@@ -54,14 +54,6 @@
 .list-item:hover {
     @apply shadow-md text-secondary;
 }
-/* *** PRODUCT SORTING *** */
-.product-sorting {
-    @apply text-end space-x-5 mb-4;
-}
-
-.sorting-dropdown {
-    @apply select select-bordered select-sm rounded-none max-w-xs text-sm text-body;
-}
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -99,9 +91,6 @@
     .list-item {
         @apply text-sm
     }
-    .product-sorting {
-        @apply mb-6;
-    }
 }
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
@@ -137,8 +126,5 @@
 
     .container-open {
         @apply max-h-full;
-    }
-    .product-sorting {
-        @apply mb-8;
     }
 }
