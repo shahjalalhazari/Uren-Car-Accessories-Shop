@@ -30,12 +30,8 @@ export const connectDB = async () => {
         cachedClient= client;
         cachedDb = db;
 
-        // TODO: REMOVE
-        console.log("Mongodb Connected Successfully!");
         return db;
     } catch (error) {
-        // TODO: REMOVE 
-        console.error("Mongodb connection error:", error);
-        throw new Error("Mongodb connection failed.")
+        throw new Error("Mongodb connection failed.", error)
     }
 }

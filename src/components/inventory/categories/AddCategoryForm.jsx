@@ -27,9 +27,9 @@ const AddCategoryForm = () => {
     }
 
     // CREATE NEW FORMDATA FOR CLOUDINARY AND APPEND SUBMITTED IMAGE/FILE FOR UPLOAD.
-    const formDate = new FormData();
-    formDate.append("file", image);
-    formDate.append(
+    const formData = new FormData();
+    formData.append("file", image);
+    formData.append(
       "upload_preset",
       process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
     );
@@ -37,15 +37,13 @@ const AddCategoryForm = () => {
     try {
       // UPLOAD IMAGE TO CLOUDINARY.
       const cloudinaryRes = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
         {
           method: "POST",
-          body: formDate,
+          body: formData,
         }
       );
       const cloudinaryData = await cloudinaryRes.json();
-      // TODO: REMOVE
-      console.log(cloudinaryData);
       // CHECK IMAGE UPLOADED STATUS.
       if (!cloudinaryData.secure_url)
         toast.error(cloudinaryData.error.message || "Image Upload Failed!");
@@ -66,8 +64,6 @@ const AddCategoryForm = () => {
 
       // GET THE RESPONSE OF POST METHOD ENDPOINT.
       const result = await categoryRes.json();
-      // TODO: REMOVE
-      console.log("Result", result);
 
       // IF SUCCESSFULLY CATEGORY CREATED.
       if (result.success) {
@@ -75,14 +71,12 @@ const AddCategoryForm = () => {
         form.reset();
       } else {
         toast.error(
-          result.message || "Something wrong while creating category!"
+          result.message || "Something went wrong while creating category!"
         );
       }
     } catch (error) {
       // IF ANY ERROR
-      // TODO: REMOVE
-      console.log(error);
-      toast.error("Something went wrong!");
+      toast.error("Something went wrong!", error);
     } finally {
       // STOP THE LOADING.
       setLoading(false);
