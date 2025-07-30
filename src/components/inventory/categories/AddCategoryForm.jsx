@@ -19,25 +19,25 @@ const AddCategoryForm = () => {
     const image = form.categoryImg.files[0];
     const name = form.categoryName.value;
 
-    // CHECK EMPTY FIELDS.
-    if (!name || !image) {
-      toast.error("All fields are required!");
-      setLoading(false);
-      return;
-    }
-
-    // CREATE NEW FORMDATA FOR CLOUDINARY AND APPEND SUBMITTED IMAGE/FILE FOR UPLOAD.
-    const formData = new FormData();
-    formData.append("file", image);
-    formData.append(
-      "upload_preset",
-      process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
-    );
-
     try {
+      // CHECK EMPTY FIELDS.
+      if (!name || !image) {
+        toast.error("All fields are required!");
+        setLoading(false);
+        return;
+      }
+
+      // CREATE NEW FORMDATA FOR CLOUDINARY AND APPEND SUBMITTED IMAGE/FILE FOR UPLOAD.
+      const formData = new FormData();
+      formData.append("file", image);
+      formData.append(
+        "upload_preset",
+        process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET
+      );
+
       // UPLOAD IMAGE TO CLOUDINARY.
       const cloudinaryRes = await fetch(
-        `https://api.cloudinary.com/v1_1/${process.env.CLOUDINARY_CLOUD_NAME}/image/upload`,
+        `https://api.cloudinary.com/v1_1/${process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME}/image/upload`,
         {
           method: "POST",
           body: formData,
