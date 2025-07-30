@@ -79,7 +79,7 @@ const AddProductForm = ({categories}) => {
         <SelectFromDD
           label={"Select Car Model"}
           defaultValue={"Pick Your Model"}
-          myList={modelsList.map((name) => ({ name }))} // convert model names to objects
+          myList={modelsList?.map((name) => ({ name }))} // convert model names to objects
           required={true}
           value={pickedModel}
           onChange={(e) => setPickedModel(e.target.value)}

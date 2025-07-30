@@ -187,7 +187,7 @@ const TopNavbar = ({ navItems, isUser }) => {
 
               {/* Menu Items */}
               <ul className="sidebar-nav-list">
-                {navItems.map((item) => (
+                {navItems?.map((item) => (
                   <li key={item.path}>
                     <Link
                       className={`font-semibold uppercase ${
@@ -378,7 +378,7 @@ const TopNavbar = ({ navItems, isUser }) => {
 
                 {/* Menu Items */}
                 <ul className="sidebar-nav-list">
-                  {navItems.map((item) => (
+                  {navItems?.map((item) => (
                     <li key={item.path}>
                       <Link
                         className={`font-semibold uppercase ${

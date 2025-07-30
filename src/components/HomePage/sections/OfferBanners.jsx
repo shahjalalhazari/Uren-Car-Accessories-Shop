@@ -36,7 +36,7 @@ const OfferBanners = () => {
         }}
         className="slider-container"
       >
-        {offerBannersList.map((offerBanner, index) => (
+        {offerBannersList?.map((offerBanner, index) => (
           <SwiperSlide key={index}>
             <Link
               href={`/shop/products?offer=${encodeURIComponent(

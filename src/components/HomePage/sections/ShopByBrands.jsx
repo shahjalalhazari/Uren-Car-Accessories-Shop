@@ -13,7 +13,7 @@ const ShopByBrands = () => {
 
         {/* Brands Lists */}
         <div className="shop-by-brands-layout">
-          {brandsList.slice(0, 6).map((brand, index) => (
+          {brandsList.slice(0, 6)?.map((brand, index) => (
             // REPLACE
             <Link
               href={`/shop/products?brand=${encodeURIComponent(brand.name)}`}

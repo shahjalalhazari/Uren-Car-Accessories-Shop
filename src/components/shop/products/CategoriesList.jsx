@@ -53,7 +53,7 @@ const CategoriesList = ({ categoriesList }) => {
         }`}
       >
         <ul className="list-items">
-          {categoriesList.map((category, index) => (
+          {categoriesList?.map((category, index) => (
             <Link href="/" key={index}>
               <li className="list-item uren-transition">
                 <span>{category.name}</span>

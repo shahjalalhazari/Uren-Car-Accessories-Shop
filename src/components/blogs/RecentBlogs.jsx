@@ -52,7 +52,7 @@ const RecentBlogs = ({ blogs }) => {
           {blogs
             .slice(-6)
             .reverse()
-            .map((blog, index) => (
+            ?.map((blog, index) => (
               <HorizontalBlogCard singleBlog={blog} key={index} />
             ))}
         </div>

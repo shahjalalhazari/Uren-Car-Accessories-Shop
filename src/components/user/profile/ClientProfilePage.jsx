@@ -22,7 +22,7 @@ const ClientProfilePage = ({ tabs }) => {
     <div className="uren-container profile-layout">
       {/* SIDEBAR */}
       <ul className="tab-items">
-        {tabs.map((tab) => (
+        {tabs?.map((tab) => (
           <li
             key={tab}
             className={`tab-item uren-transition ${

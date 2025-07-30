@@ -34,7 +34,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
 
             {/* Category List */}
             <ul className="categories-list">
-              {categories.map((item, index) => (
+              {categories?.map((item, index) => (
                 <li key={index} className="dropdown-list-item">
                   <Link
                     href={`/shop/products/category?${encodeURIComponent(
@@ -50,7 +50,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
 
           {/* Main Navigation */}
           <div className="main-nav">
-            {navItems.map((item) => (
+            {navItems?.map((item) => (
               <Link
                 className={`main-nav-items ${
                   pathname === item.path &&
@@ -180,7 +180,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
 
           {isOpen && (
             <ul className="categories-list">
-              {categories.map((item, index) => (
+              {categories?.map((item, index) => (
                 <li key={index} className="dropdown-list-item">
                   <Link
                     href={`/shop/products/category?/${encodeURIComponent(
@@ -230,7 +230,7 @@ const BottomNavbar = ({ navItems, categories, isUser }) => {
 
           {isOpen && (
             <ul className="categories-list">
-              {categories.map((item, index) => (
+              {categories?.map((item, index) => (
                 <li key={index} className="dropdown-list-item">
                   <Link
                     href={`/shop/products/category?/${encodeURIComponent(

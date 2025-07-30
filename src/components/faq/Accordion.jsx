@@ -11,7 +11,7 @@ const Accordion = ({ items }) => {
 
   return (
     <div className="w-full space-y-4">
-      {items.map((item, index) => {
+      {items?.map((item, index) => {
         const isActive = activeIndex === index;
 
         return (
@@ -26,9 +26,7 @@ const Accordion = ({ items }) => {
               onClick={() => toggleAccordion(index)}
             >
               <span>{item.title}</span>
-              <span>
-                {isActive ? <FaMinus/> : <FaPlus/>}
-              </span>
+              <span>{isActive ? <FaMinus /> : <FaPlus />}</span>
             </button>
 
             <div

@@ -62,7 +62,7 @@ const ProductDetailPage = async ({ params }) => {
 
             <div className="product-tags">
               <h6 className="product-tags-heading">Tags:</h6>
-              {tags.map((tag, index) =>
+              {tags?.map((tag, index) =>
                 <Link href={"/"} key={index} className="product-tag uren-transition">{tag},</Link>
               )}
             </div>

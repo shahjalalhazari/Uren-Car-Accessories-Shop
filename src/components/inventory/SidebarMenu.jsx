@@ -18,7 +18,7 @@ const SidebarMenu = () => {
 
   return (
     <ul className="sidebar-menu">
-      {menuItems.map((item) => (
+      {menuItems?.map((item) => (
         <Link href={item.path} key={item.id}>
           <li
             className={`uren-transition sidebar-menu-item ${
@@ -40,7 +40,7 @@ const menuItems = [
   {
     id: 1,
     title: "Dashboard",
-    path: "/inventory",
+    path: "/inventory/dashboard",
     icon: <FaChartBar />,
   },
   {

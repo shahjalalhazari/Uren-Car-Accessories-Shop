@@ -8,10 +8,10 @@ const OnSaleProducts = () => {
           heading={"On-Sale Products"}
           subHeading={"On-Sale On This Week"}
         />
-        
+
         <div className="card-height">
           {/* REPLACE */}
-          {[...Array(10)].map((_, index) => (
+          {[...Array(10)]?.map((_, index) => (
             <HorizontalProductCard key={index} />
           ))}
         </div>

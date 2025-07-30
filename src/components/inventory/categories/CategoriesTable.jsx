@@ -62,7 +62,7 @@ const CategoriesTable = ({ categories }) => {
             </tr>
           </thead>
           <tbody className="table-body">
-            {sortedCategories.map((category, index) => (
+            {sortedCategories?.map((category, index) => (
               <tr key={index} className="">
                 <td className="flex items-center justify-center w-full">
                   <Image

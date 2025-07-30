@@ -48,7 +48,7 @@ const BlogsListWithLazyLoading = ({ allBlogs }) => {
 
   return (
     <div className="blogs-list-layout mt-8 md:mt-0">
-      {displayBlog.map((singleBlog, index) => (
+      {displayBlog?.map((singleBlog, index) => (
         <SingleBlogCard blog={singleBlog} key={index} bg={"bg-[#eee]"} />
       ))}
 

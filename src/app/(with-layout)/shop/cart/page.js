@@ -33,7 +33,7 @@ const CartPage = () => {
             <tbody className="table-body">
               {/* row 1 */}
 
-              {cartItemList.map((item, index) => (
+              {cartItemList?.map((item, index) => (
                 <tr className="" key={index}>
                 <td>
                   <Image

@@ -46,7 +46,7 @@ const Tags = () => {
         }`}
       >
         <div className="tag-list">
-          {tagsList.map((tag, index) => (
+          {tagsList?.map((tag, index) => (
             <button
               key={index}
               className={`single-tag uren-transition ${

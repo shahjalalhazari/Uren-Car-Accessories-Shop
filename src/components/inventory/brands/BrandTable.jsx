@@ -21,7 +21,7 @@ const BrandTable = () => {
         </thead>
         <tbody className="table-body">
           {carBrandList?.map((brand) =>
-            brand.models.map((model, index) => (
+            brand.models?.map((model, index) => (
               <tr key={index}>
                 {index === 0 && (
                   <>

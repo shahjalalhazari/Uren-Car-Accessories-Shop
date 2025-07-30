@@ -51,7 +51,7 @@ const ProductsListWithLazyLoad = ({ productsList }) => {
 
   return (
     <div className="products-list-layout">
-      {displayProducts.map((item, index) => (
+      {displayProducts?.map((item, index) => (
         <SingleProductCard
           singleProduct={item}
           key={index}

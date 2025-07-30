@@ -11,7 +11,7 @@ const MostViewedProducts = () => {
         
         <div className="card-height">
           {/* REPLACE */}
-          {[...Array(10)].map((_, index) => (
+          {[...Array(10)]?.map((_, index) => (
             <HorizontalProductCard key={index} />
           ))}
         </div>

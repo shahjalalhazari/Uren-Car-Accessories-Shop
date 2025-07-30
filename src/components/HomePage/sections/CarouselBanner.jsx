@@ -17,7 +17,7 @@ const CarouselBanner = () => {
       loop={true}
       onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)} // Update activeIndex when slider change
     >
-      {carouselBanners.map((banner, index) => {
+      {carouselBanners?.map((banner, index) => {
         const animationStyle =
           index % 2 === 0 ? "animation-style-02" : "animation-style-01";
         return (

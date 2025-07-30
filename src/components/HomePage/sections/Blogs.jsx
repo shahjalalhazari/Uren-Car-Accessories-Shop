@@ -11,7 +11,7 @@ const Blogs = () => {
           subHeading={"Our Recent Posts"}
         />
         <div className="blog-layout">
-          {blogs.map((blog, index) => (
+          {blogs?.map((blog, index) => (
             <SingleBlogCard blog={blog} key={index} bg={"bg-base-100"} />
           ))}
         </div>

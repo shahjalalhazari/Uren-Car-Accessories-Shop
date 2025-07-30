@@ -50,10 +50,10 @@ const TagInputField = ({ tags, setTags, label }) => {
         onChange={(e) => setInput(e.target.value)}
         onKeyDown={handleKeyDown}
         placeholder="Type tag name then press Enter"
-        className='mb-2'
+        className="mb-2"
       />
       <div className="input-tags">
-        {tags.map((tag, index) => (
+        {tags?.map((tag, index) => (
           <span key={index} className="single-tag">
             {tag}
             <button
@@ -65,7 +65,7 @@ const TagInputField = ({ tags, setTags, label }) => {
             </button>
           </span>
         ))}
-        <span className='text-secondary text-xs'>{error}</span>
+        <span className="text-secondary text-xs">{error}</span>
       </div>
     </fieldset>
   );

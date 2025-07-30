@@ -52,7 +52,7 @@ const ProductImgsGallery = ({ images }) => {
         className="details-photo-gallery"
         onSlideChange={(swiper) => setActiveImage(images[swiper.realIndex])}
       >
-        {images.map((img, index) => (
+        {images?.map((img, index) => (
           <SwiperSlide key={index}>
             <img
               src={img}

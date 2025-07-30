@@ -30,7 +30,7 @@ const StickyNavbar = ({ navItems, isUser }) => {
       }`}
     >
       <div className="main-nav">
-        {navItems.map((item) => (
+        {navItems?.map((item) => (
           <Link
             className={`main-nav-items py-4 lg:py-5 uren-transition ${
               pathname === item.path && "text-base-100 bg-dark px-4 lg:px-5"

@@ -43,7 +43,7 @@ const Testimonial = () => {
           data-swiper-parallax="-33%"
         ></div>
 
-        {testimonials.map((testimonial, index) => (
+        {testimonials?.map((testimonial, index) => (
           <SwiperSlide key={index}>
             <div className="testimonial-content">
               <div className="space-y-1 lg:space-y-3">

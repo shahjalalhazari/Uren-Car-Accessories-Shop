@@ -43,7 +43,7 @@ const NewArrivalProducts = () => {
           }}
           className="slider-container uren-slider"
         >
-          {newArrivalProducts.map((item, index) => (
+          {newArrivalProducts?.map((item, index) => (
             <SwiperSlide key={index}>
               <SingleProductCard
                 singleProduct={item}

@@ -74,7 +74,7 @@ const ProductDetailsTabs = ({ description, initialReviews = [] }) => {
               {/* Reviews List */}
               {reviews.length > 0 ? (
                 <ul className="reviews-list">
-                  {reviews.map((review, index) => (
+                  {reviews?.map((review, index) => (
                     <li key={index} className="product-review">
                       <p className="text-body text-sm">{review.comment}</p>
                       <div className="text-sm">
