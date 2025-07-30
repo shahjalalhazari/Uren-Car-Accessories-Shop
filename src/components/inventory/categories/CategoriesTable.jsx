@@ -3,10 +3,20 @@ import TableActionBtn from "@/components/shared/buttons/TableActionBtn";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { FaEdit, FaTrash } from "react-icons/fa";
+import UpdateCategoryForm from "./UpdateCategoryForm";
 
 const CategoriesTable = ({ categories }) => {
   const [sortType, setSortType] = useState("default");
   const [sortedCategories, setSortedCategories] = useState(categories);
+
+  // MODAL
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const [modalOpen, setModalOpen] = useState(null);
+
+  const handleEditCategory = (category) => {
+    setModalOpen(true);
+    setSelectedCategory(category);
+  };
 
   useEffect(() => {
     let sorted;
@@ -79,6 +89,7 @@ const CategoriesTable = ({ categories }) => {
                     title={"Edit Category Info"}
                     btn={<FaEdit />}
                     btnType={"btn-warning"}
+                    onClick={() => handleEditCategory(category)}
                   />
                   <TableActionBtn
                     title={"Delete Category"}
@@ -90,6 +101,13 @@ const CategoriesTable = ({ categories }) => {
             ))}
           </tbody>
         </table>
+
+        {selectedCategory && modalOpen && (
+          <UpdateCategoryForm
+            category={selectedCategory}
+            onClose={() => setModalOpen(false)}
+          />
+        )}
       </div>
     </>
   );

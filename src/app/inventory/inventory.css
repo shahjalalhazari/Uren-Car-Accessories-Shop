@@ -83,11 +83,15 @@ td {
 }
 
 .uren-modal {
-    @apply bg-white p-4 w-full h-fit mx-6 border border-primary relative;
+    @apply bg-white p-4 w-full h-fit mx-6 border border-primary relative shadow-lg;
 }
 
 .modal-close-btn {
     @apply btn btn-xs rounded-none text-secondary right-4 top-4 absolute;
+    }
+
+    .modal-close-btn:hover {
+        @apply font-bold;
 }
 
 .modal-heading {
