@@ -57,6 +57,10 @@ export async function middleware(request) {
     }
   }
 
+  if (pathname === '/inventory') {
+    return NextResponse.rewrite(new URL("/inventory/dashboard", request.url))
+  }
+
   // OTHERWISE ALLOW THE USER.
   return NextResponse.next();
 }

@@ -3,7 +3,7 @@ import "./inventory.css"
 import InventoryNavbar from "@/components/shared/navbar/InventoryNavbar";
 import AuthProviders from "@/providers/AuthProviders";
 
-const DashboardLayout = ({children}) => {
+const InventoryLayout = ({children}) => {
   return (
     <AuthProviders>
       <InventoryNavbar/>
@@ -17,4 +17,4 @@ const DashboardLayout = ({children}) => {
   );
 };
 
-export default DashboardLayout;
+export default InventoryLayout;
