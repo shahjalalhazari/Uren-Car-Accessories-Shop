@@ -196,7 +196,7 @@
 
 /* *** UREN SORTING *** */
 .uren-sorting {
-    @apply flex items-center justify-end gap-x-4 mb-4;
+    @apply flex items-center justify-end gap-x-4;
 }
 
 .uren-sorting label {
@@ -328,10 +328,6 @@
     .newsletter-form {
         @apply mt-12 space-y-0 mx-auto w-full flex;
     }
-    /* *** UREN SORTING *** */
-    .uren-sorting {
-        @apply mb-6;
-    }
 
     .sorting-dropdown {
         @apply select-md;
@@ -420,10 +416,6 @@
     }
 
     /* *** UREN SORTING *** */
-    .uren-sorting {
-        @apply mb-8;
-    }
-
     .sorting-dropdown {
         @apply select-md;
     }
