@@ -44,7 +44,7 @@ const FeaturedCategories = ({ categories }) => {
           }}
           className="slider-container uren-slider"
         >
-          {categories.map((item, index) => (
+          {(categories || []).map((item, index) => (
             <SwiperSlide key={index}>
               <FeaturedCategorySingleCard categoryItem={item} />
             </SwiperSlide>
