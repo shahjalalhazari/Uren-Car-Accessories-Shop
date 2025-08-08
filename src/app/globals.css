@@ -2,11 +2,104 @@
 @plugin "daisyui" {
     themes: all;
 }
+@layer components {
 
-@plugin "daisyui/theme" {
-    name: "light";
-    default: true;
-    --color-primary: "#ffc400";
-    --color-secondary: "#e52e06";
-    --color-info: "#0886cf";
+    /* TEXT COLORS */
+    .text-primary {
+        color: #ffc400;
+    }
+
+    .text-secondary {
+        color: #e52e06;
+    }
+
+    .text-dark {
+        color: #000;
+    }
+
+    .text-blue {
+        color: #0886cf;
+    }
+
+    .text-body {
+        color: #999;
+    }
+
+    .text-base-100 {
+        color: #fff;
+    }
+
+    .text-uren-border {
+        color: #ddd;
+    }
+
+    .text-gary-bg {
+        color: #eee;
+    }
+
+    /* BACKGROUND COLORS */
+    .bg-primary {
+        background-color: #ffc400;
+    }
+
+    .bg-secondary {
+        background-color: #e52e06;
+    }
+
+    .bg-dark {
+        background-color: #000;
+    }
+
+    .bg-blue {
+        background-color: #0886cf;
+    }
+
+    .bg-body {
+        background-color: #999;
+    }
+
+    .bg-base-100 {
+        background-color: #fff;
+    }
+
+    .bg-uren-border {
+        background-color: #ddd;
+    }
+
+    .bg-gary-bg {
+        background-color: #eee;
+    }
+
+    /* BORDER COLORS */
+    .border-primary {
+        border-color: #ffc400;
+    }
+
+    .border-secondary {
+        border-color: #e52e06;
+    }
+
+    .border-dark {
+        border-color: #000;
+    }
+
+    .border-blue {
+        border-color: #0886cf;
+    }
+
+    .border-body {
+        border-color: #999;
+    }
+
+    .border-base-100 {
+        border-color: #fff;
+    }
+
+    .border-uren-border {
+        border-color: #ddd;
+    }
+
+    .border-gray-bg {
+        border-color: #eee;
+    }
 }

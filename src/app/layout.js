@@ -1,5 +1,7 @@
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
+import { Bounce, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const workSans = Work_Sans(
   {
@@ -18,10 +20,24 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" data-theme="light">
+    <html lang="en" data-theme="light" suppressHydrationWarning>
       <body
         className={`${workSans.className} antialiased m-0 p-0`}
       >
+        {/* REACT TOASTIFY */}
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              transition={Bounce}
+            />
         {children}
       </body>
     </html>
