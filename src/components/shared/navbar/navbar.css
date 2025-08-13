@@ -1,0 +1,32 @@
+/* NAVBAR TOP PART FOR LARGE DEVICES [Default] */
+.lg-top-nav {
+    @apply bg-base-100 flex items-center shadow-md justify-between p-8;
+}
+
+.lg-search-input {
+    @apply p-4 w-full outline-none border border-primary;
+}
+
+.lg-search-btn {
+    @apply bg-primary flex items-center px-5 py-4 font-bold uppercase text-lg;
+}
+
+.lg-search-btn:hover {
+    @apply bg-secondary text-base-100;
+}
+
+.nav-cart-btn {
+    @apply border border-primary py-1 flex gap-5 items-center px-12;
+}
+
+.nav-cart-btn:hover {
+    @apply bg-primary;
+}
+
+.nav-phone-num {
+    @apply flex items-center justify-center gap-3 border border-primary px-12 py-[14px] text-2xl font-semibold text-secondary;
+}
+
+.nav-phone-num:hover {
+    @apply text-dark border-primary;
+}
