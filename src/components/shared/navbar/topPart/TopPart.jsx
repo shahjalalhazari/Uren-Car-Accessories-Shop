@@ -1,11 +1,15 @@
 import React from 'react';
 import LgTopNav from './LgTopNav';
+import SmTopNav from "./SmTopNav";
 
-const TopPart = () => {
+const TopPart = ({ navItems }) => {
   return (
-    <div>
+    <>
+      {/* SMALL SCREEN SIZE */}
+      <SmTopNav navItems={navItems} />
+      {/* LARGE SCREEN SIZE */}
       <LgTopNav />
-    </div>
+    </>
   );
 };
 

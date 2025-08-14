@@ -1,15 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  BiHome,
-  BiSearch,
-  BiShoppingBag,
-  BiSolidPhone,
-  BiStoreAlt,
-} from "react-icons/bi";
+import { BiSearch, BiShoppingBag, BiSolidPhone } from "react-icons/bi";
 
 
-// NAVBAR TOP PART FOR LARGE SCREENS
+// NAVBAR TOP PART FOR LARGE SCREEN DEVICES.
 const LgTopNav = () => {
     return (
       <div className="lg-top-nav">

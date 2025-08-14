@@ -1,32 +1,133 @@
-/* NAVBAR TOP PART FOR LARGE DEVICES [Default] */
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* LARGE SCREEN IS HIDDEN FOR SMALL SCREEN */
 .lg-top-nav {
-    @apply bg-base-100 flex items-center shadow-md justify-between p-8;
+    @apply hidden;
 }
 
-.lg-search-input {
-    @apply p-4 w-full outline-none border border-primary;
+/* NAVBAR TOP PART FOR SMALL DEVICES */
+.sm-top-nav {
+    @apply p-6 pb-8;
 }
 
-.lg-search-btn {
-    @apply bg-primary flex items-center px-5 py-4 font-bold uppercase text-lg;
+.sm-top-nav .uren-logo {
+    @apply mx-auto mb-4;
 }
 
-.lg-search-btn:hover {
-    @apply bg-secondary text-base-100;
+.sm-top-navbar {
+    @apply flex justify-between items-center;
 }
 
 .nav-cart-btn {
     @apply border border-primary py-1 flex gap-5 items-center px-12;
 }
 
-.nav-cart-btn:hover {
-    @apply bg-primary;
+.sidebar-overlay {
+    @apply fixed inset-0 bg-dark bg-opacity-0 z-[1000];
+    transition: opacity 0.5s ease-in-out;
+    pointer-events: none;
+}
+
+.sidebar-overlay.visible {
+    @apply bg-opacity-60;
+    pointer-events: auto;
+}
+
+.menu-sidebar {
+    @apply fixed top-0 right-0 h-full bg-white opacity-95 shadow-lg z-[1001];
+}
+
+.sidebar-close-btn {
+    @apply absolute top-0 left-[-46px] text-3xl bg-secondary text-base-100 px-2 py-[15px];
+}
+
+.sidebar-search-form {
+    @apply bg-[#eee] flex justify-between items-center;
+}
+
+.sidebar-search-input {
+    @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
+}
+
+.sidebar-search-btn {
+    @apply text-xl text-body p-5;
+}
+
+.sidebar-nav-list {
+    @apply space-y-4 text-body font-semibold mt-8 mx-8;
 }
 
 .nav-phone-num {
-    @apply flex items-center justify-center gap-3 border border-primary px-12 py-[14px] text-2xl font-semibold text-secondary;
+    @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-lg font-semibold text-secondary;
 }
 
-.nav-phone-num:hover {
-    @apply text-dark border-primary;
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* TOP PART FOR LARGE DEVICES */
+    .lg-top-nav {
+        @apply bg-base-100 flex items-center shadow-md justify-between p-8;
+    }
+
+    .lg-search-input {
+        @apply p-4 w-full outline-none border border-primary;
+    }
+
+    .lg-search-btn {
+        @apply bg-primary flex items-center px-5 py-4 font-bold uppercase text-lg;
+    }
+
+    .lg-search-btn:hover {
+        @apply bg-secondary text-base-100;
+    }
+
+    .nav-cart-btn {
+        @apply border border-primary py-1 flex gap-5 items-center px-12;
+    }
+
+    .nav-cart-btn:hover {
+        @apply bg-primary;
+    }
+
+    .nav-phone-num {
+        @apply flex items-center justify-center gap-3 border border-primary px-12 py-[14px] text-2xl font-semibold text-secondary;
+    }
+
+    .nav-phone-num:hover {
+        @apply text-dark border-primary;
+    }
+    }
+
+    /* ANIMATION CLASSES */
+    .animate-fadeIn {
+        animation: fadeIn 0.5s ease-in-out forwards;
+    }
+
+    .animate-fadeOut {
+        animation: fadeOut 0.5s ease-in-out forwards;
+    }
+
+    /* FADEIN ANIMATION */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateX(100px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes fadeOut {
+        from {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        to {
+            opacity: 0;
+            transform: translateX(100px);
+        }
 }

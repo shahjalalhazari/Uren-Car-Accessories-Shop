@@ -4,7 +4,7 @@ import TopPart from './topPart/TopPart';
 const Navbar = () => {
   return (
     <>
-      <TopPart />
+      <TopPart navItems={navItems} />
     </>
   );
 };
