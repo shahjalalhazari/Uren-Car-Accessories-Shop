@@ -1,12 +1,13 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
-/* LARGE SCREEN IS HIDDEN FOR SMALL SCREEN */
-.lg-top-nav {
+/* LARGE & MEDIUM SCREENS ARE HIDDEN FOR SMALL SCREEN */
+.lg-top-nav,
+.md-top-nav {
     @apply hidden;
 }
 
 /* NAVBAR TOP PART FOR SMALL DEVICES */
 .sm-top-nav {
-    @apply p-6 pb-8;
+    @apply px-4 py-6 shadow-md;
 }
 
 .sm-top-nav .uren-logo {
@@ -60,13 +61,41 @@
     @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-lg font-semibold text-secondary;
 }
 
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* LARGE & SMALL SCREENS ARE HIDDEN FOR MEDIUM SCREEN */
+    .sm-top-nav,
+    .lg-top-nav {
+        @apply hidden;
+    }
+
+    /* NAVBAR TOP PART FOR MEDIUM DEVICES */
+    .md-top-nav {
+        @apply flex items-center justify-between px-6 py-8 shadow-md;
+    }
+
+    .nav-cart-btn {
+        @apply border border-primary py-1 flex gap-5 items-center px-8;
+    }
+
+    .nav-phone-num {
+        @apply px-8;
+    }
+}
+
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
 @media (min-width: 1025px) {
+    /* SMALL & MEDIUM SCREENS ARE HIDDEN FOR LARGE SCREEN */
+    .sm-top-nav,
+    .md-top-nav {
+        @apply hidden;
+    }
 
     /* TOP PART FOR LARGE DEVICES */
     .lg-top-nav {
-        @apply bg-base-100 flex items-center shadow-md justify-between p-8;
+        @apply bg-base-100 flex items-center shadow-md justify-between px-8 py-10;
     }
 
     .lg-search-input {
@@ -96,38 +125,36 @@
     .nav-phone-num:hover {
         @apply text-dark border-primary;
     }
+}
+
+/* ANIMATION CLASSES */
+.animate-fadeIn {
+    animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.animate-fadeOut {
+    animation: fadeOut 0.5s ease-in-out forwards;
+}
+
+/* FADEIN ANIMATION */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
     }
 
-    /* ANIMATION CLASSES */
-    .animate-fadeIn {
-        animation: fadeIn 0.5s ease-in-out forwards;
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
     }
-
-    .animate-fadeOut {
-        animation: fadeOut 0.5s ease-in-out forwards;
+    to {
+        opacity: 0;
+        transform: translateX(100px);
     }
-
-    /* FADEIN ANIMATION */
-    @keyframes fadeIn {
-        from {
-            opacity: 0;
-            transform: translateX(100px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateX(0);
-        }
-    }
-
-    @keyframes fadeOut {
-        from {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        to {
-            opacity: 0;
-            transform: translateX(100px);
-        }
 }
