@@ -1,11 +1,9 @@
 "use client"
 import Link from "next/link";
-import { usePathname } from "next/navigation";
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
-const SmBtmNav = ({categories}) => {
-  const pathname = usePathname();
+const SmBtmNav = ({ categories }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const listRef = useRef(null);

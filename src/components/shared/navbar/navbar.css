@@ -1,7 +1,8 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
 /* LARGE & MEDIUM SCREENS ARE HIDDEN FOR SMALL SCREEN */
 .lg-top-nav,
-.md-top-nav {
+.md-top-nav,
+.md-bottom-nav {
     @apply hidden;
 }
 
@@ -79,7 +80,7 @@
 }
 
 .categories-list {
-    @apply z-[999] absolute left-0 text-body text-sm font-medium w-full h-fit max-h-[50vh] overflow-y-auto bg-base-100 shadow-lg border-2 border-primary;
+    @apply z-[999] absolute left-0 text-body text-sm font-medium w-full h-fit max-h-[40vh] overflow-y-auto bg-base-100 shadow-lg border-2 border-primary;
     transition: opacity 0.3s ease;
     will-change: transform, opacity;
 }
@@ -105,7 +106,8 @@
 
     /* LARGE & SMALL SCREENS ARE HIDDEN FOR MEDIUM SCREEN */
     .sm-top-nav,
-    .lg-top-nav {
+    .lg-top-nav,
+    .sm-bottom-nav {
         @apply hidden;
     }
 
@@ -120,6 +122,34 @@
 
     .nav-phone-num {
         @apply px-8;
+    }
+    /* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
+    .md-bottom-nav {
+        @apply bg-primary px-6 py-3 flex gap-x-6 items-center;
+    }
+
+    .categories-list-heading {
+        @apply py-3 px-4;
+    }
+
+    .categories-list-heading-text {
+        @apply flex-col items-center justify-evenly font-semibold leading-none;
+    }
+
+    .categories-list {
+        @apply h-fit max-h-[50vh];
+    }
+
+    .md-search-form {
+        @apply flex w-2/3;
+    }
+
+    .md-search-input {
+        @apply h-[60px] pl-5 pr-10 outline-none w-full;
+    }
+
+    .md-search-btn {
+        @apply bg-dark text-base-100 flex items-center px-5 py-4 font-semibold uppercase text-lg;
     }
 }
 
