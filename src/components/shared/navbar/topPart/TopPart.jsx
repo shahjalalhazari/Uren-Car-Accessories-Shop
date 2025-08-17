@@ -1,18 +1,18 @@
 import React from 'react';
 import LgTopNav from './LgTopNav';
 import SmTopNav from "./SmTopNav";
-import MdTopPart from "./MdTopPart";
+import MdTopNav from "./MdTopNav";
 
 const TopPart = ({ navItems }) => {
   return (
-    <>
+    <div className="navbar-top-part">
       {/* SMALL SCREEN SIZE */}
       <SmTopNav navItems={navItems} />
       {/* MEDIUM SCREEN SIZE */}
-      <MdTopPart navItems={navItems} />
+      <MdTopNav navItems={navItems} />
       {/* LARGE SCREEN SIZE */}
       <LgTopNav />
-    </>
+    </div>
   );
 };
 

@@ -54,11 +54,50 @@
 }
 
 .sidebar-nav-list {
-    @apply space-y-4 text-body font-semibold mt-8 mx-8;
+    @apply space-y-4 text-body font-semibold mt-6 mx-6;
 }
 
 .nav-phone-num {
     @apply flex items-center justify-center gap-3 border border-primary py-2.5 text-lg font-semibold text-secondary;
+}
+
+.dropdown-list-active {
+    @apply text-secondary;
+}
+
+/* NAVBAR BOTTOM PART FOR SMALL DEVICES */
+.sm-bottom-nav {
+    @apply bg-primary px-4;
+}
+
+.categories-list-heading {
+    @apply bg-dark text-base-100 cursor-pointer flex justify-between items-center py-4 px-4;
+}
+
+.categories-list-heading-text {
+    @apply uppercase font-semibold leading-none;
+}
+
+.categories-list {
+    @apply z-[999] absolute left-0 text-body text-sm font-medium w-full h-fit max-h-[50vh] overflow-y-auto bg-base-100 shadow-lg border-2 border-primary;
+    transition: opacity 0.3s ease;
+    will-change: transform, opacity;
+}
+
+.categories-arrow {
+    @apply text-3xl transition-transform duration-500 ease-in-out
+}
+
+.dropdown-list-item {
+    @apply py-2.5 px-4 border-b border-uren-border cursor-pointer;
+}
+
+.dropdown-list-item:last-child {
+    @apply border-none;
+}
+
+.dropdown-list-item:hover {
+    @apply bg-gray-100 text-secondary
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -136,7 +175,18 @@
     animation: fadeOut 0.5s ease-in-out forwards;
 }
 
-/* FADEIN ANIMATION */
+.rolling-up {
+    animation: rollUp 1s ease-in-out forwards;
+    transform-origin: top center;
+}
+
+.rolling-down {
+    animation: rollDown 1s ease-in-out forwards;
+    transform-origin: top center;
+    pointer-events: none;
+}
+
+/* FADEIN & OUT ANIMATION */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -156,5 +206,29 @@
     to {
         opacity: 0;
         transform: translateX(100px);
+    }
+}
+/* ROLLING UP & DOWN ANIMATIONS */
+@keyframes rollUp {
+    0% {
+        transform: rotateX(90deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes rollDown {
+    0% {
+        transform: rotateX(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateX(90deg);
+        opacity: 0;
     }
 }

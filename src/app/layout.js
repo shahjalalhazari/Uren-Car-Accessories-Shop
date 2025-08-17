@@ -1,5 +1,6 @@
 import { Work_Sans } from "next/font/google";
 import "./globals.css";
+import 'animate.css';
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/shared/navbar/Navbar";

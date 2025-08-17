@@ -1,16 +1,20 @@
+import BottomPart from "./bottomPart/BottomPart";
 import "./navbar.css";
-import TopPart from './topPart/TopPart';
+import TopPart from "./topPart/TopPart";
 
 const Navbar = () => {
   return (
     <>
+      {/* TOP PART */}
       <TopPart navItems={navItems} />
+
+      {/* BOTTOM PART */}
+      <BottomPart navItems={navItems} />
     </>
   );
 };
 
 export default Navbar;
-
 
 const navItems = [
   {

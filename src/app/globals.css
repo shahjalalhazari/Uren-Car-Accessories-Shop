@@ -13,3 +13,28 @@
 .uren-transition {
   @apply transition-all duration-500 ease-in-out;
 }
+.animate__animated.animate__slideInUp {
+  --animate-duration: 1s;
+}
+
+.rolling-element {
+  width: 100px;
+  height: 100px;
+  background-color: blue;
+  /* Define the animation */
+  animation: rollUp 2s ease-in-out forwards;
+  transform-origin: top center;
+  /* Important for rotation around the bottom edge */
+}
+
+@keyframes rollUp {
+  0% {
+    transform: rotateX(0deg);
+    /* Start flat */
+  }
+
+  100% {
+    transform: rotateX(90deg);
+    /* Rotate up to a vertical position */
+  }
+}

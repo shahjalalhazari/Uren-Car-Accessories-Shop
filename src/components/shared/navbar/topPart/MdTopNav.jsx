@@ -7,7 +7,7 @@ import { BiMenu, BiSearch, BiShoppingBag, BiSolidPhone, BiX } from 'react-icons/
 
 
 // NAVBAR TOP PART FOR MEDIUM SCREEN DEVICES.
-const MdTopPart = ({ navItems }) => {
+const MdTopNav = ({ navItems }) => {
   const pathname = usePathname();
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [isAnimatingOut, setIsAnimatingOut] = useState(false);
@@ -197,4 +197,4 @@ const MdTopPart = ({ navItems }) => {
     );
 };
 
-export default MdTopPart;
+export default MdTopNav;
