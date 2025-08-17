@@ -3,6 +3,8 @@ import Link from "next/link";
 import { useRef, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
+
+// NAVBAR BOTTOM PART FOR SMALL SCREEN DEVICES.
 const SmBtmNav = ({ categories }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
@@ -15,7 +17,7 @@ const SmBtmNav = ({ categories }) => {
       setTimeout(() => {
         setIsOpen(false);
         setIsAnimating(false);
-      }, 500); // Match this with animation duration
+      }, 1000); // Match this with animation duration
     } else {
       setIsOpen(true);
     }
@@ -35,7 +37,7 @@ const SmBtmNav = ({ categories }) => {
           </h2>
           <p
             className={`categories-arrow uren-transition ${
-              isOpen ? "rotate-180" : "rotate-0"
+              isOpen ? "rotate-180" : ""
             }`}
           >
             <FaAngleDown />
@@ -50,7 +52,7 @@ const SmBtmNav = ({ categories }) => {
             }`}
           >
             {categories?.map((item, index) => (
-              <li key={index} className="dropdown-list-item uppercase">
+              <li key={index} className="dropdown-list-item">
                 <Link
                   href={`/shop/products/category?/${encodeURIComponent(
                     item.name

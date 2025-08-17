@@ -2,7 +2,8 @@
 /* LARGE & MEDIUM SCREENS ARE HIDDEN FOR SMALL SCREEN */
 .lg-top-nav,
 .md-top-nav,
-.md-bottom-nav {
+.md-bottom-nav,
+.lg-bottom-nav {
     @apply hidden;
 }
 
@@ -90,7 +91,7 @@
 }
 
 .dropdown-list-item {
-    @apply py-2.5 px-4 border-b border-uren-border cursor-pointer;
+    @apply py-2.5 px-4 uppercase border-b border-uren-border cursor-pointer;
 }
 
 .dropdown-list-item:last-child {
@@ -107,7 +108,8 @@
     /* LARGE & SMALL SCREENS ARE HIDDEN FOR MEDIUM SCREEN */
     .sm-top-nav,
     .lg-top-nav,
-    .sm-bottom-nav {
+    .sm-bottom-nav,
+    .lg-bottom-nav {
         @apply hidden;
     }
 
@@ -158,7 +160,9 @@
 @media (min-width: 1025px) {
     /* SMALL & MEDIUM SCREENS ARE HIDDEN FOR LARGE SCREEN */
     .sm-top-nav,
-    .md-top-nav {
+    .md-top-nav,
+    .sm-bottom-nav,
+    .md-bottom-nav {
         @apply hidden;
     }
 
@@ -193,6 +197,69 @@
 
     .nav-phone-num:hover {
         @apply text-dark border-primary;
+    }
+    /* NAVBAR BOTTOM PART FOR LARGE DEVICES */
+    .lg-bottom-nav {
+        @apply bg-primary px-8 flex justify-between items-center;
+    }
+
+    /* CATEGORY LIST */
+    .categories-list-heading {
+        @apply py-3 px-6;
+    }
+
+    .categories-list-heading-text {
+        @apply flex-col pl-8 pr-20;
+    }
+
+    .categories-list {
+        @apply h-fit max-h-[65vh];
+    }
+
+    .categories-list .dropdown-list-item {
+        @apply px-6 py-3;
+    }
+
+    /* MAIN NAVIGATION */
+    .main-nav {
+        @apply flex gap-8 items-center;
+    }
+
+    .main-nav-items {
+        @apply font-bold uppercase;
+    }
+
+    .main-nav-items:hover {
+        @apply text-secondary;
+    }
+
+    .main-active-nav-items {
+        @apply text-base-100 bg-dark py-[18px] px-5;
+    }
+
+    /* RIGHT SIDE */
+    .lg-bottom-nav .nav-right-side {
+        @apply flex items-center gap-x-8;
+    }
+
+    .dropdown-header {
+        @apply flex items-center gap-x-1 text-lg cursor-pointer;
+    }
+
+    .dropdown-list {
+        @apply absolute z-[998] right-0 w-max bg-base-100 p-0 border border-primary shadow-lg animate-fadeIn;
+    }
+
+    .dropdown-list-item {
+        @apply py-2.5 px-4 text-body text-sm;
+    }
+
+    .dropdown-list-item:hover {
+        @apply bg-gray-bg text-secondary;
+    }
+
+    .language-dropdown-item {
+        @apply dropdown-list-item flex gap-x-2;
     }
 }
 

@@ -1,6 +1,7 @@
 import { getCategories } from '@/lib/getCategories';
 import SmBtmNav from './SmBtmNav';
 import MdBtmNav from "./MdBtmNav";
+import LgBtmNav from "./LgBtmNav";
 
 const BottomPart = async ({ navItems }) => {
   const categories = await getCategories();
@@ -12,7 +13,10 @@ const BottomPart = async ({ navItems }) => {
       <SmBtmNav categories={categories} />
 
       {/* MEDIUM SCREEN SIZE */}
-      <MdBtmNav navItems={navItems} categories={categories} />
+      <MdBtmNav categories={categories} />
+
+      {/* LARGE SCREEN SIZE */}
+      <LgBtmNav navItems={navItems} categories={categories} />
     </div>
   );
 };
