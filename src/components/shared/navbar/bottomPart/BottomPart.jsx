@@ -5,7 +5,6 @@ import LgBtmNav from "./LgBtmNav";
 
 const BottomPart = async ({ navItems }) => {
   const categories = await getCategories();
-  console.log("categories", categories);
 
   return (
     <div className="navbar-bottom-part">

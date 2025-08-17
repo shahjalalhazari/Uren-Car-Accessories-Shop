@@ -3,35 +3,34 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import React, { useRef, useState } from 'react';
-import { FaAngleDown, FaBars, FaDollarSign, FaUser } from 'react-icons/fa';
-import { is } from './../../../../../.next/static/chunks/[root of the server]__31723f._';
-
+import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
 // NAVBAR BOTTOM PART FOR LARGE SCREEN DEVICES.
 const LgBtmNav = ({ navItems, categories }) => {
   const pathname = usePathname();
   const listRef = useRef(null);
-  
+
   // DROPDOWN STATES.
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-  // ANIMATION'S STATES
-  const [categoryAnimating, setCategoryAnimating] = useState(false);
-  const [currencyAnimating, setCurrencyAnimating] = useState(false);
-  const [languageAnimating, setLanguageAnimating] = useState(false);
-  const [userMenuAnimating, setUserMenuAnimating] = useState(false);
+  // ANIMATION STATE
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [categoryAnimation, setCategoryAnimation] = useState(false);
+  const [currencyAnimation, setCurrencyAnimation] = useState(false);
+  const [languageAnimation, setLanguageAnimation] = useState(false);
+  const [userMenuAnimation, setUserMenuAnimation] = useState(false);
 
   // CATEGORY TOGGLE TO OPEN CATEGORY MENU.
   const toggleCategory = () => {
     if (isCategoryOpen) {
       // Start closing animation
-      setCategoryAnimating(true);
+      setCategoryAnimation(true);
       setTimeout(() => {
         setIsCategoryOpen(false);
-        setCategoryAnimating(false);
+        setCategoryAnimation(false);
       }, 1000); // Match this with animation duration
     } else {
       setIsCategoryOpen(true);
@@ -42,10 +41,10 @@ const LgBtmNav = ({ navItems, categories }) => {
   const toggleCurrency = () => {
     if (isCurrencyOpen) {
       // Start closing animation
-      setCurrencyAnimating(true);
+      setCurrencyAnimation(true);
       setTimeout(() => {
         setIsCurrencyOpen(false);
-        setCurrencyAnimating(false);
+        setCurrencyAnimation(false);
       }, 1000); // Match this with animation duration
     } else {
       setIsCurrencyOpen(true);
@@ -56,10 +55,10 @@ const LgBtmNav = ({ navItems, categories }) => {
   const toggleLanguage = () => {
     if (isLanguageOpen) {
       // Start closing animation
-      setLanguageAnimating(true);
+      setLanguageAnimation(true);
       setTimeout(() => {
         setIsLanguageOpen(false);
-        setLanguageAnimating(false);
+        setLanguageAnimation(false);
       }, 1000); // Match this with animation duration
     } else {
       setIsLanguageOpen(true);
@@ -70,10 +69,10 @@ const LgBtmNav = ({ navItems, categories }) => {
   const toggleUserMenu = () => {
     if (isUserMenuOpen) {
       // Start closing animation
-      setUserMenuAnimating(true);
+      setUserMenuAnimation(true);
       setTimeout(() => {
         setIsUserMenuOpen(false);
-        setUserMenuAnimating(false);
+        setUserMenuAnimation(false);
       }, 1000); // Match this with animation duration
     } else {
       setIsUserMenuOpen(true);
@@ -104,7 +103,7 @@ const LgBtmNav = ({ navItems, categories }) => {
           <ul
             ref={listRef}
             className={`categories-list ${
-              isCategoryOpen && !categoryAnimating
+              isCategoryOpen && !categoryAnimation
                 ? "rolling-up"
                 : "rolling-down"
             }`}
@@ -155,7 +154,9 @@ const LgBtmNav = ({ navItems, categories }) => {
             <ul
               ref={listRef}
               className={`dropdown-list ${
-                isCurrencyOpen && !currencyAnimating ? "rolling-up" : "rolling-down"
+                isCurrencyOpen && !currencyAnimation
+                  ? "rolling-up"
+                  : "rolling-down"
               }`}
             >
               <li className="dropdown-list-item dropdown-list-active">
@@ -193,7 +194,9 @@ const LgBtmNav = ({ navItems, categories }) => {
             <ul
               ref={listRef}
               className={`dropdown-list ${
-                isLanguageOpen && !languageAnimating ? "rolling-up" : "rolling-down"
+                isLanguageOpen && !languageAnimation
+                  ? "rolling-up"
+                  : "rolling-down"
               }`}
             >
               <li className="language-dropdown-item dropdown-list-active">
@@ -232,7 +235,9 @@ const LgBtmNav = ({ navItems, categories }) => {
             <ul
               ref={listRef}
               className={`dropdown-list ${
-                isUserMenuOpen && !userMenuAnimating ? "rolling-up" : "rolling-down"
+                isUserMenuOpen && !userMenuAnimation
+                  ? "rolling-up"
+                  : "rolling-down"
               }`}
             >
               <li
