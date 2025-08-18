@@ -1,0 +1,78 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* MAIN CONTENT AREA */
+.about-us-layout {
+    @apply space-y-6;
+}
+
+.about-us-img {
+    @apply w-full;
+}
+
+.about-us-img:hover {
+    @apply opacity-85;
+}
+
+.about-us-content h1 {
+    @apply font-medium text-3xl text-dark uppercase;
+}
+
+.about-us-content p {
+    @apply text-sm mb-5;
+}
+
+/* PROJECT COUNT AREA */
+.project-count-layout {
+    @apply grid grid-cols-2 gap-8 mt-10;
+}
+
+.project-count-single-item {
+    @apply flex flex-col items-center;
+}
+
+.project-count-single-item h3 {
+    @apply text-4xl text-primary font-semibold mt-3;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* MAIN CONTENT AREA */
+    .about-us-layout {
+        @apply space-y-0 grid grid-cols-2 gap-8 items-center;
+    }
+
+    .about-us-content h1 {
+        @apply text-4xl;
+    }
+
+    .about-us-content p {
+        @apply text-sm mb-5;
+    }
+
+    /* PROJECT COUNT AREA */
+    .project-count-layout {
+        @apply space-y-0 grid grid-cols-2 gap-10 mt-12;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* MAIN CONTENT AREA */
+    .about-us-layout {
+        @apply space-y-0 grid grid-cols-2 gap-10 items-center;
+    }
+
+    .about-us-content h1 {
+        @apply text-4xl;
+    }
+
+    .about-us-content p {
+        @apply text-base mb-5;
+    }
+
+    /* PROJECT COUNT AREA */
+    .project-count-layout {
+        @apply space-y-0 grid grid-cols-4 gap-0 mt-14;
+    }
+}

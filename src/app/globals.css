@@ -69,6 +69,16 @@
   @apply text-center text-2xl font-bold uppercase;
 }
 
+/* *** BUTTONS *** */
+/* --- SECONDARY BUTTON --- */
+.secondary-btn {
+  @apply bg-secondary text-white font-bold text-sm py-3 px-7 uppercase uren-transition;
+}
+
+.secondary-btn:hover {
+  @apply bg-body;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
