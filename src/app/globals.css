@@ -56,6 +56,19 @@
   @apply bg-body;
 }
 
+/* *** PAGE BREADCRUMB *** */
+.breadcrumb-bg {
+  @apply relative text-base-100 text-center w-full bg-cover bg-center;
+}
+
+.breadcrumb-bg-overlay {
+  @apply bg-black bg-opacity-70 w-full h-full p-0 m-0 absolute text-center flex flex-col items-center justify-center;
+}
+
+.breadcrumb-title {
+  @apply text-center text-2xl font-bold uppercase;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
@@ -83,6 +96,10 @@
 
   .error-search-form {
     @apply w-1/2 mx-auto;
+  }
+  /* *** PAGE BREADCRUMB *** */
+  .breadcrumb-title {
+    @apply text-3xl;
   }
 }
 
@@ -113,5 +130,9 @@
 
   .error-search-form {
     @apply w-1/3 mx-auto;
+  }
+  /* *** PAGE BREADCRUMB *** */
+  .breadcrumb-title {
+    @apply text-4xl;
   }
 }
