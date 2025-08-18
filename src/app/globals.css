@@ -13,28 +13,105 @@
 .uren-transition {
   @apply transition-all duration-500 ease-in-out;
 }
-.animate__animated.animate__slideInUp {
-  --animate-duration: 1s;
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* *** CONTAINER *** */
+.uren-container {
+  @apply mx-6 my-12 p-0;
 }
 
-.rolling-element {
-  width: 100px;
-  height: 100px;
-  background-color: blue;
-  /* Define the animation */
-  animation: rollUp 2s ease-in-out forwards;
-  transform-origin: top center;
-  /* Important for rotation around the bottom edge */
+/* *** 404 Not Found Page *** */
+.not-found-404 {
+  @apply uren-container text-center text-body;
 }
 
-@keyframes rollUp {
-  0% {
-    transform: rotateX(0deg);
-    /* Start flat */
+.error-heading {
+  @apply text-7xl pb-1 text-primary font-bold;
+}
+
+.error-subheading {
+  @apply text-2xl font-bold pb-3;
+}
+
+.error-search-form {
+  @apply mt-5 mb-6 w-3/4 mx-auto border border-uren-border flex justify-between items-center px-5 py-3;
+}
+
+.error-search-form input {
+  @apply text-start text-sm w-full outline-none;
+}
+
+.error-search-form button {
+  @apply text-xl uren-transition;
+}
+
+.error-search-form button:hover {
+  @apply text-primary;
+}
+
+.back-to-home-btn {
+  @apply bg-primary text-white font-bold text-sm py-3 px-7 uppercase uren-transition
+}
+
+.back-to-home-btn:hover {
+  @apply bg-body;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  /* *** CONTAINER *** */
+  .uren-container {
+    @apply mx-8 my-16;
   }
 
-  100% {
-    transform: rotateX(90deg);
-    /* Rotate up to a vertical position */
+  /* *** 404 Not Found Page *** */
+  .not-found-404 {
+    @apply mb-16;
+  }
+
+  .error-heading {
+    @apply text-8xl pb-2;
+  }
+
+  .error-subheading {
+    @apply text-2xl pb-3;
+  }
+
+  .error-paragraph {
+    @apply w-2/3 mx-auto
+  }
+
+  .error-search-form {
+    @apply w-1/2 mx-auto;
+  }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+  /* *** CONTAINER *** */
+  .uren-container {
+    @apply mx-10 my-20;
+  }
+
+  /* *** 404 Not Found Page *** */
+  .not-found-404 {
+    @apply mb-20;
+  }
+
+  .error-heading {
+    @apply text-9xl pb-2;
+  }
+
+  .error-subheading {
+    @apply text-3xl pb-3;
+  }
+
+  .error-paragraph {
+    @apply w-1/3 mx-auto
+  }
+
+  .error-search-form {
+    @apply w-1/3 mx-auto;
   }
 }

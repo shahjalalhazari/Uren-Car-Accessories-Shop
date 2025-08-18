@@ -1,5 +1,5 @@
-/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
-/* LARGE & MEDIUM SCREENS ARE HIDDEN FOR SMALL SCREEN */
+/*** MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) ***/
+/* --- LARGE & MEDIUM SCREENS ARE HIDDEN FOR SMALL SCREEN --- */
 .lg-top-nav,
 .md-top-nav,
 .md-bottom-nav,
@@ -7,9 +7,9 @@
     @apply hidden;
 }
 
-/* NAVBAR TOP PART FOR SMALL DEVICES */
+/*** NAVBAR TOP PART FOR SMALL DEVICES ***/
 .sm-top-nav {
-    @apply px-4 py-6 shadow-md;
+    @apply p-6;
 }
 
 .sm-top-nav .uren-logo {
@@ -67,9 +67,9 @@
     @apply text-secondary;
 }
 
-/* NAVBAR BOTTOM PART FOR SMALL DEVICES */
+/*** NAVBAR BOTTOM PART FOR SMALL DEVICES ***/
 .sm-bottom-nav {
-    @apply bg-primary px-4;
+    @apply bg-primary px-6;
 }
 
 .categories-list-heading {
@@ -102,10 +102,10 @@
     @apply bg-gray-100 text-secondary
 }
 
-/* TABLET OR MEDIUM SCREEN (All Sizes) */
+/*** TABLET OR MEDIUM SCREEN (All Sizes) ***/
 @media (min-width: 768px) and (max-width: 1024px) {
 
-    /* LARGE & SMALL SCREENS ARE HIDDEN FOR MEDIUM SCREEN */
+    /* --- LARGE & SMALL SCREENS ARE HIDDEN FOR MEDIUM SCREEN --- */
     .sm-top-nav,
     .lg-top-nav,
     .sm-bottom-nav,
@@ -113,9 +113,9 @@
         @apply hidden;
     }
 
-    /* NAVBAR TOP PART FOR MEDIUM DEVICES */
+    /*** NAVBAR TOP PART FOR MEDIUM DEVICES ***/
     .md-top-nav {
-        @apply flex items-center justify-between px-6 py-8 shadow-md;
+        @apply flex items-center justify-between p-8 pt-6;
     }
 
     .nav-cart-btn {
@@ -125,9 +125,9 @@
     .nav-phone-num {
         @apply px-8;
     }
-    /* NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
+    /*** NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
     .md-bottom-nav {
-        @apply bg-primary px-6 py-3 flex gap-x-6 items-center;
+        @apply bg-primary px-8 py-3 flex gap-x-8 items-center;
     }
 
     .categories-list-heading {
@@ -156,9 +156,9 @@
 }
 
 
-/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+/*** DESKTOP OR LARGE SCREEN (All Sizes) ***/
 @media (min-width: 1025px) {
-    /* SMALL & MEDIUM SCREENS ARE HIDDEN FOR LARGE SCREEN */
+    /* --- SMALL & MEDIUM SCREENS ARE HIDDEN FOR LARGE SCREEN --- */
     .sm-top-nav,
     .md-top-nav,
     .sm-bottom-nav,
@@ -166,9 +166,9 @@
         @apply hidden;
     }
 
-    /* TOP PART FOR LARGE DEVICES */
+    /*** TOP PART FOR LARGE DEVICES ***/
     .lg-top-nav {
-        @apply bg-base-100 flex items-center shadow-md justify-between px-8 py-10;
+        @apply bg-base-100 flex items-center shadow-md justify-between p-10 pt-8;
     }
 
     .lg-search-input {
@@ -198,9 +198,9 @@
     .nav-phone-num:hover {
         @apply text-dark border-primary;
     }
-    /* NAVBAR BOTTOM PART FOR LARGE DEVICES */
+    /*** NAVBAR BOTTOM PART FOR LARGE DEVICES ***/
     .lg-bottom-nav {
-        @apply bg-primary px-8 flex justify-between items-center;
+        @apply bg-primary px-10 flex justify-between items-center;
     }
 
     /* CATEGORY LIST */
@@ -220,7 +220,7 @@
         @apply px-6 py-3;
     }
 
-    /* MAIN NAVIGATION */
+    /* --- MAIN NAVIGATION --- */
     .main-nav {
         @apply flex gap-8 items-center;
     }
@@ -237,7 +237,7 @@
         @apply text-base-100 bg-dark py-[18px] px-5;
     }
 
-    /* RIGHT SIDE */
+    /* --- RIGHT SIDE --- */
     .lg-bottom-nav .nav-right-side {
         @apply flex items-center gap-x-8;
     }
@@ -263,7 +263,7 @@
     }
 }
 
-/* ANIMATION CLASSES */
+/*** ANIMATION CLASSES ***/
 .animate-fadeIn {
     animation: fadeIn 0.5s ease-in-out forwards;
 }
@@ -283,7 +283,7 @@
     pointer-events: none;
 }
 
-/* FADEIN & OUT ANIMATION */
+/* --- FADE-IN & FADE-OUT ANIMATION --- */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -305,7 +305,7 @@
         transform: translateX(100px);
     }
 }
-/* ROLLING UP & DOWN ANIMATIONS */
+/* --- ROLL-UP & ROLL-DOWN ANIMATIONS --- */
 @keyframes rollUp {
     0% {
         transform: rotateX(90deg);
