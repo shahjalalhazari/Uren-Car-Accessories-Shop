@@ -1,0 +1,128 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/*** CONTACT FORM LAYOUT ***/
+.contact-form-layout {
+    @apply space-y-6 mt-10 text-body;
+}
+
+.contact-page-title {
+    @apply font-medium text-2xl text-dark uppercase;
+}
+
+.contact-form {
+    @apply text-sm space-y-4 mt-6;
+}
+
+.form-input-group {
+    @apply space-y-2;
+}
+
+.form-input-group label {
+    @apply cursor-text;
+}
+
+.form-input-group input {
+    @apply h-10 pl-4 w-full text-sm border border-uren-border outline-none text-dark-gray;
+}
+
+.form-input-group textarea {
+    @apply h-20 min-h-8 px-4 py-3 text-sm w-full border border-uren-border outline-none text-dark-gray;
+}
+
+/*** ADDRESS BOOK ***/
+.address-book {
+    @apply bg-gray-bg p-6 h-fit;
+}
+
+.address-book-message {
+    @apply my-5 text-sm;
+}
+
+.contact-blocks {
+    @apply space-y-6;
+}
+
+.address-block {
+    @apply pb-2 border-b border-uren-border text-sm;
+}
+
+.address-block h5 {
+    @apply text-xl mb-3 text-dark-gray font-semibold flex items-center gap-x-2;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /*** CONTACT FORM LAYOUT ***/
+    .contact-form-layout {
+        @apply space-y-0 mt-14 grid grid-cols-2 gap-8 items-center;
+    }
+
+    .contact-form {
+        @apply text-sm space-y-6 mt-8;
+    }
+
+    .form-input-group input {
+        @apply h-12;
+    }
+
+    /*** ADDRESS BOOK ***/
+    .address-book {
+        @apply p-8;
+    }
+
+    .address-book-message {
+        @apply my-6;
+    }
+
+    .contact-blocks {
+        @apply space-y-8;
+    }
+
+    .address-block {
+        @apply pb-3;
+    }
+
+    .address-block h5 {
+        @apply text-xl mb-4 gap-x-3;
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+    /*** CONTACT FORM LAYOUT ***/
+    .contact-form-layout {
+        @apply space-y-0 mt-16 grid grid-cols-2 gap-10 items-center;
+    }
+
+    .contact-page-title {
+        @apply text-4xl;
+    }
+
+    .contact-form {
+        @apply text-sm space-y-6 mt-8;
+    }
+
+    .form-input-group input {
+        @apply h-12;
+    }
+
+    /*** ADDRESS BOOK ***/
+    .address-book {
+        @apply p-10;
+    }
+
+    .address-book-message {
+        @apply my-8;
+    }
+
+    .contact-blocks {
+        @apply space-y-8;
+    }
+
+    .address-block {
+        @apply pb-3;
+    }
+
+    .address-block h5 {
+        @apply text-2xl gap-x-4;
+    }
+}
