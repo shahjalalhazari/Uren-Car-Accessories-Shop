@@ -79,6 +79,73 @@
   @apply bg-body;
 }
 
+/* *** FOOTER *** */
+/* --- TOP PART --- */
+.uren-footer {
+  @apply bg-[#222] text-body;
+}
+
+.top-footer-layout {
+  @apply px-6 py-[60px] grid grid-cols-2 gap-x-6 gap-y-12;
+}
+
+.footer-aside {
+  @apply col-span-2 space-y-5;
+}
+
+.footer-logo {
+  @apply h-auto w-40;
+}
+
+.footer-contacts {
+  @apply space-y-4 text-sm;
+}
+
+.footer-contact-heading {
+  @apply text-base-100 font-semibold uppercase;
+}
+
+.footer-actions {
+  @apply text-base text-base-100 p-3 rounded-full;
+}
+
+.footer-actions:hover {
+  @apply bg-opacity-50;
+}
+
+.footer-nav-heading {
+  @apply text-base-100 text-lg font-bold uppercase;
+}
+
+.footer-nav>div {
+  @apply bg-primary w-16 h-1 mt-3 mb-5 rounded-full;
+}
+
+.footer-nav-item-list {
+  @apply space-y-2.5;
+}
+
+.footer-nav-link {
+  @apply uren-transition;
+}
+
+.footer-active-nav-link {
+  @apply text-primary;
+}
+
+.footer-nav-link:hover {
+  @apply text-primary underline;
+}
+
+/* --- BOTTOM PART --- */
+.bottom-footer-layout {
+  @apply p-6 border-[#444] border-t space-y-6 text-base-100 text-center;
+}
+
+.bottom-footer-layout .payment {
+  @apply w-3/4 mx-auto;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
 
@@ -110,6 +177,40 @@
   /* *** PAGE BREADCRUMB *** */
   .breadcrumb-title {
     @apply text-3xl;
+  }
+  /* *** FOOTER *** */
+  /* --- TOP PART --- */
+  .top-footer-layout {
+    @apply px-8 py-20 grid grid-cols-3 gap-x-8 gap-y-16;
+  }
+
+  .footer-aside {
+    @apply space-y-6;
+  }
+
+  .footer-logo {
+    @apply h-auto w-[180px];
+  }
+
+  .footer-contacts {
+    @apply space-y-5 text-base;
+  }
+
+  .footer-nav-heading {
+    @apply text-xl;
+  }
+
+  .footer-nav-item-list {
+    @apply space-y-3;
+  }
+
+  /* --- BOTTOM PART --- */
+  .bottom-footer-layout {
+    @apply p-8 space-y-0 flex items-center justify-between text-base;
+  }
+
+  .bottom-footer-layout .payment {
+    @apply w-1/2 mx-0;
   }
 }
 
@@ -144,5 +245,35 @@
   /* *** PAGE BREADCRUMB *** */
   .breadcrumb-title {
     @apply text-4xl;
+  }
+  /* *** FOOTER *** */
+  /* --- TOP PART --- */
+  .top-footer-layout {
+    @apply px-10 py-[100px] grid grid-cols-6 gap-x-10 gap-y-20;
+  }
+
+  .footer-aside {
+    @apply space-y-7;
+  }
+
+  .footer-logo {
+    @apply w-[200px];
+  }
+
+  .footer-contacts {
+    @apply space-y-6;
+  }
+
+  .footer-nav-item-list {
+    @apply space-y-3;
+  }
+
+  /* --- BOTTOM PART --- */
+  .bottom-footer-layout {
+    @apply p-10 space-y-0 flex items-center justify-between;
+  }
+
+  .bottom-footer-layout .payment {
+    @apply w-1/4 mx-0;
   }
 }

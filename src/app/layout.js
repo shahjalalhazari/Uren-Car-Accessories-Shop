@@ -4,6 +4,7 @@ import 'animate.css';
 import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/shared/navbar/Navbar";
+import Footer from "@/components/shared/footer/Footer";
 
 const workSans = Work_Sans(
   {
@@ -42,6 +43,9 @@ export default function RootLayout({ children }) {
         {/* NAVBAR */}
         <Navbar/>
         {children}
+
+        {/* FOOTER */}
+        <Footer />
       </body>
     </html>
   );
