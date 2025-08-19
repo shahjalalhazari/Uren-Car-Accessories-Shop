@@ -3,7 +3,8 @@
 .lg-top-nav,
 .md-top-nav,
 .md-bottom-nav,
-.lg-bottom-nav {
+.lg-bottom-nav,
+.sticky-navbar {
     @apply hidden;
 }
 
@@ -125,7 +126,7 @@
     .nav-phone-num {
         @apply px-8;
     }
-    /*** NAVBAR BOTTOM PART FOR MEDIUM DEVICES */
+    /*** NAVBAR BOTTOM PART FOR MEDIUM DEVICES ***/
     .md-bottom-nav {
         @apply bg-primary px-8 py-3 flex gap-x-8 items-center;
     }
@@ -152,6 +153,60 @@
 
     .md-search-btn {
         @apply bg-dark text-base-100 flex items-center px-5 py-4 font-semibold uppercase text-lg;
+    }
+    /***  STICKY NAVBAR ***/
+    .sticky-navbar {
+        @apply fixed top-0 left-0 right-0 z-[1002] bg-primary shadow-lg px-8 flex justify-between items-center;
+    }
+
+    .main-nav-items {}
+
+    .sticky-active-nav-items {
+        @apply text-base-100 bg-dark px-8 py-5;
+    }
+
+    .sticky-nav-cart {
+        @apply flex gap-3 items-center;
+    }
+
+    .sticky-nav-cart:hover {
+        @apply text-secondary;
+    }
+
+    .active-cart {
+        @apply bg-dark text-base-100 px-8 py-[14px];
+    }
+
+    .cart-items-qty {
+        @apply absolute -top-1.5 -right-1.5 bg-secondary text-base-100 rounded-full px-1.5 text-xs font-semibold;
+    }
+
+    .main-nav {
+        @apply flex gap-5 items-center;
+    }
+
+    .main-nav-items {
+        @apply font-semibold uppercase text-sm;
+    }
+
+    .dropdown-list {
+        @apply absolute z-[998] right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
+    }
+
+    .dropdown-header {
+        @apply flex items-center gap-x-1 text-lg cursor-pointer;
+    }
+
+    .dropdown:hover .dropdown-list {
+        @apply block;
+    }
+
+    .dropdown-arrow {
+        @apply transition-transform ease-in-out duration-500;
+    }
+
+    .dropdown:hover .dropdown-arrow {
+        @apply rotate-180;
     }
 }
 
@@ -203,7 +258,7 @@
         @apply bg-primary px-10 flex justify-between items-center;
     }
 
-    /* CATEGORY LIST */
+    /* --- CATEGORY LIST --- */
     .categories-list-heading {
         @apply py-3 px-6;
     }
@@ -234,7 +289,7 @@
     }
 
     .main-active-nav-items {
-        @apply text-base-100 bg-dark py-[18px] px-5;
+        @apply text-base-100 bg-dark py-[18px] px-8;
     }
 
     /* --- RIGHT SIDE --- */
@@ -260,6 +315,32 @@
 
     .language-dropdown-item {
         @apply dropdown-list-item flex gap-x-2;
+    }
+    /*** STICKY NAVBAR ***/
+    .sticky-navbar {
+        @apply fixed top-0 left-0 right-0 z-[1002] bg-primary shadow-xl transition-transform duration-500 ease-in-out px-8 flex justify-between items-center;
+    }
+
+    .main-nav-items {}
+
+    .sticky-active-nav-items {
+        @apply text-base-100 bg-dark px-8 py-5;
+    }
+
+    .sticky-nav-cart {
+        @apply flex gap-3 items-center;
+    }
+
+    .sticky-nav-cart:hover {
+        @apply text-secondary;
+    }
+
+    .active-cart {
+        @apply bg-dark text-base-100 px-8 py-[14px];
+    }
+
+    .cart-items-qty {
+        @apply absolute -top-1.5 -right-1.5 bg-secondary text-base-100 rounded-full px-1.5 text-sm font-semibold;
     }
 }
 

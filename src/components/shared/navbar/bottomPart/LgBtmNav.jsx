@@ -17,7 +17,6 @@ const LgBtmNav = ({ navItems, categories }) => {
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
   // ANIMATION STATE
-  const [isAnimating, setIsAnimating] = useState(false);
   const [categoryAnimation, setCategoryAnimation] = useState(false);
   const [currencyAnimation, setCurrencyAnimation] = useState(false);
   const [languageAnimation, setLanguageAnimation] = useState(false);

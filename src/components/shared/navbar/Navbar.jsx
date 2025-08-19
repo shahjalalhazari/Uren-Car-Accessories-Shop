@@ -1,5 +1,6 @@
 import BottomPart from "./bottomPart/BottomPart";
 import "./navbar.css";
+import StickyNavbar from "./StickyNavbar";
 import TopPart from "./topPart/TopPart";
 
 const Navbar = () => {
@@ -10,6 +11,9 @@ const Navbar = () => {
 
       {/* BOTTOM PART */}
       <BottomPart navItems={navItems} />
+
+      {/* STICKY NAVBAR */}
+      <StickyNavbar navItems={navItems} />
     </>
   );
 };
