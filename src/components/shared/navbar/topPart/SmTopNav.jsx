@@ -37,13 +37,17 @@ const SmTopNav = ({navItems}) => {
           <BiMenu />
         </li>
 
-        {/* Cart */}
+        {/* SHOPPING CART BTN */}
         <Link href="/shop/cart" className="">
-          <li className="nav-cart-btn">
+          <li
+            className={`nav-cart-btn uren-transition ${
+              pathname.split("/").includes("cart") && "active-cart-btn"
+            }`}
+          >
             <BiShoppingBag className="text-2xl" />
             <div className="grid text-sm ">
-              <span className="text-black">3 Items</span>
-              <span className="text-secondary font-semibold">$462.40</span>
+              <span className="cart-qty">3 Items</span>
+              <span className="cart-amount">$462.40</span>
             </div>
           </li>
         </Link>
