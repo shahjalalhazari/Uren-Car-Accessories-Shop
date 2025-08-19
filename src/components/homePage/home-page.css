@@ -1,0 +1,153 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* *** ANIMATION *** */
+.uren-transition {
+    @apply transition-all duration-500 ease-in-out;
+}
+
+/* *** CAROUSEL BANNER SECTION *** */
+.carousel-bg {
+    @apply h-full bg-cover bg-center py-[60px] px-6;
+}
+
+.carousel-content {
+    @apply text-white;
+}
+
+.carousel-text {
+    @apply space-y-4;
+}
+
+.carousel-sub-heading {
+    @apply text-base text-secondary font-bold uppercase leading-tight;
+}
+
+.carousel-heading {
+    @apply text-3xl text-primary uppercase font-bold;
+}
+
+.carousel-content-divider {
+    @apply h-1 w-16 bg-secondary rounded;
+}
+
+.carousel-description {
+    @apply text-sm w-full pb-4;
+}
+
+
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    /* *** CAROUSEL BANNER SECTION *** */
+    .carousel-bg {
+        @apply px-8 py-28 text-center;
+    }
+
+    .carousel-text {
+        @apply space-y-5;
+    }
+
+    .carousel-sub-heading {
+        @apply text-2xl;
+    }
+
+    .carousel-heading {
+        @apply text-5xl;
+    }
+
+    .carousel-content-divider {
+        @apply h-1 w-20 mx-auto;
+    }
+
+    .carousel-description {
+        @apply text-sm w-3/4 mx-auto;
+    }
+}
+
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* *** CAROUSEL BANNER SECTION *** */
+    .carousel-bg {
+        @apply grid grid-cols-3 px-10 py-44;
+    }
+
+    .carousel-content {
+        @apply text-center col-span-2 items-center;
+    }
+
+    .carousel-text {
+        @apply space-y-5;
+    }
+
+    .carousel-sub-heading {
+        @apply text-2xl;
+    }
+
+    .carousel-heading {
+        @apply text-5xl;
+    }
+
+    .carousel-content-divider {
+        @apply w-24 mx-auto;
+    }
+
+    .carousel-description {
+        @apply w-2/3 mx-auto;
+    }
+}
+
+/* CAROUSEL BANNER ANIMATIONS */
+/* Animation Style 01 */
+.slick-active.animation-style-01 .carousel-text>h5 {
+    animation: 1200ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>h2 {
+    animation: 1400ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1400ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>div {
+    animation: 1600ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1600ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>p {
+    animation: 1800ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 1800ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+.slick-active.animation-style-01 .carousel-text>.primary-btn {
+    animation: 2000ms ease-in-out 0s normal none 1 running zoomInUp !important;
+    -webkit-animation: 2000ms ease-in-out 0s normal none 1 running zoomInUp !important;
+}
+
+/* Animation Style 02 */
+.slick-active.animation-style-02 .carousel-text>h5 {
+    animation: 1400ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 1400ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>h2 {
+    animation: 1600ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 1600ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>div {
+    animation: 1800ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 1800ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>p {
+    animation: 2000ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 2000ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+.slick-active.animation-style-02 .carousel-text>.primary-btn {
+    animation: 2200ms ease-in-out 0s normal none 1 running zoomInRight !important;
+    -webkit-animation: 2200ms ease-in-out 0s normal none 1 running zoomInRight !important;
+}
+
+/* ----------------------- */

@@ -70,6 +70,14 @@
 }
 
 /* *** BUTTONS *** */
+/* --- PRIMARY BUTTON --- */
+.primary-btn {
+  @apply bg-primary text-black px-6 py-2 font-semibold uppercase shadow-md rounded uren-transition;
+}
+
+.primary-btn:hover {
+  @apply text-base-100 shadow-xl bg-secondary;
+}
 /* --- SECONDARY BUTTON --- */
 .secondary-btn {
   @apply bg-secondary text-white font-bold text-sm py-3 px-7 uppercase uren-transition;
@@ -178,6 +186,12 @@
   .breadcrumb-title {
     @apply text-3xl;
   }
+/*** BUTTONS ***/
+/* --- PRIMARY BUTTON --- */
+.primary-btn {
+  @apply px-8 py-3;
+}
+
   /* *** FOOTER *** */
   /* --- TOP PART --- */
   .top-footer-layout {
@@ -242,10 +256,17 @@
   .error-search-form {
     @apply w-1/3 mx-auto;
   }
+
   /* *** PAGE BREADCRUMB *** */
   .breadcrumb-title {
     @apply text-4xl;
   }
+/* *** BUTTONS *** */
+/* --- PRIMARY BUTTON --- */
+.primary-btn {
+  @apply px-8 py-3 rounded-md;
+}
+
   /* *** FOOTER *** */
   /* --- TOP PART --- */
   .top-footer-layout {
