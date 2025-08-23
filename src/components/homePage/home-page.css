@@ -1,7 +1,31 @@
 /* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
-/* *** ANIMATION *** */
+/* *** TRANSITION *** */
 .uren-transition {
     @apply transition-all duration-500 ease-in-out;
+}
+/* *** SHARED *** */
+.slider-layout {
+    @apply mx-6 mt-12 relative;
+}
+
+.uren-slider {
+    @apply border-y border-l border-uren-border w-full;
+}
+
+.slider-btns .left-btn {
+    @apply left-6;
+}
+
+.slider-btns .right-btn {
+    @apply right-6;
+}
+
+.slider-nav-btn {
+    @apply absolute top-1/2 translate-y-[-50%] bg-[#ccc] text-dark p-2.5 rounded uren-transition z-[997];
+}
+
+.slider-nav-btn:hover {
+    @apply bg-base-100 outline outline-1 outline-primary;
 }
 
 /* *** CAROUSEL BANNER SECTION *** */
@@ -37,6 +61,22 @@
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
+    /* *** SHARED *** */
+    .slider-layout {
+        @apply mx-8 mt-16;
+    }
+
+    .slider-btns .left-btn {
+        @apply left-8;
+    }
+
+    .slider-btns .right-btn {
+        @apply right-8;
+    }
+
+    .slider-nav-btn {
+        @apply p-3;
+    }
 
     /* *** CAROUSEL BANNER SECTION *** */
     .carousel-bg {
@@ -67,6 +107,33 @@
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
 @media (min-width: 1025px) {
+    /* *** SHARED *** */
+
+
+    .slider-layout {
+        @apply mx-10 mt-20;
+    }
+
+
+    .slider-btns .left-btn {
+        @apply left-10;
+    }
+
+    .slider-btns .right-btn {
+        @apply right-10;
+    }
+
+    .slider-btns {
+        @apply hidden transition-transform ease-in-out duration-500;
+    }
+
+    .slider-container:hover .slider-btns {
+        @apply block;
+    }
+
+    .slider-nav-btn {
+        @apply p-4 rounded-md;
+    }
 
     /* *** CAROUSEL BANNER SECTION *** */
     .carousel-bg {

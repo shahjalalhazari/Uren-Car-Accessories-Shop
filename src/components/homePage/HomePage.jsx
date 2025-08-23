@@ -1,10 +1,12 @@
 import "./home-page.css";
 import CarouselBanner from './sections/CarouselBanner';
+import OfferBanners from "./sections/OfferBanners";
 
 const HomePage = () => {
   return (
     <>
-      <CarouselBanner />
+      <CarouselBanner /> {/* CAROUSEL BANNER SECTION */}
+      <OfferBanners /> {/* OFFER BANNERS SECTION */}
     </>
   );
 };
