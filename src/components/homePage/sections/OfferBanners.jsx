@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -6,7 +7,6 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
-
 
 const OfferBanners = () => {
   const prevRef = useRef(null);
@@ -59,13 +59,12 @@ const OfferBanners = () => {
 
         {/* Custom Navigation Buttons */}
         <div className="slider-btns">
-          {/* <button ref={prevRef} className="left-6 md:left-8 lg:left-10 slider-nav-btn"> */}
           <button ref={prevRef} className="slider-nav-btn left-btn">
-            <FaChevronLeft className="text-base md:text-xl" />
+            <FaChevronLeft className="text-base lg:text-xl" />
           </button>
 
           <button ref={nextRef} className="slider-nav-btn right-btn">
-            <FaChevronRight className="text-base md:text-xl" />
+            <FaChevronRight className="text-base lg:text-xl" />
           </button>
         </div>
       </Swiper>

@@ -82,6 +82,23 @@
     @apply text-body;
 }
 
+/* *** FEATURED CATEGORIES SECTION *** */
+.category-item-card {
+    @apply bg-base-100 flex flex-col items-center text-center py-5 px-3 border-r border-uren-border;
+}
+
+.category-item-card:hover {
+    @apply shadow-xl;
+}
+
+.category-card-title {
+    @apply font-semibold text-body uppercase text-base;
+}
+
+.category-card-title:hover {
+    @apply text-primary
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
