@@ -57,6 +57,31 @@
     @apply text-sm w-full pb-4;
 }
 
+/* *** SHOPPING FACILITIES SECTION *** */
+.shopping-facilities {
+    @apply border border-primary p-6 grid grid-cols-1 gap-6;
+}
+
+.facility-item {
+    @apply flex flex-col items-center text-center;
+}
+
+.item-icon {
+    @apply text-primary text-4xl mb-2;
+}
+
+.item-content {
+    @apply space-y-1 text-sm;
+}
+
+.item-content>h6 {
+    @apply font-bold uppercase text-dark-gray;
+}
+
+.item-content>p {
+    @apply text-body;
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -102,19 +127,20 @@
     .carousel-description {
         @apply text-sm w-3/4 mx-auto;
     }
+    /* *** SHOPPING FACILITIES SECTION *** */
+    .shopping-facilities {
+        @apply grid grid-cols-2 place-items-center py-8 gap-8;
+    }
+
 }
 
 
 /* DESKTOP OR LARGE SCREEN (All Sizes)*/
 @media (min-width: 1025px) {
     /* *** SHARED *** */
-
-
     .slider-layout {
         @apply mx-10 mt-20;
     }
-
-
     .slider-btns .left-btn {
         @apply left-10;
     }
@@ -162,6 +188,18 @@
 
     .carousel-description {
         @apply w-2/3 mx-auto;
+    }
+    /* *** SHOPPING FACILITIES SECTION *** */
+    .shopping-facilities {
+        @apply grid grid-cols-2 place-items-center py-10 gap-10;
+    }
+
+    .facility-item {
+        @apply flex flex-row gap-6 items-center text-start;
+    }
+
+    .item-icon {
+        @apply mb-0;
     }
 }
 
