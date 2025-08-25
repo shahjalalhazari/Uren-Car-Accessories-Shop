@@ -26,7 +26,7 @@ const FeaturedCategories = ({ categories }) => {
         <Swiper
           spaceBetween={0}
           loop={true}
-          autoplay={{ delay: 3000 }}
+          autoplay={{ delay: 5000 }}
           modules={[Navigation, Autoplay]}
           navigation={{
             prevEl: prevRef.current,

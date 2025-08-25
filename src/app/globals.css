@@ -87,6 +87,24 @@
   @apply bg-body;
 }
 
+/* --- ADD TO CART BUTTON --- */
+.add-to-cart-btn {
+  @apply bg-primary flex justify-center uren-transition items-center gap-x-2 p-3 font-semibold uppercase;
+}
+
+.add-to-cart-btn:hover {
+  @apply shadow-lg text-base-100;
+}
+
+/* --- OUTLINE BUTTON --- */
+.outline-btn {
+  @apply border-2 border-uren-border py-3 px-4 text-lg font-semibold text-body text-center uren-transition;
+}
+
+.outline-btn:hover {
+  @apply bg-primary text-base-100 border-primary shadow-lg;
+}
+
 /* *** FOOTER *** */
 /* --- TOP PART --- */
 .uren-footer {
