@@ -14,7 +14,7 @@ const ProductRating = ({ rating, text = "sm" }) => {
         stars.push(<BiSolidStarHalf key={i} className="text-primary" />);
       } else {
         // Empty star
-        stars.push(<BiStar key={i} className="text-[#999]" />);
+        stars.push(<BiStar key={i} className="text-body" />);
       }
     }
     return stars;
@@ -23,7 +23,7 @@ const ProductRating = ({ rating, text = "sm" }) => {
   return (
     <div className={`flex items-center space-x-1 mt-2 text-${text}`}>
       {renderStars()}{" "}
-      <span className={`text-blue ml-2`}>&#40;122 Reviews&#41;</span>
+      {/* <span className={`text-blue ml-2`}>&#40;12 Reviews&#41;</span> */}
     </div>
   );
 };

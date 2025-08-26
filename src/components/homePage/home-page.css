@@ -113,7 +113,7 @@
 
 /* --- DEAL OF THE DAY CARD --- */
 .deal-of-the-day .product-name {
-    @apply text-dark text-lg font-semibold uren-transition leading-snug;
+    @apply text-dark text-base font-medium uren-transition leading-snug;
 }
 
 .deal-of-the-day .product-name:hover {
@@ -154,7 +154,7 @@
 }
 
 .horizontal-product-card {
-    @apply grid grid-cols-3 items-center py-2 border-b-2
+    @apply grid grid-cols-3 gap-x-3 items-center py-3 border-b-2 uren-transition;
 }
 
 .horizontal-product-card:hover {
@@ -165,16 +165,20 @@
     @apply border-none
 }
 
-.horizontal-product-name {
-    @apply text-body leading-4 my-2 text-sm
+.horizontal-product-card .product-name {
+    @apply text-body leading-none my-2 uren-transition;
 }
 
-.horizontal-product-name:hover {
-    @apply text-secondary;
+.horizontal-product-card .product-name:hover {
+    @apply text-primary;
 }
 
-.horizontal-product-price {
+.horizontal-product-card .new-price {
     @apply text-secondary text-lg font-semibold;
+}
+
+.horizontal-product-card .old-price {
+    @apply text-body line-through text-sm;
 }
 
 
@@ -320,7 +324,7 @@
 
     /* --- DEAL OF THE DAY --- */
     .deal-of-the-day .product-name {
-        @apply text-xl;
+        @apply text-lg;
     }
 }
 
