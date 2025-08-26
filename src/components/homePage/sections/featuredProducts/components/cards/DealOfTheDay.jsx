@@ -19,7 +19,7 @@ const DealOfTheDay = () => {
       />
       {/* PRODUCT IMAGE */}
       <div className="relative">
-      {/* TODO: REPLACE */}
+        {/* TODO: REPLACE */}
         <Link href="/">
           <Image
             src="/images/product/large-size/1.jpg"
@@ -51,8 +51,8 @@ const DealOfTheDay = () => {
           </h4>
         </Link>
         <div className="flex gap-4 items-center mt-3">
-          <h2 className="new-price">$89.00</h2>
-          <h5 className="old-price">$109.99</h5>
+          <h2 className="new-price">AED 89.00</h2>
+          <h5 className="old-price">109.99</h5>
         </div>
 
         {/* PRODUCT RATING */}
