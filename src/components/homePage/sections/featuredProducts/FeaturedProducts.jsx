@@ -2,6 +2,7 @@ import { getProducts } from "@/lib/getProducts";
 import DealOfTheDay from "./components/cards/DealOfTheDay";
 import WeeklyFeaturedProducts from "./components/cards/WeeklyFeaturedProducts";
 import MostViewedProducts from "./components/cards/MostViewedProducts";
+import OnSaleProducts from "./components/cards/OnSaleProducts";
 
 const FeaturedProducts = async () => {
   const products = await getProducts();
@@ -16,6 +17,9 @@ const FeaturedProducts = async () => {
 
       {/* 3rd CARD - MOST VIEWED PRODUCTS */}
       <MostViewedProducts products={products} />
+
+      {/* 4th CARD - ON SALE PRODUCTS */}
+      <OnSaleProducts products={products} />
     </div>
   );
 };
