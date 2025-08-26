@@ -14,7 +14,7 @@ const FeaturedCategories = ({ categories }) => {
   const nextRef = useRef(null);
 
   return (
-    <div className="slider-layout">
+    <div className="slider-layout mb-12 md:mb-16 lg:mb-20">
       {/* Section Heading */}
       <SectionHeading
         heading="Featured Categories"

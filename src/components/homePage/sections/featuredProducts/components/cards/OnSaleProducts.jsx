@@ -1,7 +1,6 @@
 import HorizontalProductCard from "@/components/shared/cards/HorizontalProductCard";
 import CardTitle from "../CardTitle";
 
-
 const OnSaleProducts = ({ products }) => {
   return (
     <div>
