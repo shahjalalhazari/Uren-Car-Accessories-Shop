@@ -69,6 +69,44 @@
   @apply text-center text-2xl font-bold uppercase;
 }
 
+/* *** CARDS *** */
+/* --- SINGLE PRODUCT CARD --- */
+.single-product-card {
+  @apply uren-transition h-full;
+}
+
+.single-product-card:hover {
+  @apply shadow-md;
+}
+
+.single-product-card .badges {
+  @apply absolute top-4 left-4 text-center space-y-2;
+}
+
+.single-product-card .content {
+  @apply flex flex-col items-center gap-y-2 p-4 pb-6 pt-0;
+}
+
+.single-product-card .title {
+  @apply text-body text-base font-medium text-center uren-transition;
+}
+
+.single-product-card .title:hover {
+  @apply text-primary;
+}
+
+.single-product-card .prices {
+  @apply flex gap-x-2 items-baseline;
+}
+
+.single-product-card .price {
+  @apply text-secondary font-semibold text-base;
+}
+
+.single-product-card .old-price {
+  @apply text-sm text-body line-through;
+}
+
 /* *** BUTTONS *** */
 /* --- PRIMARY BUTTON --- */
 .primary-btn {
@@ -204,11 +242,11 @@
   .breadcrumb-title {
     @apply text-3xl;
   }
-/*** BUTTONS ***/
-/* --- PRIMARY BUTTON --- */
-.primary-btn {
-  @apply px-8 py-3;
-}
+  /*** BUTTONS ***/
+  /* --- PRIMARY BUTTON --- */
+  .primary-btn {
+    @apply px-8 py-3;
+  }
 
   /* *** FOOTER *** */
   /* --- TOP PART --- */

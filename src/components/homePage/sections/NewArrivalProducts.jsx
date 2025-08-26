@@ -1,15 +1,14 @@
 "use client"
-import CategorySingleCard from "@/components/shared/cards/CategorySingleCard";
-import SectionHeading from "@/components/shared/headings/SectionHeading";
 import { useRef } from "react";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
-import { Autoplay, Navigation } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { Autoplay, Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import SectionHeading from "@/components/shared/headings/SectionHeading";
+import SingleProductCard from "@/components/shared/cards/SingleProductCard";
 
-
-const FeaturedCategories = ({ categories }) => {
+const NewArrivalProducts = ({products}) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
 
@@ -17,11 +16,10 @@ const FeaturedCategories = ({ categories }) => {
     <div className="slider-layout">
       {/* Section Heading */}
       <SectionHeading
-        heading="Featured Categories"
-        subHeading="Top Featured Collections"
+        heading="New Arrivals Products"
+        subHeading="Top New On This Week"
       />
 
-      {/* Featured Category List */}
       <div className="relative">
         <Swiper
           spaceBetween={0}
@@ -45,20 +43,23 @@ const FeaturedCategories = ({ categories }) => {
           }}
           className="slider-container uren-slider"
         >
-          {categories.map((item, index) => (
-            <SwiperSlide key={index}>
-              <CategorySingleCard categoryItem={item} />
+          {products?.map((item, index) => (
+            <SwiperSlide key={index} className="!h-auto">
+              <SingleProductCard
+                singleProduct={item}
+                key={index}
+                borderStyle={"border-r"}
+              />
             </SwiperSlide>
           ))}
 
-          {/* Custom Navigation Buttons */}
           <div className="slider-btns">
-            <button ref={prevRef} className="slider-nav-btn left-btn">
-              <FaChevronLeft className="text-base lg:text-xl" />
+            <button ref={prevRef} className="left-6 md:left-8 slider-nav-btn">
+              <FaChevronLeft className="text-base md:text-xl" />
             </button>
 
-            <button ref={nextRef} className="slider-nav-btn right-btn">
-              <FaChevronRight className="text-base lg:text-xl" />
+            <button ref={nextRef} className="right-6 md:right-8 slider-nav-btn">
+              <FaChevronRight className="text-base md:text-xl" />
             </button>
           </div>
         </Swiper>
@@ -67,4 +68,4 @@ const FeaturedCategories = ({ categories }) => {
   );
 };
 
-export default FeaturedCategories;
+export default NewArrivalProducts;

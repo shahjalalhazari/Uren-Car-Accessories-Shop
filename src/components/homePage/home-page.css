@@ -5,7 +5,7 @@
 }
 /* *** SHARED *** */
 .slider-layout {
-    @apply mx-6 mt-12 relative;
+    @apply mx-6 my-12 relative;
 }
 
 .uren-slider {
@@ -166,7 +166,7 @@
 }
 
 .horizontal-product-card .product-name {
-    @apply text-body leading-none my-2 uren-transition;
+    @apply text-body font-medium leading-none my-2 uren-transition;
 }
 
 .horizontal-product-card .product-name:hover {
@@ -174,7 +174,7 @@
 }
 
 .horizontal-product-card .new-price {
-    @apply text-secondary text-lg font-semibold;
+    @apply text-secondary text-base font-semibold;
 }
 
 .horizontal-product-card .old-price {
@@ -220,7 +220,7 @@
 @media (min-width: 768px) and (max-width: 1024px) {
     /* *** SHARED *** */
     .slider-layout {
-        @apply mx-8 mt-16;
+        @apply mx-8 my-16;
     }
 
     .slider-btns .left-btn {
@@ -305,7 +305,7 @@
 @media (min-width: 1025px) {
     /* *** SHARED *** */
     .slider-layout {
-        @apply mx-10 mt-20;
+        @apply mx-10 my-20;
     }
     .slider-btns .left-btn {
         @apply left-10;
@@ -373,7 +373,7 @@
     }
 
     .card-container {
-        @apply bg-base-100 w-full shadow-md pt-10 p-6;
+        @apply bg-base-100 w-full shadow-md;
     }
 
     .card-container .card-height {

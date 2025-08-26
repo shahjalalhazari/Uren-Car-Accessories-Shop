@@ -6,9 +6,12 @@ import OfferBanners from "./sections/OfferBanners";
 import ShoppingFacilities from "./sections/ShoppingFacilities";
 import FeaturedProducts from "./sections/featuredProducts/FeaturedProducts";
 import BigOfferBanners from "./sections/BigOfferBanners";
+import NewArrivalProducts from "./sections/NewArrivalProducts";
+import { getProducts } from "@/lib/getProducts";
 
 const HomePage = async () => {
   const categories = await getCategories();
+  const products = await getProducts();
 
   return (
     <>
@@ -18,6 +21,7 @@ const HomePage = async () => {
       <FeaturedCategories categories={categories} />
       <FeaturedProducts />
       <BigOfferBanners />
+      <NewArrivalProducts products={products} />
     </>
   );
 };

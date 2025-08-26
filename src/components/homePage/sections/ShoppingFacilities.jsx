@@ -3,7 +3,7 @@ import { BiHelpCircle, BiLockAlt, BiPaperPlane, BiRefresh, BiShare } from "react
 
 const ShoppingFacilities = () => {
   return (
-    <div className="shopping-facilities uren-container">
+    <div className="shopping-facilities mx-6 md:mx-8 lg:mx-10">
       <div className="facility-item">
         <div className="item-icon">
           <BiPaperPlane />
