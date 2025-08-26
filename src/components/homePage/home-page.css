@@ -181,6 +181,39 @@
     @apply text-body line-through text-sm;
 }
 
+/* *** OFFER BIG BANNER SECTION *** */
+.big-banner-container {
+    @apply space-y-6 px-6 w-full pb-12 bg-gray-bg;
+}
+
+.big-single-banner {
+    @apply uren-transition;
+}
+
+.big-single-banner:hover {
+    @apply opacity-80 shadow-lg;
+}
+
+.big-single-banner-content {
+    @apply px-6 py-14 bg-center bg-cover text-base-100 cursor-pointer space-y-3;
+}
+
+.big-single-banner-content>h5 {
+    @apply text-sm uppercase text-primary;
+}
+
+.big-single-banner-content>h4 {
+    @apply text-xl uppercase;
+}
+
+.big-single-banner-content>div {
+    @apply w-16 bg-transparent border-b-2 border-primary;
+}
+
+.big-single-banner-content>p {
+    @apply text-xs w-full;
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -238,6 +271,31 @@
 
     .card-container .card-height {
         @apply h-[42vh];
+    }
+
+    /* *** OFFER BIG BANNER SECTION *** */
+    .big-banner-container {
+        @apply space-y-8 px-8 pb-16;
+    }
+
+    .big-single-banner-content {
+        @apply px-10 py-20 space-y-4;
+    }
+
+    .big-single-banner-content>h5 {
+        @apply text-base;
+    }
+
+    .big-single-banner-content>h4 {
+        @apply text-2xl;
+    }
+
+    .big-single-banner-content>div {
+        @apply w-20;
+    }
+
+    .big-single-banner-content>p {
+        @apply text-sm w-3/4;
     }
 
 }
@@ -311,7 +369,7 @@
     }
     /* *** FEATURED PRODUCTS SECTION *** */
     .featured-products {
-        @apply px-8 py-20 space-y-0 grid grid-cols-4 gap-8;
+        @apply px-10 py-20 space-y-0 grid grid-cols-4 gap-8;
     }
 
     .card-container {
@@ -325,6 +383,30 @@
     /* --- DEAL OF THE DAY --- */
     .deal-of-the-day .product-name {
         @apply text-lg;
+    }
+    /* *** OFFER BIG BANNER SECTION *** */
+    .big-banner-container {
+        @apply space-y-0 px-10 pb-20 grid grid-cols-2 gap-10;
+    }
+
+    .big-single-banner-content {
+        @apply px-14 py-24 space-y-4;
+    }
+
+    .big-single-banner-content>h5 {
+        @apply text-lg;
+    }
+
+    .big-single-banner-content>h4 {
+        @apply text-3xl;
+    }
+
+    .big-single-banner-content>div {
+        @apply w-20;
+    }
+
+    .big-single-banner-content>p {
+        @apply text-sm w-3/4;
     }
 }
 

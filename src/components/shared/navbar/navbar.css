@@ -346,7 +346,7 @@
     }
     /*** STICKY NAVBAR ***/
     .sticky-navbar {
-        @apply fixed top-0 left-0 right-0 z-[1002] bg-primary shadow-xl transition-transform duration-500 ease-in-out px-8 flex justify-between items-center;
+        @apply fixed top-0 left-0 right-0 z-[1002] bg-primary shadow-xl transition-transform duration-500 ease-in-out px-10 flex justify-between items-center;
     }
 
     .main-nav-items {}
