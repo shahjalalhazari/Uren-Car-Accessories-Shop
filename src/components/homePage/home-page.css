@@ -214,6 +214,27 @@
     @apply text-xs w-full;
 }
 
+/* *** TESTIMONIAL SECTION *** */
+.testimonial {
+    @apply relative w-full h-full;
+}
+
+.testimonial-bg-img {
+    @apply absolute left-0 top-0 w-[150%] h-full bg-cover bg-center bg-[url(/images/testimonial/bg-1.jpg)];
+}
+
+.testimonial-content {
+    @apply relative z-[996] text-center mx-auto p-14 space-y-6;
+}
+
+.testimonial-client-name {
+    @apply text-base-100 font-semibold text-xl;
+}
+
+.testimonial-comment {
+    @apply text-base-100 bg-dark bg-opacity-30 text-sm p-6 border border-uren-border border-opacity-30 leading-snug;
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -296,6 +317,20 @@
 
     .big-single-banner-content>p {
         @apply text-sm w-3/4;
+    }
+
+    /* *** TESTIMONIAL SECTION *** */
+
+    .testimonial-content {
+        @apply p-20 space-y-8;
+    }
+
+    .testimonial-client-name {
+        @apply text-2xl;
+    }
+
+    .testimonial-comment {
+        @apply p-8 text-base;
     }
 
 }
@@ -407,6 +442,18 @@
 
     .big-single-banner-content>p {
         @apply text-sm w-3/4;
+    }
+    /* *** TESTIMONIAL SECTION *** */
+    .testimonial-content {
+        @apply px-52 py-28 space-y-8;
+    }
+
+    .testimonial-client-name {
+        @apply text-3xl;
+    }
+
+    .testimonial-comment {
+        @apply p-10 text-base;
     }
 }
 
