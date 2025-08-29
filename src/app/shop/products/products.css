@@ -1,0 +1,132 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* *** LAYOUTS *** */
+.products-page-layout {
+    @apply grid grid-cols-1 gap-4;
+}
+
+.products-sidebar {
+    @apply space-y-4 w-full;
+}
+
+.products-list-layout {
+    @apply grid grid-cols-1 gap-4;
+}
+
+/* *** SIDEBAR ITEMS *** */
+.sidebar-item-container {
+    @apply bg-[#eee] p-6 pb-4 border border-[#ddd] w-full;
+}
+
+.item-collapse-btn {
+    @apply flex justify-between items-center cursor-pointer;
+}
+
+.item-heading {
+    @apply uppercase font-bold;
+}
+
+.divider-1 {
+    @apply bg-[#ddd] w-full h-[3px];
+}
+
+.divider-2 {
+    @apply bg-primary h-[3px] w-16 absolute top-0 left-0;
+}
+
+.list-items-container {
+    @apply overflow-hidden mt-2;
+}
+
+.container-open {
+    @apply opacity-100 overflow-y-auto max-h-60;
+}
+
+.container-close {
+    @apply max-h-0 opacity-0;
+}
+.list-items {
+    @apply text-[#999];
+}
+.list-item {
+    @apply py-2 border-b border-[#ddd] flex justify-between items-center gap-x-6;
+}
+
+.list-item:hover {
+    @apply shadow-md text-secondary;
+}
+
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* *** LAYOUTS *** */
+    .products-page-layout {
+        @apply grid grid-cols-3 gap-6;
+    }
+
+    .products-sidebar {
+        @apply space-y-6;
+    }
+
+    .products-list {
+        @apply col-span-2;
+    }
+
+    .products-list-layout {
+        @apply grid grid-cols-2 gap-6;
+    }
+
+    /* *** SIDEBAR ITEMS *** */
+    .sidebar-item-container {
+        @apply p-4 pb-2;
+    }
+    .item-collapse-btn {
+        @apply hidden;
+    }
+
+    .item-heading {
+        @apply text-lg;
+    }
+    .container-open {
+        @apply max-h-full;
+    }
+    .list-item {
+        @apply text-sm
+    }
+}
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+
+    /* *** LAYOUTS *** */
+    .products-page-layout {
+        @apply grid grid-cols-4 gap-8;
+    }
+
+    .products-sidebar {
+        @apply space-y-8;
+    }
+
+    .products-list {
+        @apply col-span-3;
+    }
+    .products-list-layout {
+        @apply grid grid-cols-3 gap-8;
+    }
+
+    /* *** SIDEBAR ITEMS *** */
+    .item-collapse-btn {
+        @apply hidden;
+    }
+
+    .item-heading {
+        @apply text-xl;
+    }
+
+    .divider-2 {
+        @apply w-20;
+    }
+
+    .container-open {
+        @apply max-h-full;
+    }
+}
