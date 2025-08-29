@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/shared/navbar/Navbar";
 import Footer from "@/components/shared/footer/Footer";
 import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
+import Newsletter from "@/components/shared/Newsletter";
 
 const workSans = Work_Sans(
   {
@@ -49,6 +50,9 @@ export default function RootLayout({ children }) {
 
         {/* SCROLL TO TOP BUTTON */}
         <ScrollToTopBtn/>
+
+        {/* NEWSLETTER */}
+        <Newsletter/>
 
         {/* FOOTER */}
         <Footer />

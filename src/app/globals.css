@@ -151,6 +151,29 @@
     @apply bg-primary;
 }
 
+/* *** NEWSLETTER SECTION *** */
+.newsletter-bg {
+    @apply bg-fixed bg-center bg-cover;
+}
+.newsletter-content {
+    @apply px-6 py-12 w-full h-full text-base-100 z-10 bg-black bg-opacity-70 text-center;
+}
+.newsletter-heading {
+    @apply text-3xl font-semibold mb-2.5;
+}
+.newsletter-form {
+    @apply mt-10 space-y-6 mx-auto w-full;
+}
+.newsletter-form>input {
+    @apply w-full pl-5 py-3 text-dark;
+}
+.newsletter-submit-btn {
+    @apply py-3 mx-auto bg-primary uppercase px-12 font-bold text-black uren-transition;
+}
+.newsletter-submit-btn:hover {
+    @apply bg-secondary text-base-100;
+}
+
 /* *** FOOTER *** */
 /* --- TOP PART --- */
 .uren-footer {
@@ -260,6 +283,17 @@
       @apply right-8 bottom-8;
   }
 
+  /* *** NEWSLETTER SECTION *** */
+  .newsletter-content {
+      @apply px-8 py-16;
+  }
+  .newsletter-heading {
+      @apply text-4xl font-semibold mb-4;
+  }
+  .newsletter-form {
+      @apply mt-12 space-y-0 mx-auto w-full flex;
+  }
+
   /* *** FOOTER *** */
   /* --- TOP PART --- */
   .top-footer-layout {
@@ -329,14 +363,25 @@
   .breadcrumb-title {
     @apply text-4xl;
   }
-/* *** BUTTONS *** */
-/* --- PRIMARY BUTTON --- */
-.primary-btn {
-  @apply px-8 py-3 rounded-md;
-}
+  /* *** BUTTONS *** */
+  /* --- PRIMARY BUTTON --- */
+  .primary-btn {
+    @apply px-8 py-3 rounded-md;
+  }
   /* --- SCROLL TO TOP BUTTON --- */
   .scroll-up-btn {
       @apply right-10 bottom-10;
+  }
+
+  /* *** NEWSLETTER SECTION *** */
+  .newsletter-content {
+      @apply px-10 py-20;
+  }
+  .newsletter-heading {
+      @apply text-4xl mb-4;
+  }
+  .newsletter-form {
+      @apply mt-14 space-y-0 mx-auto w-1/2 flex;
   }
 
   /* *** FOOTER *** */
