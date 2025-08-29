@@ -235,6 +235,17 @@
     @apply text-base-100 bg-dark bg-opacity-30 text-sm p-6 border border-uren-border border-opacity-30 leading-snug;
 }
 
+/* *** SHOP BY BRANDS SECTION *** */
+.shop-by-brands-layout {
+    @apply grid grid-cols-2 gap-6 mt-8 mb-12;
+}
+.shop-by-brands-item {
+    @apply py-2 px-5 w-full border border-uren-border uren-transition;
+}
+.shop-by-brands-item:hover {
+    @apply shadow-xl;
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -331,6 +342,11 @@
 
     .testimonial-comment {
         @apply p-8 text-base;
+    }
+
+    /* *** SHOP BY BRANDS SECTION *** */
+    .shop-by-brands-layout {
+        @apply grid grid-cols-3 gap-8 mt-10 mb-14;
     }
 
 }
@@ -454,6 +470,14 @@
 
     .testimonial-comment {
         @apply p-10 text-base;
+    }
+
+    /* *** SHOP BY BRANDS SECTION *** */
+    .shop-by-brands-layout {
+        @apply grid grid-cols-6 w-full mt-12 mb-16 gap-0 border-r border-uren-border;
+    }
+    .shop-by-brands-item {
+        @apply py-4 px-6 w-full border-r-0;
     }
 }
 

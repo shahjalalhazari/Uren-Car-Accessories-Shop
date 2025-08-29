@@ -10,7 +10,6 @@ import { calculatePrice } from "@/utils/priceCalculator";
 
 
 const SingleProductCard = ({ singleProduct, borderStyle }) => {
-  console.log(singleProduct);
   const {
     thumbnail,
     discountPercentage,
