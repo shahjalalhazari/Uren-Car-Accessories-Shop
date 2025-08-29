@@ -5,6 +5,7 @@ import { Bounce, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Navbar from "@/components/shared/navbar/Navbar";
 import Footer from "@/components/shared/footer/Footer";
+import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
 
 const workSans = Work_Sans(
   {
@@ -42,7 +43,12 @@ export default function RootLayout({ children }) {
         />
         {/* NAVBAR */}
         <Navbar/>
+
+        {/* CHILDREN */}
         {children}
+
+        {/* SCROLL TO TOP BUTTON */}
+        <ScrollToTopBtn/>
 
         {/* FOOTER */}
         <Footer />

@@ -143,6 +143,14 @@
   @apply bg-primary text-base-100 border-primary shadow-lg;
 }
 
+/* --- SCROLL TO TOP BUTTON --- */
+.scroll-up-btn {
+    @apply fixed right-6 bottom-6 w-12 h-12 flex items-center z-[996] justify-center rounded-full bg-secondary text-base-100 text-lg uren-transition;
+}
+.scroll-up-btn:hover {
+    @apply bg-primary;
+}
+
 /* *** FOOTER *** */
 /* --- TOP PART --- */
 .uren-footer {
@@ -247,6 +255,10 @@
   .primary-btn {
     @apply px-8 py-3;
   }
+  /* --- SCROLL TO TOP BUTTON --- */
+  .scroll-up-btn {
+      @apply right-8 bottom-8;
+  }
 
   /* *** FOOTER *** */
   /* --- TOP PART --- */
@@ -322,6 +334,10 @@
 .primary-btn {
   @apply px-8 py-3 rounded-md;
 }
+  /* --- SCROLL TO TOP BUTTON --- */
+  .scroll-up-btn {
+      @apply right-10 bottom-10;
+  }
 
   /* *** FOOTER *** */
   /* --- TOP PART --- */
