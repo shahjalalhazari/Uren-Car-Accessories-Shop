@@ -10,10 +10,13 @@ import NewArrivalProducts from "./sections/NewArrivalProducts";
 import { getProducts } from "@/lib/getProducts";
 import Testimonial from "./sections/Testimonial";
 import ShopByBrands from "./sections/ShopByBrands";
+import Blogs from "./sections/Blogs";
+import { getBlogs } from "@/lib/getBlogs";
 
 const HomePage = async () => {
   const categories = await getCategories();
   const products = await getProducts();
+  const blogs = await getBlogs();
 
   return (
     <>
@@ -26,6 +29,7 @@ const HomePage = async () => {
       <NewArrivalProducts products={products} />
       <Testimonial />
       <ShopByBrands />
+      <Blogs blogs={blogs}/>
     </>
   );
 };

@@ -246,6 +246,41 @@
     @apply shadow-xl;
 }
 
+/* *** BLOG's STYLE *** */
+.blog-section {
+    @apply px-6 py-12 bg-gray-bg text-center;
+}
+.blog-layout {
+    @apply mt-8 mb-12 text-start space-y-6;
+}
+.blog-image {
+    @apply relative cursor-pointer uren-transition;
+}
+.blog-image:hover {
+    @apply opacity-80
+}
+.blog-date {
+    @apply absolute top-0 right-0 z-50 bg-secondary text-base-100 font-semibold text-sm px-3 py-1;
+}
+.blog-content {
+    @apply p-4 space-y-2;
+}
+.blog-title {
+    @apply text-dark-gray font-semibold leading-tight uren-transition;
+}
+.blog-title:hover {
+    @apply text-primary;
+}
+.blog-description {
+    @apply text-sm text-body;
+}
+.blog-description .read-more {
+    @apply text-secondary font-semibold uren-transition;
+}
+.blog-description .read-more:hover {
+    @apply underline;
+}
+
 
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -347,6 +382,14 @@
     /* *** SHOP BY BRANDS SECTION *** */
     .shop-by-brands-layout {
         @apply grid grid-cols-3 gap-8 mt-10 mb-14;
+    }
+
+    /* *** BLOG's STYLE *** */
+    .blog-section {
+        @apply px-8 py-16;
+    }
+    .blog-layout {
+        @apply mt-10 mb-14 space-y-0 grid grid-cols-2 gap-8;
     }
 
 }
@@ -478,6 +521,14 @@
     }
     .shop-by-brands-item {
         @apply py-4 px-6 w-full border-r-0;
+    }
+
+    /* *** BLOG's STYLE *** */
+    .blog-section {
+        @apply px-10 py-20;
+    }
+    .blog-layout {
+        @apply mt-12 mb-16 space-y-0 grid grid-cols-4 gap-10;
     }
 }
 
