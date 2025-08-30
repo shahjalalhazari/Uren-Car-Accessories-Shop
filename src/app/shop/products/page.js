@@ -3,11 +3,12 @@ import CategoriesList from "@/components/shop/products/CategoriesList";
 import { getCategories } from "@/lib/getCategories";
 import { getProducts } from "@/lib/getProducts";
 import "./products.css";
+import ProductsListWithLazyLoad from "@/components/shop/products/ProductsListWithLazyLoad";
 
 
 export const metadata = {
   title: "Products",
-  keywords: ["car", "parts", "car parts", "car accessories", "toyota"]
+  keywords: ["car accessories", "car parts", "auto parts", "vehicle accessories", "toyota parts", "car modifications"]
 };
 
 const ProductsPage = async ({searchParams}) => {
@@ -56,7 +57,7 @@ const ProductsPage = async ({searchParams}) => {
             {/* CATEGORIES LIST */}
             <CategoriesList categoriesList={categories} />
 
-            {/* Price Range Filter */}
+            {/* PRICE RANGE FILTER */}
             {/* <PriceRangeFilter /> */}
 
             {/* Brand's Names List */}
@@ -71,8 +72,8 @@ const ProductsPage = async ({searchParams}) => {
             {/* Sorting Dropdown */}
               {/* <SortingDropdown /> */}
 
-            {/* Products List with Lazy loading*/}
-            {/* <ProductsListWithLazyLoad productsList={sortedProducts} /> */}
+            {/* PRODUCTS LIST WITH LAZY LOADING*/}
+            <ProductsListWithLazyLoad productsList={sortedProducts} />
           </div>
         </div>
       </main>

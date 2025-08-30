@@ -6,7 +6,7 @@ import { BiChevronDown } from "react-icons/bi";
 
 
 const CategoriesList = ({categoriesList}) => {
-    const [isOpen, setIsOpen] = useState(true); // DEFAULT OPEN ON MEDIUM & LARGE SCREEN.
+  const [isOpen, setIsOpen] = useState(true); // DEFAULT OPEN ON MEDIUM & LARGE SCREEN.
 
   useEffect(() => {
     const updateDeviceType = () => {
