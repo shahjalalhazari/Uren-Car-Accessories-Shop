@@ -5,7 +5,7 @@
 }
 
 .products-sidebar {
-    @apply space-y-4 w-full;
+    @apply space-y-6 w-full;
 }
 
 .products-list-layout {
@@ -55,29 +55,48 @@
     @apply shadow-md text-primary;
 }
 
+/* --- PRICE FILTER --- */
+.form-layout {
+    @apply grid grid-cols-2 gap-4 mt-3;
+}
+
+.form-label {
+    @apply text-sm font-medium text-body;
+}
+.from-input {
+    @apply w-full p-2 mt-1 text-sm border border-uren-border rounded-none outline-none focus:border-primary;
+}
+.form-button {
+    @apply bg-primary text-dark text-sm font-semibold w-full rounded-none py-2;
+}
+.clear-filter-button {
+    @apply bg-base-100 border border-primary text-dark-gray rounded-none py-2 px-6 text-sm font-medium;
+}
+.form-button:hover, .clear-filter-button:hover {
+    @apply drop-shadow-md;
+}
+.indicator-text {
+    @apply text-xs text-blue font-normal text-center;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
     /* *** LAYOUTS *** */
     .products-page-layout {
-        @apply grid grid-cols-3 gap-8;
+        @apply grid grid-cols-2 gap-8;
     }
-
     .products-sidebar {
-        @apply space-y-6;
+        @apply space-y-8;
     }
-
-    .products-list {
-        @apply col-span-2;
-    }
-
+    
     .products-list-layout {
-        @apply grid grid-cols-2 gap-8 mt-8;
+        @apply grid grid-cols-1 gap-8 mt-8;
     }
 
     /* *** SIDEBAR ITEMS *** */
     .sidebar-item-container {
-        @apply p-4 pb-2;
+        @apply p-8;
     }
     .item-collapse-btn {
         @apply hidden;
@@ -103,7 +122,7 @@
     }
 
     .products-sidebar {
-        @apply space-y-8;
+        @apply space-y-10;
     }
 
     .products-list {
@@ -132,17 +151,18 @@
 }
 
 .animate-fade-in {
-  opacity: 0;
-  animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    -webkit-animation: fadeIn 1s ease forwards;
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

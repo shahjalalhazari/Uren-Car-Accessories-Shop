@@ -5,6 +5,7 @@ import { getProducts } from "@/lib/getProducts";
 import "./products.css";
 import ProductsListWithLazyLoad from "@/components/shop/products/ProductsListWithLazyLoad";
 import SortingDropdown from "@/components/shop/products/SortingDropdown";
+import PriceRangeFilter from "@/components/shop/products/PriceRangeFilter";
 
 
 export const metadata = {
@@ -13,13 +14,25 @@ export const metadata = {
 };
 
 const ProductsPage = async ({searchParams}) => {
-  const { sort } = await searchParams;
+  const { sort, min_price, max_price } = await searchParams;
   const categories= await getCategories();
   const products = await getProducts();
 
+  // FILTER PRODUCTS BY PRICE RANGE FIRST.
+  let filteredProducts = [...products];
   
+  if (min_price || max_price) {
+    const min = min_price ? parseInt(min_price) : 0;
+    const max = max_price ? parseInt(max_price) : 10000;
+    
+    filteredProducts = filteredProducts.filter(product => 
+      product.price >= min && product.price <= max
+    );
+  }
+  
+  // Then apply sorting
   const sortType = sort || "default";
-  let sortedProducts = [...products];
+  let sortedProducts = [...filteredProducts];
 
   switch (sortType) {
     case "a-z": // Name, A to Z
@@ -41,7 +54,7 @@ const ProductsPage = async ({searchParams}) => {
       sortedProducts.sort((a, b) => a.rating - b.rating);
       break;
     default:
-      sortedProducts = [...products];
+      sortedProducts = [...filteredProducts];
   }
 
   return (
@@ -59,7 +72,7 @@ const ProductsPage = async ({searchParams}) => {
             <CategoriesList categoriesList={categories} />
 
             {/* PRICE RANGE FILTER */}
-            {/* <PriceRangeFilter /> */}
+            <PriceRangeFilter />
 
             {/* Brand's Names List */}
             {/* <BrandNamesList /> */}

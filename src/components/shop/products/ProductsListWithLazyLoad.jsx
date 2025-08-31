@@ -64,11 +64,11 @@ const ProductsListWithLazyLoad = ({ productsList }) => {
         </div>
       ))}
 
-      {/* Lazy Load Trigger */}
+      {/* LAZY LOADING TRIGGER */}
       {displayProducts.length < productsList.length && (
         <div
           id="lazy-load-trigger"
-          className="md:col-span-2 lg:col-span-3 text-center"
+          className="lg:col-span-3 text-center"
         >
           <UrenLoading />
         </div>
