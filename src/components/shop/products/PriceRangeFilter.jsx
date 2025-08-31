@@ -6,7 +6,7 @@ import { BiChevronDown } from "react-icons/bi";
 const PriceRangeFilter = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [isOpen, setIsOpen] = useState(false); // Start collapsed by default
+  const [isOpen, setIsOpen] = useState(false);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [isMobile, setIsMobile] = useState(false);
@@ -18,12 +18,7 @@ const PriceRangeFilter = () => {
     
     if (min) setMinPrice(min);
     if (max) setMaxPrice(max);
-    
-    // If price filter is active, automatically expand on mobile
-    if ((min || max) && isMobile) {
-      setIsOpen(true);
-    }
-  }, [searchParams, isMobile]);
+  }, [searchParams]);
 
   // UPDATE URL WITH PRICE RANGE.
   const updateUrlParams = (min, max) => {
@@ -57,47 +52,31 @@ const PriceRangeFilter = () => {
     router.push(`?${params.toString()}`, { scroll: false });
   };
 
-  // Detect mobile devices and set initial state
+  // FIXED: Set initial mobile state without auto-collapse behavior
   useEffect(() => {
+    // Only set initial mobile detection, no auto-collapse
     const checkIsMobile = () => window.innerWidth < 768;
-    const mobile = checkIsMobile();
-    setIsMobile(mobile);
+    setIsMobile(checkIsMobile());
     
-    // Set initial open state: collapsed on mobile, open on desktop
-    setIsOpen(!mobile);
-    
-    const handleResize = () => {
-      const newIsMobile = checkIsMobile();
-      setIsMobile(newIsMobile);
-      
-      // Auto-open when switching to desktop, auto-close when switching to mobile
-      if (newIsMobile !== isMobile) {
-        setIsOpen(!newIsMobile);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    // REMOVED: No resize event listener for auto-collapse
   }, []);
 
-  // Toggle collapse state (only applicable on mobile)
+  // Simple toggle function - no mobile checks
   const handleToggle = () => {
-    if (isMobile) {
-      setIsOpen(!isOpen);
-    }
-    // On desktop, do nothing (always open)
+    setIsOpen(!isOpen);
   };
 
   // CHECK ACTIVE FILTER.
   const isFilterActive = minPrice || maxPrice;
 
-  // Determine if content should be shown
-  const shouldShowContent = isOpen || !isMobile;
+  // Determine if we should show mobile toggle or desktop static header
+  const showMobileHeader = isMobile;
+  const showDesktopHeader = !isMobile;
 
   return (
     <div className="sidebar-item-container">
-      {/* HEADER WITH TOGGLE BUTTON - Only show on mobile */}
-      {isMobile && (
+      {/* MOBILE HEADER WITH TOGGLE BUTTON */}
+      {showMobileHeader && (
         <div 
           className="item-collapse-btn cursor-pointer"
           onClick={handleToggle}
@@ -113,23 +92,24 @@ const PriceRangeFilter = () => {
         </div>
       )}
 
-      {/* HEADER FOR MEDIUM & LARGER DEVICES (hidden on mobile) */}
-      {!isMobile && (
+      {/* DESKTOP HEADER (always visible) */}
+      {showDesktopHeader && (
         <h5 className="item-heading">Price Range</h5>
       )}
 
-      {/* DIVIDER - Only show when content is visible */}
+      {/* DIVIDER */}
       <div className="relative mt-2 lg:mt-3">
-          <div className="divider-1"></div>
-          <div className="divider-2"></div>
-        </div>
+        <div className="divider-1"></div>
+        <div className="divider-2"></div>
+      </div>
 
-      {/* COLLAPSIBLE CONTENT */}
+      {/* CONTENT - Different behavior for mobile/desktop */}
       <div className={`
         list-items-container uren-transition
         ${isMobile ? (isOpen ? "container-open" : "container-close") : "container-open"}
       `}>
-        {shouldShowContent && (
+        {/* Always show content on desktop, conditionally on mobile */}
+        {(!isMobile || isOpen) && (
           <>
             <form onSubmit={handleSubmit} className="form-layout">
               <div className="form-group">
@@ -142,16 +122,12 @@ const PriceRangeFilter = () => {
                   min="0"
                   className="from-input"
                   name="min_price"
-                  // Prevent iOS zoom
+                  // Prevent layout issues on iOS
                   onFocus={(e) => {
-                    if (isMobile) {
-                      e.target.style.fontSize = '16px';
-                    }
+                    e.target.style.fontSize = '14px'; // Prevent zoom
                   }}
                   onBlur={(e) => {
-                    if (isMobile) {
-                      e.target.style.fontSize = '';
-                    }
+                    e.target.style.fontSize = '';
                   }}
                 />
               </div>
@@ -165,23 +141,18 @@ const PriceRangeFilter = () => {
                   max="10000"
                   className="from-input"
                   name="max_price"
-                  // Prevent iOS zoom
+                  // Prevent layout issues on iOS
                   onFocus={(e) => {
-                    if (isMobile) {
-                      e.target.style.fontSize = '16px';
-                    }
+                    e.target.style.fontSize = '14px'; // Prevent zoom
                   }}
                   onBlur={(e) => {
-                    if (isMobile) {
-                      e.target.style.fontSize = '';
-                    }
+                    e.target.style.fontSize = '';
                   }}
                 />
               </div>
 
               {/* ACTION BUTTONs */}
               <div className="col-span-2 flex gap-2">
-                {/* FORM SUBMIT BUTTON */}
                 <button
                   type="submit"
                   className="form-button uren-transition"
@@ -189,7 +160,6 @@ const PriceRangeFilter = () => {
                   Apply Filter
                 </button>
                 
-                {/* CLEAR FILTER BUTTON */}
                 {isFilterActive && (
                   <button
                     type="button"
@@ -202,7 +172,6 @@ const PriceRangeFilter = () => {
               </div>
             </form>
 
-            {/* FILTER INDICATOR */}
             {isFilterActive && (
               <div className="mt-4 bg-blue/10 p-3 border border-blue/50">
                 <p className="indicator-text">
