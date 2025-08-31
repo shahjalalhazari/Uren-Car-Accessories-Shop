@@ -6,6 +6,8 @@ import "./products.css";
 import ProductsListWithLazyLoad from "@/components/shop/products/ProductsListWithLazyLoad";
 import SortingDropdown from "@/components/shop/products/SortingDropdown";
 import PriceRangeFilter from "@/components/shop/products/PriceRangeFilter";
+import BrandNamesList from "@/components/shop/products/BrandNamesList";
+import Image from "next/image";
 
 
 export const metadata = {
@@ -74,11 +76,11 @@ const ProductsPage = async ({searchParams}) => {
             {/* PRICE RANGE FILTER */}
             <PriceRangeFilter />
 
-            {/* Brand's Names List */}
-            {/* <BrandNamesList /> */}
+            {/* BRAND NAMES LIST */}
+            <BrandNamesList />
 
-            {/* Ad Banner */}
-            {/* <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hidden lg:block hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/> */}
+            {/* AD BANNER */}
+            <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hidden lg:block hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
           </aside>
         
           {/* Right Side (All Products List) */}
