@@ -4,6 +4,7 @@ import { getCategories } from "@/lib/getCategories";
 import { getProducts } from "@/lib/getProducts";
 import "./products.css";
 import ProductsListWithLazyLoad from "@/components/shop/products/ProductsListWithLazyLoad";
+import SortingDropdown from "@/components/shop/products/SortingDropdown";
 
 
 export const metadata = {
@@ -22,10 +23,10 @@ const ProductsPage = async ({searchParams}) => {
 
   switch (sortType) {
     case "a-z": // Name, A to Z
-      sortedProducts.sort((a, b) => a.name.localeCompare(b.name));
+      sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
       break;
     case "z-a": // Name, Z to A
-      sortedProducts.sort((a, b) => b.name.localeCompare(a.name));
+      sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
       break;
     case "low-high": // Price, low to high
       sortedProducts.sort((a, b) => a.price - b.price);
@@ -69,8 +70,8 @@ const ProductsPage = async ({searchParams}) => {
         
           {/* Right Side (All Products List) */}
           <div className="products-list">
-            {/* Sorting Dropdown */}
-              {/* <SortingDropdown /> */}
+            {/* SORTING DROPDOWN */}
+            <SortingDropdown />
 
             {/* PRODUCTS LIST WITH LAZY LOADING*/}
             <ProductsListWithLazyLoad productsList={sortedProducts} />

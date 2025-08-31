@@ -175,6 +175,19 @@
     @apply bg-secondary text-base-100;
 }
 
+/* *** UREN SORTING *** */
+.uren-sorting {
+    @apply flex items-center justify-end gap-x-4;
+}
+
+.uren-sorting label {
+    @apply text-sm text-body;
+}
+
+.sorting-dropdown {
+    @apply select select-bordered select-sm rounded-none text-sm text-body;
+}
+
 /* *** FOOTER *** */
 /* --- TOP PART --- */
 .uren-footer {
@@ -295,6 +308,11 @@
       @apply mt-12 space-y-0 mx-auto w-full flex;
   }
 
+  /* *** UREN SORTING *** */
+    .sorting-dropdown {
+        @apply select-md;
+    } 
+
   /* *** FOOTER *** */
   /* --- TOP PART --- */
   .top-footer-layout {
@@ -384,6 +402,11 @@
   .newsletter-form {
       @apply mt-14 space-y-0 mx-auto w-1/2 flex;
   }
+
+  /* *** UREN SORTING *** */
+    .sorting-dropdown {
+        @apply select-md;
+    } 
 
   /* *** FOOTER *** */
   /* --- TOP PART --- */
