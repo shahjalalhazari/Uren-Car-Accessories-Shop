@@ -8,6 +8,7 @@ import SortingDropdown from "@/components/shop/products/SortingDropdown";
 import PriceRangeFilter from "@/components/shop/products/PriceRangeFilter";
 import BrandNamesList from "@/components/shop/products/BrandNamesList";
 import Image from "next/image";
+// import { getProductsByCategory } from "@/lib/getProductsByCategory";
 
 
 export const metadata = {
@@ -16,9 +17,9 @@ export const metadata = {
 };
 
 const ProductsPage = async ({searchParams}) => {
-  const { sort, min_price, max_price } = await searchParams;
+  const { sort, min_price, max_price, category } = await searchParams;
   const categories= await getCategories();
-  const products = await getProducts();
+  const products = await getProducts(category ? category : null);
 
   // FILTER PRODUCTS BY PRICE RANGE FIRST.
   let filteredProducts = [...products];
@@ -62,7 +63,11 @@ const ProductsPage = async ({searchParams}) => {
   return (
     <div>
       {/* PAGE BREADCRUMB */}
-      <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"Products"}/>
+      {/* <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"Products"}/> */}
+      <PageBreadcrumb 
+        breadcrumbTitle={category ? `${category}` : "All Products"} 
+        breadcrumbLink={category ? `Products > ${category}` : "Products"}
+      />
       
       {/* MAIN CONTENT */}
       <main className="uren-container">

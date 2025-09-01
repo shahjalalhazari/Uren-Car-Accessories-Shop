@@ -2,11 +2,16 @@
 import Link from "next/link";
 import "animate.css";
 import { useEffect, useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
+import { BiChevronDown, BiPlus } from "react-icons/bi";
+import { useRouter, useSearchParams } from "next/navigation";
+import { FaPlus } from "react-icons/fa";
 
 
 const CategoriesList = ({categoriesList}) => {
   const [isOpen, setIsOpen] = useState(true); // DEFAULT OPEN ON MEDIUM & LARGE SCREEN.
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const selectedCategory = searchParams.get('category');
 
   useEffect(() => {
     const updateDeviceType = () => {
@@ -24,6 +29,14 @@ const CategoriesList = ({categoriesList}) => {
     // CLEANUP EVENT LISTENER.
     return () => window.removeEventListener("resize", updateDeviceType);
   }, []);
+
+  // CLEARING CATEGORY FILTER.
+  const handleCategoryClear = (e) => {
+    e.preventDefault();
+    const params = new URLSearchParams(searchParams.toString());
+    params.delete('category');
+    router.push(`?${params.toString()}`, { scroll: false });
+  }
 
   return (
     <div className="sidebar-item-container">
@@ -55,10 +68,20 @@ const CategoriesList = ({categoriesList}) => {
       >
         <ul className="list-items">
           {categoriesList?.map((category, index) => (
-            <Link href="/" key={index}>
-              <li className="list-item uren-transition">
+            <Link href={`/shop/products?category=${encodeURIComponent(category.name)}`} key={index}>
+              <li className={
+                `list-item uren-transition 
+                ${selectedCategory === category.name ? "active-list-item" :""}`
+                }>
                 <span>{category.name}</span>
-                <span>&#40;12&#41;</span>
+                {selectedCategory === category.name && 
+                  <button 
+                  className="cross-btn uren-transition" 
+                  onClick={handleCategoryClear}
+                  >
+                    <BiPlus />
+                  </button>
+                }
               </li>
             </Link>
           ))}

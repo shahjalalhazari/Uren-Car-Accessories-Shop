@@ -48,13 +48,18 @@
     @apply text-body;
 }
 .list-item {
-    @apply py-2 border-b border-uren-border flex justify-between items-center gap-x-6;
+    @apply py-2 pr-4 border-b uppercase border-uren-border flex justify-between items-center;
 }
 
 .list-item:hover {
     @apply shadow-md text-primary;
 }
-
+.active-list-item {
+    @apply  text-blue;
+}
+.cross-btn {
+    @apply text-xl rotate-45 text-secondary;
+}
 /* --- PRICE FILTER --- */
 .form-layout {
     @apply grid grid-cols-2 gap-4 mt-3;
