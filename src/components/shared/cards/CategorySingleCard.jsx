@@ -6,7 +6,7 @@ const CategorySingleCard = ({ categoryItem }) => {
 
   return (
     <div className="category-item-card">
-      <Link href={`/shop/products?category=${encodeURIComponent(name)}`}>
+      <Link href={`/shop/products?category=${name}`}>
         <Image
           // TODO: REPLACE
           src={"/images/featured-categories/1.png"}

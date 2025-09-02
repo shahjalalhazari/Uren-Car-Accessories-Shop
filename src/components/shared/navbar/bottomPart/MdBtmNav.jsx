@@ -53,14 +53,12 @@ const MdBtmNav = ({ categories }) => {
                 isOpen && !isAnimating ? "rolling-up" : "rolling-down"
               }`}
             >
-              {categories?.map((item, index) => (
+              {categories?.map((category, index) => (
                 <li key={index} className="dropdown-list-item">
                   <Link
-                    href={`/shop/products/category?/${encodeURIComponent(
-                      item.name
-                    )}`}
+                    href={`/shop/products?category=${category.name}`}
                   >
-                    {item.name}
+                    {category.name}
                   </Link>
                 </li>
               ))}

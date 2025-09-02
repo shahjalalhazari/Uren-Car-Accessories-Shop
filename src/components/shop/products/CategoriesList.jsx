@@ -68,7 +68,7 @@ const CategoriesList = ({categoriesList}) => {
       >
         <ul className="list-items">
           {categoriesList?.map((category, index) => (
-            <Link href={`/shop/products?category=${encodeURIComponent(category.name)}`} key={index}>
+            <Link href={`/shop/products?category=${category.name}`} key={index}>
               <li className={
                 `list-item uren-transition 
                 ${selectedCategory === category.name ? "active-list-item" :""}`
