@@ -1,5 +1,6 @@
 "use client"
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useRef, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { FaAngleDown, FaBars } from 'react-icons/fa';
@@ -7,8 +8,10 @@ import { FaAngleDown, FaBars } from 'react-icons/fa';
 
 // NAVBAR BOTTOM PART FOR MEDIUM SCREEN DEVICES.
 const MdBtmNav = ({ categories }) => {
+  const searchParams = useSearchParams();
+  const selectedCategory = searchParams.get("category");
   const [isOpen, setIsOpen] = useState(false);
-    const [isAnimating, setIsAnimating] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
   const listRef = useRef(null);
 
   const toggleMenu = () => {
@@ -54,7 +57,16 @@ const MdBtmNav = ({ categories }) => {
               }`}
             >
               {categories?.map((category, index) => (
-                <li key={index} className="dropdown-list-item">
+                <li 
+                key={index} 
+                className={`
+                  dropdown-list-item ${
+                  selectedCategory === category.name ? 
+                  "dropdown-active-item" :
+                  ""}`
+                }
+                onClick={() => toggleMenu()}
+                >
                   <Link
                     href={`/shop/products?category=${category.name}`}
                   >

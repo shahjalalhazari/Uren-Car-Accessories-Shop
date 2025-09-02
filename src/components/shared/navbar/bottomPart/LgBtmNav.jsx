@@ -1,7 +1,7 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useSearchParams } from 'next/navigation';
 import React, { useRef, useState } from 'react';
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
@@ -9,6 +9,8 @@ import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 const LgBtmNav = ({ navItems, categories }) => {
   const pathname = usePathname();
   const listRef = useRef(null);
+  const searchParams = useSearchParams();
+  const selectedCategory = searchParams.get("category");
 
   // DROPDOWN STATES.
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -16,7 +18,7 @@ const LgBtmNav = ({ navItems, categories }) => {
   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
 
-  // ANIMATION STATE
+  // ANIMATION STATES.
   const [categoryAnimation, setCategoryAnimation] = useState(false);
   const [currencyAnimation, setCurrencyAnimation] = useState(false);
   const [languageAnimation, setLanguageAnimation] = useState(false);
@@ -108,7 +110,16 @@ const LgBtmNav = ({ navItems, categories }) => {
             }`}
           >
             {categories?.map((category, index) => (
-              <li key={index} className="dropdown-list-item">
+              <li 
+              key={index} 
+              className={
+                `dropdown-list-item 
+                ${selectedCategory === category.name ? 
+                "dropdown-active-item" :
+                ""}`
+                }
+                onClick={() => toggleCategory()}
+              >
                 <Link
                   href={`/shop/products?category=${category.name}`}
                 >
