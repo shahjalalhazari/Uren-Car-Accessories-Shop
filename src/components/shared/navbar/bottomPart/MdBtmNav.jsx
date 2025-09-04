@@ -1,19 +1,37 @@
 "use client"
 import Link from 'next/link';
-import { useSearchParams } from 'next/navigation';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BiSearch } from 'react-icons/bi';
 import { FaAngleDown, FaBars } from 'react-icons/fa';
 
 
 // NAVBAR BOTTOM PART FOR MEDIUM SCREEN DEVICES.
 const MdBtmNav = ({ categories }) => {
-  const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get("category");
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const listRef = useRef(null);
 
+  // GET SELECTED CATEGORY FROM URL
+  useEffect(() => {
+    const getCategoryFromUrl = () => {
+      if (typeof window === 'undefined') return "";
+      const params = new URLSearchParams(window.location.search);
+      return params.get("category") || "";
+    };
+    
+    setSelectedCategory(getCategoryFromUrl());
+    
+    // Listen for URL changes (if user navigates via browser buttons)
+    const handleUrlChange = () => {
+      setSelectedCategory(getCategoryFromUrl());
+    };
+    
+    window.addEventListener('popstate', handleUrlChange);
+    return () => window.removeEventListener('popstate', handleUrlChange);
+  }, []);
+
+  // TOGGLE MENU FOR CATEGORY LIST OPEN OR CLOSE.
   const toggleMenu = () => {
     if (isOpen) {
       // Start closing animation
@@ -25,6 +43,21 @@ const MdBtmNav = ({ categories }) => {
     } else {
       setIsOpen(true);
     }
+  };
+
+  // GET URL WITH CATEGORY PARAMETER
+  const getCategoryUrl = (category) => {
+    if (typeof window === 'undefined') return `/shop/products?category=${category}`;
+    
+    const params = new URLSearchParams(window.location.search);
+    
+    if (selectedCategory === category) {
+      params.delete("category");
+    } else {
+      params.set("category", category);
+    }
+    
+    return `/shop/products?${params.toString()}`;
   };
   
     return (
@@ -68,7 +101,7 @@ const MdBtmNav = ({ categories }) => {
                 onClick={() => toggleMenu()}
                 >
                   <Link
-                    href={`/shop/products?category=${category.name}`}
+                    href={getCategoryUrl(category.name)}
                   >
                     {category.name}
                   </Link>

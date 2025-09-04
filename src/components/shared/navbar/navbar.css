@@ -124,7 +124,7 @@
     @apply bg-gray-100 text-secondary
 }
 .dropdown-active-item {
-    @apply bg-primary text-dark-gray;
+    @apply bg-primary text-dark-gray font-semibold;
 }
 
 /*** TABLET OR MEDIUM SCREEN (All Sizes) ***/

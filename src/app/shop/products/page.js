@@ -8,7 +8,6 @@ import SortingDropdown from "@/components/shop/products/SortingDropdown";
 import PriceRangeFilter from "@/components/shop/products/PriceRangeFilter";
 import BrandNamesList from "@/components/shop/products/BrandNamesList";
 import Image from "next/image";
-// import { getProductsByCategory } from "@/lib/getProductsByCategory";
 
 
 export const metadata = {
@@ -65,7 +64,7 @@ const ProductsPage = async ({searchParams}) => {
       {/* PAGE BREADCRUMB */}
       {/* <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"Products"}/> */}
       <PageBreadcrumb 
-        breadcrumbTitle={category ? `${category}` : "All Products"} 
+        breadcrumbTitle={category ? `${category}` : "Order Your Products"} 
         breadcrumbLink={category ? `Products > ${category}` : "Products"}
       />
       
@@ -76,7 +75,10 @@ const ProductsPage = async ({searchParams}) => {
           {/* LEFT SIDE */}
           <aside className="products-sidebar">
             {/* CATEGORIES LIST */}
-            <CategoriesList categoriesList={categories} />
+            <CategoriesList 
+              categoriesList={categories}
+              searchParams = {{sort, min_price, max_price, category }}
+            />
 
             {/* PRICE RANGE FILTER */}
             <PriceRangeFilter />
@@ -85,13 +87,17 @@ const ProductsPage = async ({searchParams}) => {
             <BrandNamesList />
 
             {/* AD BANNER */}
-            <Image src={"/images/shop/1.jpg"} width={500} height={1000} alt='UREN' className='hidden lg:block hover:opacity-85 cursor-pointer transition-all ease-in-out duration-300'/>
+            <Image 
+            src={"/images/shop/1.jpg"} 
+            width={500} height={1000} 
+            alt='UREN' 
+            className='hidden md:block hover:opacity-80 cursor-pointer uren-transition'/>
           </aside>
         
           {/* Right Side (All Products List) */}
           <div className="products-list">
             {/* SORTING DROPDOWN */}
-            <SortingDropdown />
+            <SortingDropdown initialSort={sort} />
 
             {/* PRODUCTS LIST WITH LAZY LOADING*/}
             <ProductsListWithLazyLoad productsList={sortedProducts} />

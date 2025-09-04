@@ -1,18 +1,24 @@
 "use client"
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
 
 const PriceRangeFilter = () => {
   const router = useRouter();
-  const searchParams = useSearchParams();
   const [isOpen, setIsOpen] = useState(false);
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [isMobile, setIsMobile] = useState(false);
 
+  // GET URL PARAMS FROM WINDOW.
+  const getUrlParams = () => {
+    if (typeof window === "undefined") return new URLSearchParams();
+    return new URLSearchParams(window.location.search);
+  }
+
   // INITIALIZE FROM URL PARAMS.
   useEffect(() => {
+    const searchParams = getUrlParams();
     const min = searchParams.get('min_price');
     const max = searchParams.get('max_price');
     
@@ -22,7 +28,7 @@ const PriceRangeFilter = () => {
 
   // UPDATE URL WITH PRICE RANGE.
   const updateUrlParams = (min, max) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getUrlParams();
     
     if (min && max) {
       params.set('min_price', min);
@@ -46,7 +52,7 @@ const PriceRangeFilter = () => {
     setMinPrice("");
     setMaxPrice("");
     
-    const params = new URLSearchParams(searchParams.toString());
+    const params = getUrlParams();
     params.delete('min_price');
     params.delete('max_price');
     router.push(`?${params.toString()}`, { scroll: false });
@@ -69,14 +75,10 @@ const PriceRangeFilter = () => {
   // CHECK ACTIVE FILTER.
   const isFilterActive = minPrice || maxPrice;
 
-  // Determine if we should show mobile toggle or desktop static header
-  const showMobileHeader = isMobile;
-  const showDesktopHeader = !isMobile;
-
   return (
     <div className="sidebar-item-container">
       {/* MOBILE HEADER WITH TOGGLE BUTTON */}
-      {showMobileHeader && (
+      {isMobile && (
         <div 
           className="item-collapse-btn cursor-pointer"
           onClick={handleToggle}
@@ -93,7 +95,7 @@ const PriceRangeFilter = () => {
       )}
 
       {/* DESKTOP HEADER (always visible) */}
-      {showDesktopHeader && (
+      {!isMobile && (
         <h5 className="item-heading">Price Range</h5>
       )}
 
@@ -123,12 +125,12 @@ const PriceRangeFilter = () => {
                   className="from-input"
                   name="min_price"
                   // Prevent layout issues on iOS
-                  onFocus={(e) => {
-                    e.target.style.fontSize = '14px'; // Prevent zoom
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.fontSize = '';
-                  }}
+                  // onFocus={(e) => {
+                  //   e.target.style.fontSize = '14px'; // Prevent zoom
+                  // }}
+                  // onBlur={(e) => {
+                  //   e.target.style.fontSize = '';
+                  // }}
                 />
               </div>
               <div className="form-group">
@@ -142,12 +144,12 @@ const PriceRangeFilter = () => {
                   className="from-input"
                   name="max_price"
                   // Prevent layout issues on iOS
-                  onFocus={(e) => {
-                    e.target.style.fontSize = '14px'; // Prevent zoom
-                  }}
-                  onBlur={(e) => {
-                    e.target.style.fontSize = '';
-                  }}
+                  // onFocus={(e) => {
+                  //   e.target.style.fontSize = '14px'; // Prevent zoom
+                  // }}
+                  // onBlur={(e) => {
+                  //   e.target.style.fontSize = '';
+                  // }}
                 />
               </div>
 

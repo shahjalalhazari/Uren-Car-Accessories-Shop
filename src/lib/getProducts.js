@@ -1,7 +1,6 @@
 export const getProducts = async (category) => {
-
   if (category) {
-    const res = await fetch(`https://dummyjson.com/products/category/${category}?limit=0`); // get all products in the category.
+    const res = await fetch(`https://dummyjson.com/products/category/${category}?limit=0`); // get all products of the category.
     const data = await res.json();
     return data.products;
   } else {

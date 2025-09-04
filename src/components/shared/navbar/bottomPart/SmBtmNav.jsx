@@ -1,17 +1,33 @@
 "use client"
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaAngleDown } from "react-icons/fa";
 
 
 // NAVBAR BOTTOM PART FOR SMALL SCREEN DEVICES.
 const SmBtmNav = ({ categories }) => {
-  const searchParams = useSearchParams();
-    const selectedCategory = searchParams.get("category");
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("");
   const listRef = useRef(null);
+
+  // GET SELECTED CATEGORY FROM URL.
+  useEffect(() => {
+    const getCategoryFromUrl = () => {
+      if (typeof window === 'undefined') return "";
+      const params = new URLSearchParams(window.location.search);
+      return params.get("category") || "";
+    };
+    
+    setSelectedCategory(getCategoryFromUrl());
+
+    const handleUrlChange = () => {
+      setSelectedCategory(getCategoryFromUrl());
+    };
+
+    window.addEventListener("popstate", handleUrlChange);
+    return () => window.removeEventListener("popstate", handleUrlChange);
+  }, []);
 
   const toggleMenu = () => {
     if (isOpen) {
@@ -25,6 +41,21 @@ const SmBtmNav = ({ categories }) => {
       setIsOpen(true);
     }
   };
+
+  // GET URL WITH CATEGORY PARAMETER
+  const getCategoryUrl = (category) => {
+    if (typeof window === "undefined") return `/shop/products?category=${category}`
+
+    const params = new URLSearchParams(window.location.search);
+
+    if (selectedCategory === category) {
+      params.delete("category");
+    } else {
+      params.set("category");
+    }
+
+    return `/shop/products?${params.toString()}`;
+  }
 
   return (
     <div className="sm-bottom-nav">
@@ -65,7 +96,7 @@ const SmBtmNav = ({ categories }) => {
                 onClick={() => toggleMenu()}
               >
                 <Link
-                  href={`/shop/products?category=${category.name}`}
+                  href={getCategoryUrl(category.name)}
                 >
                   {category.name}
                 </Link>

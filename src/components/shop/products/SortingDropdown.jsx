@@ -1,13 +1,32 @@
 "use client"
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
+import { useEffect, useState } from "react";
 
-const SortingDropdown = () => {
+const SortingDropdown = ({initialSort}) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
+  const [currentSort, setCurrentSort] = useState(initialSort || "default");
+
+  // GET URL PARAMS FROM WINDOW.
+  const getUrlParams = () => {
+    if (typeof window === "undefined") return new URLSearchParams();
+    return new URLSearchParams(window.location.search);
+  }
+
+  useEffect(() => {
+    const params = getUrlParams();
+    const sortParams = params.get("sort");
+
+    if (sortParams) {
+      setCurrentSort(sortParams);
+    } else {
+      setCurrentSort("default");
+    }
+  },[])
 
   const handleSortChange = (event) => {
     const sortType = event.target.value;
-    const params = new URLSearchParams(searchParams);
+    setCurrentSort(sortType);
+    const params = getUrlParams();
 
     if (sortType === "default") {
       params.delete("sort"); // Remove sorting if "Default" is selected
@@ -24,7 +43,7 @@ const SortingDropdown = () => {
       <select
         className="sorting-dropdown"
         onChange={handleSortChange}
-        value={searchParams.get("sort") || "1"}
+        value={currentSort}
       >
         <option value="default">Default</option>
         <option value="a-z">Name, A to Z</option>

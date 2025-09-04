@@ -1,16 +1,15 @@
 "use client"
 import Image from 'next/image';
 import Link from 'next/link';
-import { usePathname, useSearchParams } from 'next/navigation';
-import React, { useRef, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useEffect, useRef, useState } from 'react';
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
 // NAVBAR BOTTOM PART FOR LARGE SCREEN DEVICES.
 const LgBtmNav = ({ navItems, categories }) => {
   const pathname = usePathname();
+  const [selectedCategory, setSelectedCategory] = useState("");
   const listRef = useRef(null);
-  const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get("category");
 
   // DROPDOWN STATES.
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -23,6 +22,41 @@ const LgBtmNav = ({ navItems, categories }) => {
   const [currencyAnimation, setCurrencyAnimation] = useState(false);
   const [languageAnimation, setLanguageAnimation] = useState(false);
   const [userMenuAnimation, setUserMenuAnimation] = useState(false);
+
+  // GET SELECTED CATEGORY FROM URL
+  useEffect(() => {
+    const getCategoryFromUrl = () => {
+      if (typeof window === 'undefined') return "";
+      const params = new URLSearchParams(window.location.search);
+      return params.get("category") || "";
+    };
+    
+    setSelectedCategory(getCategoryFromUrl());
+    
+    // Listen for URL changes (if user navigates via browser buttons)
+    const handleUrlChange = () => {
+      setSelectedCategory(getCategoryFromUrl());
+    };
+    
+    window.addEventListener('popstate', handleUrlChange);
+    return () => window.removeEventListener('popstate', handleUrlChange);
+  }, []);
+
+  // GET URL WITH CATEGORY PARAMETER
+  const getCategoryUrl = (category) => {
+    if (typeof window === 'undefined') return `/shop/products?category=${category}`;
+    
+    const params = new URLSearchParams(window.location.search);
+    
+    if (selectedCategory === category) {
+      params.delete("category");
+    } else {
+      params.set("category", category);
+    }
+    
+    return `/shop/products?${params.toString()}`;
+  };
+  
 
   // CATEGORY TOGGLE TO OPEN CATEGORY MENU.
   const toggleCategory = () => {
@@ -121,7 +155,7 @@ const LgBtmNav = ({ navItems, categories }) => {
                 onClick={() => toggleCategory()}
               >
                 <Link
-                  href={`/shop/products?category=${category.name}`}
+                  href={getCategoryUrl(category.name)}
                 >
                   {category.name}
                 </Link>

@@ -2,40 +2,50 @@
 import Link from "next/link";
 import "animate.css";
 import { useEffect, useState } from "react";
-import { BiChevronDown, BiPlus } from "react-icons/bi";
-import { useRouter, useSearchParams } from "next/navigation";
-import { FaPlus } from "react-icons/fa";
+import { BiChevronDown, BiX } from "react-icons/bi";
+import { useRouter } from "next/navigation";
 
 
-const CategoriesList = ({categoriesList}) => {
+const CategoriesList = ({categoriesList, searchParams}) => {
   const [isOpen, setIsOpen] = useState(true); // DEFAULT OPEN ON MEDIUM & LARGE SCREEN.
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const selectedCategory = searchParams.get('category');
+  const {category: selectedCategory} = searchParams;
 
   useEffect(() => {
     const updateDeviceType = () => {
       if (window.innerWidth < 769) {
         setIsOpen(false); // IF SCREEN IS SMALL.
+      }else {
+        setIsOpen(true);
       }
     };
 
-    // INITIAL CHECK
     updateDeviceType();
-
-    // ADD EVENT LISTENER TO DETECT SCREEN SIZE CHANGE.
     window.addEventListener("resize", updateDeviceType);
-
-    // CLEANUP EVENT LISTENER.
     return () => window.removeEventListener("resize", updateDeviceType);
   }, []);
 
   // CLEARING CATEGORY FILTER.
   const handleCategoryClear = (e) => {
     e.preventDefault();
-    const params = new URLSearchParams(searchParams.toString());
+    e.stopPropagation();
+
+    // CREATE A NEW URLSearchParams FROM CURRENT URL.
+    const params = new URLSearchParams(window.location.search);
     params.delete('category');
-    router.push(`?${params.toString()}`, { scroll: false });
+    router.push(`/shop/products?${params.toString()}`, { scroll: false });
+  }
+
+  // GET URL FOR CATEGORY WITH ALL EXISTING SEARCH PARAMS.
+  const getCategoryUrl = (currentCategory) => {
+    const params = new URLSearchParams(window.location.search);
+
+    if (selectedCategory === currentCategory) {
+      params.delete('category');
+    } else {
+      params.set('category', currentCategory);
+    }
+    return `/shop/products?${params.toString()}`;
   }
 
   return (
@@ -52,10 +62,10 @@ const CategoriesList = ({categoriesList}) => {
         </button>
       </div>
 
-      {/* Desktop Header (Always Visible) */}
+      {/* DESKTOP HEADER (ALWAYS VISIBLE) */}
       <h5 className="item-heading hidden md:block">Categories</h5>
 
-      {/* Divider */}
+      {/* DIVIDER */}
       <div className="relative mt-2 lg:mt-3">
         <div className="divider-1"></div>
         <div className="divider-2"></div>
@@ -68,18 +78,27 @@ const CategoriesList = ({categoriesList}) => {
       >
         <ul className="list-items">
           {categoriesList?.map((category, index) => (
-            <Link href={`/shop/products?category=${category.name}`} key={index}>
+            <Link 
+              href={getCategoryUrl(category.name)} 
+              key={index}
+              onClick={(e) => {
+                if (selectedCategory === category.name) {
+                  e.preventDefault();
+                  handleCategoryClear(e);
+                }
+              }}
+            >
               <li className={
-                `list-item uren-transition 
-                ${selectedCategory === category.name ? "active-list-item" :""}`
-                }>
+                `list-item uren-transition ${
+                  selectedCategory === category.name ? "active-list-item" :""
+                }`}>
                 <span>{category.name}</span>
                 {selectedCategory === category.name && 
                   <button 
-                  className="cross-btn uren-transition" 
+                  className="cross-btn uren-transition"
                   onClick={handleCategoryClear}
                   >
-                    <BiPlus />
+                    <BiX className="transform rotate-45" />
                   </button>
                 }
               </li>
