@@ -77,7 +77,7 @@ const ProductsPage = async ({searchParams}) => {
             {/* CATEGORIES LIST */}
             <CategoriesList 
               categoriesList={categories}
-              searchParams = {{sort, min_price, max_price, category }}
+              initialCategory={category || ""}
             />
 
             {/* PRICE RANGE FILTER */}

@@ -1,4 +1,5 @@
 "use client"
+import { useUrlParams } from "@/hooks/useUrlParams";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { BiChevronDown } from "react-icons/bi";
@@ -9,6 +10,7 @@ const PriceRangeFilter = () => {
   const [minPrice, setMinPrice] = useState("");
   const [maxPrice, setMaxPrice] = useState("");
   const [isMobile, setIsMobile] = useState(false);
+  const {params, isClient} = useUrlParams();
 
   // GET URL PARAMS FROM WINDOW.
   const getUrlParams = () => {
@@ -18,13 +20,11 @@ const PriceRangeFilter = () => {
 
   // INITIALIZE FROM URL PARAMS.
   useEffect(() => {
-    const searchParams = getUrlParams();
-    const min = searchParams.get('min_price');
-    const max = searchParams.get('max_price');
-    
-    if (min) setMinPrice(min);
-    if (max) setMaxPrice(max);
-  }, [searchParams]);
+    if (isClient) {
+      setMinPrice(params.get('min_price') || "");
+      setMaxPrice(params.get('max_price') || "");
+    }
+  }, [isClient, params]);
 
   // UPDATE URL WITH PRICE RANGE.
   const updateUrlParams = (min, max) => {

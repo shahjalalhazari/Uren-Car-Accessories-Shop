@@ -1,25 +1,47 @@
 "use client"
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
-  const url = usePathname();
-  const urlParts = url.split("/").filter(Boolean);
+  // const url = usePathname();
+  // const urlParts = url.split("/").filter(Boolean);
+  const [urlParts, setUrlParts] = useState([]);
+  const [isMounted, setIsMounted] = useState(false);
+  const pathname = usePathname();
 
-  // Shop Related
-  const isShop = urlParts.includes("shop");
-  const isProductDetails = urlParts.length >= 3;
+  useEffect(() => {
+    setIsMounted(true);
+    if(pathname) {
+      setUrlParts(pathname.split("/").filter(Boolean));
+    }
+  },[pathname])
 
-  // User Related
-  const isUser = urlParts.includes("user");
 
+  // SHOP RELATED.
+  const isShop = isMounted && urlParts.includes("shop");
+  const isProductDetails = isMounted && urlParts.length >= 3;
+
+  // USER RELATED.
+  const isUser = isMounted && urlParts.includes("user");
+
+  if (!isMounted) {
+    return (
+      <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[25vh] lg:h-[50vh]">
+        <div className="breadcrumb-bg-overlay">
+          <div className="animate-pluse h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
+          <div className="animate-pluse h-4 bg-gray-200 rounded w-1/4 mx-auto"></div>
+        </div>
+      </div>
+    )
+  }
   return (
     <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[25vh] lg:h-[50vh]">
       <div className="breadcrumb-bg-overlay">
         <h2 className="breadcrumb-title">{breadcrumbTitle}</h2>
         <div className="breadcrumbs text-xs lg:text-sm mx-auto">
           <ul>
-            {/* Home Link */}
+            {/* HOME LINK */}
             <li className="hover:text-primary uren-transition">
               <Link href="/">Home</Link>
             </li>

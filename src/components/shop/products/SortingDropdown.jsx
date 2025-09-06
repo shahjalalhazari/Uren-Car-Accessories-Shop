@@ -1,10 +1,12 @@
 "use client"
+import { useUrlParams } from "@/hooks/useUrlParams";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const SortingDropdown = ({initialSort}) => {
   const router = useRouter();
-  const [currentSort, setCurrentSort] = useState(initialSort || "default");
+  const [currentSort, setCurrentSort] = useState("default");
+  const {params, isClient} = useUrlParams();
 
   // GET URL PARAMS FROM WINDOW.
   const getUrlParams = () => {
@@ -13,15 +15,10 @@ const SortingDropdown = ({initialSort}) => {
   }
 
   useEffect(() => {
-    const params = getUrlParams();
-    const sortParams = params.get("sort");
-
-    if (sortParams) {
-      setCurrentSort(sortParams);
-    } else {
-      setCurrentSort("default");
+    if (isClient) {
+      setCurrentSort(params.get("sort") || "default");
     }
-  },[])
+  },[isClient, params]);
 
   const handleSortChange = (event) => {
     const sortType = event.target.value;

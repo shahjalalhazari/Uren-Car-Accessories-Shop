@@ -9,10 +9,13 @@ const SmBtmNav = ({ categories }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [isClient, setIsClient] = useState(false);
   const listRef = useRef(null);
 
   // GET SELECTED CATEGORY FROM URL.
   useEffect(() => {
+    setIsClient(true);
+
     const getCategoryFromUrl = () => {
       if (typeof window === 'undefined') return "";
       const params = new URLSearchParams(window.location.search);
@@ -44,14 +47,16 @@ const SmBtmNav = ({ categories }) => {
 
   // GET URL WITH CATEGORY PARAMETER
   const getCategoryUrl = (category) => {
-    if (typeof window === "undefined") return `/shop/products?category=${category}`
+    if (!isClient || typeof window === "undefined") {
+      return `/shop/products?category=${category}`
+    }
 
     const params = new URLSearchParams(window.location.search);
 
     if (selectedCategory === category) {
       params.delete("category");
     } else {
-      params.set("category");
+      params.set("category", category);
     }
 
     return `/shop/products?${params.toString()}`;
