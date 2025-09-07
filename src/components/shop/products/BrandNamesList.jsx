@@ -42,7 +42,7 @@ const BrandNamesList = () => {
       <h5 className="item-heading hidden md:block">Shop By Brands</h5>
 
       {/* Divider */}
-      <div className="relative mt-2 lg:mt-3">
+      <div className="divider-group">
         <div className="divider-1"></div>
         <div className="divider-2"></div>
       </div>

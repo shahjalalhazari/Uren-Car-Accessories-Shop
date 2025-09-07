@@ -62,13 +62,15 @@ const CategoriesList = ({categoriesList}) => {
           </button>
         </div>
         <h5 className="item-heading hidden md:block">Categories</h5>
-        <div className="relative mt-2 lg:mt-3">
+
+        <div className="divider-group">
           <div className="divider-1"></div>
           <div className="divider-2"></div>
         </div>
+
         <div className="list-items-container">
           <ul className="list-items">
-            {categoriesList?.map((category, index) => (
+            {categoriesList?.map((_, index) => (
               <li key={index} className="list-item animate-pulse">
                 <span className="h-4 bg-gray-200 rounded w-20"></span>
               </li>
@@ -88,7 +90,7 @@ const CategoriesList = ({categoriesList}) => {
       >
         <h5 className="item-heading">Categories</h5>
         <button
-          className={`text-2xl uren-transition ${
+          className={`heading-arrow uren-transition ${
             isOpen ? "rotate-180" : "rotate-0"
           }`}
         >
@@ -100,7 +102,7 @@ const CategoriesList = ({categoriesList}) => {
       <h5 className="item-heading hidden md:block">Categories</h5>
 
       {/* DIVIDER */}
-      <div className="relative mt-2 lg:mt-3">
+      <div className="divider-group">
         <div className="divider-1"></div>
         <div className="divider-2"></div>
       </div>

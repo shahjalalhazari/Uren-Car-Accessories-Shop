@@ -14,15 +14,22 @@
 
 /* *** SIDEBAR ITEMS *** */
 .sidebar-item-container {
-    @apply bg-gray-bg p-6 border border-uren-border w-full;
+    @apply bg-gray-bg border border-uren-border w-full pb-6;
 }
 
 .item-collapse-btn {
-    @apply flex justify-between items-center cursor-pointer;
+    @apply flex justify-between items-center cursor-pointer
 }
 
 .item-heading {
-    @apply uppercase font-bold;
+    @apply uppercase font-bold p-6 pb-0;
+}
+.heading-arrow {
+    @apply text-2xl  m-6 mb-0;
+}
+
+.divider-group {
+    @apply relative my-2 mx-6
 }
 
 .divider-1 {
@@ -48,14 +55,14 @@
     @apply text-body;
 }
 .list-item {
-    @apply py-2 pr-4 border-b uppercase border-uren-border flex justify-between items-center;
+    @apply py-2 pr-4 px-6 border-b uppercase border-uren-border flex justify-between items-center;
 }
 
 .list-item:hover {
-    @apply shadow-md text-primary;
+    @apply shadow-md text-blue;
 }
 .active-list-item {
-    @apply  text-blue;
+    @apply  bg-primary text-dark-gray font-semibold;
 }
 .cross-btn {
     @apply text-xl rotate-45 text-secondary;
@@ -101,7 +108,7 @@
 
     /* *** SIDEBAR ITEMS *** */
     .sidebar-item-container {
-        @apply p-8;
+        @apply pb-8;
     }
     .item-collapse-btn {
         @apply hidden;
@@ -146,6 +153,9 @@
         @apply text-xl;
     }
 
+    .divider-group {
+        @apply my-3;
+    }
     .divider-2 {
         @apply w-20;
     }

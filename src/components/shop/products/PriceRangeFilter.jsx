@@ -75,17 +75,18 @@ const PriceRangeFilter = () => {
   // CHECK ACTIVE FILTER.
   const isFilterActive = minPrice || maxPrice;
 
+
   return (
     <div className="sidebar-item-container">
       {/* MOBILE HEADER WITH TOGGLE BUTTON */}
       {isMobile && (
         <div 
-          className="item-collapse-btn cursor-pointer"
+          className="item-collapse-btn"
           onClick={handleToggle}
         >
           <h5 className="item-heading">Price Range</h5>
           <button
-            className={`text-2xl uren-transition ${
+            className={`heading-arrow uren-transition ${
               isOpen ? "rotate-180" : "rotate-0"
             }`}
           >
@@ -100,15 +101,18 @@ const PriceRangeFilter = () => {
       )}
 
       {/* DIVIDER */}
-      <div className="relative mt-2 lg:mt-3">
+      <div className="divider-group">
         <div className="divider-1"></div>
         <div className="divider-2"></div>
       </div>
 
       {/* CONTENT - Different behavior for mobile/desktop */}
       <div className={`
-        list-items-container uren-transition
-        ${isMobile ? (isOpen ? "container-open" : "container-close") : "container-open"}
+        list-items-container uren-transition px-6
+        ${isMobile ? (isOpen ? 
+          "container-open" : "container-close") : 
+          "container-open"
+        }
       `}>
         {/* Always show content on desktop, conditionally on mobile */}
         {(!isMobile || isOpen) && (
@@ -124,13 +128,6 @@ const PriceRangeFilter = () => {
                   min="0"
                   className="from-input"
                   name="min_price"
-                  // Prevent layout issues on iOS
-                  // onFocus={(e) => {
-                  //   e.target.style.fontSize = '14px'; // Prevent zoom
-                  // }}
-                  // onBlur={(e) => {
-                  //   e.target.style.fontSize = '';
-                  // }}
                 />
               </div>
               <div className="form-group">
@@ -143,13 +140,6 @@ const PriceRangeFilter = () => {
                   max="10000"
                   className="from-input"
                   name="max_price"
-                  // Prevent layout issues on iOS
-                  // onFocus={(e) => {
-                  //   e.target.style.fontSize = '14px'; // Prevent zoom
-                  // }}
-                  // onBlur={(e) => {
-                  //   e.target.style.fontSize = '';
-                  // }}
                 />
               </div>
 
