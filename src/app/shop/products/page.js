@@ -61,8 +61,6 @@ const ProductsPage = async ({searchParams}) => {
 
   return (
     <div>
-      {/* PAGE BREADCRUMB */}
-      {/* <PageBreadcrumb breadcrumbTitle={"All Products"} breadcrumbLink={"Products"}/> */}
       <PageBreadcrumb 
         breadcrumbTitle={category ? `${category}` : "Order Your Products"} 
         breadcrumbLink={category ? `Products > ${category}` : "Products"}
@@ -77,7 +75,6 @@ const ProductsPage = async ({searchParams}) => {
             {/* CATEGORIES LIST */}
             <CategoriesList 
               categoriesList={categories}
-              initialCategory={category || ""}
             />
 
             {/* PRICE RANGE FILTER */}

@@ -1,37 +1,19 @@
 "use client"
+import { useCategory } from "@/context/CategoryContext";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { BiChevronDown, BiX } from "react-icons/bi";
-import { useRouter } from "next/navigation";
 
 
-const CategoriesList = ({categoriesList, initialCategory}) => {
+const CategoriesList = ({categoriesList}) => {
   const [isOpen, setIsOpen] = useState(true); // DEFAULT OPEN ON MEDIUM & LARGE SCREEN.
-  const router = useRouter();
-  const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [isClient, setIsClient] = useState(false);
+  const {selectedCategory, handleCategorySelect, getCategoryUrl}= useCategory();
 
+  // SET CLIENT-SIDE RENDERING.
   useEffect(() => {
     setIsClient(true);
-
-    const updateCategoryFromUrl = () => {
-      if(typeof window !== "undefined") {
-        const params = new URLSearchParams(window.location.search);
-        setSelectedCategory(params.get("category") || "");
-      }
-    };
-
-    updateCategoryFromUrl();
-
-    // LISTEN FOR URL CHANGE.
-    const handleUrlChange = () => {
-      updateCategoryFromUrl();
-    }
-
-    window.addEventListener("popstate", handleUrlChange);
-    return () => window.removeEventListener("popstate", handleUrlChange);
   },[])
-
 
   // IDENTIFY DEVICE SIZE.
   useEffect(() => {
@@ -49,43 +31,25 @@ const CategoriesList = ({categoriesList, initialCategory}) => {
   }, []);
 
   // CLEARING CATEGORY FILTER.
-  const handleCategoryClear = (e) => {
+  const handleCategoryClear = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
 
     if (!isClient) return;
-
-    const params = new URLSearchParams(window.location.search);
-    params.delete('category');
-    router.push(`/shop/products?${params.toString()}`, { scroll: false });
-    setSelectedCategory("");
-  }
+    handleCategorySelect(selectedCategory);
+  }, [isClient, handleCategorySelect, selectedCategory]);
 
   // HANDLE CATEGORY CLICK
-  const handleCategoryClick = (e, category) => {
+  const handleCategoryClick = useCallback((e, category) => {
     if (!isClient) return;
 
     if (selectedCategory === category) {
       e.preventDefault();
       handleCategoryClear(e);
     } else {
-      setSelectedCategory(category);
+      handleCategorySelect(category);
     }
-  }
-
-  // GET URL FOR CATEGORY WITH ALL EXISTING SEARCH PARAMS.
-  const getCategoryUrl = (category) => {
-    if (!isClient) return `/shop/products?category=${category}`;
-
-    const newParams = new URLSearchParams(window.location.search);
-
-    if (selectedCategory === category) {
-      newParams.delete('category');
-    } else {
-      newParams.set('category', category);
-    }
-    return `/shop/products?${newParams.toString()}`;
-  }
+  }, [isClient, selectedCategory, handleCategorySelect, handleCategoryClear]);
 
   // SHOW LOADING STATE DURING SSR.
   if (!isClient) {
@@ -147,29 +111,32 @@ const CategoriesList = ({categoriesList, initialCategory}) => {
         }`}
       >
         <ul className="list-items">
-          {categoriesList?.map((category, index) => (
-            <Link 
+          {categoriesList?.map((category, index) => {
+            const isActive = selectedCategory === category.name;
+
+            return (
+              <Link 
               href={getCategoryUrl(category.name)} 
               key={index}
               onClick={(e) => handleCategoryClick(e, category.name)}
             >
               <li className={
                 `list-item uren-transition ${
-                  selectedCategory === category.name ? "active-list-item" :""
+                  isActive ? "active-list-item" :""
                 }`}
               >
                 <span>{category.name}</span>
-                {selectedCategory === category.name && 
+                {isActive && 
                   <button 
-                  className="cross-btn uren-transition"
-                  onClick={handleCategoryClear}
+                    className="cross-btn uren-transition"
+                    onClick={handleCategoryClear}
                   >
                     <BiX className="transform rotate-45" />
                   </button>
                 }
               </li>
             </Link>
-          ))}
+            )})}
         </ul>
       </div>
     </div>
