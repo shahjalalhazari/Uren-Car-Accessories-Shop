@@ -21,7 +21,7 @@ const LgBtmNav = ({ navItems, categories }) => {
   const [currencyAnimation, setCurrencyAnimation] = useState(false);
   const [languageAnimation, setLanguageAnimation] = useState(false);
   const [userMenuAnimation, setUserMenuAnimation] = useState(false);
-  const {selectedCategory, getCategoryUrl} = useCategory();
+  const {selectedCategory, handleCategorySelect, getCategoryUrl} = useCategory();
   
   // CATEGORY TOGGLE TO OPEN CATEGORY MENU.
   const toggleCategory = () => {
@@ -79,6 +79,11 @@ const LgBtmNav = ({ navItems, categories }) => {
     }
   };
 
+  const handleCategoryClick = (category) => {
+    handleCategorySelect(category);
+    toggleCategory();
+  };
+
   return (
     <div className="lg-bottom-nav">
       {/* CATEGORY MENU */}
@@ -111,15 +116,16 @@ const LgBtmNav = ({ navItems, categories }) => {
               <li 
               key={index} 
               className={
-                `dropdown-list-item 
-                ${selectedCategory === category.name ? 
+                `dropdown-list-item ${
+                selectedCategory === category.name ? 
                 "dropdown-active-item" :
                 ""}`
                 }
-                onClick={() => toggleCategory()}
+                onClick={() => handleCategoryClick(category.name)}
               >
                 <Link
                   href={getCategoryUrl(category.name)}
+                  onClick={(e) => e.preventDefault()}
                 >
                   {category.name}
                 </Link>

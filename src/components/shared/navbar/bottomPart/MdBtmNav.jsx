@@ -10,7 +10,7 @@ import { FaAngleDown, FaBars } from 'react-icons/fa';
 const MdBtmNav = ({ categories }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const {selectedCategory, getCategoryUrl} = useCategory();
+  const {selectedCategory, handleCategorySelect, getCategoryUrl} = useCategory();
 
   // TOGGLE MENU FOR CATEGORY LIST OPEN OR CLOSE.
   const toggleMenu = () => {
@@ -25,6 +25,12 @@ const MdBtmNav = ({ categories }) => {
       setIsOpen(true);
     }
   };  
+
+  const handleCategoryClick = (category) => {
+    handleCategorySelect(category);
+    toggleMenu();
+  };
+
   return (
     <div className="md-bottom-nav">
       <div className="relative group dropdown w-1/3">
@@ -62,10 +68,11 @@ const MdBtmNav = ({ categories }) => {
                 "dropdown-active-item" :
                 ""}`
               }
-              onClick={() => toggleMenu()}
+              onClick={() => handleCategoryClick(category.name)}
               >
                 <Link
                   href={getCategoryUrl(category.name)}
+                  onClick={(e) => e.preventDefault()}
                 >
                   {category.name}
                 </Link>

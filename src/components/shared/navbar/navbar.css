@@ -121,7 +121,7 @@
 }
 
 .dropdown-list-item:hover {
-    @apply bg-gray-100 text-secondary
+    @apply bg-gray-bg text-blue
 }
 .dropdown-active-item {
     @apply bg-primary text-dark-gray font-semibold;
@@ -337,11 +337,7 @@
     }
 
     .dropdown-list-item {
-        @apply py-2.5 px-4 text-body text-sm;
-    }
-
-    .dropdown-list-item:hover {
-        @apply bg-gray-bg text-secondary;
+        @apply py-2.5 px-4 text-sm;
     }
 
     .language-dropdown-item {
