@@ -1,12 +1,26 @@
+"use client"
+import { useCategory } from "@/context/CategoryContext";
 import Image from "next/image";
 import Link from "next/link";
 
-const CategorySingleCard = ({ categoryItem }) => {
+const CategorySingleCard = ({ categoryItem, isActive, categoryUrl }) => {
   const { name, image, quantity } = categoryItem;
+  const {handleCategorySelect}= useCategory();
+
+  const handleClick = (e) => {
+    e.preventDefault();
+    handleCategorySelect(name);
+  }
 
   return (
-    <div className="category-item-card">
-      <Link href={`/shop/products?category=${name}`}>
+    <div className={`
+      category-item-card ${
+        isActive ? 'active' : ''
+    }`}>
+      <Link 
+        href={categoryUrl || `/shop/products?category=${name}`}
+        onClick={handleClick}
+      >
         <Image
           // TODO: REPLACE
           src={"/images/featured-categories/1.png"}

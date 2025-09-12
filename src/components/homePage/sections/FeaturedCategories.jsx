@@ -7,11 +7,13 @@ import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useCategory } from "@/context/CategoryContext";
 
 
 const FeaturedCategories = ({ categories }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const {selectCategory, getCategoryUrl} = useCategory();
 
   return (
     <div className="slider-layout">
@@ -45,9 +47,13 @@ const FeaturedCategories = ({ categories }) => {
           }}
           className="slider-container uren-slider"
         >
-          {categories.map((item, index) => (
+          {categories.map((category, index) => (
             <SwiperSlide key={index}>
-              <CategorySingleCard categoryItem={item} />
+              <CategorySingleCard
+                categoryItem={category}
+                isActive={selectCategory === category.name}
+                categoryUrl ={getCategoryUrl(category.name)}
+              />
             </SwiperSlide>
           ))}
 

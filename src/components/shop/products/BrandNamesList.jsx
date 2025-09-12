@@ -1,11 +1,17 @@
 "use client"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { BiChevronDown } from "react-icons/bi";
+import { BiChevronDown, BiX } from "react-icons/bi";
 
 
 const BrandNamesList = () => {
   const [isOpen, setIsOpen] = useState(true);
+  const [isClient, setIsClient] = useState(false);
+
+  // SET CLIENT-SIDE RENDERING.
+  useEffect(() => {
+    setIsClient(true);
+  },[])
 
   useEffect(() => {
     const updateDeviceType = () => {
@@ -14,23 +20,21 @@ const BrandNamesList = () => {
       }
     };
 
-    // Initial check
     updateDeviceType();
-
-    // Add event listener to detect resize
     window.addEventListener("resize", updateDeviceType);
-
-    // Cleanup listener
     return () => window.removeEventListener("resize", updateDeviceType);
   }, []);
 
   return (
     <div className="sidebar-item-container">
       {/* Header with toggle button for mobile */}
-      <div className="item-collapse-btn" onClick={() => setIsOpen(!isOpen)}>
+      <div 
+      className="item-collapse-btn" 
+      onClick={() => setIsOpen(!isOpen)}
+      >
         <h5 className="item-heading">Shop By Brands</h5>
         <button
-          className={`text-2xl uren-transition ${
+          className={`heading-arrow uren-transition ${
             isOpen ? "rotate-180" : "rotate-0"
           }`}
         >
@@ -58,7 +62,11 @@ const BrandNamesList = () => {
             <Link href={"/"} key={index}>
               <li className="list-item uren-transition">
                 <span>{brand}</span>
-                <span>&#40;12&#41;</span>
+                <button 
+                  className="cross-btn uren-transition"
+                >
+                  <BiX className="transform rotate-45" />
+                </button>
               </li>
             </Link>
           ))}
