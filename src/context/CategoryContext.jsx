@@ -1,5 +1,5 @@
 "use client"
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 
@@ -20,63 +20,82 @@ export const useCategory = () => {
 // CATEGORY PROVIDER TO WRAP THE APP.
 export const CategoryProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("");
+  const [isInitialized, setIsInitialized] = useState(false);
   const router = useRouter();
-
+  const pathname = usePathname();
 
   // GET CATEGORY FROM URL ON INITIAL LOAD.
   useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
     const getCategoryFromUrl = () => {
-      if(typeof window === 'undefined') return "";
       const params = new URLSearchParams(window.location.search);
       return params.get("category") || "";
-    }
-    setSelectedCategory(getCategoryFromUrl());
-
-    const handleUrlChange = () => {
-      setSelectedCategory(getCategoryFromUrl());
     };
-
+    
+    const categoryFromUrl = getCategoryFromUrl();
+    setSelectedCategory(categoryFromUrl);
+    setIsInitialized(true);
+    
+    // LISTEN FOR BROWSER NAVIGATION (BACK/FORWARD BUTTONS)
+    const handleUrlChange = () => {
+      const newCategory = getCategoryFromUrl();
+      if (newCategory !== selectedCategory) {
+        setSelectedCategory(newCategory);
+      }
+    };
+    
     window.addEventListener('popstate', handleUrlChange);
     return () => window.removeEventListener('popstate', handleUrlChange);
-  },[]);
+  }, []);
 
 
   // HANDLE CATEGORY SELECTION UPDATE STATE AND URL.
   const handleCategorySelect = useCallback((category) => {
+    if (typeof window === 'undefined') return;
+    
     const params = new URLSearchParams(window.location.search);
-
-    if (selectedCategory === category) {
-      params.delete("category");
-      setSelectedCategory("");
+    
+    // IF CLICK ON SAME CATEGORY, DESELECT IT.
+    const newCategory = selectedCategory === category ? "" : category;
+    
+    if (newCategory) {
+      params.set("category", newCategory);
     } else {
-      params.set("category", category);
-      setSelectedCategory(category);
-    };
+      params.delete("category");
+    }
+    
+    setSelectedCategory(newCategory);
 
-    router.push(`/shop/products?${params.toString()}`, { shallow: false });
+    router.push(`/shop/products?${params.toString()}`, { scroll: false });
   }, [selectedCategory, router]);
 
 
   // GENERATE URL WITH CATEGORY PARAMETER.
   const getCategoryUrl = useCallback((category) => {
-    if (typeof window === 'undefined') return `/shop/products?category=${category}`;
-
+    if (typeof window === 'undefined') {
+      return `/shop/products?category=${encodeURIComponent(category)}`;
+    }
+    
     const params = new URLSearchParams(window.location.search);
-
+    
     if (selectedCategory === category) {
       params.delete("category");
     } else {
       params.set("category", category);
     }
-
+    
     return `/shop/products?${params.toString()}`;
-  },[selectedCategory]);
+  }, [selectedCategory, pathname]);
+
+  if (!isInitialized) {
+    return null;
+  }
 
 
   return (
     <CategoryContext.Provider value={{
       selectedCategory,
-      setSelectedCategory,
       handleCategorySelect,
       getCategoryUrl
     }}>

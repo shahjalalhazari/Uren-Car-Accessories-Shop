@@ -1,7 +1,7 @@
 "use client"
 import CategorySingleCard from "@/components/shared/cards/CategorySingleCard";
 import SectionHeading from "@/components/shared/headings/SectionHeading";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { Autoplay, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -14,6 +14,39 @@ const FeaturedCategories = ({ categories }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const {selectCategory, getCategoryUrl} = useCategory();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return (
+      <div className="slider-layout">
+        <SectionHeading
+          heading="Featured Categories"
+          subHeading="Top Featured Collections"
+        />
+        <div className="relative">
+          {/* Loading placeholder with same structure */}
+          <div className="slider-container uren-slider">
+            <div className="swiper-wrapper">
+              {categories.map((item, index) => (
+                <div key={index} className="swiper-slide">
+                  <CategorySingleCard 
+                    categoryItem={item} 
+                    isActive={false}
+                    categoryUrl={`/shop/products?category=${encodeURIComponent(item.name)}`}
+                    isLoading={true}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="slider-layout">
