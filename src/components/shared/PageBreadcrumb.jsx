@@ -2,10 +2,9 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
+import UrenLoading from './UrenLoading';
 
 const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
-  // const url = usePathname();
-  // const urlParts = url.split("/").filter(Boolean);
   const [urlParts, setUrlParts] = useState([]);
   const [isMounted, setIsMounted] = useState(false);
   const pathname = usePathname();
@@ -19,7 +18,6 @@ const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
 
 
   // SHOP RELATED.
-  const isShop = isMounted && urlParts.includes("shop");
   const isProductDetails = isMounted && urlParts.length >= 3;
 
   // USER RELATED.
@@ -27,12 +25,7 @@ const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
 
   if (!isMounted) {
     return (
-      <div className="breadcrumb-bg bg-[url('/images/breadcrumb/1.jpg')] h-[25vh] lg:h-[50vh]">
-        <div className="breadcrumb-bg-overlay">
-          <div className="animate-pluse h-8 bg-gray-200 rounded w-1/3 mx-auto mb-4"></div>
-          <div className="animate-pluse h-4 bg-gray-200 rounded w-1/4 mx-auto"></div>
-        </div>
-      </div>
+      <UrenLoading/>
     )
   }
   return (
@@ -46,14 +39,13 @@ const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
               <Link href="/">Home</Link>
             </li>
 
-            {isShop && <li>Shop</li>}
-            {isUser && <li>User</li>}
+            {isUser && <li>Account</li>}
             {isProductDetails && (
               <li className="hover:text-primary uren-transition">
                 <Link href={"/shop/products"}>Products</Link>
               </li>
             )}
-            <li>{breadcrumbLink}</li>
+            <li className='text-body'>{breadcrumbLink}</li>
           </ul>
         </div>
       </div>

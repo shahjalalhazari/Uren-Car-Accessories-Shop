@@ -8,6 +8,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useCategory } from "@/context/CategoryContext";
+import UrenLoading from "@/components/shared/UrenLoading";
 
 
 const FeaturedCategories = ({ categories }) => {
@@ -27,23 +28,7 @@ const FeaturedCategories = ({ categories }) => {
           heading="Featured Categories"
           subHeading="Top Featured Collections"
         />
-        <div className="relative">
-          {/* Loading placeholder with same structure */}
-          <div className="slider-container uren-slider">
-            <div className="swiper-wrapper">
-              {categories.map((item, index) => (
-                <div key={index} className="swiper-slide">
-                  <CategorySingleCard 
-                    categoryItem={item} 
-                    isActive={false}
-                    categoryUrl={`/shop/products?category=${encodeURIComponent(item.name)}`}
-                    isLoading={true}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <UrenLoading/>
       </div>
     );
   }

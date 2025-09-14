@@ -3,6 +3,7 @@ import { useCategory } from "@/context/CategoryContext";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import UrenLoading from "../UrenLoading";
 
 const CategorySingleCard = ({ categoryItem, isActive, categoryUrl, isLoading=false }) => {
   const { name, image } = categoryItem;
@@ -17,13 +18,7 @@ const CategorySingleCard = ({ categoryItem, isActive, categoryUrl, isLoading=fal
 
   if (isLoading) {
     return (
-      <div className="category-item-card animate-pulse">
-        <div className="h-[250px] w-[200px] bg-gray-200 rounded"></div>
-        <div className="category-card-content">
-          <div className="h-4 bg-gray-200 rounded w-3/4 mb-2"></div>
-          <div className="h-3 bg-gray-200 rounded w-1/2"></div>
-        </div>
-      </div>
+      <UrenLoading/>
     );
   }
 
