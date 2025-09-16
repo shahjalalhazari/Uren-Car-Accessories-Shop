@@ -2,6 +2,9 @@ import ProductRating from '@/components/shared/ProductRating';
 import { calculatePrice } from '@/utils/priceCalculator';
 import Link from 'next/link';
 import QuantitySelector from './QuantitySelector';
+import AddToCartBtn from '@/components/shared/buttons/AddToCartBtn';
+import OutlineBtn from '@/components/shared/buttons/OutlineBtn';
+import { BiHeart } from 'react-icons/bi';
 
 const DetailsContent = ({productDetails}) => {
   console.log(productDetails);
@@ -20,9 +23,11 @@ const DetailsContent = ({productDetails}) => {
     warrantyInformation, 
     weight,
     dimensions,
-    availabilityStatus
+    availabilityStatus,
+    tags,
   } = productDetails;
   const priceData = calculatePrice(price, discountPercentage);
+
   return (
     <div className="details-content">
       {/* TITLE */}
@@ -72,6 +77,22 @@ const DetailsContent = ({productDetails}) => {
 
       {/* ORDER QUANTITY SELECTOR */}
       <QuantitySelector max={stock} min={minimumOrderQuantity}/>
+
+      {/* BUTTONS */}
+      <div className="button-group">
+        {/* ADD TO CART BUTTON */}
+        <AddToCartBtn href={"/"} />
+        {/* ADD TO WISHLIST BUTTON */}
+        <OutlineBtn btnIcon={<BiHeart />} btnTitle={"Add To Wishlist"} />
+      </div>
+
+      {/* TAGS */}
+      <div className="product-tags">
+        <h6 className="product-tags-heading">Tags:</h6>
+        {tags?.map((tag, index) =>
+          <Link href={"/"} key={index} className="product-tag uren-transition">{tag},</Link>
+        )}
+      </div>
     </div>
   );
 };

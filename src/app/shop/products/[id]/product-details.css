@@ -28,13 +28,13 @@
 
 /* DETAILS CONTENT */
 .details-content {
-    @apply w-full space-y-2;
+    @apply w-full;
 }
 .product-title {
     @apply text-lg font-semibold uppercase text-dark-gray;
 }
 .price-box {
-    @apply flex items-baseline gap-x-2;
+    @apply flex items-baseline gap-x-2 my-2.5;
 }
 .current-price {
     @apply text-base font-bold text-secondary;
@@ -46,7 +46,7 @@
     @apply text-sm text-blue;
 }
 .details-list {
-    @apply text-sm text-body space-y-1;
+    @apply text-sm text-body space-y-1 mt-2;
 }
 .details-list li {
     @apply flex gap-x-2;
@@ -57,7 +57,7 @@
 
 /* QUANTITY SELECTOR */
 .qty-selector {
-    @apply flex items-center space-x-2 text-body;
+    @apply flex items-center space-x-3 text-body mt-4;
 }
 
 .qty-selector>label {
@@ -74,6 +74,25 @@
 
 .qty-inc-dec-btn {
     @apply px-1.5 py-0.5 border-l border-uren-border;
+}
+
+/* BUTTONS */
+.button-group {
+    @apply flex gap-x-4 mt-6;
+}
+
+/* PRODUCT'S TAGS */
+.product-tags {
+    @apply mt-4 flex flex-wrap gap-x-2 items-center uppercase;
+}
+.product-tags-heading {
+    @apply text-dark font-bold;
+}
+.product-tag {
+    @apply text-body text-sm;
+}
+.product-tag:hover {
+    @apply text-primary underline;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -102,10 +121,10 @@
 
     /* DETAILS CONTENT */
     .details-content {
-        @apply col-span-2 space-y-3;
+        @apply col-span-2;
     };
     .price-box {
-        @apply gap-x-3
+        @apply gap-x-3 my-3;
     }
     .product-title {
         @apply text-2xl;
@@ -114,6 +133,9 @@
         @apply text-xl;
     }
     .original-price, .discount-percentage {
-    @apply text-base;
-}
+        @apply text-base;
+    }
+    .details-list {
+        @apply mt-3 space-y-1.5;
+    }
 }
