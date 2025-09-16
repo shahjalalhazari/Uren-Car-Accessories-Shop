@@ -26,11 +26,69 @@
     @apply h-20 w-20 mx-auto border cursor-pointer;
 }
 
+/* DETAILS CONTENT */
+.details-content {
+    @apply w-full space-y-2;
+}
+.product-title {
+    @apply text-lg font-semibold uppercase text-dark-gray;
+}
+.price-box {
+    @apply flex items-baseline gap-x-2;
+}
+.current-price {
+    @apply text-base font-bold text-secondary;
+}
+.original-price {
+    @apply text-sm line-through text-body;
+}
+.discount-percentage {
+    @apply text-sm text-blue;
+}
+.details-list {
+    @apply text-sm text-body space-y-1;
+}
+.details-list li {
+    @apply flex gap-x-2;
+}
+.details-list li span {
+    @apply font-bold;
+}
+
+/* QUANTITY SELECTOR */
+.qty-selector {
+    @apply flex items-center space-x-2 text-body;
+}
+
+.qty-selector>label {
+    @apply font-bold text-sm;
+}
+
+.qty-selector-box {
+    @apply border border-uren-border text-body w-fit flex items-center;
+}
+
+.qty-input-field {
+    @apply w-12 text-center border-none outline-none appearance-none text-dark
+}
+
+.qty-inc-dec-btn {
+    @apply px-1.5 py-0.5 border-l border-uren-border;
+}
+
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
     /* LAYOUTs */
     .product-details-layout {
         @apply grid grid-cols-2 gap-y-0 gap-x-8;
+    }
+
+    /* DETAILS CONTENT */
+    .product-title {
+        @apply text-xl;
+    }
+    .current-price {
+        @apply text-lg;
     }
 }
 
@@ -41,4 +99,21 @@
     .product-details-layout {
         @apply grid grid-cols-3 gap-y-0 gap-x-10;
     }
+
+    /* DETAILS CONTENT */
+    .details-content {
+        @apply col-span-2 space-y-3;
+    };
+    .price-box {
+        @apply gap-x-3
+    }
+    .product-title {
+        @apply text-2xl;
+    }
+    .current-price {
+        @apply text-xl;
+    }
+    .original-price, .discount-percentage {
+    @apply text-base;
+}
 }

@@ -21,9 +21,9 @@ const ProductRating = ({ rating, text = "sm" }) => {
   };
 
   return (
-    <div className={`flex items-center space-x-1 mt-2 text-${text}`}>
-      {renderStars()}{" "}
-      {/* <span className={`text-blue ml-2`}>&#40;12 Reviews&#41;</span> */}
+    <div className={`flex items-center gap-x-1 text-${text}`}>
+      {renderStars()}
+      <span className={`text-dark-gray`}>&#40;{rating}&#41;</span>
     </div>
   );
 };
