@@ -83,7 +83,7 @@
 
 /* PRODUCT'S TAGS */
 .product-tags {
-    @apply mt-4 flex flex-wrap gap-x-2 items-center uppercase;
+    @apply mt-4 flex flex-wrap gap-x-2 items-baseline uppercase;
 }
 .product-tags-heading {
     @apply text-dark font-bold;
@@ -93,6 +93,50 @@
 }
 .product-tag:hover {
     @apply text-primary underline;
+}
+
+/* PRODUCT DETAILS TABs */
+.product-details-tabs {
+    @apply bg-gray-bg p-6 flex justify-between items-center mt-6 text-body;
+}
+.product-details-tabs>li>div {
+    @apply border-b-[4px] border-body rounded-full w-12;
+}
+.details-tabs-heading {
+    @apply cursor-pointer uppercase font-bold text-sm;
+}
+.details-tabs-heading:hover {
+    @apply text-blue
+}
+.details-tab-content {
+    @apply p-6 border border-uren-border mt-4;
+}
+.tab-content-heading {
+    @apply text-lg font-semibold mb-2 text-body;
+}
+.content {
+    @apply text-body text-sm;
+}
+.reviews-layout {
+    @apply grid grid-cols-1 gap-x-0 gap-y-6;
+}
+.reviews-list {
+    @apply space-y-4 overflow-y-auto max-h-52
+}
+.product-review {
+    @apply border-b pb-2;
+}
+.product-review>div {
+    @apply flex items-center gap-x-1 mt-2
+}
+.review-stars {
+    @apply flex gap-1 text-primary;
+}
+
+/* REVIEW FORM */
+.review-form>input,
+textarea {
+    @apply border border-uren-border p-2 w-full mb-2 text-sm outline-none;
 }
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
@@ -108,6 +152,26 @@
     }
     .current-price {
         @apply text-lg;
+    }
+
+    /* PRODUCT DETAILS TABs */
+    .product-details-tabs {
+        @apply p-6 justify-start gap-x-8;
+    }
+    .details-tab-content {
+        @apply p-8 mt-6;
+    }
+    .tab-content-heading {
+        @apply mb-3;
+    }
+    .reviews-layout {
+        @apply grid grid-cols-2 gap-x-8 gap-y-0;
+    }
+    .reviews-list {
+        @apply max-h-[235px]
+    }
+    .product-review {
+        @apply pb-3;
     }
 }
 
@@ -137,5 +201,31 @@
     }
     .details-list {
         @apply mt-3 space-y-1.5;
+    }
+
+    /* PRODUCT DETAILS TABs */
+    .product-details-tabs {
+        @apply p-8 flex gap-x-8 justify-start mt-8;
+    }
+    .details-tabs-heading, .content {
+        @apply text-base;
+    }
+    .details-tab-content {
+        @apply p-10 mt-8;
+    }
+    .tab-content-heading {
+        @apply text-xl mb-4;
+    }
+    .reviews-layout {
+        @apply grid grid-cols-2 gap-x-10 gap-y-0;
+    }
+    .reviews-list {
+        @apply max-h-[270px]
+    }
+
+    /* REVIEW FORM */
+    .review-form>input,
+    textarea {
+        @apply p-3 mb-4;
     }
 }

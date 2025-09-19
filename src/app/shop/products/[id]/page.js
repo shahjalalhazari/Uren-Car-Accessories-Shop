@@ -3,11 +3,12 @@ import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
 import { getProductDetails } from "@/lib/getProductDetails";
 import ProductImgsGallery from "@/components/shop/productDetails/ProductImgsGallery";
 import DetailsContent from "@/components/shop/productDetails/DetailsContent";
+import DetailsTabs from "@/components/shop/productDetails/DetailsTabs";
 
 const ProductDetailsPage = async ({params}) => {
   const {id} = await params;
   const productDetails = await getProductDetails(id);
-  const {title, images,} = productDetails;
+  const {title, images, description, reviews} = productDetails;
 
   return (
     <>
@@ -24,6 +25,9 @@ const ProductDetailsPage = async ({params}) => {
           {/* PRODUCT'S DETAILS CONTENT */}
           <DetailsContent productDetails={productDetails}/>
         </div>
+
+        {/* DESCRIPTION & REVIEWS TABS */}
+        <DetailsTabs description={description} reviews={reviews}/>
       </div>
     </>
   );

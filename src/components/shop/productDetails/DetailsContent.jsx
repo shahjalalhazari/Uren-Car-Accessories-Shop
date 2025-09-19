@@ -5,6 +5,7 @@ import QuantitySelector from './QuantitySelector';
 import AddToCartBtn from '@/components/shared/buttons/AddToCartBtn';
 import OutlineBtn from '@/components/shared/buttons/OutlineBtn';
 import { BiHeart } from 'react-icons/bi';
+import DetailsTabs from './DetailsTabs';
 
 const DetailsContent = ({productDetails}) => {
   console.log(productDetails);
