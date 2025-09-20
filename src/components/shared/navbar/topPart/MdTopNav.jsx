@@ -31,7 +31,7 @@ const MdTopNav = ({ navItems }) => {
           />
         </Link>
         <div className="flex gap-x-6">
-          {/* Hamburger Menu Btn */}
+          {/* HAMBURGER MENU BTN */}
           <div className="text-5xl pr-5" onClick={() => setNavbarOpen(true)}>
             <BiMenu />
           </div>
@@ -59,7 +59,7 @@ const MdTopNav = ({ navItems }) => {
         </div>
         {navbarOpen && (
           <>
-            {/* Sidebar Overlay (Background Dim) */}
+            {/* BG OVERLAY (Background Dim) */}
             <div
               className={`sidebar-overlay ${
                 navbarOpen && !isAnimatingOut ? "visible" : ""
@@ -67,7 +67,7 @@ const MdTopNav = ({ navItems }) => {
               onClick={closeNavbar}
             ></div>
 
-            {/* Sidebar Menu */}
+            {/* SIDEBAR MENU */}
             <div
               className={`menu-sidebar w-1/2 ${
                 isAnimatingOut
@@ -77,7 +77,7 @@ const MdTopNav = ({ navItems }) => {
                   : ""
               }`}
             >
-              {/* Close Button */}
+              {/* SIDEBAR CLOSE BTN */}
               <button
                 className="sidebar-close-btn uren-transition"
                 onClick={closeNavbar}
@@ -85,7 +85,7 @@ const MdTopNav = ({ navItems }) => {
                 <BiX />
               </button>
 
-              {/* Search Form */}
+              {/* SEARCH FORM */}
               <form className="sidebar-search-form">
                 <input
                   type="text"
@@ -104,8 +104,8 @@ const MdTopNav = ({ navItems }) => {
                 {navItems?.map((item) => (
                   <li key={item.path}>
                     <Link
-                      className={`font-semibold uppercase ${
-                        pathname === item.path && "text-secondary"
+                      className={`sidebar-nav-item ${
+                        pathname === item.path ? "sidebar-active-nav-item" : ""
                       }`}
                       href={item.path}
                       onClick={() => setNavbarOpen(false)}
@@ -155,10 +155,10 @@ const MdTopNav = ({ navItems }) => {
                   <div className="collapse-title font-semibold">Currency</div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      <li
-                        className="text-secondary"
-                        onClick={() => setNavbarOpen(false)}
-                      >
+                      <li className="dropdown-list-active">
+                        <Link href="">د.إ UAE Dirhams</Link>
+                      </li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="/">$ US Dollar</Link>
                       </li>
                       <li onClick={() => setNavbarOpen(false)}>
@@ -176,7 +176,7 @@ const MdTopNav = ({ navItems }) => {
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
                       <li
-                        className="text-secondary"
+                        className="dropdown-list-active"
                         onClick={() => setNavbarOpen(false)}
                       >
                         <Link href="/">English</Link>

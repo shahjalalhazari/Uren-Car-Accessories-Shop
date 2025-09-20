@@ -22,7 +22,7 @@
 }
 
 .nav-cart-btn {
-@apply border border-primary py-1 flex gap-4 items-center px-10;
+    @apply border border-primary py-1 flex gap-4 items-center px-10;
 }
 
 .active-cart-btn {
@@ -66,11 +66,11 @@
 }
 
 .sidebar-search-form {
-    @apply bg-[#eee] flex justify-between items-center;
+    @apply bg-gray-bg border-b-2 border-uren-border flex justify-between items-center;
 }
 
 .sidebar-search-input {
-    @apply w-full px-8 py-5 text-sm bg-[#eee] outline-none;
+    @apply w-full px-6 py-5 text-sm bg-gray-bg outline-none;
 }
 
 .sidebar-search-btn {
@@ -78,7 +78,13 @@
 }
 
 .sidebar-nav-list {
-    @apply space-y-4 text-body font-semibold mt-6 mx-6;
+    @apply space-y-4 text-body font-semibold mt-6;
+}
+.sidebar-nav-item {
+    @apply px-6 uppercase block;
+}
+.sidebar-active-nav-item{
+    @apply bg-primary text-base-100 w-full py-2 px-6;
 }
 
 .nav-phone-num {
@@ -86,7 +92,7 @@
 }
 
 .dropdown-list-active {
-    @apply text-secondary;
+    @apply bg-blue text-base-100 w-full py-2 px-4;
 }
 
 /*** NAVBAR BOTTOM PART FOR SMALL DEVICES ***/
@@ -153,6 +159,28 @@
     .nav-phone-num {
         @apply px-8 py-3;
     }
+
+    .sidebar-search-input {
+        @apply px-8 py-6;
+    }
+
+    .sidebar-search-btn {
+        @apply pr-8;
+    }
+
+    .sidebar-nav-list {
+        @apply mt-8;
+    }
+    .sidebar-nav-item {
+        @apply px-8;
+    }
+    .sidebar-active-nav-item {
+        @apply py-3 px-8;
+    }
+
+    .dropdown-list-active {
+        @apply py-3;
+    }
     /*** NAVBAR BOTTOM PART FOR MEDIUM DEVICES ***/
     .md-bottom-nav {
         @apply bg-primary px-8 py-3 flex gap-x-8 items-center;
@@ -217,23 +245,15 @@
     }
 
     .dropdown-list {
-        @apply absolute z-[998] right-0 hidden w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
+        @apply absolute z-[998] right-0 w-max bg-base-100 border border-primary border-t-0 p-3 shadow-lg animate-fadeIn;
     }
 
     .dropdown-header {
         @apply flex items-center gap-x-1 text-lg cursor-pointer;
     }
 
-    .dropdown:hover .dropdown-list {
-        @apply block;
-    }
-
     .dropdown-arrow {
         @apply transition-transform ease-in-out duration-500;
-    }
-
-    .dropdown:hover .dropdown-arrow {
-        @apply rotate-180;
     }
 }
 

@@ -32,7 +32,7 @@ const SmTopNav = ({navItems}) => {
         />
       </Link>
       <ul className="sm-top-navbar">
-        {/* Hamburger Menu Btn */}
+        {/* HAMBURGER MENU BTN */}
         <li className="text-5xl" onClick={() => setNavbarOpen(true)}>
           <BiMenu />
         </li>
@@ -54,7 +54,7 @@ const SmTopNav = ({navItems}) => {
 
         {navbarOpen && (
           <>
-            {/* Sidebar Overlay (Background Dim) */}
+            {/* BG OVERLAY (Background Dim) */}
             <div
               className={`sidebar-overlay ${
                 navbarOpen && !isAnimatingOut ? "visible" : ""
@@ -62,7 +62,7 @@ const SmTopNav = ({navItems}) => {
               onClick={closeNavbar}
             ></div>
 
-            {/* Sidebar Menu */}
+            {/* SIDEBAR MENU */}
             <div
               className={`menu-sidebar w-3/4 ${
                 isAnimatingOut
@@ -72,12 +72,12 @@ const SmTopNav = ({navItems}) => {
                   : ""
               }`}
             >
-              {/* Close Button */}
+              {/* CLOSE BTN */}
               <button className="sidebar-close-btn" onClick={closeNavbar}>
                 <BiX />
               </button>
 
-              {/* Search Form */}
+              {/* SEARCH FORM */}
               <form className="sidebar-search-form">
                 <input
                   type="text"
@@ -91,13 +91,13 @@ const SmTopNav = ({navItems}) => {
                 </button>
               </form>
 
-              {/* Menu Items */}
+              {/* MAIN NAV ITEMS */}
               <ul className="sidebar-nav-list">
                 {navItems?.map((item) => (
-                  <li key={item.path}>
+                  <li key={item.path} className="">
                     <Link
-                      className={`font-semibold uppercase ${
-                        pathname === item.path && "text-secondary"
+                      className={`sidebar-nav-item ${
+                        pathname === item.path ? "sidebar-active-nav-item" : ""
                       }`}
                       href={item.path}
                       onClick={() => setNavbarOpen(false)}
@@ -107,8 +107,10 @@ const SmTopNav = ({navItems}) => {
                   </li>
                 ))}
               </ul>
-              <hr className="border-uren-border mx-8 mt-6 mb-2" />
-              <ul className="text-body mx-4">
+
+              <hr className="border border-uren-border my-6" />
+              
+              <ul className="text-body mx-2">
                 <div className="collapse collapse-arrow mb-[-10px]">
                   <input type="radio" name="my-accordion-2" />
                   <div className="collapse-title font-semibold">
@@ -145,10 +147,10 @@ const SmTopNav = ({navItems}) => {
                   <div className="collapse-title font-semibold">Currency</div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      <li
-                        className="text-secondary"
-                        onClick={() => setNavbarOpen(false)}
-                      >
+                      <li className="dropdown-list-active">
+                        <Link href="">د.إ UAE Dirhams</Link>
+                      </li>
+                      <li onClick={() => setNavbarOpen(false)}>
                         <Link href="/">$ US Dollar</Link>
                       </li>
                       <li onClick={() => setNavbarOpen(false)}>
@@ -166,7 +168,7 @@ const SmTopNav = ({navItems}) => {
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
                       <li
-                        className="text-secondary"
+                        className="dropdown-list-active"
                         onClick={() => setNavbarOpen(false)}
                       >
                         <Link href="/">English</Link>
@@ -187,7 +189,7 @@ const SmTopNav = ({navItems}) => {
 
               {/* Phone Number */}
               <Link href="tel://971589196282">
-                <li className="nav-phone-num m-8">
+                <li className="nav-phone-num m-6">
                   <BiSolidPhone />
                   +971 58 919 6282
                 </li>
