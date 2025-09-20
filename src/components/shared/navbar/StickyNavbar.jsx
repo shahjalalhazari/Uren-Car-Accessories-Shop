@@ -1,5 +1,7 @@
 "use client";
 
+import { navItems } from "@/config/navigation";
+import { useNavigation } from "@/hooks/useNavigation";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -7,12 +9,13 @@ import { BiShoppingBag } from "react-icons/bi";
 import { FaAngleDown, FaUser } from "react-icons/fa";
 
 
-const StickyNavbar = ({ navItems }) => {
+const StickyNavbar = () => {
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const listRef = useRef(null);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [userMenuAnimation, setUserMenuAnimation] = useState(false);
+  const { isActiveNavItem } = useNavigation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -51,7 +54,7 @@ const StickyNavbar = ({ navItems }) => {
         {navItems?.map((item) => (
           <Link
             className={`main-nav-items uren-transition ${
-              pathname === item.path && "sticky-active-nav-items"
+              isActiveNavItem(item) ? "sticky-active-nav-items" :""
             }`}
             key={item.path}
             href={item.path}
@@ -104,7 +107,7 @@ const StickyNavbar = ({ navItems }) => {
                 <Link href={"/user/profile"}>My Account</Link>
               </li>
               <li className="dropdown-list-item">
-                <p onClick={() => signOut()}>Logout</p>
+                <p>Logout</p>
               </li>
               <li
                 className={`dropdown-list-item ${

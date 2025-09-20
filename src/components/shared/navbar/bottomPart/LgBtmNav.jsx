@@ -1,5 +1,7 @@
 "use client"
+import { navItems } from '@/config/navigation';
 import { useCategory } from '@/context/CategoryContext';
+import { useNavigation } from '@/hooks/useNavigation';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,8 +9,9 @@ import { useState } from 'react';
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
 // NAVBAR BOTTOM PART FOR LARGE SCREEN DEVICES.
-const LgBtmNav = ({ navItems, categories }) => {
+const LgBtmNav = ({categories }) => {
   const pathname = usePathname();
+  const { isActiveNavItem } = useNavigation();
 
   // DROPDOWN STATES.
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
@@ -140,7 +143,7 @@ const LgBtmNav = ({ navItems, categories }) => {
         {navItems?.map((item) => (
           <Link
             className={`main-nav-items uren-transition ${
-              pathname === item.path && "main-active-nav-items"
+              isActiveNavItem(item) ? "main-active-nav-items" :""
             }`}
             key={item.path}
             href={item.path}
