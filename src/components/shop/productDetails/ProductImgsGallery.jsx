@@ -1,5 +1,5 @@
 "use client"
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import InnerImageZoom from "react-inner-image-zoom";
@@ -8,12 +8,39 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import 'react-inner-image-zoom/lib/styles.min.css';
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import UrenLoading from "@/components/shared/UrenLoading";
 
 
 const ProductImgsGallery = ({images}) => {
   const [activeImage, setActiveImage] = useState(images[0]);
   const prevRef = useRef(null);
   const nextRef = useRef(null);
+  const [isClient, setIsClient] = useState(false);
+  const [enableLoop, setEnableLoop] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+    let minImgsForLoop = 6;
+
+    if (!images || images.length === 0) {
+      return;
+    };
+
+    if (window.innerWidth < 640) {
+      minImgsForLoop = 4;
+    } else if (window.innerWidth < 768) {
+      minImgsForLoop = 5;
+    } else {
+      minImgsForLoop = 6;
+    }
+    
+    // IF IMAGES ARE 6 OR MORE, ENABLE LOOP.
+    setEnableLoop(images.length >= minImgsForLoop);
+  }, [images.length]);
+
+  if (!isClient) {
+    return <UrenLoading/>
+  }
 
   return (
     <div className="photo-gallery-layout">
@@ -46,7 +73,7 @@ const ProductImgsGallery = ({images}) => {
           768: { slidesPerView: 4 },
           1024: { slidesPerView: 5 },
         }}
-        loop={true}
+        loop={enableLoop}
         autoplay={{ delay: 15000 }}
         className="details-photo-gallery"
         onSlideChange={(swiper) => setActiveImage(images[swiper.realIndex])}

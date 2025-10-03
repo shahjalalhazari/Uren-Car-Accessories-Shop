@@ -110,7 +110,7 @@
 
 .categories-list {
     @apply z-[999] absolute left-0 text-body text-sm font-medium w-full h-fit max-h-[40vh] overflow-y-auto bg-base-100 shadow-lg border-2 border-primary;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.5s ease;
     will-change: transform, opacity;
 }
 

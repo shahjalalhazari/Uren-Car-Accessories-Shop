@@ -1,3 +1,4 @@
+"use client"
 import ProductRating from '@/components/shared/ProductRating';
 import { calculatePrice } from '@/utils/priceCalculator';
 import Link from 'next/link';
@@ -5,9 +6,20 @@ import QuantitySelector from './QuantitySelector';
 import AddToCartBtn from '@/components/shared/buttons/AddToCartBtn';
 import OutlineBtn from '@/components/shared/buttons/OutlineBtn';
 import { BiHeart } from 'react-icons/bi';
-import DetailsTabs from './DetailsTabs';
+import { useCategory } from '@/context/CategoryContext';
+import { useEffect, useState } from 'react';
+import UrenLoading from '@/components/shared/UrenLoading';
+import { useRouter } from 'next/navigation';
 
 const DetailsContent = ({productDetails}) => {
+  const { selectCategory, getCategoryUrl, handleCategorySelect} = useCategory();
+  const [isClient, setIsClient] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    setIsClient(true);
+  },[])
+
   console.log(productDetails);
   const {
     title,
@@ -28,6 +40,16 @@ const DetailsContent = ({productDetails}) => {
     tags,
   } = productDetails;
   const priceData = calculatePrice(price, discountPercentage);
+
+  const handleCategoryClick = (e) => {
+    e.preventDefault();
+    handleCategorySelect(category);
+    router.push(getCategoryUrl(category));
+  };
+
+  if (!isClient) {
+    return <UrenLoading/>;
+  }
 
   return (
     <div className="details-content">
@@ -58,14 +80,39 @@ const DetailsContent = ({productDetails}) => {
 
       {/*  */}
       <ul className="details-list">
-        <li><span>Category:</span><Link href={`/shop/products?category=${category}`}>{category}.</Link></li>
-        <li><span>Brand:</span><Link href={`/shop/products?brand=${brand}`}>{brand}.</Link></li>
-        <li><span>Item Code:</span>{sku}.</li>
-        <li><span>Weight:</span>{weight * 1000}g.</li>
-        <li><span>Return Policy:</span>{returnPolicy}.</li>
-        <li><span>Shipping Info:</span>{shippingInformation}.</li>
-        <li><span>Warranty Info:</span>{warrantyInformation}.</li>
-        <li><span>Availability:</span>{availabilityStatus}.</li>
+        <li>
+          <span>Category:</span>
+          <Link 
+            href={getCategoryUrl(category)}
+            onClick={handleCategoryClick}
+            passHref
+            className={selectCategory === category ? 'text-blue font-medium' : ''}
+          >
+            {category}
+          </Link>
+        </li>
+        <li>
+          <span>Brand:</span>
+          <Link href={`/shop/products?brand=${brand}`}>{brand}</Link>
+        </li>
+        <li>
+          <span>Item Code:</span>{sku}
+        </li>
+        <li>
+          <span>Weight:</span>{weight * 1000}g
+        </li>
+        <li>
+          <span>Return Policy:</span>{returnPolicy}
+        </li>
+        <li>
+          <span>Shipping Info:</span>{shippingInformation}
+        </li>
+        <li>
+          <span>Warranty Info:</span>{warrantyInformation}
+        </li>
+        <li>
+          <span>Availability:</span>{availabilityStatus}
+        </li>
         <li>
           <span>Dimensions (cm):</span>
           <ul>
@@ -91,7 +138,12 @@ const DetailsContent = ({productDetails}) => {
       <div className="product-tags">
         <h6 className="product-tags-heading">Tags:</h6>
         {tags?.map((tag, index) =>
-          <Link href={"/"} key={index} className="product-tag uren-transition">{tag},</Link>
+          <Link 
+          href={"/"} key={index} 
+          className="product-tag uren-transition"
+          >
+            {tag}{index < tags.length - 1 ? ',' : ''}
+          </Link>
         )}
       </div>
     </div>

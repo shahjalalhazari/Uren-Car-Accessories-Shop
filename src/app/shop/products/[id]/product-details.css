@@ -46,7 +46,7 @@
     @apply text-sm text-blue;
 }
 .details-list {
-    @apply text-sm text-body space-y-1 mt-2;
+    @apply text-sm text-body space-y-1 mt-2 uppercase;
 }
 .details-list li {
     @apply flex gap-x-2;
@@ -57,7 +57,7 @@
 
 /* QUANTITY SELECTOR */
 .qty-selector {
-    @apply flex items-center space-x-3 text-body mt-4;
+    @apply flex items-center space-x-3 text-body mt-4 uppercase;
 }
 
 .qty-selector>label {

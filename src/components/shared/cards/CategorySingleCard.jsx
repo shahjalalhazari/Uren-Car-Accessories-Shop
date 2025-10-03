@@ -10,7 +10,7 @@ const CategorySingleCard = ({ categoryItem, isActive, categoryUrl, isLoading=fal
   const {handleCategorySelect}= useCategory();
   const router = useRouter();
 
-  const handleClick = (e) => {
+  const handleCategoryClick = (e) => {
     e.preventDefault();
     handleCategorySelect(name);
     router.push(categoryUrl);
@@ -29,7 +29,7 @@ const CategorySingleCard = ({ categoryItem, isActive, categoryUrl, isLoading=fal
     }`}>
       <Link 
         href={categoryUrl}
-        onClick={handleClick}
+        onClick={handleCategoryClick}
         passHref
       >
         <Image
