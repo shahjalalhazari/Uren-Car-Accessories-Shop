@@ -5,6 +5,15 @@ import ProductImgsGallery from "@/components/shop/productDetails/ProductImgsGall
 import DetailsContent from "@/components/shop/productDetails/DetailsContent";
 import DetailsTabs from "@/components/shop/productDetails/DetailsTabs";
 
+export const generateMetadata = async({params}) => {
+  const {title, description} = await getProductDetails(params.id);
+  
+  return {
+    title: title,
+    description: description,
+  }
+};
+
 const ProductDetailsPage = async ({params}) => {
   const {id} = await params;
   const productDetails = await getProductDetails(id);
