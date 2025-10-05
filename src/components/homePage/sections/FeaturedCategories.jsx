@@ -14,8 +14,15 @@ import UrenLoading from "@/components/shared/UrenLoading";
 const FeaturedCategories = ({ categories }) => {
   const prevRef = useRef(null);
   const nextRef = useRef(null);
-  const {selectCategory, getCategoryUrl} = useCategory();
   const [isClient, setIsClient] = useState(false);
+
+  // CATEGORY CONTEXT.
+  const {
+    selectCategory, 
+    getCategoryUrl,
+    handleCategorySelect,
+    isCategorySelected
+  } = useCategory();
 
   useEffect(() => {
     setIsClient(true);
@@ -69,8 +76,9 @@ const FeaturedCategories = ({ categories }) => {
             <SwiperSlide key={index}>
               <CategorySingleCard
                 categoryItem={category}
-                isActive={selectCategory === category.name}
-                categoryUrl ={getCategoryUrl(category.name)}
+                isActive={isCategorySelected(category)}
+                categoryUrl ={getCategoryUrl(category)}
+                onCategoryClick={() => handleCategorySelect(category)}
               />
             </SwiperSlide>
           ))}

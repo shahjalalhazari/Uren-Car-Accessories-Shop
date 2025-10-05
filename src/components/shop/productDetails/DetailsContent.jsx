@@ -9,12 +9,16 @@ import { BiHeart } from 'react-icons/bi';
 import { useCategory } from '@/context/CategoryContext';
 import { useEffect, useState } from 'react';
 import UrenLoading from '@/components/shared/UrenLoading';
-import { useRouter } from 'next/navigation';
 
 const DetailsContent = ({productDetails}) => {
-  const { selectCategory, getCategoryUrl, handleCategorySelect} = useCategory();
   const [isClient, setIsClient] = useState(false);
-  const router = useRouter();
+
+  // CATEGORY CONTEXT.
+  const { 
+    isCategorySelected, 
+    getCategoryUrl, 
+    handleCategorySelect
+  } = useCategory();
 
   useEffect(() => {
     setIsClient(true);
@@ -40,12 +44,7 @@ const DetailsContent = ({productDetails}) => {
     tags,
   } = productDetails;
   const priceData = calculatePrice(price, discountPercentage);
-
-  const handleCategoryClick = (e) => {
-    e.preventDefault();
-    handleCategorySelect(category);
-    router.push(getCategoryUrl(category));
-  };
+  const isActive = isCategorySelected(category);
 
   if (!isClient) {
     return <UrenLoading/>;
@@ -82,11 +81,13 @@ const DetailsContent = ({productDetails}) => {
       <ul className="details-list">
         <li>
           <span>Category:</span>
-          <Link 
+          <Link
             href={getCategoryUrl(category)}
-            onClick={handleCategoryClick}
-            passHref
-            className={selectCategory === category ? 'text-blue font-medium' : ''}
+            onClick={(e) => {
+              e.preventDefault();
+              handleCategorySelect(category);
+            }}
+            className={isActive ? "active": ""}
           >
             {category}
           </Link>

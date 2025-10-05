@@ -8,7 +8,13 @@ import { FaAngleDown } from "react-icons/fa";
 const SmBtmNav = ({ categories }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const { selectedCategory, handleCategorySelect, getCategoryUrl } = useCategory();
+
+  // CATEGORY CONTEXT.
+  const {
+    handleCategorySelect, 
+    getCategoryUrl, 
+    isCategorySelected 
+  } = useCategory();
 
 
   // TOGGLER FOR OPEN & CLOSE THE LIST.
@@ -59,23 +65,26 @@ const SmBtmNav = ({ categories }) => {
               isOpen && !isAnimating ? "rolling-up" : "rolling-down"
             }`}
           >
-            {categories?.map((category, index) => (
-              <li 
+            {categories?.map((category, index) => {
+              const isActive = isCategorySelected(category);
+
+              return (
+                <li 
                 key={index} 
                 className={`dropdown-list-item ${
-                  selectedCategory === category.name ? 
-                  "dropdown-active-item" : ""
+                  isActive ? "dropdown-active-item" : ""
                 }`}
                 onClick={() => handleCategoryClick(category.name)}
               >
                 <Link 
-                  href={getCategoryUrl(category.name)} 
                   onClick={(e) => e.preventDefault()}
+                  href={getCategoryUrl(category.name)} 
                 >
                   {category.name}
                 </Link>
               </li>
-            ))}
+              )
+            })}
           </ul>
         )}
       </div>

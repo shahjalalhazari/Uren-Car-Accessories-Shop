@@ -2,18 +2,15 @@
 import { useCategory } from "@/context/CategoryContext";
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import UrenLoading from "../UrenLoading";
 
 const CategorySingleCard = ({ categoryItem, isActive, categoryUrl, isLoading=false }) => {
   const { name, image } = categoryItem;
   const {handleCategorySelect}= useCategory();
-  const router = useRouter();
 
   const handleCategoryClick = (e) => {
     e.preventDefault();
-    handleCategorySelect(name);
-    router.push(categoryUrl);
+    handleCategorySelect(categoryItem);
   }
 
   if (isLoading) {
@@ -23,9 +20,8 @@ const CategorySingleCard = ({ categoryItem, isActive, categoryUrl, isLoading=fal
   }
 
   return (
-    <div className={`
-      category-item-card ${
-        isActive ? 'active-category-card' : ''
+    <div className={`category-item-card ${
+      isActive ? 'active-category-card' : ''
     }`}>
       <Link 
         href={categoryUrl}

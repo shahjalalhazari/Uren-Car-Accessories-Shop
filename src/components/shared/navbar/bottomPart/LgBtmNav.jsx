@@ -13,6 +13,13 @@ const LgBtmNav = ({categories }) => {
   const pathname = usePathname();
   const { isActiveNavItem } = useNavigation();
 
+  // CATEGORY CONTEXT.
+  const {
+    handleCategorySelect, 
+    getCategoryUrl, 
+    isCategorySelected
+  } = useCategory();
+
   // DROPDOWN STATES.
   const [isCategoryOpen, setIsCategoryOpen] = useState(false);
   const [isCurrencyOpen, setIsCurrencyOpen] = useState(false);
@@ -24,7 +31,6 @@ const LgBtmNav = ({categories }) => {
   const [currencyAnimation, setCurrencyAnimation] = useState(false);
   const [languageAnimation, setLanguageAnimation] = useState(false);
   const [userMenuAnimation, setUserMenuAnimation] = useState(false);
-  const {selectedCategory, handleCategorySelect, getCategoryUrl} = useCategory();
   
   // CATEGORY TOGGLE TO OPEN CATEGORY MENU.
   const toggleCategory = () => {
@@ -106,6 +112,7 @@ const LgBtmNav = ({categories }) => {
             <FaAngleDown />
           </p>
         </div>
+
         {/* CATEGORY LIST */}
         {isCategoryOpen && (
           <ul
@@ -115,25 +122,26 @@ const LgBtmNav = ({categories }) => {
                 : "rolling-down"
             }`}
           >
-            {categories?.map((category, index) => (
-              <li 
-              key={index} 
-              className={
-                `dropdown-list-item ${
-                selectedCategory === category.name ? 
-                "dropdown-active-item" :
-                ""}`
-                }
-                onClick={() => handleCategoryClick(category.name)}
-              >
-                <Link
-                  href={getCategoryUrl(category.name)}
-                  onClick={(e) => e.preventDefault()}
+            {categories?.map((category, index) => {
+              const isActive = isCategorySelected(category);
+
+              return (
+                <li 
+                  key={index} 
+                  className={`dropdown-list-item ${
+                    isActive ? "dropdown-active-item" : ""
+                  }`}
+                  onClick={() => handleCategoryClick(category.name)}
                 >
-                  {category.name}
-                </Link>
-              </li>
-            ))}
+                  <Link
+                    onClick={(e) => e.preventDefault()}
+                    href={getCategoryUrl(category.name)}
+                  >
+                    {category.name }
+                  </Link>
+                </li>
+              )
+            })}
           </ul>
         )}
       </div>

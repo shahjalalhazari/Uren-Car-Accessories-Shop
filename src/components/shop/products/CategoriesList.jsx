@@ -8,7 +8,13 @@ import { BiChevronDown, BiX } from "react-icons/bi";
 const CategoriesList = ({categoriesList}) => {
   const [isOpen, setIsOpen] = useState(true); // DEFAULT OPEN ON MEDIUM & LARGE SCREEN.
   const [isClient, setIsClient] = useState(false);
-  const {selectedCategory, handleCategorySelect, getCategoryUrl}= useCategory();
+
+  // CATEGORY CONTEXT.
+  const {
+    handleCategorySelect, 
+    getCategoryUrl, 
+    isCategorySelected
+  } = useCategory();
 
   // SET CLIENT-SIDE RENDERING.
   useEffect(() => {
@@ -34,22 +40,14 @@ const CategoriesList = ({categoriesList}) => {
   const handleCategoryClear = useCallback((e) => {
     e.preventDefault();
     e.stopPropagation();
-
-    if (!isClient) return;
-    handleCategorySelect(selectedCategory);
-  }, [isClient, handleCategorySelect, selectedCategory]);
+    handleCategorySelect("");
+  }, [handleCategorySelect]);
 
   // HANDLE CATEGORY CLICK
   const handleCategoryClick = useCallback((e, category) => {
-    if (!isClient) return;
-
-    if (selectedCategory === category) {
-      e.preventDefault();
-      handleCategoryClear(e);
-    } else {
-      handleCategorySelect(category);
-    }
-  }, [isClient, selectedCategory, handleCategorySelect, handleCategoryClear]);
+    e.preventDefault();
+    handleCategorySelect(category);
+  }, [handleCategorySelect]);
 
   // SHOW LOADING STATE DURING SSR.
   if (!isClient) {
@@ -114,20 +112,24 @@ const CategoriesList = ({categoriesList}) => {
       >
         <ul className="list-items">
           {categoriesList?.map((category, index) => {
-            const isActive = selectedCategory === category.name;
+            const isActive = isCategorySelected(category.name);
 
             return (
-              <Link 
-              href={getCategoryUrl(category.name)} 
-              key={index}
-              onClick={(e) => handleCategoryClick(e, category.name)}
-            >
-              <li className={
+              <li 
+                key={index}
+                className={
                 `list-item uren-transition ${
                   isActive ? "active-list-item" :""
                 }`}
               >
-                <span>{category.name}</span>
+                <Link
+                  href={getCategoryUrl(category.name)}
+                  onClick={(e) => handleCategoryClick(e, category.name)}
+                  className="flex justify-between items-center w-full"
+                >
+                  <span>{category.name}</span>
+                </Link>
+                
                 {isActive && 
                   <button 
                     className="cross-btn uren-transition"
@@ -137,7 +139,6 @@ const CategoriesList = ({categoriesList}) => {
                   </button>
                 }
               </li>
-            </Link>
             )})}
         </ul>
       </div>
