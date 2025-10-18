@@ -39,6 +39,11 @@
     @apply text-primary
 }
 
+/* REGISTER FORM */
+.passwords {
+    @apply grid grid-cols-1 gap-y-4;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -58,6 +63,11 @@
     /* BUTTON */
     .submit-btn {
         @apply w-1/2;
+    }
+
+    /* REGISTER FORM */
+    .passwords {
+        @apply gap-y-5;
     }
 }
 
@@ -83,5 +93,10 @@
     /* BUTTON */
     .submit-btn {
         @apply w-1/2;
+    }
+
+    /* REGISTER FORM */
+    .passwords {
+        @apply grid grid-cols-2 gap-y-6 gap-x-8;
     }
 }

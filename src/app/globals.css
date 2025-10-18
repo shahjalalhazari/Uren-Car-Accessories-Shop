@@ -205,11 +205,15 @@
 }
 
 .form-input-group label {
-    @apply cursor-text;
+    @apply cursor-text text-body text-sm font-medium;
 }
 
 .form-input-group input {
     @apply h-10 pl-4 w-full text-sm border border-uren-border outline-none text-dark-gray;
+}
+
+.form-input-group input:focus {
+    @apply border-2 border-primary
 }
 
 .form-input-group textarea {

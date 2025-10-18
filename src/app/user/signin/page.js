@@ -1,6 +1,7 @@
 import LoginForm from "@/components/user/signInPage/LoginForm";
 import "./signin.css";
 import PageBreadcrumb from "@/components/shared/PageBreadcrumb";
+import RegisterForm from "@/components/user/signInPage/RegisterForm";
 
 export const metadata = {
   title: "Login & Register",
@@ -27,7 +28,7 @@ const SingInPage = () => {
           <div className="signin-item">
             <h4 className="item-heading">Register</h4>
             {/* REGISTER FORM */}
-            {/* <RegisterForm/> */}
+            <RegisterForm/>
           </div>
         </div>
     </>
