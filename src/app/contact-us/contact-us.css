@@ -12,22 +12,6 @@
     @apply text-sm space-y-4 mt-6;
 }
 
-.form-input-group {
-    @apply space-y-2;
-}
-
-.form-input-group label {
-    @apply cursor-text;
-}
-
-.form-input-group input {
-    @apply h-10 pl-4 w-full text-sm border border-uren-border outline-none text-dark-gray;
-}
-
-.form-input-group textarea {
-    @apply h-20 min-h-8 px-4 py-3 text-sm w-full border border-uren-border outline-none text-dark-gray;
-}
-
 /*** ADDRESS BOOK ***/
 .address-book {
     @apply bg-gray-bg p-6 h-fit;
@@ -58,10 +42,6 @@
 
     .contact-form {
         @apply text-sm space-y-6 mt-8;
-    }
-
-    .form-input-group input {
-        @apply h-12;
     }
 
     /*** ADDRESS BOOK ***/
@@ -99,10 +79,6 @@
 
     .contact-form {
         @apply text-sm space-y-6 mt-8;
-    }
-
-    .form-input-group input {
-        @apply h-12;
     }
 
     /*** ADDRESS BOOK ***/

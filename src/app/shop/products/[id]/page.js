@@ -6,7 +6,8 @@ import DetailsContent from "@/components/shop/productDetails/DetailsContent";
 import DetailsTabs from "@/components/shop/productDetails/DetailsTabs";
 
 export const generateMetadata = async({params}) => {
-  const {title, description} = await getProductDetails(params.id);
+  const {id} = await params;
+  const {title, description} = await getProductDetails(id);
   
   return {
     title: title,
