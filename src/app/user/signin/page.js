@@ -17,17 +17,15 @@ const SingInPage = () => {
       />
       
       <div className="uren-container signin-layout">
-          {/* LOGIN */}
+          {/* LOGIN FORM */}
           <div className="signin-item">
             <h4 className="item-heading">Login</h4>
-            {/* LOGIN FORM */}
             <LoginForm/>
           </div>
 
-          {/* REGISTER */}
+          {/* REGISTER FORM */}
           <div className="signin-item">
             <h4 className="item-heading">Register</h4>
-            {/* REGISTER FORM */}
             <RegisterForm/>
           </div>
         </div>
