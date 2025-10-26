@@ -44,6 +44,15 @@
     @apply grid grid-cols-1 gap-y-4;
 }
 
+/* MESSAGES */
+.error-message {
+    @apply text-sm text-center bg-secondary bg-opacity-15 py-2 px-4 text-secondary border border-secondary;
+}
+
+.success-message {
+    @apply text-sm text-center bg-green-500 bg-opacity-15 py-2 px-4 text-green-800 border border-green-800;
+}
+
 
 /* TABLET OR MEDIUM SCREEN (All Sizes) */
 @media (min-width: 768px) and (max-width: 1024px) {
