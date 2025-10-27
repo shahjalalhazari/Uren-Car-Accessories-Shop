@@ -1,5 +1,7 @@
 import {connectDB} from "@/lib/connectDB";
 import bcrypt from "bcryptjs";
+import jwt from "jsonwebtoken";
+import nodemailer from "nodemailer";
 
 export const POST = async (req) => {
   // GET SUBMITTED NEW USER DATA FROM API.
@@ -9,7 +11,7 @@ export const POST = async (req) => {
     confirmPassword
   } = await req.json();
 
-  // CHECK PASSWORD AND CONFIRM PASSWORD ARE MATCHING
+  // CHECK PASSWORD AND CONFIRM PASSWORD ARE MATCHING.
   if (password !== confirmPassword) {
       return new Response(JSON.stringify({
       message: "Passwords are not matching!",
@@ -19,7 +21,7 @@ export const POST = async (req) => {
       })
   }
 
-  // CHECK PASSWORD LENGTH
+  // CHECK PASSWORD LENGTH.
   if (password.length < 8 || confirmPassword.length < 8) {
     return new Response(JSON.stringify({
       message: "Passwords must be 8 characters long!",
@@ -29,7 +31,7 @@ export const POST = async (req) => {
     })
   }
 
-  // CHECK PASSWORD STRENGTH
+  // CHECK PASSWORD STRENGTH.
   const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#_])[A-Za-z\d@$!%*?&#_]{8,}$/;
   if (!passwordRegex.test(password)) {
     return new Response(JSON.stringify({
@@ -40,14 +42,18 @@ export const POST = async (req) => {
     });
   }
 
-  // MAKE HASH PASSWORD
+  // MAKE HASH PASSWORD.
   const hashedPassword = await bcrypt.hash(password, 16);
 
   try {
+    // GENERATE TOKEN FOR EMAIL VERIFICATION.
+    const token = jwt.sign({ email }, process.env.NEXTAUTH_SECRET, {expiresIn: "1h"});
+    console.log(token);
+    
     const db = await connectDB();
     const userCollection = db.collection("Users");
 
-    // USER EXISTENCE
+    // USER EXISTENCE.
     const userExists = await userCollection.findOne({
       email: email
     });
@@ -65,16 +71,39 @@ export const POST = async (req) => {
       email,
       password: hashedPassword,
       role: "User",
+      status: "not-verified",
       createdAt: new Date(),
     }
 
     // INSERT NEW USER DATA TO DB.
     await userCollection.insertOne(newUser);
 
-    // RESPONSE SUCCESS MESSAGE
+    // CREATES TRANSPORTER
+    const transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.EMAIL_SERVER_USER,
+        pass: process.env.EMAIL_SERVER_PASSWORD
+      },
+    });
+
+    // CREATE TOKEN VERIFICATION URL.
+    const verifyURL = process.env.NODE_ENV === "development"
+      ? `${process.env.EMAIL_VERIFY_DEV_URL}?token=${token}`
+      : `${process.env.EMAIL_VERIFY_LIVE_URL}?token=${token}`;
+
+    // SEND THE VERIFICATION MAIL TO THE USER PROVIDED EMAIL ADDRESS.
+    await transporter.sendMail({
+      from: process.env.EMAIL_FROM,
+      to: email,
+      subject: "Verify Your Email - Uren Car Accessories Shop",
+      html: `<p>Click the link to verify your email: <a href="${verifyURL}">Verify Email</a>. This link will be valid for an hour.</p>`,
+    });
+
+    // RESPONSE SUCCESS MESSAGE.
     return new Response(JSON.stringify({
       success: true,
-      message: "Registration Successful!!!"
+      message: "Registration Successful! An email has been send to your email for account verification."
     }), {
       status: 200,
     });
