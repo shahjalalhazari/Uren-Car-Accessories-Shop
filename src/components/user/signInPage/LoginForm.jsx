@@ -6,9 +6,40 @@ import Link from 'next/link';
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
+  const [message, setMessage] = useState("");
+  const [loginSuccess, setLoginSuccess] = useState(false);
+  const [rememberedEmail, setRememberedEmail] = useState("");
+
+  const handleLogin = async(e) => {
+    e.preventDefault();
+    // START LOADING.
+    setLoading(true);
+    // SET EMPTY MESSAGE &LOGIN SUCCESS FALSE ON EACH SUBMIT.
+    setMessage("");
+    setLoginSuccess(false);
+    
+    // GET SUBMITTED FORM DATA.
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    const remember = form.rememberLogin.checked;
+
+    const loginUser = {email, password, remember};
+    console.log(loginUser);
+
+    setLoading(false);
+  };
   
   return (
-    <form className="login-form">
+    <>
+      {message && (
+        <div
+          className={`${loginSuccess ? "success-message" : "error-message"}`}
+        >
+          {message}
+        </div>
+      )}
+      <form className="login-form" onSubmit={handleLogin}>
         {/* EMAIL INPUT FIELD */}
         <TextInputField
           label={"E-mail"}
@@ -54,12 +85,13 @@ const LoginForm = () => {
           disabled={loading}
         >
           {loading ? (
-            <span className="loading loading-infinity loading-md"></span>
+            <span className="loading loading-infinity loading-sm"></span>
           ) : (
             "Login"
           )}
         </button>
       </form>
+    </>
   );
 };
 
