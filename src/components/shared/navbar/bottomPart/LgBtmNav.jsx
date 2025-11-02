@@ -2,6 +2,7 @@
 import { navItems } from '@/config/navigation';
 import { useCategory } from '@/context/CategoryContext';
 import { useNavigation } from '@/hooks/useNavigation';
+import { userLogout } from '@/utils/userLogout';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -9,9 +10,12 @@ import { useState } from 'react';
 import { FaAngleDown, FaBars, FaDollarSign, FaUser } from "react-icons/fa";
 
 // NAVBAR BOTTOM PART FOR LARGE SCREEN DEVICES.
-const LgBtmNav = ({categories }) => {
+const LgBtmNav = ({categories, isUser }) => {
   const pathname = usePathname();
   const { isActiveNavItem } = useNavigation();
+
+  // GET THE USER.
+  const userAuthenticated = isUser.status;
 
   // CATEGORY CONTEXT.
   const {
@@ -88,10 +92,16 @@ const LgBtmNav = ({categories }) => {
     }
   };
 
+  // HANDLER FOR CATEGORY SELECT.
   const handleCategoryClick = (category) => {
     handleCategorySelect(category);
     toggleCategory();
   };
+
+  // HANDLER FOR USER LOGOUT.
+  const handleLogout = async() => {
+    userLogout();
+  }
 
   return (
     <div className="lg-bottom-nav">
@@ -260,25 +270,31 @@ const LgBtmNav = ({categories }) => {
                   : "rolling-down"
               }`}
             >
-              <li
-                className={`dropdown-list-item ${
-                  pathname.split("/").includes("profile") &&
-                  "dropdown-list-active"
-                }`}
-              >
-                <Link href={"/user/profile"}>My Account</Link>
-              </li>
-              <li className="dropdown-list-item">
-                <p onClick={() => signOut()}>Logout</p>
-              </li>
-              <li
-                className={`dropdown-list-item ${
-                  pathname.split("/").includes("signin") &&
-                  "dropdown-list-active"
-                }`}
-              >
-                <Link href={"/user/signin"}>Sign In | Sign Up</Link>
-              </li>
+              {userAuthenticated === "authenticated" ?
+              <>
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("profile") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/user/profile"}>My Account</Link>
+                </li>
+                <li className="dropdown-list-item">
+                  <p onClick={handleLogout}>Logout</p>
+                </li>
+              </>:<>
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("signin") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                </li>
+              </>}
+              
+              
             </ul>
           )}
         </div>

@@ -3,10 +3,12 @@ import { useEffect, useState } from "react";
 import SmBtmNav from "./SmBtmNav";
 import MdBtmNav from "./MdBtmNav";
 import LgBtmNav from "./LgBtmNav";
+import { useSession } from "next-auth/react";
 
 
 const ResponsiveNavbar = ({navItems, categories}) => {
   const [windowWidth, setWindowWidth] = useState(0);
+  const session = useSession();
 
   // TRACK WINDOW WIDTH.
   useEffect(() => {
@@ -28,11 +30,11 @@ const ResponsiveNavbar = ({navItems, categories}) => {
 
   // RENDER BASED ON WINDOW WIDTH.
   if (windowWidth < 768) {
-    return <SmBtmNav categories={categories} />;
+    return <SmBtmNav categories={categories} isUser={session} />;
   } else if (windowWidth >= 768 && windowWidth < 1024) {
-    return <MdBtmNav categories={categories} />;
+    return <MdBtmNav categories={categories} isUser={session} />;
   } else {
-    return <LgBtmNav navItems={navItems} categories={categories} />;
+    return <LgBtmNav navItems={navItems} categories={categories} isUser={session} />;
   }
 };
 
