@@ -24,7 +24,6 @@ const RegisterForm = () => {
     const confirmPassword = form.confirmPassword.value;
 
     const newUser = {email, password, confirmPassword};
-    console.log(newUser);
 
     try {
       // SEND NEW USER DATA TO DB.

@@ -1,8 +1,10 @@
 "use client"
 import { useState } from 'react';
+import { signIn } from "next-auth/react";
 import PasswordField from '@/components/shared/formInputFields/PasswordField';
 import TextInputField from '@/components/shared/formInputFields/TextInputField';
 import Link from 'next/link';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -10,11 +12,15 @@ const LoginForm = () => {
   const [loginSuccess, setLoginSuccess] = useState(false);
   const [rememberedEmail, setRememberedEmail] = useState("");
 
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const path = searchParams.get("redirect") || "/";
+
   const handleLogin = async(e) => {
     e.preventDefault();
     // START LOADING.
     setLoading(true);
-    // SET EMPTY MESSAGE &LOGIN SUCCESS FALSE ON EACH SUBMIT.
+    // SET EMPTY MESSAGE & LOGIN SUCCESS FALSE ON EACH SUBMIT.
     setMessage("");
     setLoginSuccess(false);
     
@@ -24,9 +30,23 @@ const LoginForm = () => {
     const password = form.password.value;
     const remember = form.rememberLogin.checked;
 
-    const loginUser = {email, password, remember};
-    console.log(loginUser);
+    // SEND USER CREDENTIALS FOR LOGIN.
+    const res = await signIn("credentials", {
+      email,
+      password,
+      redirect: false,
+      callbackUrl: path,
+    });
 
+    if (res.ok) {
+      // REDIRECT USER AFTER LOGIN
+      router.push(path);
+    } else {
+      // SET THE ERROR MESSAGE.
+      setMessage(res.error || "Login Failed!");
+    }
+
+    // FINALLY STOP THE LOADING.
     setLoading(false);
   };
   

@@ -8,6 +8,7 @@ import Footer from "@/components/shared/footer/Footer";
 import ScrollToTopBtn from "@/components/shared/buttons/ScrollToTopBtn";
 import Newsletter from "@/components/shared/Newsletter";
 import { CategoryProvider } from "@/context/CategoryContext";
+import AuthProviders from "@/providers/AuthProviders";
 
 const workSans = Work_Sans(
   {
@@ -29,37 +30,40 @@ export default function RootLayout({ children }) {
       <body
         className={`${workSans.className} antialiased m-0 p-0`}
       >
-        {/* CATEGORY PROVIDER */}
-        <CategoryProvider>
-          {/* REACT TOASTIFY */}
-          <ToastContainer
-            position="top-right"
-            autoClose={5000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-            theme="light"
-            transition={Bounce}
-          />
-          {/* NAVBAR */}
-          <Navbar/>
+        {/* AUTH PROVIDER FOR AUTHENTICATION. */}
+        <AuthProviders>
+          {/* CATEGORY PROVIDER */}
+          <CategoryProvider>
+            {/* REACT TOASTIFY */}
+            <ToastContainer
+              position="top-right"
+              autoClose={5000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+              theme="light"
+              transition={Bounce}
+            />
+            {/* NAVBAR */}
+            <Navbar/>
 
-          {/* CHILDREN */}
-          {children}
+            {/* CHILDREN */}
+            {children}
 
-          {/* SCROLL TO TOP BUTTON */}
-          <ScrollToTopBtn/>
+            {/* SCROLL TO TOP BUTTON */}
+            <ScrollToTopBtn/>
 
-          {/* NEWSLETTER */}
-          <Newsletter/>
+            {/* NEWSLETTER */}
+            <Newsletter/>
 
-          {/* FOOTER */}
-          <Footer />
-        </CategoryProvider>
+            {/* FOOTER */}
+            <Footer />
+          </CategoryProvider>
+        </AuthProviders>
       </body>
     </html>
   );
