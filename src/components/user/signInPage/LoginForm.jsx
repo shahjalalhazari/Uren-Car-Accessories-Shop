@@ -31,90 +31,112 @@ const LoginForm = () => {
     const password = form.password.value;
     const remember = form.rememberLogin.checked;
 
-    // SEND USER CREDENTIALS FOR LOGIN.
-    const res = await signIn("credentials", {
-      email,
-      password,
-      redirect: false,
-      callbackUrl: path,
-    });
+    try {
+      // USING TOAST PROMISE FOR USER LOGIN PROCESS.
+      await toast.promise(
+        (async () => {
+          // SEND USER CREDENTIALS FOR LOGIN.
+          const res = await signIn("credentials", {
+            email, password,
+            redirect: false,
+            callbackUrl: path,
+          });
 
-    if (res.ok) {
-      // REDIRECT USER AFTER LOGIN
-      toast.promise({})
+          if (!res.ok) {
+            // SET THE ERROR MESSAGE.
+            setMessage(res.error || "Login Failed!");
+          };
+
+          return res;
+        })(),
+
+        // TOAST CONFIGURATION.
+        {
+          pending: {
+            render: "Logging in...",
+          },
+          success: {
+            render: "Login successful! You'll be redirected...",
+            type: "success",
+            autoClose: 2500,
+            icon: "✅"
+          },
+          error: {
+            render({data}){
+              return data.message || "Login Failed!"
+            },
+            type: "error",
+            autoClose: "5000"
+          }
+        }
+    )
+    setLoginSuccess(true);
+
+    setTimeout(() => {
       router.push(path);
-
-    } else {
+    }, 2500);
+    } catch (error) {
       // SET THE ERROR MESSAGE.
       setMessage(res.error || "Login Failed!");
-    }
-
-    // FINALLY STOP THE LOADING.
-    setLoading(false);
-  };
+    } finally{
+      // FINALLY STOP THE LOADING.
+      setLoading(false);
+    };
+  }
   
   return (
-    <>
-      {message && (
-        <div
-          className={`${loginSuccess ? "success-message" : "error-message"}`}
-        >
-          {message}
+    <form className="login-form" onSubmit={handleLogin}>
+      {/* EMAIL INPUT FIELD */}
+      <TextInputField
+        label={"E-mail"}
+        name={"email"}
+        id="LoginEmail"
+        type={"email"}
+        placeholder={"E-mail Address"}
+        required={true}
+        // defaultValue={rememberedEmail}
+      />
+
+      {/* PASSWORD INPUT FIELD */}
+      <PasswordField
+        name={"password"}
+        id="loginPassword"
+        label={"Password"}
+        placeholder={"Enter Password"}
+      />
+
+      {/* REMEMBER & FORGOT PASSWORD */}
+      <div className="remember-forgot">
+        {/* REMEMBER CHECKBOX */}
+        <div className="flex gap-x-2 items-center">
+          <input
+            type="checkbox"
+            name="rememberLogin"
+            id="rememberLogin"
+            className="remember-checkbox uren-transition"
+            // defaultChecked={!!rememberedEmail}
+          />
+          <label htmlFor="rememberLogin">Remember Me</label>
         </div>
-      )}
-      <form className="login-form" onSubmit={handleLogin}>
-        {/* EMAIL INPUT FIELD */}
-        <TextInputField
-          label={"E-mail"}
-          name={"email"}
-          id="LoginEmail"
-          type={"email"}
-          placeholder={"E-mail Address"}
-          required={true}
-          // defaultValue={rememberedEmail}
-        />
-
-        {/* PASSWORD INPUT FIELD */}
-        <PasswordField
-          name={"password"}
-          id="loginPassword"
-          label={"Password"}
-          placeholder={"Enter Password"}
-        />
-
-        {/* REMEMBER & FORGOT PASSWORD */}
-        <div className="remember-forgot">
-          {/* REMEMBER CHECKBOX */}
-          <div className="flex gap-x-2 items-center">
-            <input
-              type="checkbox"
-              name="rememberLogin"
-              id="rememberLogin"
-              className="remember-checkbox uren-transition"
-              // defaultChecked={!!rememberedEmail}
-            />
-            <label htmlFor="rememberLogin">Remember Me</label>
-          </div>
-          {/* FORGOT PASSWORD */}
-          <p className="forgot-password uren-transition">
-            <Link href={"user/forgot-password"}>Forgot password?</Link>
-          </p>
-        </div>
-
-        {/* LOGIN BUTTON */}
-        <button
-          type="submit"
-          className="submit-btn uren-transition"
-          disabled={loading}
-        >
-          {loading ? (
-            <span className="loading loading-infinity loading-sm"></span>
-          ) : (
-            "Login"
-          )}
-        </button>
-      </form>
-    </>
+        {/* FORGOT PASSWORD */}
+        <p className="forgot-password uren-transition">
+          <Link href={"user/forgot-password"}>Forgot password?</Link>
+        </p>
+      </div>
+      
+      {/* LOGIN BUTTON */}
+      <button
+        type="submit"
+        className="submit-btn uren-transition"
+        disabled={loading}
+      >
+        {loading ? (
+          <span className="loading loading-infinity loading-sm"></span>
+        ) : (
+          "Login"
+        )}
+      </button>
+    </form>
   );
 };
 
