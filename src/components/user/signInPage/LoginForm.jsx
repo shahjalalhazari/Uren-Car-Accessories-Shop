@@ -1,5 +1,5 @@
 "use client"
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { signIn } from "next-auth/react";
 import PasswordField from '@/components/shared/formInputFields/PasswordField';
 import TextInputField from '@/components/shared/formInputFields/TextInputField';
@@ -16,6 +16,30 @@ const LoginForm = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const path = searchParams.get("redirect") || "/";
+
+  useEffect(() => {
+    const savedEmail = localStorage.getItem("rememberEmail");
+    const verified = searchParams.get("successMessage");
+    const error = searchParams.get("errorMessage");
+
+    // EMAIL VERIFIED.
+    if (verified) {
+      setLoginSuccess(true);
+      setMessage(verified);
+    }
+    // NOT VERIFIED OR ANY ERROR.
+    if (error) setMessage(error);
+    // THERE IS SAVED EMAIL IN LOCAL STORAGE.
+    if (savedEmail) setRememberedEmail(savedEmail);
+
+    // REMOVE QUERY PARAMS FROM URL.
+    if (verified || error) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete("successMessage");
+      url.searchParams.delete("errorMessage");
+      window.history.replaceState({}, "", url.toString());
+    }
+  }, [searchParams])
 
   const handleLogin = async(e) => {
     e.preventDefault();
@@ -42,10 +66,17 @@ const LoginForm = () => {
             callbackUrl: path,
           });
 
-          if (!res.ok) {
+          if (res.ok) {
+            // REMEMBER IS CHECKED.
+            if (remember) {
+              localStorage.setItem("rememberEmail", email);
+            } else {
+              localStorage.removeItem("rememberEmail");
+            }
+          } else {
             // SET THE ERROR MESSAGE.
             setMessage(res.error || "Login Failed!");
-          };
+          }
 
           return res;
         })(),
@@ -86,6 +117,15 @@ const LoginForm = () => {
   
   return (
     <form className="login-form" onSubmit={handleLogin}>
+      {message && (
+        <div
+          className={`${
+            loginSuccess ? "success-message" : "error-message"
+          }`}
+        >
+          {message}
+        </div>
+      )}
       {/* EMAIL INPUT FIELD */}
       <TextInputField
         label={"E-mail"}
@@ -94,7 +134,7 @@ const LoginForm = () => {
         type={"email"}
         placeholder={"E-mail Address"}
         required={true}
-        // defaultValue={rememberedEmail}
+        defaultValue={rememberedEmail}
       />
 
       {/* PASSWORD INPUT FIELD */}
@@ -114,7 +154,7 @@ const LoginForm = () => {
             name="rememberLogin"
             id="rememberLogin"
             className="remember-checkbox uren-transition"
-            // defaultChecked={!!rememberedEmail}
+            defaultChecked={!!rememberedEmail}
           />
           <label htmlFor="rememberLogin">Remember Me</label>
         </div>
@@ -123,7 +163,7 @@ const LoginForm = () => {
           <Link href={"user/forgot-password"}>Forgot password?</Link>
         </p>
       </div>
-      
+
       {/* LOGIN BUTTON */}
       <button
         type="submit"

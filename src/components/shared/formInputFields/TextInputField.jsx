@@ -1,7 +1,8 @@
 const TextInputField = ({
   label, required=true, 
   type, name, id="", 
-  placeholder=""
+  placeholder="", 
+  defaultValue=""
 }) => {
 
   return (
@@ -14,7 +15,8 @@ const TextInputField = ({
         name={name} 
         id={id} 
         placeholder={placeholder} 
-        required={required} 
+        required={required}
+        defaultValue={defaultValue}
       />
     </div>
   );
