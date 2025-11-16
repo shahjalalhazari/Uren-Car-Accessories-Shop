@@ -14,7 +14,7 @@ const TopPart = ({ navItems }) => {
       {/* MEDIUM SCREEN SIZE */}
       <MdTopNav navItems={navItems} isUser={session} />
       {/* LARGE SCREEN SIZE */}
-      <LgTopNav isUser={session} />
+      <LgTopNav />
     </div>
   );
 };

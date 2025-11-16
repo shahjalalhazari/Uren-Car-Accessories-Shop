@@ -1,7 +1,8 @@
 "use client";
-
 import { navItems } from "@/config/navigation";
 import { useNavigation } from "@/hooks/useNavigation";
+import { userLogout } from "@/utils/userLogout";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
@@ -10,12 +11,15 @@ import { FaAngleDown, FaUser } from "react-icons/fa";
 
 
 const StickyNavbar = () => {
+  const session = useSession();
   const pathname = usePathname();
   const [isVisible, setIsVisible] = useState(false);
   const listRef = useRef(null);
   const [isUserMenuOpen, setIsUserMenuOpen] = useState(false);
   const [userMenuAnimation, setUserMenuAnimation] = useState(false);
   const { isActiveNavItem } = useNavigation();
+
+  const userAuthenticated = session.status
 
   useEffect(() => {
     const handleScroll = () => {
@@ -42,6 +46,11 @@ const StickyNavbar = () => {
       setIsUserMenuOpen(true);
     }
   };
+
+  // HANDLER FOR USER LOGOUT.
+  const handleLogout = async() => {
+    userLogout();
+  }
 
   return (
     <nav
@@ -98,25 +107,29 @@ const StickyNavbar = () => {
                   : "rolling-down"
               }`}
             >
-              <li
-                className={`dropdown-list-item ${
-                  pathname.split("/").includes("profile") &&
-                  "dropdown-list-active"
-                }`}
-              >
-                <Link href={"/user/profile"}>My Account</Link>
+              {userAuthenticated === "authenticated" ?
+              <>
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("profile") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/user/profile"}>My Account</Link>
+                </li>
+                <li className="dropdown-list-item">
+                  <p onClick={handleLogout}>Logout</p>
+                </li>
+              </>:<>
+                <li
+                  className={`dropdown-list-item ${
+                    pathname.split("/").includes("signin") &&
+                    "dropdown-list-active"
+                  }`}
+                >
+                  <Link href={"/user/signin"}>Sign In | Sign Up</Link>
               </li>
-              <li className="dropdown-list-item">
-                <p>Logout</p>
-              </li>
-              <li
-                className={`dropdown-list-item ${
-                  pathname.split("/").includes("signin") &&
-                  "dropdown-list-active"
-                }`}
-              >
-                <Link href={"/user/signin"}>Sign In | Sign Up</Link>
-              </li>
+              </>}
             </ul>
           )}
         </div>

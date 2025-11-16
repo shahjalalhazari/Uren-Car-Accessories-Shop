@@ -1,4 +1,5 @@
 "use client"
+import { userLogout } from '@/utils/userLogout';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -7,18 +8,26 @@ import { BiMenu, BiSearch, BiShoppingBag, BiSolidPhone, BiX } from 'react-icons/
 
 
 // NAVBAR TOP PART FOR MEDIUM SCREEN DEVICES.
-const MdTopNav = ({ navItems }) => {
+const MdTopNav = ({ navItems, isUser }) => {
   const pathname = usePathname();
-    const [navbarOpen, setNavbarOpen] = useState(false);
-    const [isAnimatingOut, setIsAnimatingOut] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
+  const [isAnimatingOut, setIsAnimatingOut] = useState(false);
+
+  // GET THE USER.
+  const userAuthenticated = isUser.status;
   
-    const closeNavbar = () => {
-      setIsAnimatingOut(true);
-      setTimeout(() => {
-        setNavbarOpen(false);
-        setIsAnimatingOut(false);
-      }, 500);
+  const closeNavbar = () => {
+    setIsAnimatingOut(true);
+    setTimeout(() => {
+      setNavbarOpen(false);
+      setIsAnimatingOut(false);
+    }, 500);
   };
+
+  // HANDLER FOR USER LOGOUT.
+    const handleLogout = async() => {
+      userLogout();
+    }
   
     return (
       <div className="md-top-nav">
@@ -126,27 +135,31 @@ const MdTopNav = ({ navItems }) => {
                   </div>
                   <div className="collapse-content text-sm ml-4">
                     <ul className="space-y-3">
-                      <li
-                        className={`${
-                          pathname.split("/").includes("profile") &&
-                          "dropdown-list-active"
-                        }`}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        <Link href={"/user/profile"}>My Account</Link>
-                      </li>
-                      <li onClick={() => setNavbarOpen(false)}>
-                        <p>Logout</p>
-                      </li>
-                      <li
-                        className={`${
-                          pathname.split("/").includes("signin") &&
-                          "dropdown-list-active"
-                        }`}
-                        onClick={() => setNavbarOpen(false)}
-                      >
-                        <Link href={"/user/signin"}>Sign In | Sign Up</Link>
-                      </li>
+                      {userAuthenticated === "authenticated" ?
+                      <>
+                        <li
+                          className={`${
+                            pathname.split("/").includes("profile") &&
+                            "dropdown-list-active"
+                          }`}
+                          onClick={() => setNavbarOpen(false)}
+                        >
+                          <Link href={"/user/profile"}>My Account</Link>
+                        </li>
+                        <li onClick={() => setNavbarOpen(false)}>
+                          <p onClick={handleLogout}>Logout</p>
+                        </li>
+                      </>:<>
+                        <li
+                          className={`${
+                            pathname.split("/").includes("signin") &&
+                            "dropdown-list-active"
+                          }`}
+                          onClick={() => setNavbarOpen(false)}
+                        >
+                          <Link href={"/user/signin"}>Sign In | Sign Up</Link>
+                        </li>
+                      </>}
                     </ul>
                   </div>
                 </div>

@@ -5,6 +5,7 @@ import PasswordField from '@/components/shared/formInputFields/PasswordField';
 import TextInputField from '@/components/shared/formInputFields/TextInputField';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
+import { toast } from 'react-toastify';
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -40,7 +41,9 @@ const LoginForm = () => {
 
     if (res.ok) {
       // REDIRECT USER AFTER LOGIN
+      toast.promise({})
       router.push(path);
+
     } else {
       // SET THE ERROR MESSAGE.
       setMessage(res.error || "Login Failed!");

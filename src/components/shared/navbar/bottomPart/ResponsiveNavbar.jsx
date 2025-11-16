@@ -30,11 +30,11 @@ const ResponsiveNavbar = ({navItems, categories}) => {
 
   // RENDER BASED ON WINDOW WIDTH.
   if (windowWidth < 768) {
-    return <SmBtmNav categories={categories} isUser={session} />;
+    return <SmBtmNav categories={categories} />;
   } else if (windowWidth >= 768 && windowWidth < 1024) {
-    return <MdBtmNav categories={categories} isUser={session} />;
+    return <MdBtmNav categories={categories} />;
   } else {
-    return <LgBtmNav navItems={navItems} categories={categories} isUser={session} />;
+    return <LgBtmNav categories={categories} isUser={session} />;
   }
 };
 
