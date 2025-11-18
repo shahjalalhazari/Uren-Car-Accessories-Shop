@@ -66,16 +66,14 @@ const LoginForm = () => {
             callbackUrl: path,
           });
 
-          if (res.ok) {
-            // REMEMBER IS CHECKED.
-            if (remember) {
-              localStorage.setItem("rememberEmail", email);
-            } else {
-              localStorage.removeItem("rememberEmail");
-            }
+          // THROW ERROR IF LOGIN FAILED.
+          if (!res?.ok) throw new Error(res?.error || "Login Failed!");
+
+          // REMEMBER IS CHECKED.
+          if (remember) {
+            localStorage.setItem("rememberEmail", email);
           } else {
-            // SET THE ERROR MESSAGE.
-            setMessage(res.error || "Login Failed!");
+            localStorage.removeItem("rememberEmail");
           }
 
           return res;
@@ -94,10 +92,10 @@ const LoginForm = () => {
           },
           error: {
             render({data}){
-              return data.message || "Login Failed!"
+              return data?.message || "Login Failed!"
             },
             type: "error",
-            autoClose: "5000"
+            autoClose: 5000
           }
         }
     )
@@ -106,9 +104,10 @@ const LoginForm = () => {
     setTimeout(() => {
       router.push(path);
     }, 2500);
+    
     } catch (error) {
       // SET THE ERROR MESSAGE.
-      setMessage(res.error || "Login Failed!");
+      console.error("Login Failed!");
     } finally{
       // FINALLY STOP THE LOADING.
       setLoading(false);
