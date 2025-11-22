@@ -1,0 +1,225 @@
+/* MOBILE OR SMALL SCREEN (All Sizes) (DEFAULT) */
+/* LAYOUTs */
+.profile-layout,
+.ordered-list,
+.addresses-layout,
+.payment-methods-layout {
+    @apply grid grid-cols-1 gap-y-6;
+}
+
+/* SIDEBAR */
+.tab-items {
+    @apply bg-body text-base-100 max-h-fit font-semibold;
+}
+.tab-item {
+    @apply px-6 py-3 cursor-pointer uppercase text-sm;
+}
+
+.tab-item:hover {
+    @apply text-secondary;
+}
+
+/* COMMON */
+.main-content {
+    @apply border border-uren-border p-6 max-h-fit;
+}
+.profile-heading {
+    @apply text-xl font-bold text-dark-gray uppercase;
+}
+.body-text {
+    @apply text-sm text-body;
+}
+.profile-page-btn {
+    @apply w-full bg-primary py-3 text-base-100 font-semibold uppercase;
+}
+
+.profile-page-btn:hover {
+    @apply bg-secondary;
+}
+/* ORDERS */
+.ordered-list-item {
+    @apply text-sm text-body space-y-1;
+}
+.ordered-list-item>div {
+    @apply bg-gray-bg p-3 border border-uren-border;
+}
+.ordered-list-item>div:last-child {
+    @apply py-2;
+}
+.item-head{
+    @apply flex items-center justify-between;
+}
+.text-highlight {
+    @apply text-dark-gray font-semibold;
+}
+
+.item-price {
+    @apply text-dark-gray font-bold;
+}
+.item-body-content{
+    @apply flex items-center justify-between;
+}
+.item-body-imgs{
+    @apply flex items-center gap-x-3 overflow-y-auto mt-2;
+}
+.item-body-imgs>img {
+    @apply border border-uren-border w-[60px] h-[60px];
+}
+.item-footer{
+    @apply flex gap-x-1 cursor-pointer items-center text-dark-gray justify-center;
+}
+
+.item-footer:hover {
+    @apply text-primary;
+}
+
+/* ADDRESSES */
+.addresses {
+    @apply text-sm text-body;
+}
+
+/* PAYMENT METHODS */
+.card-actions {
+    @apply flex gap-x-6 items-center justify-center;
+}
+
+.card-actions>button {
+    @apply text-center text-xs text-body font-semibold mt-2;
+}
+
+.card-actions>button:hover {
+    @apply text-primary;
+}
+
+/* ACCOUNT DETAILS */
+.form-group {
+    @apply w-full text-sm text-body mb-6;
+}
+
+.form-group label {
+    @apply block mb-2;
+}
+
+.form-group>label>span {
+    @apply text-secondary;
+}
+
+.form-group input {
+    @apply border border-uren-border text-sm w-full px-5 py-3 outline-none;
+}
+
+.show-password {
+    @apply absolute bottom-[14px] right-5 text-base cursor-pointer;
+}
+
+/* CHANGE PASSWORD FORM */
+.change-password-form {
+    @apply space-y-6;
+}
+
+/* TABLET OR MEDIUM SCREEN (All Sizes) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    /* LAYOUTs */
+    .profile-layout {
+        @apply grid grid-cols-1 gap-y-8;
+    }
+    .ordered-list,
+    .addresses-layout,
+    .payment-methods-layout {
+        @apply grid grid-cols-2 gap-y-8 gap-x-8;
+    }
+
+    /* ORDERS */
+    .ordered-list-item>div {
+        @apply p-8;
+    }
+
+    /* PAYMENT METHODS */
+    .card-actions {
+        @apply flex gap-x-8;
+    }
+
+    /* ACCOUNT DETAILS */
+    .form-group {
+        @apply mb-8;
+    }
+
+    /* CHANGE PASSWORD FORM */
+    .change-password-form {
+        @apply space-y-8;
+    }
+}
+
+
+/* DESKTOP OR LARGE SCREEN (All Sizes)*/
+@media (min-width: 1025px) {
+    /* LAYOUTs */
+    .profile-layout {
+        @apply grid grid-cols-4 gap-y-0 gap-x-10;
+    }
+    .ordered-list,
+    .addresses-layout {
+        @apply grid grid-cols-2 gap-y-10 gap-x-10;
+    }
+
+    /* SIDEBAR */
+    .tab-item {
+        @apply px-10 py-4 cursor-pointer uppercase text-sm;
+    }
+
+    /* COMMON */
+    .main-content {
+        @apply p-10 col-span-3;
+    }
+
+    .profile-heading {
+        @apply text-2xl;
+    }
+
+    /* ORDERS */
+    .ordered-list-item>div {
+        @apply p-5;
+    }
+
+    .ordered-list-item>div:last-child {
+        @apply p-4;
+    }
+
+    .item-price {
+        @apply text-base;
+    }
+
+    .item-body-imgs {
+        @apply mt-4;
+    }
+    .item-body-imgs>img {
+        @apply w-16 h-16;
+    }
+
+    .item-footer {
+        @apply text-base;
+    }
+
+    /* PAYMENT METHODS */
+    .payment-methods-layout {
+        @apply grid grid-cols-3 gap-y-10 gap-x-10 mt-8;
+    }
+
+    .card-actions {
+        @apply flex gap-x-6;
+    }
+
+    .card-actions>button {
+        @apply text-center text-xs text-body font-semibold mt-4;
+    }
+
+    /* ACCOUNT DETAILS */
+    .form-group {
+        @apply mb-10;
+    }
+
+    /* CHANGE PASSWORD FORM */
+    .change-password-form {
+        @apply space-y-8;
+    }
+}

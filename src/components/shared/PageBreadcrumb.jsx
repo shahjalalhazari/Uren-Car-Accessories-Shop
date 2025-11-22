@@ -39,7 +39,7 @@ const PageBreadcrumb = ({ breadcrumbTitle, breadcrumbLink }) => {
               <Link href="/">Home</Link>
             </li>
 
-            {isUser && <li>Account</li>}
+            {isUser && <li>User</li>}
             {isProductDetails && (
               <li className="hover:text-primary uren-transition">
                 <Link href={"/shop/products"}>Products</Link>
